@@ -2,9 +2,9 @@ import { Controller, Get, Post, Body, Query, Patch, Param, Delete, ValidationPip
 import { NotesService } from './notes.service'
 import { CreateNoteDto } from './dto/create-note.dto'
 import { UpdateNoteDto } from './dto/update-note.dto'
-import { Note } from './entities/note.entity'
+import { Note } from '../entities/note.entity'
 
-@Controller('notes')
+@Controller('/notes')
 export class NotesController {
   constructor(private readonly notesService: NotesService) {}
 

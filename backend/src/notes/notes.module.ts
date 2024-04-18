@@ -2,7 +2,7 @@ import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 import { NotesService } from './notes.service'
 import { NotesController } from './notes.controller'
-import { Note, NoteSchema } from './entities/note.entity'
+import { Note, NoteSchema } from '../entities/note.entity'
 import { FirebaseAuthMiddleware } from '../middlewares/firebase-auth.middleware'
 
 @Module({
