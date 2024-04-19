@@ -1,5 +1,15 @@
 # CareerCompass
 
+## Description
+
+## Key Functionalities
+
+-
+-
+-
+
+## Tech Stack
+
 # Backend
 
 ## Installation
@@ -19,7 +29,9 @@ Run
 ```
 npm start
 ```
+
 or
+
 ```
 npm run start:dev
 ```
@@ -36,7 +48,7 @@ npm run build
 
 in `backend` directory to build the server
 
---------------------------------
+---
 
 # Frontend
 
@@ -50,7 +62,6 @@ npm install
 
 in `frontend` directory to build the client
 
-
 ## Development
 
 Run
@@ -60,7 +71,6 @@ npm run dev
 ```
 
 in `frontend` directory to start the client on port 3000
-
 
 ## Build
 
