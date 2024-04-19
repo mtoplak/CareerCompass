@@ -1,7 +1,7 @@
 import { Schema, Document, Model, model } from 'mongoose';
 import { Panoge } from 'src/enums/panoge.enum';
 
-export const PodjetjeSchema = new Schema({
+export const CompanySchema = new Schema({
   naziv: { type: String, required: true },
   naslov: { type: String, required: true },
   kraj: { type: String, required: true },
@@ -14,7 +14,7 @@ export const PodjetjeSchema = new Schema({
   email: { type: String, required: true, lowercase: true },
 });
 
-export interface Podjetje extends Document {
+export interface Company extends Document {
   naziv: string;
   naslov: string;
   kraj: string;
@@ -23,4 +23,4 @@ export interface Podjetje extends Document {
   email: string;
 }
 
-export const PodjetjeModel: Model<Podjetje> = model<Podjetje>('Podjetje', PodjetjeSchema);
+export const CompanyModel: Model<Company> = model<Company>('Company', CompanySchema);
