@@ -4,14 +4,14 @@ import { ConfigModule } from '@nestjs/config'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { NotesModule } from './notes/notes.module'
-import { PodjetjeModule } from './podjetje/podjetje.module'
+import { CompanyModule } from './company/company.module'
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(`${process.env.MONGODB_URI}`),
     NotesModule,
-    PodjetjeModule
+    CompanyModule
   ],
   controllers: [AppController],
   providers: [AppService]
