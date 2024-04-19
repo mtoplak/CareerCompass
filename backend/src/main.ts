@@ -15,7 +15,6 @@ async function bootstrap() {
     preflightContinue: false,
     optionsSuccessStatus: 204
   });
-  //app.setGlobalPrefix('api/v1');
   await app.listen(process.env.PORT || 4000);
 }
 bootstrap();
