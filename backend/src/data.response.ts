@@ -4,7 +4,7 @@ export interface SuccessResponse {
     success: boolean;
 }
 
-export interface PodjetjeResponse {
+export interface CompanyResponse {
     id: string;
     naziv: string;
     naslov: string;
