@@ -6,12 +6,14 @@ import ScrollUp from "@/components/Common/ScrollUp";
 import Contact from "@/components/Contact";
 import Faq from "@/components/Faq";
 import Features from "@/components/Features";
+import LandingPageRate from "@/components/LandingPageRate";
 import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import { getAllPosts } from "@/utils/markdown";
 import { Metadata } from "next";
+import LandingPageJobs from "@/components/LandingPageJobs";
 
 export const metadata: Metadata = {
   title: "Play Next.js - SaaS Starter Kit and Boilerplate for Next.js",
@@ -25,16 +27,9 @@ export default function Home() {
     <main>
       <ScrollUp />
       <Hero />
-      <Features />
-      <About />
+      <LandingPageJobs />
       <CallToAction />
-      <Pricing />
-      <Testimonials />
-      <Faq />
-      <Team />
-      <HomeBlogSection posts={posts} />
-      <Contact />
-      <Clients />
+      <LandingPageRate />
     </main>
   );
 }

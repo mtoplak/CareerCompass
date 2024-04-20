@@ -64,14 +64,14 @@ const Header = () => {
                 {pathUrl !== "/" ? (
                   <>
                     <Image
-                      src={`/images/logo/logo.svg`}
+                      src={`/images/logo/logo-dark.png`}
                       alt="logo"
                       width={240}
                       height={30}
                       className="header-logo w-full dark:hidden"
                     />
                     <Image
-                      src={`/images/logo/logo-white.svg`}
+                      src={`/images/logo/logo.png`}
                       alt="logo"
                       width={240}
                       height={30}
@@ -83,8 +83,8 @@ const Header = () => {
                     <Image
                       src={`${
                         sticky
-                          ? "/images/logo/logo.svg"
-                          : "/images/logo/logo-white.svg"
+                          ? "/images/logo/logo-dark.png"
+                          : "/images/logo/logo.png"
                       }`}
                       alt="logo"
                       width={140}
@@ -92,7 +92,7 @@ const Header = () => {
                       className="header-logo w-full dark:hidden"
                     />
                     <Image
-                      src={"/images/logo/logo-white.svg"}
+                      src={"/images/logo/logo.png"}
                       alt="logo"
                       width={140}
                       height={30}
@@ -155,8 +155,8 @@ const Header = () => {
                               onClick={navbarToggleHandler}
                               scroll={false}
                               href={menuItem.path}
-                              className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6 ${
-                                pathUrl === menuItem?.path && "text-primary"
+                              className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800 lg:inline-flex lg:px-0 lg:py-6 ${
+                                pathUrl === menuItem?.path && "text-indigo-800"
                               }`}
                             >
                               {menuItem.title}
@@ -167,12 +167,12 @@ const Header = () => {
                               href={menuItem.path}
                               className={`ud-menu-scroll flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6 ${
                                 sticky
-                                  ? "text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary"
+                                  ? "text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800"
                                   : "text-body-color dark:text-white lg:text-white"
                               } ${
                                 pathUrl === menuItem?.path &&
                                 sticky &&
-                                "!text-primary"
+                                "!text-indigo-800"
                               }`}
                             >
                               {menuItem.title}
@@ -184,7 +184,7 @@ const Header = () => {
                           {pathUrl !== "/" ? (
                             <button
                               onClick={() => handleSubmenu(index)}
-                              className={`ud-menu-scroll flex items-center justify-between py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6`}
+                              className={`ud-menu-scroll flex items-center justify-between py-2 text-base text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800 lg:inline-flex lg:px-0 lg:py-6`}
                             >
                               {menuItem.title}
 
@@ -209,7 +209,7 @@ const Header = () => {
                               onClick={() => handleSubmenu(index)}
                               className={`ud-menu-scroll flex items-center justify-between py-2 text-base lg:inline-flex lg:px-0 lg:py-6 ${
                                 sticky
-                                  ? "text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary"
+                                  ? "text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800"
                                   : "text-white"
                               }`}
                             >
@@ -244,8 +244,8 @@ const Header = () => {
                                 key={i}
                                 className={`block rounded px-4 py-[10px] text-sm ${
                                   pathUrl === submenuItem.path
-                                    ? "text-primary"
-                                    : "text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                                    ? "text-indigo-800"
+                                    : "text-body-color hover:text-indigo-800 dark:text-dark-6 dark:hover:text-indigo-800"
                                 }`}
                               >
                                 {submenuItem.title}
@@ -298,16 +298,16 @@ const Header = () => {
                     {pathUrl !== "/" || sticky ? (
                       <button
                         onClick={() => signOut()}
-                        className="signUpBtn rounded-lg bg-primary bg-opacity-100 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-20 hover:text-dark"
+                        className="signUpBtn rounded-lg bg-indigo-800 bg-opacity-100 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-20 hover:text-dark"
                       >
-                        Sign Out
+                        Odjava
                       </button>
                     ) : (
                       <button
                         onClick={() => signOut()}
                         className="signUpBtn rounded-lg bg-white bg-opacity-20 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
                       >
-                        Sign Out
+                        Odjava
                       </button>
                     )}
                   </>
@@ -319,13 +319,13 @@ const Header = () => {
                           href="/signin"
                           className="px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white"
                         >
-                          Sign In
+                          Prijava
                         </Link>
                         <Link
-                          href="/signup"
-                          className="rounded-lg bg-primary px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20"
+                          href="/ai-svetovalec"
+                          className="rounded-lg bg-indigo-800 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-indigo-950 dark:bg-white/10 dark:hover:bg-white/20"
                         >
-                          Sign Up
+                          AI-Svetovalec
                         </Link>
                       </>
                     ) : (
@@ -336,17 +336,17 @@ const Header = () => {
                             sticky ? "text-dark dark:text-white" : "text-white"
                           }`}
                         >
-                          Sign In
+                          Prijava
                         </Link>
                         <Link
-                          href="/signup"
+                          href="/ai-svetovalec"
                           className={`rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out ${
                             sticky
-                              ? "bg-primary hover:bg-primary/90 dark:bg-white/10 dark:hover:bg-white/20"
+                              ? "bg-indigo-800 hover:bg-indigo-950 dark:bg-white/10 dark:hover:bg-white/20"
                               : "bg-white/10 hover:bg-white/20"
                           }`}
                         >
-                          Sign Up
+                          AI-Svetovalec
                         </Link>
                       </>
                     )}
