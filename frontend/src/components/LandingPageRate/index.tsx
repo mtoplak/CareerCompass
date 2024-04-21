@@ -9,7 +9,7 @@ const LandingPageRate = () => {
         <SectionTitle
           subtitle="Ocenjevanje"
           title="Podaj oceno o podjetju"
-          paragraph="Omogačamo možnost podajanja ocen glede na vaše izkušnje na različnih področjih znotraj podjetja."
+          paragraph="Omogočamo možnost podajanja ocen glede na vaše izkušnje na različnih področjih znotraj podjetja."
         />
 
         <div className="md:flex md:items-start md:justify-between mt-12 md:mt-20 ">

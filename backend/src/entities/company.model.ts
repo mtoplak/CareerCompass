@@ -1,26 +1,26 @@
 import { Schema, Document, Model, model } from 'mongoose';
-import { Panoge } from 'src/enums/panoge.enum';
+import { Industry } from 'src/enums/industry.enum';
 
 export const CompanySchema = new Schema({
-  naziv: { type: String, required: true },
-  naslov: { type: String, required: true },
-  kraj: { type: String, required: true },
-  logo: { type: String, required: true },
-  panoga: {
+  name: { type: String, required: true },
+  address: { type: String, required: true }, 
+  city: { type: String, required: true }, 
+  logo: { type: String, required: true }, 
+  industry: {
     type: String,
     required: true,
-    enum: Object.values(Panoge),
-  },
-  email: { type: String, required: true, lowercase: true },
+    enum: Object.values(Industry),
+  }, 
+  email: { type: String, required: true, lowercase: true }, 
 });
 
 export interface Company extends Document {
-  naziv: string;
-  naslov: string;
-  kraj: string;
-  logo: string;
-  panoga: Panoge;
-  email: string;
+  name: string; // naziv
+  address: string; // naslov
+  city: string; // kraj
+  logo: string; // logo
+  industry: Industry; // panoga
+  email: string; // email
 }
 
 export const CompanyModel: Model<Company> = model<Company>('Company', CompanySchema);

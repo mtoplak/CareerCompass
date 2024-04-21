@@ -1,4 +1,4 @@
-import { Panoge } from "./enums/panoge.enum";
+import { Industry } from "./enums/industry.enum";
 
 export interface SuccessResponse {
     success: boolean;
@@ -10,6 +10,6 @@ export interface CompanyResponse {
     naslov: string;
     kraj: string;
     logo: string;
-    panoga: Panoge;
+    panoga: Industry;
     email: string;
 }
