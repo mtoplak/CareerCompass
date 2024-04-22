@@ -1,3 +1,4 @@
+import { JobAdvertisement } from "./entities/job-advertisement.model";
 import { Industry } from "./enums/industry.enum";
 
 export interface SuccessResponse {
@@ -12,4 +13,11 @@ export interface CompanyResponse {
     logo: string;
     panoga: Industry;
     email: string;
+}
+
+export interface UserResponse {
+    name: string;
+    surname: string;
+    email: string;
+    saved_advertisements: JobAdvertisement[];
 }

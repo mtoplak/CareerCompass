@@ -12,7 +12,7 @@ export interface User extends Document {
     name: string; // ime
     surname: string; // priimek
     email: string; // email
-    saved_advertisements: JobAdvertisement; // shranjeni_oglasi
+    saved_advertisements: JobAdvertisement[]; // shranjeni_oglasi
 }
 
 export const UserModel: Model<User> = model<User>('User', UserSchema);

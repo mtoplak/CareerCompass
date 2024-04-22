@@ -24,7 +24,7 @@ export class CompanyRepository {
             return await this.companyModel
                 .find(companysFilterQuery)
         } catch (err) {
-            throw new NotFoundException('Could not find podjetja.');
+            throw new NotFoundException('Could not find companies.');
         }
     }
 

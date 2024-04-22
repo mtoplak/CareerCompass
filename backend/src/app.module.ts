@@ -5,13 +5,15 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { NotesModule } from './notes/notes.module'
 import { CompanyModule } from './company/company.module'
+import { UserModule } from './user/user.module'
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(`${process.env.MONGODB_URI}`),
     NotesModule,
-    CompanyModule
+    CompanyModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [AppService]

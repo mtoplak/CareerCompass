@@ -19,7 +19,7 @@ export class CompanyService {
         }
     }
 
-    async getAllPodjetja(): Promise<CompanyResponse[]> {
+    async getAllCompanies(): Promise<CompanyResponse[]> {
         try {
             return await this.companyRepository.find({});
         } catch (error) {

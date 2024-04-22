@@ -14,36 +14,36 @@ import { CompanyService } from './company.service';
 
 @Controller('/company')
 export class CompanyController {
-    constructor(private readonly podjetjeService: CompanyService) { }
+    constructor(private readonly companyService: CompanyService) { }
 
     @Post()
     async addCompany(
         @Body() createCompanyDto: CreateUpdateCompanyDto,
     ): Promise<Company> {
-        return await this.podjetjeService.createCompany(createCompanyDto);
+        return await this.companyService.createCompany(createCompanyDto);
     }
 
     @Get()
-    async getAllPodjetja(): Promise<CompanyResponse[]> {
-        return await this.podjetjeService.getAllPodjetja();
+    async getAllCompanies(): Promise<CompanyResponse[]> {
+        return await this.companyService.getAllCompanies();
     }
 
     @Get(':id')
     async getSingleCompany(@Param('id') id: string): Promise<Company> {
-        return await this.podjetjeService.getSingleCompany(id);
+        return await this.companyService.getSingleCompany(id);
     }
 
     @Patch(':id')
     async updateCompany(
-      @Param('id') podjetjeId: string,
+      @Param('id') companyId: string,
       @Body() updateCompanyDto: CreateUpdateCompanyDto,
     ): Promise<Company> {
-      return await this.podjetjeService.updateCompany(podjetjeId, updateCompanyDto);
+      return await this.companyService.updateCompany(companyId, updateCompanyDto);
     }
   
     @Delete(':id')
-    async removeCompany(@Param('id') podjetjeId: string): Promise<SuccessResponse> {
-      return this.podjetjeService.removeCompany(podjetjeId);
+    async removeCompany(@Param('id') companyId: string): Promise<SuccessResponse> {
+      return this.companyService.removeCompany(companyId);
     }
 
 }
