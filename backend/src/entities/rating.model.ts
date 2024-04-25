@@ -24,25 +24,25 @@ export const RatingSchema = new Schema({
 });
 
 export interface Rating extends Document {
-    company: Company, // podjetje
-    // splošna ocena
-    team: string, // ekipa
-    personal_development: string, // osebni razvoj
-    flexibility: string, //fleksibilnost
-    work_life_balance: string, // ravnovesje dela in življenja
-    work_enviroment: string, // delovno vzdušje
-    leadership: string, // vodstvo
-    general_assessment_comment: string, // poljuben komentar
-    // plače in ugodnosti
-    benefits: string, // ugodnosti
-    remote_work: string, // delo na daljavo
-    bonuses: string, // bonusi
-    salary_and_benefits_comment: string, // poljuben komentar
-    // razgovori
-    experience: string, // izkušnja z intervjujem
-    duration: string, // trajanje postopka
-    difficulty: string, // težavnost
-    interviews_comment: string, // poljuben komentar
+  company: Company; // podjetje
+  // splošna ocena
+  team: string; // ekipa
+  personal_development: string; // osebni razvoj
+  flexibility: string; //fleksibilnost
+  work_life_balance: string; // ravnovesje dela in življenja
+  work_enviroment: string; // delovno vzdušje
+  leadership: string; // vodstvo
+  general_assessment_comment: string; // poljuben komentar
+  // plače in ugodnosti
+  benefits: string; // ugodnosti
+  remote_work: string; // delo na daljavo
+  bonuses: string; // bonusi
+  salary_and_benefits_comment: string; // poljuben komentar
+  // razgovori
+  experience: string; // izkušnja z intervjujem
+  duration: string; // trajanje postopka
+  difficulty: string; // težavnost
+  interviews_comment: string; // poljuben komentar
 }
 
 export const RatingModel: Model<Rating> = model<Rating>('Rating', RatingSchema);

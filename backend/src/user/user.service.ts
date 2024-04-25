@@ -65,7 +65,7 @@ export class UserService {
 
   async getSingleUserByEmail(email: string): Promise<User> {
     try {
-      return this.userRepository.findOne({ email });
+      return await this.userRepository.findOne({ email });
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);
@@ -79,11 +79,15 @@ export class UserService {
     updatedUserData: Partial<User>,
   ): Promise<User> {
     try {
-      return this.userRepository.findOneAndUpdate(
+      const updatedUser = await this.userRepository.findOneAndUpdate(
         { email },
         updatedUserData,
         { new: true },
       );
+      if (!updatedUser) {
+        throw new NotFoundException('User not found');
+      }
+      return updatedUser;
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);

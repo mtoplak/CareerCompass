@@ -6,7 +6,8 @@ export const JobAdvertisementSchema = new Schema({
   description: { type: String, required: true },
   address: { type: String, required: true },
   city: { type: String, required: true },
-  company: [{ type: Schema.Types.ObjectId, ref: 'Company' }],
+  company_linked: [{ type: Schema.Types.ObjectId, ref: 'Company' }],
+  company_nlinked: { type: String },
   hourly_rate: { type: String },
 });
 
@@ -15,7 +16,8 @@ export interface JobAdvertisement extends Document {
   description: string; // opis
   address: string; // naslov
   city: string; // kraj
-  company: Company; // podjetje
+  company_linked: Company; // podjetje
+  company_nlinked: string; // podjetje ne linkano
   hourly_rate: string; // urna_postavka
 }
 

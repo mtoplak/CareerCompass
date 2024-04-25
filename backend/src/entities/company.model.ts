@@ -3,15 +3,16 @@ import { Industry } from 'src/enums/industry.enum';
 
 export const CompanySchema = new Schema({
   name: { type: String, required: true },
-  address: { type: String, required: true }, 
-  city: { type: String, required: true }, 
-  logo: { type: String, required: true }, 
-  industry: {
+  address: { type: String, required: true },
+  city: { type: String, required: true },
+  logo: { type: String, required: true },
+  industry: [{
     type: String,
     required: true,
     enum: Object.values(Industry),
-  }, 
-  email: { type: String, required: true, lowercase: true }, 
+  }],
+  email: { type: String, required: true, lowercase: true },
+  claimed: { type: Boolean, required: true }
 });
 
 export interface Company extends Document {
@@ -19,8 +20,9 @@ export interface Company extends Document {
   address: string; // naslov
   city: string; // kraj
   logo: string; // logo
-  industry: Industry; // panoga
+  industry: Industry[]; // panoga
   email: string; // email
+  claimed: boolean; // potrjeno
 }
 
 export const CompanyModel: Model<Company> = model<Company>('Company', CompanySchema);
