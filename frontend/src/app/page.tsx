@@ -27,9 +27,9 @@ export default function Home() {
     <main>
       <ScrollUp />
       <Hero />
-      <LandingPageJobs />
-      <CallToAction />
       <LandingPageRate />
+      <CallToAction />
+      <LandingPageJobs />
     </main>
   );
 }
