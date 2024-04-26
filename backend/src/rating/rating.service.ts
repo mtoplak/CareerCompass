@@ -19,7 +19,7 @@ export class RatingService {
     }
   }
 
-  async getAllCompanies(): Promise<RatingResponse[]> {
+  async getAllRatings(): Promise<RatingResponse[]> {
     try {
       return await this.ratingRepository.find({});
     } catch (error) {

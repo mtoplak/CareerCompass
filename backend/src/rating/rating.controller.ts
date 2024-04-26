@@ -24,8 +24,8 @@ export class RatingController {
   }
 
   @Get()
-  async getAllCompanies(): Promise<RatingResponse[]> {
-    return await this.ratingService.getAllCompanies();
+  async getAllRatings(): Promise<RatingResponse[]> {
+    return await this.ratingService.getAllRatings();
   }
 
   @Get(':id')

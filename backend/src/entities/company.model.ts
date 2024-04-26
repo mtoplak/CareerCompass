@@ -12,7 +12,8 @@ export const CompanySchema = new Schema({
     enum: Object.values(Industry),
   }],
   email: { type: String, required: true, lowercase: true },
-  claimed: { type: Boolean, required: true }
+  claimed: { type: Boolean, required: true },
+  avg_rating: { type: Number, default: 0 }
 });
 
 export interface Company extends Document {
@@ -23,6 +24,7 @@ export interface Company extends Document {
   industry: Industry[]; // panoga
   email: string; // email
   claimed: boolean; // potrjeno
+  avg_rating: number; // povprečna ocena
 }
 
 export const CompanyModel: Model<Company> = model<Company>('Company', CompanySchema);
