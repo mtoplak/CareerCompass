@@ -4,13 +4,16 @@ import { RatingSchema } from "src/entities/rating.model";
 import { RatingController } from "./rating.controller";
 import { RatingRepository } from "./rating.repository";
 import { RatingService } from "./rating.service";
+import { CompanyRepository } from "src/company/company.repository";
+import { CompanySchema } from "src/entities/company.model";
 
 @Module({
     imports: [
         MongooseModule.forFeature([{ name: 'Rating', schema: RatingSchema }]),
+        MongooseModule.forFeature([{ name: 'Company', schema: CompanySchema }]),
     ],
     controllers: [RatingController],
-    providers: [RatingService, RatingRepository]
+    providers: [RatingService, RatingRepository, CompanyRepository]
 })
 
 export class RatingModule {

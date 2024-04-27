@@ -12,8 +12,18 @@ export const CompanySchema = new Schema({
     enum: Object.values(Industry),
   }],
   email: { type: String, required: true, lowercase: true },
-  claimed: { type: Boolean, required: true },
-  avg_rating: { type: Number, default: 0 }
+  claimed: { type: Boolean, required: true, default: false },
+  // rating
+  avg_rating: { type: Number, default: 0 },
+  ratings_count: { type: Number, default: 0 },
+  avg_team: { type: Number },
+  avg_personal_development: { type: Number },
+  avg_flexibility: { type: Number },
+  avg_work_life_balance: { type: Number },
+  avg_work_enviroment: { type: Number },
+  avg_leadership: { type: Number },
+  avg_benefits: { type: Number },
+  avg_bonuses: { type: Number },
 });
 
 export interface Company extends Document {
@@ -25,6 +35,15 @@ export interface Company extends Document {
   email: string; // email
   claimed: boolean; // potrjeno
   avg_rating: number; // povprečna ocena
+  ratings_count: number; // stevilo ocen
+  avg_team: number,
+  avg_personal_development: number,
+  avg_flexibility: number,
+  avg_work_life_balance: number,
+  avg_work_enviroment: number,
+  avg_leadership: number,
+  avg_benefits: number,
+  avg_bonuses: number
 }
 
 export const CompanyModel: Model<Company> = model<Company>('Company', CompanySchema);
