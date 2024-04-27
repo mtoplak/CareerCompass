@@ -49,7 +49,7 @@ const CompanyPageJobs = () => {
 
         <div className="mt-[10px] mb-[50px] flex flex-wrap gap-y-8">
           {teamData.map((team, i) => (
-              <SingleJobs team={team} />
+              <SingleJobs key={i} team={team} />
           ))}
         </div>
       </div>
