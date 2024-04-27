@@ -6,12 +6,13 @@ export const CompanySchema = new Schema({
   address: { type: String, required: true },
   city: { type: String, required: true },
   logo: { type: String, required: true },
+  website: { type: String, required: false },
   industry: [{
     type: String,
     required: true,
     enum: Object.values(Industry),
   }],
-  email: { type: String, required: true, lowercase: true },
+  email: { type: String, required: false, lowercase: true },
   claimed: { type: Boolean, required: true, default: false },
   // rating
   avg_rating: { type: Number, default: 0 },
@@ -27,15 +28,16 @@ export const CompanySchema = new Schema({
 });
 
 export interface Company extends Document {
-  name: string; // naziv
-  address: string; // naslov
-  city: string; // kraj
-  logo: string; // logo
-  industry: Industry[]; // panoga
-  email: string; // email
-  claimed: boolean; // potrjeno
-  avg_rating: number; // povprečna ocena
-  ratings_count: number; // stevilo ocen
+  name: string, // naziv
+  address: string, // naslov
+  city: string, // kraj
+  logo: string, // logo
+  website: string, // spletna stran
+  industry: Industry[], // panoga
+  email: string, // email
+  claimed: boolean, // potrjeno
+  avg_rating: number, // povprečna ocena
+  ratings_count: number, // stevilo ocen
   avg_team: number,
   avg_personal_development: number,
   avg_flexibility: number,

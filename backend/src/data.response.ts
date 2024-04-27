@@ -14,10 +14,20 @@ export interface CompanyResponse {
     address: string;
     city: string;
     logo: string;
+    website: string;
     industry: Industry[];
     email: string;
     claimed: boolean;
     avg_rating: number;
+    ratings_count: number;
+    avg_team: number;
+    avg_personal_development: number;
+    avg_flexibility: number;
+    avg_work_life_balance: number;
+    avg_work_enviroment: number;
+    avg_leadership: number;
+    avg_benefits: number;
+    avg_bonuses: number;
 }
 
 export interface UserResponse {

@@ -1,0 +1,6237 @@
+[
+  {
+    "name": "ADECCO H.R. d.o.o.",
+    "subindustry": ["Zaposlovanje"],
+    "email": "info@adecco.si",
+    "website": "http://www.adecco.si",
+    "address": "Ameriška ulica 8",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ADRIA MOBIL, d.o.o. Novo mesto",
+    "subindustry": ["Avtodomi in prikolice"],
+    "email": "info@adria-mobil.si",
+    "website": "http://www.adria-mobil.com",
+    "address": "Straška cesta 50",
+    "city": "8000 Novo mesto",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "Akrapovič d.d.",
+    "subindustry": ["Avtodeli"],
+    "email": "info@akrapovic.com",
+    "website": "http://www.akrapovic.com",
+    "address": "Malo Hudo 8A",
+    "city": "1295 Ivančna Gorica",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "BSH HIŠNI APARATI d.o.o. Nazarje",
+    "subindustry": ["Gospodinjski aparati, izdelki in servis"],
+    "email": "bsh-press-si@bshg.com",
+    "website": "https://www.bsh-group.com/si",
+    "address": "Savinjska cesta 30",
+    "city": "3331 Nazarje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DARS d.d.",
+    "subindustry": ["Cestne storitve in oprema"],
+    "email": "gp@dars.si",
+    "website": "http://www.dars.si",
+    "address": "Ulica XIV. divizije 4",
+    "city": "3000 Celje",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "DOMEL, d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "info@domel.com",
+    "website": "https://www.domel.com",
+    "address": "Otoki 21",
+    "city": "4228 Železniki",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ENGROTUŠ d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@tus.si",
+    "website": "https://www.tus.si",
+    "address": "Cesta v Trnovlje 10A",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "FURS",
+    "subindustry": ["Javna uprava"],
+    "email": "gfu.fu@gov.si",
+    "website": "http://www.fu.gov.si",
+    "address": "Šmartinska cesta 55",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "GENERALŠTAB SLOVENSKE VOJSKE",
+    "subindustry": ["Javna uprava"],
+    "email": "glavna.pisarna.gssv@mors.si",
+    "website": "https://www.slovenskavojska.si",
+    "address": "Vojkova cesta 55",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "GOODYEAR SLOVENIJA, d.o.o.",
+    "subindustry": ["Gumarstvo", "Vulkanizerstvo"],
+    "email": "goodyear_slovenija@goodyear.com",
+    "website": "https://goodyear-slovenija.si",
+    "address": "Škofjeloška cesta 6",
+    "city": "4000 Kranj",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "Gorenje, d.o.o.",
+    "subindustry": ["Gospodinjski aparati, izdelki in servis"],
+    "email": "info@gorenje.si",
+    "website": "https://si.gorenje.com",
+    "address": "Partizanska cesta 12",
+    "city": "3320 Velenje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "HELLA SATURNUS SLOVENIJA d.o.o.",
+    "subindustry": ["Avtooprema", "Svetila", "Avtodeli"],
+    "email": "info@saturnus.hella.com",
+    "website": "http://www.hella-saturnus.si",
+    "address": "Letališka cesta 17",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "HIDRIA d.o.o.",
+    "subindustry": [
+      "Klima in prezračevanje",
+      "Kovinski izdelki in oprema",
+      "Avtodeli",
+      "Električni stroji in naprave"
+    ],
+    "email": "info@hidria.com",
+    "website": "http://www.hidria.com",
+    "address": "Spodnja Kanomlja 23",
+    "city": "5281 Spodnja Idrija",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "HIT d.d. Nova Gorica",
+    "subindustry": ["Igre na srečo", "Turizem", "Hoteli"],
+    "email": "info@hit.si",
+    "website": "https://www.hit.si",
+    "address": "Delpinova ulica 7A",
+    "city": "5000 Nova Gorica",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "HOFER trgovina d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@hofer.si",
+    "website": "http://www.hofer.si",
+    "address": "Kranjska cesta 1",
+    "city": "1225 Lukovica",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "KARIERA d.o.o.",
+    "subindustry": ["Podjetniške in poslovne storitve", "Zaposlovanje"],
+    "email": "info@kariera.si",
+    "website": "https://www.kariera.si",
+    "address": "Dunajska cesta 165",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "KRKA, d.d., Novo mesto",
+    "subindustry": ["Farmacija"],
+    "email": "info@krka.biz",
+    "website": "http://www.krka.si",
+    "address": "Šmarješka cesta 6",
+    "city": "8501 Novo mesto",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "LIDL Slovenija d.o.o. k.d.",
+    "subindustry": ["Nepremičnine", "Trgovina"],
+    "email": "uprava@lidl.si",
+    "website": "http://www.lidl.si",
+    "address": "Pod lipami 1",
+    "city": "1218 Komenda",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "LTH Castings d.o.o.",
+    "subindustry": ["Livarstvo"],
+    "email": "info@lthcastings.com",
+    "website": "http://www.lthcastings.com",
+    "address": "Vincarje 2",
+    "city": "4220 Škofja Loka",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "LUKA KOPER, d.d.",
+    "subindustry": ["Vodni promet", "Skladišča"],
+    "email": "portkoper@luka-kp.si",
+    "website": "http://www.luka-kp.si",
+    "address": "Vojkovo nabrežje 38",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "Lek d.d.",
+    "subindustry": ["Farmacija"],
+    "email": "info.lek@sandoz.com",
+    "website": "https://lek.si",
+    "address": "Verovškova ulica 57",
+    "city": "1526 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "MAHLE Electric Drives Slovenija d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "si.info@mahle.com",
+    "website": "https://www.mahle.com",
+    "address": "Polje 15",
+    "city": "5290 Šempeter pri Gorici",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MERKUR trgovina, d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@merkur.si",
+    "website": "https://www.merkur.si",
+    "address": "Cesta na Okroglo 7",
+    "city": "4202 Naklo",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Mercator d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@mercator.si",
+    "website": "https://www.mercator.si",
+    "address": "Dunajska cesta 107",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OI LJUBLJANA",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@onko-i.si",
+    "website": "http://www.onko-i.si",
+    "address": "Zaloška cesta 2",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "OZG",
+    "subindustry": ["Zdravstvo"],
+    "email": "tajnistvoozg@ozg-kranj.si",
+    "website": "https://www.ozg-kranj.si",
+    "address": "Gosposvetska ulica 9",
+    "city": "4000 Kranj",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "PERUTNINA PTUJ d.o.o.",
+    "subindustry": ["Reja in prodaja živali", "Meso in mesni izdelki"],
+    "email": "info@perutnina.si",
+    "website": "http://www.perutnina.com",
+    "address": "Potrčeva cesta 10",
+    "city": "2250 Ptuj",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "PETROL d.d., Ljubljana",
+    "subindustry": ["Bencinski servisi in kuriva"],
+    "email": "podpora.strankam@petrol.si",
+    "website": "https://www.petrol.si",
+    "address": "Dunajska cesta 50",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "POLICIJA",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.policija@policija.si",
+    "website": "https://www.policija.si",
+    "address": "Štefanova ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "POŠTA SLOVENIJE d.o.o.",
+    "subindustry": ["Pošta"],
+    "email": "info@posta.si",
+    "website": "",
+    "address": "Slomškov trg 10",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "PREMOGOVNIK VELENJE, d.o.o.",
+    "subindustry": ["Rudnine in kamnine"],
+    "email": "info@rlv.si",
+    "website": "http://www.rlv.si",
+    "address": "Partizanska cesta 78",
+    "city": "3320 Velenje",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "REVOZ d.d.",
+    "subindustry": ["Avtostoritve"],
+    "email": "info.revoz@renault.si",
+    "website": "http://www.revoz.si",
+    "address": "Belokranjska cesta 4",
+    "city": "8000 Novo mesto",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "RTV SLOVENIJA",
+    "subindustry": ["Radio in televizija"],
+    "email": "generalni.direktor@rtvslo.si",
+    "website": "http://www.rtvslo.si",
+    "address": "Kolodvorska ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "SB M. SOBOTA",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@sb-ms.si",
+    "website": "https://www.sb-ms.si",
+    "address": "Ulica dr. Vrbnjaka 6",
+    "city": "9000 Murska Sobota",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SB Novo mesto",
+    "subindustry": ["Zdravstvo"],
+    "email": "tajnistvo@sb-nm.si",
+    "website": "http://www.sb-nm.si",
+    "address": "Šmihelska cesta 1",
+    "city": "8000 Novo mesto",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SIJ ACRONI d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Rudnine in kamnine"],
+    "email": "uprava@acroni.si",
+    "website": "http://www.acroni.si",
+    "address": "Cesta Borisa Kidriča 44",
+    "city": "4270 Jesenice",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "SPAR SLOVENIJA d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@spar.si",
+    "website": "http://www.spar.si",
+    "address": "Letališka cesta 26",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "SPLOŠNA BOLNIŠNICA CELJE",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@sb-celje.si",
+    "website": "https://www.sb-celje.si",
+    "address": "Oblakova ulica 5",
+    "city": "3000 Celje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "Sava Turizem d.d.",
+    "subindustry": ["Hoteli", "Turizem"],
+    "email": "",
+    "website": "http://www.sava-hotels-resorts.com",
+    "address": "Dunajska cesta 152",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "SŽ - Infrastruktura, d.o.o.",
+    "subindustry": ["Železniški promet"],
+    "email": "vposta.infra@slo-zeleznice.si",
+    "website": "http://www.slo-zeleznice.si/sl/podjetje",
+    "address": "Kolodvorska ulica 11",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "SŽ - VIT, d.o.o.",
+    "subindustry": ["Železniški promet"],
+    "email": "info@sz-vit.si",
+    "website": "http://www.sz-vit.si",
+    "address": "Zaloška cesta 217",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "TALUM d.d. Kidričevo",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "",
+    "website": "https://www.talum.si",
+    "address": "Tovarniška cesta 10",
+    "city": "2325 Kidričevo",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "TELEKOM SLOVENIJE, d.d.",
+    "subindustry": [
+      "Mobilna telefonija",
+      "Računalništvo in informatika",
+      "Telekomunikacije"
+    ],
+    "email": "info@telekom.si",
+    "website": "https://www.telekom.si",
+    "address": "Cigaletova ulica 15",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "UKC Ljubljana",
+    "subindustry": ["Zdravstvo"],
+    "email": "gp.ukc@kclj.si",
+    "website": "https://www.kclj.si",
+    "address": "Zaloška cesta 2",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "UKC MARIBOR",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@ukc-mb.si",
+    "website": "http://www.ukc-mb.si",
+    "address": "Ljubljanska ulica 5",
+    "city": "2000 Maribor",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "UM",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "rektorat@um.si",
+    "website": "https://www.um.si",
+    "address": "Slomškov trg 15",
+    "city": "2000 Maribor",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UNIOR d.d.",
+    "subindustry": ["Kovinski izdelki in oprema", "Orodjarstvo"],
+    "email": "",
+    "website": "http://www.unior.si",
+    "address": "Kovaška cesta 10",
+    "city": "3214 Zreče",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "UPRAVNA ENOTA LJUBLJANA",
+    "subindustry": ["Občine, upravne enote in lokalne skupnosti"],
+    "email": "",
+    "website": "http://www.upravneenote.gov.si/ljubljana/",
+    "address": "Linhartova cesta 13",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ZD MARIBOR",
+    "subindustry": ["Zdravstvo"],
+    "email": "",
+    "website": "",
+    "address": "Ulica talcev 9",
+    "city": "2000 Maribor",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM LJUBLJANA",
+    "subindustry": ["Zdravstvo"],
+    "email": "chc@zd-lj.si",
+    "website": "http://www.zd-lj.si",
+    "address": "Metelkova ulica 9",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "odelo Slovenija d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Avtodeli"],
+    "email": "info@odelo.si",
+    "website": "http://www.odelo.si",
+    "address": "Tovarniška cesta 12",
+    "city": "3312 Prebold",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "A1 Slovenija, d. d.",
+    "subindustry": ["Mobilna telefonija", "Telekomunikacije"],
+    "email": "info@A1.si",
+    "website": "http://www.A1.si",
+    "address": "Ameriška ulica 4",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "ADK d.o.o.",
+    "subindustry": ["Dvigalne in transportne naprave"],
+    "email": "info@adk.si",
+    "website": "http://www.adk.si",
+    "address": "Miklavška cesta 59",
+    "city": "2311 Hoče",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "AKTIVA VAROVANJE d.d.",
+    "subindustry": ["Varnostni sistemi in storitve"],
+    "email": "",
+    "website": "https://aktiva-varovanje.si",
+    "address": "Kraljeviča Marka ulica 5",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ALPE-PANON d.o.o.",
+    "subindustry": ["Hitra prehrana"],
+    "email": "",
+    "website": "http://www.mcdonalds.si",
+    "address": "Dunajska cesta 155",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "ARCONT d.d.",
+    "subindustry": ["Gradbeništvo", "Kovinski izdelki in oprema"],
+    "email": "info@arcont.si",
+    "website": "http://www.arcont.si",
+    "address": "Ljutomerska cesta 29",
+    "city": "9250 Gornja Radgona",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ARRIVA d.o.o.",
+    "subindustry": ["Avtobusni prevozi"],
+    "email": "info@arriva.si",
+    "website": "https://arriva.si",
+    "address": "Ulica Mirka Vadnova 8",
+    "city": "4000 Kranj",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "AquafilSLO d.o.o.",
+    "subindustry": ["Reciklaža"],
+    "email": "info.aquafilslo@aquafil.com",
+    "website": "http://www.aquafil.com",
+    "address": "Letališka cesta 15",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "BOLNIŠNICA PTUJ",
+    "subindustry": ["Zdravstvo"],
+    "email": "tajnistvo@sb-ptuj.si",
+    "website": "http://www.sb-ptuj.si",
+    "address": "Potrčeva cesta 23",
+    "city": "2250 Ptuj",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "CARTHAGO d.o.o.",
+    "subindustry": ["Avtodomi in prikolice"],
+    "email": "info.slo@carthago.com",
+    "website": "http://www.carthago.com",
+    "address": "Kamenice 2",
+    "city": "9233 Odranci",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "CGP, d.d.",
+    "subindustry": [
+      "Betonski in cementni izdelki",
+      "Cestne storitve in oprema",
+      "Gradbeništvo"
+    ],
+    "email": "info@cgp.si",
+    "website": "http://www.cgp.si",
+    "address": "Ljubljanska cesta 36",
+    "city": "8000 Novo mesto",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "CINKARNA Celje, d.d.",
+    "subindustry": ["Barve, laki in kemični izdelki"],
+    "email": "info@cinkarna.si",
+    "website": "http://www.cinkarna.si",
+    "address": "Kidričeva ulica 26",
+    "city": "3000 Celje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DANFOSS TRATA, d.o.o.",
+    "subindustry": [
+      "Ogrevalna tehnika",
+      "Klima in prezračevanje",
+      "Električni stroji in naprave"
+    ],
+    "email": "sibc-bbc@danfoss.com",
+    "website": "http://www.trata.danfoss.com",
+    "address": "Ulica Jožeta Jame 16",
+    "city": "1210 LJUBLJANA-ŠENTVID",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DEOS, d.o.o.",
+    "subindustry": ["Domovi"],
+    "email": "infotocka@deos.si",
+    "website": "http://www.deos.si",
+    "address": "Gmajna 7",
+    "city": "1357 Notranje Gorice",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ELAN, d.o.o.",
+    "subindustry": ["Šport in oprema"],
+    "email": "info@elan.si",
+    "website": "https://www.elan.si",
+    "address": "Begunje na Gorenjskem 1",
+    "city": "4275 Begunje na Gorenjskem",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "ELEKTRO CELJE, d.d.",
+    "subindustry": ["Elektro"],
+    "email": "info@elektro-celje.si",
+    "website": "http://www.elektro-celje.si",
+    "address": "Vrunčeva ulica 2A",
+    "city": "3000 Celje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ELEKTRO LJUBLJANA d.d.",
+    "subindustry": ["Elektro"],
+    "email": "info@elektro-ljubljana.si",
+    "website": "https://www.elektro-ljubljana.si",
+    "address": "Slovenska cesta 56",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ELEKTRO MARIBOR d.d.",
+    "subindustry": ["Elektro"],
+    "email": "info@elektro-maribor.si",
+    "website": "http://www.elektro-maribor.si",
+    "address": "Vetrinjska ulica 2",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ELES, d.o.o.",
+    "subindustry": ["Elektro"],
+    "email": "info@eles.si",
+    "website": "https://www.eles.si",
+    "address": "Hajdrihova ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ELRAD ELECTRONICS d.o.o.",
+    "subindustry": ["Elektronika"],
+    "email": "info@elrad-int.si",
+    "website": "https://elrad-int.si/",
+    "address": "Ljutomerska cesta 47",
+    "city": "9250 Gornja Radgona",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "ENERGETIKA LJUBLJANA, d.o.o.",
+    "subindustry": ["Energetika"],
+    "email": "info@energetika-lj.si",
+    "website": "http://www.jhl.si/energetika",
+    "address": "Verovškova ulica 62",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ETA d.o.o. Cerkno",
+    "subindustry": [
+      "Električni stroji in naprave",
+      "Gospodinjski aparati, izdelki in servis"
+    ],
+    "email": "info.slovenia@egoproducts.com",
+    "website": "http://www.egoproducts.com",
+    "address": "Goriška cesta 19",
+    "city": "5282 Cerkno",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ETI, d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "eti@eti.si",
+    "website": "https://www.eti.si",
+    "address": "Obrezija 5",
+    "city": "1411 Izlake",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "EUROSPIN EKO, d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "tajnistvo@eurospineko.si",
+    "website": "http://www.eurospin.si",
+    "address": "Renški Podkraj 64",
+    "city": "5292 Renče",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "GORENJE I.P.C., d.o.o.",
+    "subindustry": ["Elektroinštalacije"],
+    "email": "",
+    "website": "",
+    "address": "Partizanska cesta 12",
+    "city": "3320 Velenje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "HTZ Velenje, I.P., d.o.o.",
+    "subindustry": ["Električni stroji in naprave", "Invalidska podjetja"],
+    "email": "htz@rlv.si",
+    "website": "http://www.htz.si",
+    "address": "Partizanska cesta 78",
+    "city": "3320 Velenje",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "Helios TBLUS d.o.o.",
+    "subindustry": ["Barve, laki in kemični izdelki"],
+    "email": "office@helios.si",
+    "website": "http://www.helios-group.eu",
+    "address": "Količevo 65",
+    "city": "1230 Domžale",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Hisense Europe Electronics, d.o.o.",
+    "subindustry": ["Elektronika"],
+    "email": "info.tv@gorenje.com",
+    "website": "",
+    "address": "Partizanska cesta 12H",
+    "city": "3320 Velenje",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "Hisense Gorenje Europe, d.o.o.",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "hge@gorenje.com",
+    "website": "",
+    "address": "Hrvaška ulica 4",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "IJS",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@ijs.si",
+    "website": "https://www.ijs.si",
+    "address": "Jamova cesta 39",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "INCOM d.o.o.",
+    "subindustry": ["Pekarstvo in slaščičarstvo", "Prehrambena industrija"],
+    "email": "info@leone.si",
+    "website": "http://www.leone.si",
+    "address": "Tovarniška cesta 6A",
+    "city": "5270 Ajdovščina",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "INTEREUROPA d.d.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info@intereuropa.si",
+    "website": "http://www.intereuropa.si",
+    "address": "Vojkovo nabrežje 32",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "ISKRA MEHANIZMI, d.o.o.",
+    "subindustry": ["Električni stroji in naprave", "Mehanika in finomehanika"],
+    "email": "info@iskra-mehanizmi.si",
+    "website": "https://www.iskra-mehanizmi.si",
+    "address": "Zgornji Brnik 400",
+    "city": "4210 BRNIK",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ISKRA, d.o.o.",
+    "subindustry": [
+      "Telekomunikacije",
+      "Energetika",
+      "Električni stroji in naprave",
+      "Elektronika"
+    ],
+    "email": "iskra@iskra.eu",
+    "website": "http://www.iskra.eu",
+    "address": "Stegne 21",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "ISKRAEMECO, d.d.",
+    "subindustry": ["Merilni sistemi in naprave"],
+    "email": "info@iskraemeco.si",
+    "website": "http://www.iskraemeco.si",
+    "address": "Savska loka 4",
+    "city": "4000 Kranj",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "JAGROS, d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "",
+    "website": "",
+    "address": "Prvomajska ulica 29",
+    "city": "3250 Rogaška Slatina",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "JP VOKA SNAGA d.o.o.",
+    "subindustry": ["Ekologija", "Komunalna infrastruktura"],
+    "email": "",
+    "website": "https://www.vokasnaga.si",
+    "address": "Vodovodna cesta 90",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KNAUF INSULATION, d.o.o., Škofja Loka",
+    "subindustry": ["Gradbeništvo", "Gradbeni material"],
+    "email": "post.slovenia@knaufinsulation.com",
+    "website": "https://www.knaufinsulation.si",
+    "address": "Trata 32",
+    "city": "4220 Škofja Loka",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KOLEKTOR ETRA d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "info.kolektor.etra@kolektor.com",
+    "website": "http://www.kolektor-etra.si",
+    "address": "Šlandrova ulica 10",
+    "city": "1231 LJUBLJANA-ČRNUČE",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "KOLEKTOR SIKOM d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "sikom@kolektor.com",
+    "website": "http://www.kolektor.si",
+    "address": "Vojkova ulica 10",
+    "city": "5280 Idrija",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "KOSTAK d.d.",
+    "subindustry": [
+      "Gradbeništvo",
+      "Komunala in odpad",
+      "Pogrebna dejavnost",
+      "Ekologija"
+    ],
+    "email": "kostak@kostak.si",
+    "website": "http://www.kostak.si",
+    "address": "Leskovška cesta 2A",
+    "city": "8270 Krško",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Kontron, d.o.o.",
+    "subindustry": ["Telekomunikacije"],
+    "email": "info@kontron.si",
+    "website": "https://kontron-slovenia.com/sl/",
+    "address": "Ljubljanska cesta 24A",
+    "city": "4000 Kranj",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "LES-MMS d.o.o.",
+    "subindustry": ["Pohištvo in oprema"],
+    "email": "",
+    "website": "",
+    "address": "Cesta na Bokalce 40",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "LIVAR, d.d.",
+    "subindustry": ["Livarstvo"],
+    "email": "info@livar.si",
+    "website": "http://www.livar.si",
+    "address": "Ljubljanska cesta 43",
+    "city": "1295 Ivančna Gorica",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "LJUBLJANSKE MLEKARNE d.o.o.",
+    "subindustry": ["Mleko in mlečni izdelki"],
+    "email": "info@l-m.si",
+    "website": "http://www.l-m.si",
+    "address": "Tolstojeva ulica 63",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "LPP d.o.o.",
+    "subindustry": ["Avtobusni prevozi", "Merilni sistemi in naprave"],
+    "email": "mail@lpp.si",
+    "website": "https://www.lpp.si",
+    "address": "Celovška cesta 160",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "MESTNA OBČINA LJUBLJANA",
+    "subindustry": [
+      "Občine, upravne enote in lokalne skupnosti",
+      "Javna uprava"
+    ],
+    "email": "",
+    "website": "http://www.ljubljana.si",
+    "address": "Mestni trg 1",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MINISTRSTVO ZA NOTRANJE ZADEVE",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.mnz@gov.si",
+    "website": "http://www.mnz.gov.si",
+    "address": "Štefanova ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MINISTRSTVO ZA OBRAMBO",
+    "subindustry": ["Javna uprava"],
+    "email": "glavna.pisarna@mors.si",
+    "website": "http://www.mors.si",
+    "address": "Vojkova cesta 55",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MLINOTEST d.d.",
+    "subindustry": ["Prehrambena industrija"],
+    "email": "info@mlinotest.si",
+    "website": "",
+    "address": "Tovarniška cesta 14",
+    "city": "5270 Ajdovščina",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "MZEZ",
+    "subindustry": ["Veleposlaništvo, konzulat, predstavništvo"],
+    "email": "gp.mzz@gov.si",
+    "website": "http://www.mzz.gov.si",
+    "address": "Prešernova cesta 25",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "NEK d.o.o.",
+    "subindustry": ["Elektro"],
+    "email": "nek@nek.si",
+    "website": "https://www.nek.si",
+    "address": "Vrbina 12",
+    "city": "8270 Krško",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "NIJZ",
+    "subindustry": ["Zdravstvo", "Javna uprava"],
+    "email": "info@nijz.si",
+    "website": "http://www.nijz.si/",
+    "address": "Trubarjeva cesta 2",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "NLZOH",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@nlzoh.si",
+    "website": "https://www.nlzoh.si",
+    "address": "Prvomajska ulica 1",
+    "city": "2000 Maribor",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "NOMAGO d.o.o.",
+    "subindustry": ["Avtobusni prevozi", "Turizem"],
+    "email": "",
+    "website": "",
+    "address": "Vošnjakova ulica 3",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "Novem Car Interior Design d.o.o.",
+    "subindustry": ["Avtostoritve", "Avtooprema", "Lesna dejavnost"],
+    "email": "info@novem.si",
+    "website": "http://www.novem.de",
+    "address": "Ložnica pri Žalcu 58",
+    "city": "3310 Žalec",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "OKROŽNO SODIŠČE V LJUBLJANI",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.ozlj@sodisce.si",
+    "website": "http://www.sodisce.si/okrolj/",
+    "address": "Tavčarjeva ulica 9",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "PALFINGER d.o.o.",
+    "subindustry": ["Dvigalne in transportne naprave"],
+    "email": "infomb@palfinger.si",
+    "website": "http://www.palfinger.com",
+    "address": "Jaskova ulica 18",
+    "city": "2000 Maribor",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "Pivovarna Laško Union d.o.o.",
+    "subindustry": ["Pijače"],
+    "email": "info.plu@heineken.com",
+    "website": "https://pivovarnalaskounion.com/sl",
+    "address": "Pivovarniška ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "SALOMON d.o.o. Ljubljana",
+    "subindustry": ["Založništvo"],
+    "email": "",
+    "website": "http://www.salomon.si",
+    "address": "Vevška cesta 52",
+    "city": "1260 LJUBLJANA-POLJE",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "SB JESENICE",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@sb-je.si",
+    "website": "http://www.sb-je.si",
+    "address": "Cesta maršala Tita 112",
+    "city": "4270 Jesenice",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SB Nova Gorica",
+    "subindustry": ["Zdravstvo"],
+    "email": "tajnistvo@bolnisnica-go.si",
+    "website": "http://www.bolnisnica-go.si",
+    "address": "Ulica padlih borcev 13A",
+    "city": "5290 Šempeter pri Gorici",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SB Slovenj Gradec",
+    "subindustry": ["Zdravstvo"],
+    "email": "urednik@sb-sg.si",
+    "website": "http://www.sb-sg.si",
+    "address": "Gosposvetska cesta 1",
+    "city": "2380 Slovenj Gradec",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SIJ METAL RAVNE d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Rudnine in kamnine"],
+    "email": "info@metalravne.com",
+    "website": "https://www.metalravne.com/sl",
+    "address": "Koroška cesta 14",
+    "city": "2390 Ravne na Koroškem",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "SILIKO d.o.o.",
+    "subindustry": [
+      "Gumarstvo",
+      "Orodjarstvo",
+      "Plastika in izdelki iz plastike"
+    ],
+    "email": "info@siliko.si",
+    "website": "http://www.siliko.si",
+    "address": "Tržaška cesta 31",
+    "city": "1360 Vrhnika",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "SINTAL d.o.o.",
+    "subindustry": [
+      "Gasilstvo in protipožarna zaščita",
+      "Projektiranje",
+      "Varnostni sistemi in storitve",
+      "Varstvo pri delu"
+    ],
+    "email": "info@sintal.si",
+    "website": "http://www.sintal.si",
+    "address": "Litostrojska cesta 38",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SPLOŠNA BOLNIŠNICA IZOLA OSPEDALE GENERALE ISOLA",
+    "subindustry": ["Zdravstvo"],
+    "email": "",
+    "website": "http://www.sb-izola.si",
+    "address": "Polje 40",
+    "city": "6310 Izola - Isola",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "STEKLARNA HRASTNIK d.o.o.",
+    "subindustry": [
+      "Kovinski izdelki in oprema",
+      "Steklarstvo in stekleni izdelki"
+    ],
+    "email": "info@hrastnik1860.com",
+    "website": "https://hrastnik1860.com",
+    "address": "Cesta 1. maja 14",
+    "city": "1430 Hrastnik",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "STEKLARNA ROGAŠKA d.o.o.",
+    "subindustry": ["Steklarstvo in stekleni izdelki"],
+    "email": "info.rogaska@fiskars.com",
+    "website": "https://www.steklarna-rogaska.si",
+    "address": "Ulica talcev 1",
+    "city": "3250 Rogaška Slatina",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Sandoz d.d.",
+    "subindustry": ["Farmacija"],
+    "email": "",
+    "website": "https://www.sandoz.com",
+    "address": "Verovškova ulica 57",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SŽ - Potniški promet, d.o.o.",
+    "subindustry": ["Železniški promet"],
+    "email": "",
+    "website": "https://www.slo-zeleznice.si",
+    "address": "Kolodvorska ulica 11",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "SŽ - Tovorni promet, d.o.o.",
+    "subindustry": ["Železniški promet"],
+    "email": "cargo@slo-zeleznice.si",
+    "website": "http://www.slo-zeleznice.si/sl/tovorni-promet",
+    "address": "Kolodvorska ulica 11",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "SŽ - ŽIP, d.o.o.",
+    "subindustry": ["Varnostni sistemi in storitve", "Čiščenje"],
+    "email": "info@sz-zip.si",
+    "website": "http://www.sz-zip.si",
+    "address": "Kolodvorska ulica 11",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "TAB d.d.",
+    "subindustry": ["Elektronika", "Elektro"],
+    "email": "",
+    "website": "",
+    "address": "Polena 6",
+    "city": "2392 Mežica",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "TBP d.d.",
+    "subindustry": ["Kovinski izdelki in oprema", "Avtodeli"],
+    "email": "info@tbp.si",
+    "website": "http://www.tbp.si",
+    "address": "Gradiška cesta 3",
+    "city": "2230 LENART V SLOVENSKIH GORICAH",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "TERME KRKA, d.o.o., Novo mesto",
+    "subindustry": ["Turizem", "Vzdrževanje in upravljanje objektov", "Hoteli"],
+    "email": "",
+    "website": "http://www.terme-krka.si",
+    "address": "Novi trg 1",
+    "city": "8000 Novo mesto",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "TPV AUTOMOTIVE d.o.o.",
+    "subindustry": ["Avtodeli"],
+    "email": "tpv-automotive@tpv.si",
+    "website": "https://www.tpv-automotive.si",
+    "address": "Brezina 101",
+    "city": "8250 Brežice",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "TRENKWALDER, d.o.o.",
+    "subindustry": ["Podjetniške in poslovne storitve", "Zaposlovanje"],
+    "email": "infoslovenia@trenkwalder.com",
+    "website": "",
+    "address": "Ulica Ambrožiča Novljana 5",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Telemach Slovenija d.o.o.",
+    "subindustry": [
+      "Telekomunikacije",
+      "Mobilna telefonija",
+      "Računalništvo in informatika"
+    ],
+    "email": "info@telemach.si",
+    "website": "https://telemach.si",
+    "address": "Brnčičeva ulica 49A",
+    "city": "1231 LJUBLJANA-ČRNUČE",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "UL BF",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "dekanat@bf.uni-lj.si",
+    "website": "http://www.bf.uni-lj.si",
+    "address": "Jamnikarjeva ulica 101",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL FF",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "ff-tajnistvo@ff.uni-lj.si",
+    "website": "",
+    "address": "Aškerčeva cesta 2",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL MF",
+    "subindustry": ["Izobraževalne institucije", "Knjižnice in čitalnice"],
+    "email": "dekanat@mf.uni-lj.si",
+    "website": "http://www.mf.uni-lj.si",
+    "address": "Vrazov trg 2",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UP",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@upr.si",
+    "website": "http://www.upr.si",
+    "address": "Titov trg 4",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UPK Ljubljana",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@psih-klinika.si",
+    "website": "http://www.psih-klinika.si",
+    "address": "Chengdujska cesta 45",
+    "city": "1260 LJUBLJANA-POLJE",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "UPRAVA RS ZA IZVRŠEVANJE KAZENSKIH SANKCIJ",
+    "subindustry": "",
+    "email": "gp.ursiks@gov.si",
+    "website": "http://www.mp.gov.si",
+    "address": "Beethovnova ulica 3",
+    "city": "1000 Ljubljana"
+  },
+  {
+    "name": "URI Soča",
+    "subindustry": ["Zdravstveni in medicinski pripomočki", "Zdravstvo"],
+    "email": "info@ir-rs.si",
+    "website": "https://www.uri-soca.si",
+    "address": "Linhartova cesta 51",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "WEILER Abrasives d.o.o.",
+    "subindustry": ["Brusilstvo"],
+    "email": "info.slovenia@weilerabrasives.com",
+    "website": "https://www.weilerabrasives.com/EMEA",
+    "address": "Titova cesta 60",
+    "city": "2000 Maribor",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "WORKFORCE d.o.o.",
+    "subindustry": ["Zaposlovanje"],
+    "email": "info@workforce.si",
+    "website": "https://www.workforce.si",
+    "address": "Verovškova ulica 55",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ZGS",
+    "subindustry": ["Gozdarstvo", "Javna uprava"],
+    "email": "zgs.tajnistvo@zgs.si",
+    "website": "http://www.zgs.si",
+    "address": "Večna pot 2",
+    "city": "1000 Ljubljana",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "ZPIZ",
+    "subindustry": ["Javna uprava"],
+    "email": "informacije@zpiz.si",
+    "website": "https://www.zpiz.si",
+    "address": "Kolodvorska ulica 15",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ZZZS",
+    "subindustry": ["Javna uprava", "Zavarovalne storitve"],
+    "email": "di@zzzs.si",
+    "website": "https://www.zzzs.si",
+    "address": "Miklošičeva cesta 24",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Zavod Osebna asistenca Pomurja, Murska Sobota",
+    "subindustry": ["Oskrba na domu"],
+    "email": "",
+    "website": "",
+    "address": "Noršinska ulica 14",
+    "city": "9000 Murska Sobota",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "Zavod za zaposlovanje",
+    "subindustry": ["Zaposlovanje", "Javna uprava"],
+    "email": "GPZRSZ@ESS.GOV.SI",
+    "website": "http://www.ess.gov.si",
+    "address": "Rožna dolina, cesta IX 6",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "dm drogerie markt d.o.o.",
+    "subindustry": ["Kozmetična dejavnost"],
+    "email": "info@dm.si",
+    "website": "https://www.dm.si",
+    "address": "Litostrojska cesta 48",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ŠTORE STEEL d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Rudnine in kamnine"],
+    "email": "info@store-steel.si",
+    "website": "http://www.store-steel.si",
+    "address": "Železarska cesta 3",
+    "city": "3220 Štore",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ŽITO d.o.o.",
+    "subindustry": [
+      "Pekarstvo in slaščičarstvo",
+      "Prehrambena industrija",
+      "Trgovina"
+    ],
+    "email": "info@zito.si",
+    "website": "http://www.zito.si",
+    "address": "Moskovska ulica 1",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "ADRIA TEHNIKA, d.o.o.",
+    "subindustry": ["Letalstvo"],
+    "email": "office@aateh.si",
+    "website": "",
+    "address": "Zgornji Brnik 130D",
+    "city": "4210 BRNIK",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "AJPES",
+    "subindustry": ["Finančne storitve", "Javna uprava"],
+    "email": "TOMAZ.ZGANJAR@AJPES.SI",
+    "website": "https://www.ajpes.si",
+    "address": "Tržaška cesta 16",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ATHOS Elektrosistemi d.o.o.",
+    "subindustry": ["Elektronika"],
+    "email": "info@resistec.si",
+    "website": "",
+    "address": "Krška cesta 8",
+    "city": "8311 Kostanjevica na Krki",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "Alpacem Cement, d.d.",
+    "subindustry": [
+      "Betonski in cementni izdelki",
+      "Gradbeni material",
+      "Rudnine in kamnine"
+    ],
+    "email": "info.cement@alpacem.si",
+    "website": "https://alpacem.si",
+    "address": "Anhovo 1",
+    "city": "5210 Deskle",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "BANKART d.o.o., Ljubljana",
+    "subindustry": ["Obdelava podatkov"],
+    "email": "",
+    "website": "",
+    "address": "Celovška cesta 150",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "BIOIKS d.o.o.",
+    "subindustry": ["Medicinska in laboratorijska oprema"],
+    "email": "info@bioiks.si",
+    "website": "http://www.bioiks.si",
+    "address": "Stegne 11",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "BOLNIŠNICA TOPOLŠICA",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@b-topolsica.si",
+    "website": "http://www.boltop.si",
+    "address": "Topolšica 64",
+    "city": "3326 Topolšica",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "CETIS d.d.",
+    "subindustry": ["Grafične storitve in oblikovanje", "Tiskarstvo"],
+    "email": "info@cetis.si",
+    "website": "http://www.cetis.si",
+    "address": "Čopova ulica 24",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "CLEANGRAD d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "info@cleangrad.si",
+    "website": "http://www.cleangrad.si",
+    "address": "Ulica Rada Pušenjaka 1",
+    "city": "9240 Ljutomer",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "CNC P&K-PUŠNIK d.o.o.",
+    "subindustry": ["Ključavničarstvo", "Kovinostrugarstvo"],
+    "email": "info@cncpusnik.si",
+    "website": "http://www.cncpusnik.si",
+    "address": "Mariborska cesta 56",
+    "city": "2360 Radlje ob Dravi",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "CSD Maribor",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "gp-csd.marib@gov.si",
+    "website": "",
+    "address": "Zagrebška cesta 72",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "DANI AFC d.o.o.",
+    "subindustry": ["Krznarstvo in usnjarstvo"],
+    "email": "info@daniafc.si",
+    "website": "http://www.daniafc.si",
+    "address": "Kidričeva ulica 6",
+    "city": "2380 Slovenj Gradec",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "DEICHMANN d.o.o.",
+    "subindustry": ["Obutev in čevljarstvo"],
+    "email": "service-sl@deichmann.com",
+    "website": "https://www.deichmann.com",
+    "address": "Dunajska cesta 151",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "DELO d.o.o.",
+    "subindustry": ["Založništvo"],
+    "email": "info@delo.si",
+    "website": "https://www.delo.si",
+    "address": "Likozarjeva ulica 1",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "DEM d.o.o.",
+    "subindustry": ["Elektro"],
+    "email": "DEM@DEM.SI",
+    "website": "http://www.dem.si",
+    "address": "Obrežna ulica 170",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM UPOKOJENCEV NOVA GORICA",
+    "subindustry": ["Domovi"],
+    "email": "info@dung.si",
+    "website": "http://www.dung.si",
+    "address": "Gregorčičeva ulica 16",
+    "city": "5000 Nova Gorica",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM-TITAN d.d.",
+    "subindustry": [
+      "Ključavničarstvo",
+      "Kovinski izdelki in oprema",
+      "Varnostni sistemi in storitve"
+    ],
+    "email": "info@dom-titan.si",
+    "website": "http://www.dom-titan.si",
+    "address": "Kovinarska cesta 28",
+    "city": "1241 Kamnik",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "DSO Novo mesto",
+    "subindustry": ["Domovi"],
+    "email": "dso-nm@siol.net",
+    "website": "http://www.dso-novomesto.com",
+    "address": "Šmihel 1",
+    "city": "8000 Novo mesto",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DZS, d.d.",
+    "subindustry": ["Knjigarne in papirnice", "Papirna galanterija"],
+    "email": "",
+    "website": "https://www.dzs.si",
+    "address": "Dalmatinova ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "Dom upokojencev Center",
+    "subindustry": ["Domovi"],
+    "email": "dom.center@duc.si",
+    "website": "http://www.duc.si",
+    "address": "Tabor 10",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "EGP d.o.o.",
+    "subindustry": ["Embalaža"],
+    "email": "egp@egp.si",
+    "website": "http://www.egp.si",
+    "address": "Kidričeva cesta 82",
+    "city": "4220 Škofja Loka",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ETIKETA, d.d.",
+    "subindustry": ["Tiskarstvo"],
+    "email": "info@etiketa.si",
+    "website": "http://www.etiketa.si",
+    "address": "Industrijska ulica 6",
+    "city": "4226 Žiri",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "EUROTON, d.o.o.",
+    "subindustry": ["Avtodeli"],
+    "email": "pelj@euroton.si",
+    "website": "http://www.euroton.si/avtodeli",
+    "address": "Tržaška cesta 383",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "FRAGMAT TIM d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike", "Izolacija"],
+    "email": "info@fragmat.si",
+    "website": "https://www.fragmat.eu",
+    "address": "Spodnja Rečica 77",
+    "city": "3270 Laško",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "GORIČANE, d.d. Medvode",
+    "subindustry": [null],
+    "email": "goricane@goricane.si",
+    "website": "http://www.goricane.si",
+    "address": "Ladja 10",
+    "city": "1215 Medvode"
+  },
+  {
+    "name": "GOSTOL-GOPAN d.o.o. Nova Gorica",
+    "subindustry": "",
+    "email": "info@gostol.eu",
+    "website": "http://www.gostol.eu",
+    "address": "Prvomajska ulica 37A",
+    "city": "5000 Nova Gorica"
+  },
+  {
+    "name": "GRAMMER AUTOMOTIVE SLOVENIJA d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "info.graslo2@grammer.com",
+    "website": "http://www.grammer.com",
+    "address": "Celjska cesta 45",
+    "city": "2380 Slovenj Gradec",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "GRIESHABER logistika d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "infoslo@grieshaberlog.com",
+    "website": "",
+    "address": "Velika vas pri Krškem 68",
+    "city": "8273 Leskovec pri Krškem",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "Gorenje Orodjarna, d.o.o.",
+    "subindustry": ["Orodjarstvo"],
+    "email": "info@gorenje-orodjarna.si",
+    "website": "http://www.gorenje-orodjarna.si",
+    "address": "Partizanska cesta 12",
+    "city": "3320 Velenje",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "HSE d.o.o.",
+    "subindustry": ["Elektro"],
+    "email": "info@hse.si",
+    "website": "http://www.hse.si",
+    "address": "Koprska ulica 92",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "IMPOL FT d.o.o.",
+    "subindustry": ["Kovinostrugarstvo"],
+    "email": "",
+    "website": "",
+    "address": "Partizanska ulica 38",
+    "city": "2310 Slovenska Bistrica",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "INLES d.d.",
+    "subindustry": ["Stavbno pohištvo", "Trgovina"],
+    "email": "info@inles.si",
+    "website": "http://www.inles.si",
+    "address": "Kolodvorska ulica 22",
+    "city": "1310 Ribnica",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "INPOS, d.o.o., Celje",
+    "subindustry": ["Trgovina"],
+    "email": "inpos@inpos.si",
+    "website": "",
+    "address": "Opekarniška cesta 2",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ITW Appliance Components d.o.o.",
+    "subindustry": ["Gospodinjski aparati, izdelki in servis"],
+    "email": "info-slo@itwappliance.com",
+    "website": "",
+    "address": "Poljubinj 89E",
+    "city": "5220 Tolmin",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "JYSK d.o.o.",
+    "subindustry": [
+      "Pohištvo in oprema",
+      "Trgovina",
+      "Tekstil in tekstilni izdelki"
+    ],
+    "email": "pomockupcem@jysk.com",
+    "website": "http://www.jysk.si",
+    "address": "Tovarniška cesta 10A",
+    "city": "8250 Brežice",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Javno podjetje Nigrad, d. o. o.",
+    "subindustry": ["Komunala in odpad", "Ekologija"],
+    "email": "info@nigrad.si",
+    "website": "http://www.nigrad.si",
+    "address": "Zagrebška cesta 30",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Javno podjetje Snaga, d.o.o.",
+    "subindustry": ["Komunala in odpad"],
+    "email": "info@snaga-mb.si",
+    "website": "http://www.snaga-mb.si",
+    "address": "Nasipna ulica 64",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KAAAP d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "info@kaaap.si",
+    "website": "http://www.kaaap.si",
+    "address": "Foersterjeva ulica 11",
+    "city": "8000 Novo mesto",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KIS",
+    "subindustry": [
+      "Kmetijstvo, poljedelstvo in sadjarstvo",
+      "Podjetniške in poslovne storitve"
+    ],
+    "email": "info@kis.si",
+    "website": "http://www.kis.si",
+    "address": "Hacquetova ulica 17",
+    "city": "1000 Ljubljana",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "KZ METLIKA, z.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "tajnistvo@kz-metlika.si",
+    "website": "http://www.kz-metlika.si",
+    "address": "Cesta XV. brigade 2",
+    "city": "8330 Metlika",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "KZ TREBNJE z.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "",
+    "website": "https://kz-trebnje.si",
+    "address": "Stari trg 2",
+    "city": "8210 Trebnje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "KZPS, d.o.o.",
+    "subindustry": ["Letalstvo"],
+    "email": "info@sloveniacontrol.si",
+    "website": "https://www.sloveniacontrol.si",
+    "address": "Zgornji Brnik 130N",
+    "city": "4210 BRNIK",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "Komunala Kranj d.o.o.",
+    "subindustry": ["Komunala in odpad", "Ekologija"],
+    "email": "info@komunala-kranj.si",
+    "website": "http://www.komunala-kranj.si",
+    "address": "Ulica Mirka Vadnova 1",
+    "city": "4000 Kranj",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "LEDINEK ENGINEERING d.o.o.",
+    "subindustry": ["Projektiranje"],
+    "email": "",
+    "website": "",
+    "address": "Slivniška cesta 18",
+    "city": "2311 Hoče",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "LIP BLED, d.o.o.",
+    "subindustry": ["Lesna dejavnost", "Stavbno pohištvo", "Trgovina"],
+    "email": "lipbl@lip-bled.si",
+    "website": "http://www.lip-bled.si",
+    "address": "Rečiška cesta 61A",
+    "city": "4260 Bled",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "LIP Bohinj, d.o.o.",
+    "subindustry": ["Lesna dejavnost"],
+    "email": "info@lipbohinj.si",
+    "website": "http://www.lipbohinj.si",
+    "address": "Ulica Tomaža Godca 5",
+    "city": "4264 Bohinjska Bistrica",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "LITOSTROJ POWER d.o.o.",
+    "subindustry": ["Električni stroji in naprave", "Energetika"],
+    "email": "info@litostrojpower.eu",
+    "website": "http://www.litostrojpower.eu",
+    "address": "Litostrojska cesta 50",
+    "city": "1000 Ljubljana",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "LOMBAR d.o.o.",
+    "subindustry": ["Čiščenje"],
+    "email": "info@lombar.si",
+    "website": "http://www.lombar.si",
+    "address": "Pod brezami 5",
+    "city": "1218 Komenda",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "M SORA d.d.",
+    "subindustry": ["Mizarstvo", "Stavbno pohištvo"],
+    "email": "info@m-sora.si",
+    "website": "http://www.m-sora.si",
+    "address": "Trg svobode 2",
+    "city": "4226 Žiri",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MAGNETI LJUBLJANA, d.d., Ljubljana",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "info@magneti.si",
+    "website": "http://www.magneti.si",
+    "address": "Stegne 37",
+    "city": "1000 Ljubljana",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MAHLE Electric Drives Bovec d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "",
+    "website": "https://www.mahle.com",
+    "address": "Industrijska cona 3",
+    "city": "5230 Bovec",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MERKSCHA d.o.o.",
+    "subindustry": ["Lesna dejavnost"],
+    "email": "info@merkscha.com",
+    "website": "http://www.merkscha.com",
+    "address": "Mariborska cesta 116",
+    "city": "3000 Celje",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "METREL d.o.o.",
+    "subindustry": ["Merilni sistemi in naprave"],
+    "email": "info@metrel.si",
+    "website": "https://www.metrel.si",
+    "address": "Ljubljanska cesta 77",
+    "city": "1354 Horjul",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MF, GS - SAR",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.mf-sar@gov.si",
+    "website": "",
+    "address": "Župančičeva ulica 3",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MKL",
+    "subindustry": ["Knjižnice in čitalnice"],
+    "email": "info@mklj.si",
+    "website": "https://www.mklj.si",
+    "address": "Kersnikova ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "MLEKARNA CELEIA, d.o.o.",
+    "subindustry": ["Mleko in mlečni izdelki"],
+    "email": "info@mlekarna-celeia.si",
+    "website": "http://www.zelenedoline.si",
+    "address": "Arja vas 92",
+    "city": "3301 Petrovče",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "MONTER DRAVOGRAD d.o.o.",
+    "subindustry": ["Gradbeništvo", "Kovinski izdelki in oprema"],
+    "email": "",
+    "website": "",
+    "address": "Otiški Vrh 177",
+    "city": "2373 Šentjanž pri Dravogradu",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "MP",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.mp@gov.si",
+    "website": "http://www.mp.gov.si",
+    "address": "Župančičeva ulica 3",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OKROŽNO SODIŠČE V KRANJU",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.ozkr@sodisce.si",
+    "website": "https://www.sodisce.si/okrokr",
+    "address": "Zoisova ulica 2",
+    "city": "4000 Kranj",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OKROŽNO SODIŠČE V MURSKI SOBOTI",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.ozms@sodisce.si",
+    "website": "",
+    "address": "Slomškova ulica 21",
+    "city": "9000 Murska Sobota",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OPLAST, d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "info@oplast.si",
+    "website": "http://www.oplast.si",
+    "address": "Tepanje 63",
+    "city": "3210 Slovenske Konjice",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ORBICO d.o.o.",
+    "subindustry": ["Igrače in igralni pripomočki", "Trgovina"],
+    "email": "orbico@orbico.si",
+    "website": "http://www.orbico.si",
+    "address": "Verovškova ulica 72",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "PAPIRNICA VEVČE d.o.o.",
+    "subindustry": ["Papirna galanterija"],
+    "email": "info@papir-vevce.si",
+    "website": "http://www.papir-vevce.si",
+    "address": "Papirniška pot 25",
+    "city": "1261 LJUBLJANA-DOBRUNJE",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "PIPE TECH d. o. o.",
+    "subindustry": ["Vodoinštalacije"],
+    "email": "info@pipetech.si",
+    "website": "http://www.pipetech.si",
+    "address": "Vrtnarska pot 2",
+    "city": "2250 Ptuj",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "PLAMA-PUR d.o.o.",
+    "subindustry": [
+      "Plastika in izdelki iz plastike",
+      "Embalaža",
+      "Pohištvo in oprema"
+    ],
+    "email": "info@plama-pur.si",
+    "website": "http://www.plama-pur.si",
+    "address": "Hrušica 104",
+    "city": "6244 Podgrad",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "PLANIKA TURNIŠČE d.o.o.",
+    "subindustry": ["Trgovina", "Obutev in čevljarstvo"],
+    "email": "info@planika-t.si",
+    "website": "",
+    "address": "Prešernova ulica 4",
+    "city": "9224 Turnišče",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "PLASTOFORM d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "info@plastoform.si",
+    "website": "http://www.plastoform.si",
+    "address": "Šmarjeta 64",
+    "city": "8220 Šmarješke Toplice",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "PRIGO, d.o.o., Brezovica",
+    "subindustry": [
+      "Avtostoritve",
+      "Avtoservis",
+      "Tehnični pregledi",
+      "Avtodeli"
+    ],
+    "email": "kontakt@prigo.si",
+    "website": "https://www.prigo.si",
+    "address": "Podpeška cesta 10",
+    "city": "1351 Brezovica pri Ljubljani",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "PROSIGNAL, d.o.o.",
+    "subindustry": [
+      "Društvo, organizacija, združenje",
+      "Gasilstvo in protipožarna zaščita",
+      "Izobraževalni tečaji in inštrukcije",
+      "Varnostni sistemi in storitve"
+    ],
+    "email": "info@prosignal.si",
+    "website": "http://www.prosignal.si",
+    "address": "Kersnikova ulica 17A",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "PSIHIATRIČNA BOLNIŠNICA IDRIJA",
+    "subindustry": ["Zdravstvo"],
+    "email": "psihiatrija@pb-idrija.si",
+    "website": "https://pb-idrija.si",
+    "address": "Pot Sv. Antona 49",
+    "city": "5280 Idrija",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "RADENSKA d.o.o.",
+    "subindustry": ["Pijače"],
+    "email": "info@radenska.si",
+    "website": "https://www.radenska.si",
+    "address": "Boračeva 37",
+    "city": "9252 Radenci",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "REM d.o.o.",
+    "subindustry": [
+      "Kovinski izdelki in oprema",
+      "Krovstvo, kleparstvo in tesarstvo"
+    ],
+    "email": "info@rem.si",
+    "website": "https://www.rem.si",
+    "address": "Industrijska ulica 3",
+    "city": "8210 Trebnje",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "RESISTEC UPR d.o.o. & Co. k.d.",
+    "subindustry": ["Elektronika"],
+    "email": "",
+    "website": "",
+    "address": "Krška cesta 8",
+    "city": "8311 Kostanjevica na Krki",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "RLS d.o.o.",
+    "subindustry": ["Merilni sistemi in naprave"],
+    "email": "mail@rls.si",
+    "website": "http://www.rls.si",
+    "address": "Pod vrbami 2",
+    "city": "1218 Komenda",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Raycap d.o.o.",
+    "subindustry": [
+      "Elektro",
+      "Elektroinštalacije",
+      "Telekomunikacije",
+      "Elektronika"
+    ],
+    "email": "info.komenda@raycap.com",
+    "website": "",
+    "address": "Pod hrasti 7",
+    "city": "1218 Komenda",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SEMENARNA Ljubljana, d.o.o.",
+    "subindustry": [
+      "Vrtnarstvo in urejanje okolice",
+      "Kmetijstvo, poljedelstvo in sadjarstvo"
+    ],
+    "email": "info@semenarna.si",
+    "website": "http://www.semenarna.si",
+    "address": "Bratislavska cesta 5",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SILKEM d.o.o.",
+    "subindustry": ["Barve, laki in kemični izdelki"],
+    "email": "info@silkem.si",
+    "website": "http://www.silkem.si",
+    "address": "Tovarniška cesta 10",
+    "city": "2325 Kidričevo",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SIMBIO d.o.o.",
+    "subindustry": ["Ekologija", "Komunala in odpad"],
+    "email": "",
+    "website": "http://www.simbio.si",
+    "address": "Teharska cesta 49",
+    "city": "3000 Celje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SPORTINA Bled d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "info@sportina.si",
+    "website": "http://www.sportina.si",
+    "address": "Alpska cesta 43",
+    "city": "4248 Lesce",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SRC d.o.o.",
+    "subindustry": [
+      "Računalništvo in informatika",
+      "Izobraževalni tečaji in inštrukcije"
+    ],
+    "email": "src@src.si",
+    "website": "http://www.src.si",
+    "address": "Tržaška cesta 116",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "SŽ - ŽGP Ljubljana, d.d.",
+    "subindustry": [
+      "Gradbena mehanizacija",
+      "Gradbeništvo",
+      "Železniški promet"
+    ],
+    "email": "office@sz-zgp.si",
+    "website": "http://www.sz-zgp.si",
+    "address": "Ob zeleni jami 2",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "TELEG-M d.o.o.",
+    "subindustry": ["Telekomunikacije", "Komunalna infrastruktura"],
+    "email": "teleg-m@siol.net",
+    "website": "http://www.telegm.si",
+    "address": "Cesta v Pečale 36",
+    "city": "1231 LJUBLJANA-ČRNUČE",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "TRANSPORT FINEC d.o.o.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "transport@finec.si",
+    "website": "http://www.finec.si",
+    "address": "Taborska cesta 32A",
+    "city": "1290 Grosuplje",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "UL FKKT",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "dekanat@fkkt.uni-lj.si",
+    "website": "http://www.fkkt.uni-lj.si",
+    "address": "Večna pot 113",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL FMF",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "fmf-dekanat@uni-lj.si",
+    "website": "http://www.fmf.uni-lj.si",
+    "address": "Jadranska ulica 19",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL PEF",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "tajnistvo@pef.uni-lj.si",
+    "website": "https://www.pef.uni-lj.si",
+    "address": "Kardeljeva ploščad 16",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "VAROVANJE GALEKOM d.o.o.",
+    "subindustry": ["Varnostni sistemi in storitve"],
+    "email": "info@galekom.si",
+    "website": "",
+    "address": "Podjetniško naselje Kočevje 1",
+    "city": "1330 Kočevje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "VRTEC VELENJE",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "tajnistvo@vrtec-velenje.si",
+    "website": "http://www.vrtec-velenje.si",
+    "address": "Šlandrova cesta 11A",
+    "city": "3320 Velenje"
+  },
+  {
+    "name": "Varis Lendava d.o.o.",
+    "subindustry": ["Ogrevalna tehnika", "Gradbeništvo"],
+    "email": "uprava@varis-lendava.si",
+    "website": "https://www.varis-group.com",
+    "address": "Industrijska ulica 4B",
+    "city": "9220 Lendava - Lendva",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Wolford d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "office_si@wolford.com",
+    "website": "",
+    "address": "Nemčavci 78",
+    "city": "9000 Murska Sobota",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "XAL SVETILA d.o.o.",
+    "subindustry": ["Svetila"],
+    "email": "office.si@xal.com",
+    "website": "",
+    "address": "Nemčavci 75",
+    "city": "9000 Murska Sobota",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ZAG",
+    "subindustry": [
+      "Podjetniške in poslovne storitve",
+      "Gradbeništvo",
+      "Gradbeni material",
+      "Arhitekturno in gradbeno načrtovanje"
+    ],
+    "email": "info@zag.si",
+    "website": "https://www.zag.si",
+    "address": "Dimičeva ulica 12",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ZAVOD SV. STANISLAVA",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "INFO@STANISLAV.SI",
+    "website": "http://www.stanislav.si",
+    "address": "Štula 23",
+    "city": "1210 LJUBLJANA-ŠENTVID",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ZDRUŽENJE MULTIPLE SKLEROZE SLOVENIJE",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "info@zdruzenje-ms.si",
+    "website": "http://www.zdruzenje-ms.si",
+    "address": "Maroltova ulica 14",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ZLATARNA CELJE d.o.o.",
+    "subindustry": ["Zlatarstvo"],
+    "email": "",
+    "website": "",
+    "address": "Kersnikova ulica 19",
+    "city": "3000 Celje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZVEZA PARAPLEGIKOV SLOVENIJE",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "info@zveza-paraplegikov.si",
+    "website": "http://www.zveza-paraplegikov.si",
+    "address": "Štihova ulica 14",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Zavod Pravica so. p.",
+    "subindustry": "",
+    "email": "informacije@zavodpravica.com",
+    "website": "https://zavod-pravica-so-p.business.site",
+    "address": "Mlinska ulica 31",
+    "city": "9224 Turnišče"
+  },
+  {
+    "name": "ŠC Velenje",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@scv.si",
+    "website": "https://www.scv.si",
+    "address": "Trg mladosti 3",
+    "city": "3320 Velenje",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ADRIA DOM d.o.o.",
+    "subindustry": [
+      "Gradbeništvo",
+      "Krovstvo, kleparstvo in tesarstvo",
+      "Lesna dejavnost",
+      "Avtodomi in prikolice",
+      "Stavbno pohištvo"
+    ],
+    "email": "info@adria-home.com",
+    "website": "https://adria-home.com",
+    "address": "Kanižarica 135",
+    "city": "8340 Črnomelj",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "AGENCIJA RS ZA KMETIJSKE TRGE IN RAZVOJ PODEŽELJA",
+    "subindustry": ["Javna uprava"],
+    "email": "aktrp@gov.si",
+    "website": "",
+    "address": "Dunajska cesta 160",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "AKIDS d.o.o.",
+    "subindustry": "",
+    "email": "uprava@babycenter.si",
+    "website": "https://www.babycenter.si",
+    "address": "Šmartinska cesta 130",
+    "city": "1000 Ljubljana"
+  },
+  {
+    "name": "AKTIVA ČIŠČENJE d.o.o.",
+    "subindustry": ["Čiščenje"],
+    "email": "ciscenje@aktiva.si",
+    "website": "http://www.aktiva.si",
+    "address": "Ljubljanska cesta 12F",
+    "city": "1236 Trzin",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ALPINA, d.o.o.",
+    "subindustry": ["Obutev in čevljarstvo"],
+    "email": "alpina@alpina.si",
+    "website": "http://www.alpinashop.si",
+    "address": "Strojarska ulica 2",
+    "city": "4226 Žiri",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "AMOMONT d.o.o.",
+    "subindustry": ["Elektroinštalacije", "Gradbeništvo"],
+    "email": "office@amomont.si",
+    "website": "http://www.amomont.si",
+    "address": "Miklavška cesta 53A",
+    "city": "2311 Hoče",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "AMZS d.d.",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "info@amzs.si",
+    "website": "http://www.amzs.si",
+    "address": "Dunajska cesta 128A",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "AUTOMATIC SERVIS d.o.o.",
+    "subindustry": ["Prodajni avtomati", "Trgovina"],
+    "email": "info@automaticservis.si",
+    "website": "http://www.automaticservis.si",
+    "address": "Verovškova ulica 60E",
+    "city": "1000 Ljubljana",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "Aluminium Kety Emmi d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "info@emmi.si",
+    "website": "https://www.emmi.si",
+    "address": "Kolodvorska ulica 37A",
+    "city": "2310 Slovenska Bistrica",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "Atlantic Droga Kolinska d.o.o.",
+    "subindustry": ["Prehrambena industrija", "Pijače"],
+    "email": "kontaktcentersi@atlanticgrupa.com",
+    "website": "https://www.atlanticgrupa.com",
+    "address": "Kolinska ulica 1",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "B + N SL Facility Services d.o.o.",
+    "subindustry": ["Čiščenje"],
+    "email": "info@bplusn.si",
+    "website": "https://bplusn.si",
+    "address": "Tržaška cesta 53",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "BARTOG d.o.o. Trebnje",
+    "subindustry": ["Avtooprema", "Avtodeli"],
+    "email": "info@bartog.si",
+    "website": "https://www.bartog.si",
+    "address": "Obrtniška ulica 18",
+    "city": "8210 Trebnje",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "BAUHAUS d.o.o., k.d.",
+    "subindustry": ["Trgovina"],
+    "email": "info@bauhaus.si",
+    "website": "https://www.bauhaus.si",
+    "address": "Kajuhova ulica 45",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "BAUMULLER DRAVINJA, d.o.o.",
+    "subindustry": [
+      "Kovinski izdelki in oprema",
+      "Elektro",
+      "Tiskarstvo",
+      "Barve, laki in kemični izdelki"
+    ],
+    "email": "info@baumueller.si",
+    "website": "https://www.baumueller.de",
+    "address": "Delavska cesta 10",
+    "city": "3210 Slovenske Konjice",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "BELIMED d.o.o.",
+    "subindustry": [
+      "Medicinska in laboratorijska oprema",
+      "Kovinski izdelki in oprema"
+    ],
+    "email": "info.si@belimed.com",
+    "website": "http://www.belimed.com",
+    "address": "Taborska cesta 38E",
+    "city": "1290 Grosuplje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "BOSCH REXROTH d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "info@boschrexroth.si",
+    "website": "https://www.boschrexroth.com/de/de",
+    "address": "Zgornji Brnik 410",
+    "city": "4210 BRNIK",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "BOXMARK LEATHER d.o.o.",
+    "subindustry": ["Krznarstvo in usnjarstvo", "Tekstil in tekstilni izdelki"],
+    "email": "si.office@boxmark.com",
+    "website": "http://www.boxmark.com",
+    "address": "Industrijsko naselje 10",
+    "city": "2325 Kidričevo",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "BRINOX d.o.o.",
+    "subindustry": ["Projektiranje", "Kovinski izdelki in oprema"],
+    "email": "info@brinox.si",
+    "website": "http://www.brinox.si",
+    "address": "Sora 21",
+    "city": "1215 Medvode",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "BTC d.d.",
+    "subindustry": [
+      "Nepremičnine",
+      "Prevozništvo in transport",
+      "Gostilne in restavracije"
+    ],
+    "email": "info@btc.si",
+    "website": "https://www.btc.si",
+    "address": "Ameriška ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Big Bang, d.o.o.",
+    "subindustry": ["Gospodinjski aparati, izdelki in servis"],
+    "email": "",
+    "website": "https://www.bigbang.si",
+    "address": "Madžarska ulica 12",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "CABLEX-M d.o.o.",
+    "subindustry": [
+      "Plastika in izdelki iz plastike",
+      "Električni stroji in naprave"
+    ],
+    "email": "info@cablex-m.si",
+    "website": "https://www.cablex.si",
+    "address": "Ob Meži 11",
+    "city": "2392 Mežica",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "CABLEX-T d.o.o.",
+    "subindustry": ["Elektroinštalacije", "Električni stroji in naprave"],
+    "email": "cablex@cablex.si",
+    "website": "https://www.cablex.si",
+    "address": "Cesta Ste Marie aux Mines 9",
+    "city": "4290 Tržič",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "CELJSKE MESNINE d.o.o.",
+    "subindustry": ["Meso in mesni izdelki"],
+    "email": "info@celjske-mesnine.si",
+    "website": "http://www.celjske-mesnine.si",
+    "address": "Cesta v Trnovlje 17",
+    "city": "3000 Celje",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "CELOVITE STORITVE d.o.o.",
+    "subindustry": ["Čiščenje"],
+    "email": "info@celovite.si",
+    "website": "http://www.celovite.si",
+    "address": "Kardeljeva cesta 85",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "CIMOS d.d.",
+    "subindustry": ["Avtodeli"],
+    "email": "info@cimos.eu",
+    "website": "http://www.cimos.eu",
+    "address": "Cesta Marežganskega upora 2",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "COSYLAB d.d.",
+    "subindustry": ["Računalništvo in informatika"],
+    "email": "",
+    "website": "http://www.cosylab.com",
+    "address": "Gerbičeva ulica 64",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "CP PTUJ d.d.",
+    "subindustry": ["Cestne storitve in oprema"],
+    "email": "uprava@cpptuj.si",
+    "website": "http://www.cpptuj.si",
+    "address": "Zagrebška cesta 49A",
+    "city": "2250 Ptuj",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "CPG VG d.o.o.",
+    "subindustry": ["Gradbeništvo"],
+    "email": "cpg@kolektor.com",
+    "website": "",
+    "address": "Tovarniška cesta 23",
+    "city": "5270 Ajdovščina",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "CPK d.d.",
+    "subindustry": ["Cestne storitve in oprema"],
+    "email": "info@cpk.si",
+    "website": "http://www.cpk.si",
+    "address": "ULICA 15. MAJA 14",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "CSD Ljubljana",
+    "subindustry": ["Javna uprava"],
+    "email": "zupjs.csdljubl@gov.si",
+    "website": "https://www.csd-slovenije.si/csd-ljubljana",
+    "address": "Dalmatinova ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "CUDV Draga",
+    "subindustry": ["Zdravstvo"],
+    "email": "center.draga.ig@center-db.si",
+    "website": "http://www.center-db.si",
+    "address": "Draga 1",
+    "city": "1292 Ig",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "CUDV Črna na Koroškem",
+    "subindustry": [null],
+    "email": "",
+    "website": "",
+    "address": "Center 144",
+    "city": "2393 Črna na Koroškem"
+  },
+  {
+    "name": "Center Janeza Levca Ljubljana",
+    "subindustry": ["Domovi", "Izobraževalne institucije"],
+    "email": "zavod.zujlevec@guest.arnes.si",
+    "website": "http://www.zujl.si",
+    "address": "Karlovška cesta 18",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Comtrade d.o.o.",
+    "subindustry": ["Računalništvo in informatika"],
+    "email": "info.si@comtrade.com",
+    "website": "http://www.comtrade.com",
+    "address": "Letališka cesta 29B",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "ContiTech Slovenija, d.o.o.",
+    "subindustry": ["Gumarstvo"],
+    "email": "info_europe@veyance.com",
+    "website": "",
+    "address": "Škofjeloška cesta 6",
+    "city": "4000 Kranj",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "CŠOD",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@csod.si",
+    "website": "https://www.csod.si",
+    "address": "Frankopanska ulica 9",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "DINOS d.o.o.",
+    "subindustry": ["Komunala in odpad", "Reciklaža"],
+    "email": "info@dinos.si",
+    "website": "http://www.dinos.si",
+    "address": "Šlandrova ulica 6",
+    "city": "1231 LJUBLJANA-ČRNUČE",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM DANICE VOGRINEC MARIBOR",
+    "subindustry": ["Domovi"],
+    "email": "info@danica-vogrinec.si",
+    "website": "http://www.danica-vogrinec.si",
+    "address": "Čufarjeva cesta 9",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM LUKAVCI",
+    "subindustry": ["Domovi"],
+    "email": "lukavci@siol.net",
+    "website": "https://www.lukavci.si",
+    "address": "Lukavci 9",
+    "city": "9242 Križevci pri Ljutomeru",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM PTUJ",
+    "subindustry": ["Domovi"],
+    "email": "info@domptuj.si",
+    "website": "http://www.domptuj.si",
+    "address": "Volkmerjeva cesta 10",
+    "city": "2250 Ptuj",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM STAREJŠIH OBČANOV LJUBLJANA VIČ RUDNIK",
+    "subindustry": ["Domovi"],
+    "email": "",
+    "website": "https://www.dso-vic.si",
+    "address": "Cesta na Bokalce 51",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM STAREJŠIH Rakičan",
+    "subindustry": ["Domovi"],
+    "email": "recepcijams@dsrakican.si",
+    "website": "http://www.ds-rakican.com",
+    "address": "Ulica dr. Vrbnjaka 1",
+    "city": "9000 Murska Sobota",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DRI upravljanje investicij, d.o.o.",
+    "subindustry": ["Gradbeništvo", "Projektiranje"],
+    "email": "info@dri.si",
+    "website": "https://www.dri.si",
+    "address": "Kotnikova ulica 40",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DRŽAVNI ZBOR REPUBLIKE SLOVENIJE",
+    "subindustry": ["Javna uprava"],
+    "email": "gp@dz-rs.si",
+    "website": "https://www.dz-rs.si",
+    "address": "Šubičeva ulica 4",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "DS SMITH SLOVENIJA d.o.o.",
+    "subindustry": ["Embalaža"],
+    "email": "",
+    "website": "",
+    "address": "Cesta prvih borcev 51",
+    "city": "8280 Brestanica",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "DUO IMPOLJCA",
+    "subindustry": ["Domovi"],
+    "email": "duo.impoljca@duo-impoljca.si",
+    "website": "http://www.impoljca.si",
+    "address": "Arto 13",
+    "city": "8293 Studenec",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Don Don d.o.o.",
+    "subindustry": ["Pekarstvo in slaščičarstvo"],
+    "email": "",
+    "website": "",
+    "address": "Gasilska cesta 2",
+    "city": "1290 Grosuplje",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "EES SISTEMI d.o.o.",
+    "subindustry": ["Čiščenje"],
+    "email": "info@ees.si",
+    "website": "http://www.ees.si",
+    "address": "Ameriška ulica 8",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ELEKTRO GORENJSKA, d.d",
+    "subindustry": ["Elektro"],
+    "email": "info@elektro-gorenjska.si",
+    "website": "http://www.elektro-gorenjska.si",
+    "address": "Ulica Mirka Vadnova 3A",
+    "city": "4000 Kranj",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ELEKTRO PRIMORSKA d.d.",
+    "subindustry": ["Elektro"],
+    "email": "",
+    "website": "http://www.elektro-primorska.si",
+    "address": "Erjavčeva ulica 22",
+    "city": "5000 Nova Gorica",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ENDAVA d.o.o.",
+    "subindustry": ["Računalništvo in informatika"],
+    "email": "accounting.si@endava.com",
+    "website": "",
+    "address": "Vilharjeva cesta 46",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "EUREL d.o.o.",
+    "subindustry": [
+      "Elektronika",
+      "Plastika in izdelki iz plastike",
+      "Gospodinjski aparati, izdelki in servis"
+    ],
+    "email": "sales@eurel.si",
+    "website": "http://www.eurel.si",
+    "address": "Bistriška cesta 54",
+    "city": "2319 Poljčane",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "Ekipa2 d.o.o.",
+    "subindustry": ["Računalništvo in informatika"],
+    "email": "legal@outfit7.com",
+    "website": "https://outfit7.com",
+    "address": "Ameriška ulica 8",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "FARMTECH d.o.o.",
+    "subindustry": ["Kmetijski in gozdarski stroji"],
+    "email": "info@farmtech.eu",
+    "website": "https://www.farmtech.eu",
+    "address": "Industrijska ulica 7",
+    "city": "9240 Ljutomer",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "FILC d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "filc@filc.si",
+    "website": "http://www.filc.si",
+    "address": "Trata 48",
+    "city": "4220 Škofja Loka",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "FOTONA d.o.o.",
+    "subindustry": [
+      "Medicinska in laboratorijska oprema",
+      "Mehanika in finomehanika",
+      "Optika"
+    ],
+    "email": "info@fotona.si",
+    "website": "",
+    "address": "Stegne 7",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "FRUCTAL d.o.o.",
+    "subindustry": "",
+    "email": "info@fructal.si",
+    "website": "http://www.fructal.si",
+    "address": "Tovarniška cesta 7",
+    "city": "5270 Ajdovščina"
+  },
+  {
+    "name": "Fraport Slovenija, d.o.o.",
+    "subindustry": ["Letalstvo"],
+    "email": "info@lju-airport.si",
+    "website": "http://www.lju-airport.si",
+    "address": "Zgornji Brnik 130A",
+    "city": "4210 BRNIK",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "GEBERIT proizvodnja d.o.o.",
+    "subindustry": ["Keramika in keramični izdelki"],
+    "email": "info.si@geberit.com",
+    "website": "http://www.geberit.si",
+    "address": "Bezena 55A",
+    "city": "2342 Ruše",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "GEN-I, d.o.o.",
+    "subindustry": ["Elektro"],
+    "email": "",
+    "website": "http://www.gen-i.si",
+    "address": "Vrbina 17",
+    "city": "8270 Krško",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "GKN Driveline Slovenija, d.o.o.",
+    "subindustry": ["Avtodeli", "Mehanika in finomehanika"],
+    "email": "",
+    "website": "http://www.gknplc.com",
+    "address": "Rudniška cesta 20",
+    "city": "3214 Zreče",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "GMT d.o.o.",
+    "subindustry": ["Avtodeli"],
+    "email": "info@gmt.si",
+    "website": "http://www.gmt.si",
+    "address": "Noršinska ulica 31",
+    "city": "9000 Murska Sobota",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "GORENJSKA GRADBENA DRUŽBA d.d.",
+    "subindustry": ["Gradbeništvo", "Cestne storitve in oprema"],
+    "email": "tajnistvo@ggd.si",
+    "website": "https://www.ggd.si",
+    "address": "Jezerska cesta 20",
+    "city": "4000 Kranj",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "GVO, d.o.o.",
+    "subindustry": ["Projektiranje", "Telekomunikacije"],
+    "email": "",
+    "website": "",
+    "address": "Cigaletova ulica 10",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "HARVEY NORMAN TRADING d.o.o.",
+    "subindustry": [
+      "Pohištvo in oprema",
+      "Gospodinjski aparati, izdelki in servis",
+      "Trgovina"
+    ],
+    "email": "info@harveynorman.si",
+    "website": "http://www.harveynorman.si",
+    "address": "Letališka cesta 3D",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "HENKEL MARIBOR d.o.o.",
+    "subindustry": [
+      "Kozmetična dejavnost",
+      "Barve, laki in kemični izdelki",
+      "Marketing in oglaševanje"
+    ],
+    "email": "henkel.slovenija@henkel.com",
+    "website": "http://www.henkel.si",
+    "address": "Industrijska ulica 23",
+    "city": "2000 Maribor",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "HERVIS d.o.o.",
+    "subindustry": ["Šport in oprema"],
+    "email": "tajnistvo@hervis.si",
+    "website": "http://www.hervis.si",
+    "address": "Moskovska ulica 4",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "Herz d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "info@herz.si",
+    "website": "http://www.herz.si",
+    "address": "Grmaška cesta 3",
+    "city": "1275 Šmartno pri Litiji",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "IKEA Slovenija, d.o.o.",
+    "subindustry": ["Pohištvo in oprema"],
+    "email": "csc.si@see.support.email.ikea.com",
+    "website": "",
+    "address": "Švedska ulica 6",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "IMPOL PCP d.o.o.",
+    "subindustry": ["Kovinostrugarstvo"],
+    "email": "info@impol.si",
+    "website": "http://www.impol.si",
+    "address": "Partizanska ulica 38",
+    "city": "2310 Slovenska Bistrica",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "INOTHERM d.o.o.",
+    "subindustry": ["Mizarstvo", "Stavbno pohištvo"],
+    "email": "prodaja@inotherm.si",
+    "website": "http://www.inotherm.si",
+    "address": "Prigorica 98",
+    "city": "1331 Dolenja vas",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "INTERBLOCK d.o.o.",
+    "subindustry": ["Električni stroji in naprave", "Elektronika"],
+    "email": "info@interblockgaming.com",
+    "website": "http://www.interblockgaming.com",
+    "address": "Gorenjska cesta 23",
+    "city": "1234 Mengeš",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "INTERSPORT ISI, d.o.o.",
+    "subindustry": ["Šport in oprema"],
+    "email": "spletnatrgovina@intersport.si",
+    "website": "https://www.intersport.si",
+    "address": "Cesta na Okroglo 3",
+    "city": "4202 Naklo",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "IPPS d.o.o.",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "info@ipps.posta.si",
+    "website": "",
+    "address": "Zagrebška cesta 106",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ISOKON, d.o.o., Slovenske Konjice",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "sales@isokon.si",
+    "website": "http://www.isokon.si",
+    "address": "Industrijska cesta 16",
+    "city": "3210 Slovenske Konjice",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ISTRABENZ TURIZEM d.d.",
+    "subindustry": ["Turizem", "Hoteli"],
+    "email": "info@lifeclass.net",
+    "website": "http://www.lifeclass.net",
+    "address": "Obala 33",
+    "city": "6320 Portorož - Portorose",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "JATA EMONA d.o.o.",
+    "subindustry": ["Reja in prodaja živali"],
+    "email": "",
+    "website": "http://www.jata-emona.si",
+    "address": "Agrokombinatska cesta 84",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "JUB d.o.o.",
+    "subindustry": ["Barve, laki in kemični izdelki", "Trgovina"],
+    "email": "info@jub.si",
+    "website": "http://www.jub.eu",
+    "address": "Dol pri Ljubljani 28",
+    "city": "1262 Dol pri Ljubljani",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Javno podjetje Marprom d.o.o.",
+    "subindustry": ["Avtobusni prevozi"],
+    "email": "info@marprom.si",
+    "website": "http://www.marprom.si",
+    "address": "Mlinska ulica 1",
+    "city": "2000 Maribor",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "KEA, d.o.o.",
+    "subindustry": ["Pijače", "Vrtnarstvo in urejanje okolice"],
+    "email": "info@kea.si",
+    "website": "http://kea.si",
+    "address": "Obrtna ulica 2",
+    "city": "3230 Šentjur",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "KI",
+    "subindustry": [
+      "Izobraževalne institucije",
+      "Podjetniške in poslovne storitve"
+    ],
+    "email": "info@ki.si",
+    "website": "http://www.ki.si",
+    "address": "Hajdrihova ulica 19",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "KIK TEXTILIEN UND NON-FOOD d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "info-slovenija@kik.si",
+    "website": "http://www.kik-textilien.com",
+    "address": "Ruska ulica 6",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KLEMEN TRANSPORT , KLEMEN PIŠKUR S.P.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info@klementransport.si",
+    "website": "",
+    "address": "Gorenjska cesta 9",
+    "city": "1234 Mengeš",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "KLS LJUBNO d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Avtodeli"],
+    "email": "kls@siol.net",
+    "website": "http://www.kls.si",
+    "address": "Loke 36",
+    "city": "3333 Ljubno ob Savinji",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "KOBAL TRANSPORTI d.o.o.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info@kobaltransporti.si",
+    "website": "http://www.kobaltransporti.si",
+    "address": "Letališka cesta 33E",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "KOLEKTOR ATP d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "atp@kolektor.com",
+    "website": "http://www.kolektor.com",
+    "address": "Industrijska cesta 2",
+    "city": "6230 Postojna",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "KOLEKTOR CPG d.o.o.",
+    "subindustry": ["Cestne storitve in oprema", "Gradbeništvo"],
+    "email": "cpg@kolektor.com",
+    "website": "https://www.kolektorgradbenistvo.si",
+    "address": "Industrijska cesta 2",
+    "city": "5000 Nova Gorica",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "KOLPA, d.o.o. Metlika",
+    "subindustry": ["Pohištvo in oprema", "Keramika in keramični izdelki"],
+    "email": "info@kolpa.si",
+    "website": "http://www.kolpa.si",
+    "address": "Rosalnice 5",
+    "city": "8330 Metlika",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KOVINOPLASTIKA LOŽ d.o.o.",
+    "subindustry": [
+      "Plastika in izdelki iz plastike",
+      "Ključavničarstvo",
+      "Kovinski izdelki in oprema"
+    ],
+    "email": "info@kovinoplastika.si",
+    "website": "",
+    "address": "Cesta 19. oktobra 57",
+    "city": "1386 Stari trg pri Ložu",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "KOVIS-LIVARNA d.o.o.",
+    "subindustry": ["Livarstvo"],
+    "email": "info@kl.kovis-group.com",
+    "website": "https://www.kovis-group.com/kl",
+    "address": "Železarska cesta 3",
+    "city": "3220 Štore",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "KPL d.o.o.",
+    "subindustry": ["Cestne storitve in oprema"],
+    "email": "kpl@kpl.si",
+    "website": "http://www.kpl.si",
+    "address": "Tbilisijska ulica 61",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "KRANJSKI VRTCI",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "info@kranjski-vrtci.si",
+    "website": "http://www.kranjski-vrtci.si",
+    "address": "Ulica Nikole Tesle 2",
+    "city": "4000 Kranj"
+  },
+  {
+    "name": "Klinika Golnik",
+    "subindustry": ["Zdravstvo"],
+    "email": "tajnistvo@klinika-golnik.si",
+    "website": "http://www.klinika-golnik.si",
+    "address": "Golnik 36",
+    "city": "4204 Golnik",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "Lekarna Ljubljana",
+    "subindustry": [
+      "Lekarne in specializirane trgovine",
+      "Zdravstveni in medicinski pripomočki"
+    ],
+    "email": "lekarna.ljubljana@lekarna-lj.si",
+    "website": "https://www.lekarnaljubljana.si",
+    "address": "Komenskega ulica 11",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "MARJETICA KOPER, d.o.o.-s.r.l.",
+    "subindustry": ["Komunala in odpad", "Vrtnarstvo in urejanje okolice"],
+    "email": "",
+    "website": "",
+    "address": "ULICA 15. MAJA 4",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "MDDSZ",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.mddsz@gov.si",
+    "website": "http://www.mddsz.gov.si",
+    "address": "Štukljeva cesta 44",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MESTNA OBČINA MARIBOR",
+    "subindustry": [
+      "Občine, upravne enote in lokalne skupnosti",
+      "Javna uprava"
+    ],
+    "email": "mestna.obcina@maribor.si",
+    "website": "http://www.maribor.si",
+    "address": "Ulica heroja Staneta 1",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "METRO, d.d.",
+    "subindustry": ["Trgovina", "Oblačila in modni dodatki"],
+    "email": "info@metro.si",
+    "website": "https://www.mana.eu",
+    "address": "Lava 8",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MIMOVRSTE d.o.o.",
+    "subindustry": [
+      "Elektronika",
+      "Spletna trgovina in prodaja po telefonu",
+      "Računalništvo in informatika"
+    ],
+    "email": "info@mimovrste.com",
+    "website": "http://www.mimovrste.com",
+    "address": "Cesta Ljubljanske brigade 21",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "MINERAL d.o.o.",
+    "subindustry": ["Kamnoseštvo"],
+    "email": "mineral@mineral.si",
+    "website": "http://www.mineral.si",
+    "address": "Podpeč 46",
+    "city": "1352 Preserje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "MINISTRSTVO ZA FINANCE",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.mf@gov.si",
+    "website": "http://www.mf.gov.si",
+    "address": "Župančičeva ulica 3",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MJU",
+    "subindustry": ["Javna uprava"],
+    "email": "",
+    "website": "http://www.mju.gov.si",
+    "address": "Tržaška cesta 21",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MK Trgovina d.o.o.",
+    "subindustry": ["Knjigarne in papirnice", "Trgovina"],
+    "email": "info@mladinska-knjiga.si",
+    "website": "https://www.mladinska-knjiga.si",
+    "address": "Slovenska cesta 29",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "MKGP",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.mkgp@gov.si",
+    "website": "http://www.mkgp.gov.si",
+    "address": "Dunajska cesta 22",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MLM d.d.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "info@mlm-mb.si",
+    "website": "http://www.mlm-mb.si",
+    "address": "Oreško nabrežje 9",
+    "city": "2000 Maribor",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MM KOLIČEVO d.o.o.",
+    "subindustry": ["Embalaža", "Papirna galanterija"],
+    "email": "MM.Kolicevo@mm.group",
+    "website": "",
+    "address": "Papirniška cesta 1",
+    "city": "1230 Domžale",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MUELLER DROGERIJA d.o.o.",
+    "subindustry": [
+      "Papirna galanterija",
+      "Igrače in igralni pripomočki",
+      "Trgovina",
+      "Kozmetična dejavnost"
+    ],
+    "email": "info@mueller.si",
+    "website": "http://www.mueller.si",
+    "address": "Čopova ulica 40",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MZI",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.mzip@gov.si",
+    "website": "http://www.mzip.gov.si",
+    "address": "Tržaška cesta 19",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Mercator IP, d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@mercator-ip.si",
+    "website": "https://www.mercator-ip.si",
+    "address": "Cesta na Okroglo 3",
+    "city": "4202 Naklo",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "NIKO, d.o.o., Železniki",
+    "subindustry": ["Elektro"],
+    "email": "info@niko.si",
+    "website": "http://www.niko.si",
+    "address": "Otoki 16",
+    "city": "4228 Železniki",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "OBI d.o.o.",
+    "subindustry": ["Pohištvo in oprema"],
+    "email": "kontakt@obi.si",
+    "website": "",
+    "address": "Jurčkova cesta 226",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "OKRAJNO SODIŠČE V LJUBLJANI",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.ojlj@sodisce.si",
+    "website": "",
+    "address": "Miklošičeva cesta 10",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OKROŽNO SODIŠČE V CELJU",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.ozce@sodisce.si",
+    "website": "",
+    "address": "Prešernova ulica 22",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OKROŽNO SODIŠČE V KOPRU",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.ozkp@sodisce.si",
+    "website": "",
+    "address": "Ferrarska ulica 9",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OKROŽNO SODIŠČE V MARIBORU",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.ozmb@sodisce.si",
+    "website": "http://www.sodisce.si/okromb",
+    "address": "Sodna ulica 14",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OMEGA AIR d.o.o. Ljubljana",
+    "subindustry": [
+      "Ogrevalna tehnika",
+      "Klima in prezračevanje",
+      "Črpalke in kompresorji"
+    ],
+    "email": "info@omega-air.si",
+    "website": "http://www.omega-air.si",
+    "address": "Cesta Dolomitskega odreda 10",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ORTOPEDSKA BOLNIŠNICA VALDOLTRA OSPEDALE ORTOPEDICO VALDOLTRA",
+    "subindustry": ["Zdravstvo"],
+    "email": "valdoltra@ob-valdoltra.si",
+    "website": "http://www.ob-valdoltra.si",
+    "address": "Jadranska cesta 31",
+    "city": "6280 Ankaran - Ancarano",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "PEKARNA PEČJAK d.o.o.",
+    "subindustry": ["Pekarstvo in slaščičarstvo", "Prehrambena industrija"],
+    "email": "info@pecjak.eu",
+    "website": "https://www.pecjak.eu",
+    "address": "Dolenjska cesta 442",
+    "city": "1291 Škofljica",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "PIVKA d.d.",
+    "subindustry": ["Meso in mesni izdelki"],
+    "email": "",
+    "website": "",
+    "address": "Kal 1",
+    "city": "6257 Pivka",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "PIŠEK - VITLI KRPAN, d.o.o.",
+    "subindustry": [
+      "Gozdarstvo",
+      "Kmetijski in gozdarski stroji",
+      "Kovinski izdelki in oprema"
+    ],
+    "email": "info@vitli-krpan.com",
+    "website": "http://www.vitli-krpan.com",
+    "address": "Jazbina 9A",
+    "city": "3240 Šmarje pri Jelšah",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "PLASTIKA SKAZA d.o.o.",
+    "subindustry": ["Ekologija", "Plastika in izdelki iz plastike"],
+    "email": "info@skaza.si",
+    "website": "https://www.skaza.si",
+    "address": "Selo 22",
+    "city": "3320 Velenje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "PODGORJE d.o.o. Šentjernej",
+    "subindustry": ["Pohištvo in oprema", "Avtodomi in prikolice"],
+    "email": "info@podgorje.si",
+    "website": "http://www.podgorje.si",
+    "address": "Trubarjeva cesta 24",
+    "city": "8310 Šentjernej",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "POLYCOM Škofja Loka d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "info@polycom.si",
+    "website": "http://www.polycom.si",
+    "address": "Dobje 10",
+    "city": "4223 Poljane nad Škofjo Loko",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "POMGRAD d.d.",
+    "subindustry": [
+      "Nepremičnine",
+      "Betonski in cementni izdelki",
+      "Cestne storitve in oprema",
+      "Gradbeništvo"
+    ],
+    "email": "info@pomgrad.si",
+    "website": "http://www.pomgrad.si",
+    "address": "Bakovska ulica 31",
+    "city": "9000 Murska Sobota",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "PORSCHE INTER AUTO d.o.o.",
+    "subindustry": ["Avtohiša in gospodarska vozila"],
+    "email": "porsche.ljubljana@porsche.si",
+    "website": "http://www.porscheljubljana.com",
+    "address": "Bravničarjeva ulica 5",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "PREDILNICA LITIJA d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "",
+    "website": "http://www.litija.com",
+    "address": "Kidričeva cesta 1",
+    "city": "1270 Litija",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "PREIS SEVNICA d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "office.slovenia@preisgroup.com",
+    "website": "http://www.preisgroup.com",
+    "address": "Savska cesta 23",
+    "city": "8290 Sevnica",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "PRO PLUS d.o.o.",
+    "subindustry": [
+      "Marketing in oglaševanje",
+      "Radio in televizija",
+      "Filmska in video dejavnost"
+    ],
+    "email": "",
+    "website": "http://24ur.com",
+    "address": "Kranjčeva ulica 26",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "PROHUMAN d.o.o.",
+    "subindustry": ["Zaposlovanje"],
+    "email": "info@naton.si",
+    "website": "http://www.naton.si",
+    "address": "Cesta 24. junija 25",
+    "city": "1231 LJUBLJANA-ČRNUČE",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Paloma d.d.",
+    "subindustry": ["Papirna galanterija", "Kozmetična dejavnost"],
+    "email": "info@paloma.si",
+    "website": "http://www.paloma.si",
+    "address": "Sladki Vrh 1",
+    "city": "2214 Sladki Vrh",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Panvita MIR d.d",
+    "subindustry": [
+      "Kmetijstvo, poljedelstvo in sadjarstvo",
+      "Meso in mesni izdelki"
+    ],
+    "email": "mir@panvita.si",
+    "website": "http://www.ave.si",
+    "address": "Ljutomerska cesta 28A",
+    "city": "9250 Gornja Radgona",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "Poclain Hydraulics d.o.o.",
+    "subindustry": ["Hidravlika"],
+    "email": "marja.karba@poclain.com",
+    "website": "",
+    "address": "Industrijska ulica 2",
+    "city": "4226 Žiri",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "REFLEX Gornja Radgona d.o.o.",
+    "subindustry": [
+      "Zaključna dela v gradbeništvu",
+      "Steklarstvo in stekleni izdelki",
+      "Trgovina"
+    ],
+    "email": "info@reflex.si",
+    "website": "http://www.reflex.si",
+    "address": "Podgrad 4",
+    "city": "9250 Gornja Radgona",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "RUDNIDIS, d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@maribor.leclerc",
+    "website": "",
+    "address": "Jurčkova cesta 225",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "RUTAR MARKETING, d.o.o.",
+    "subindustry": ["Pohištvo in oprema"],
+    "email": "info@rutar.com",
+    "website": "http://www.rutar.com",
+    "address": "Premrlova ulica 14",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SAMSIC d.o.o.",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "pisarna@samsic-see.com",
+    "website": "http://www.tojer.si",
+    "address": "Dunajska cesta 161",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "SANOLABOR, d.d.",
+    "subindustry": [
+      "Farmacija",
+      "Zdravstveni in medicinski pripomočki",
+      "Lekarne in specializirane trgovine"
+    ],
+    "email": "sanolabor@sanolabor.si",
+    "website": "https://www.sanolabor.si",
+    "address": "Leskoškova cesta 4",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SB BREŽICE",
+    "subindustry": ["Zdravstvo"],
+    "email": "tajnistvo@sb-brezice.si",
+    "website": "http://www.sb-brezice.si",
+    "address": "Černelčeva cesta 15",
+    "city": "8250 Brežice",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SB Trbovlje",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@sb-trbovlje.si",
+    "website": "http://www.sb-trbovlje.si",
+    "address": "Rudarska cesta 9",
+    "city": "1420 Trbovlje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SIBO G. d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "info@sibo-group.eu",
+    "website": "http://www.sibo-group.eu",
+    "address": "Kidričeva cesta 99",
+    "city": "4220 Škofja Loka",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "SIJ RAVNE SYSTEMS d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "info@ravnesystems.com",
+    "website": "http://sij.ravnesystems.com",
+    "address": "Koroška cesta 14",
+    "city": "2390 Ravne na Koroškem",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "SIP, d.d. Šempeter v Savinjski dolini",
+    "subindustry": [
+      "Kmetijski in gozdarski stroji",
+      "Kovinski izdelki in oprema"
+    ],
+    "email": "info@sip.si",
+    "website": "http://www.sip.si",
+    "address": "Juhartova ulica 2",
+    "city": "3311 Šempeter v Savinjski dolini",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "SLOREST d.o.o.",
+    "subindustry": [
+      "Gostilne in restavracije",
+      "Dostava hrane",
+      "Podjetniške in poslovne storitve",
+      "Hitra prehrana"
+    ],
+    "email": "info@slorest.si",
+    "website": "http://www.slorest.si",
+    "address": "Verovškova ulica 55A",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "SLOVENSKO NARODNO GLEDALIŠČE Opera in balet Ljubljana",
+    "subindustry": ["Kino, gledališče in opera", "Kultura in umetnost"],
+    "email": "info@opera.si",
+    "website": "http://www.opera.si",
+    "address": "Župančičeva ulica 1",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "SMARTY d.o.o.",
+    "subindustry": ["Zaposlovanje"],
+    "email": "info@smarty-hr.si",
+    "website": "",
+    "address": "Vrečerjeva ulica 14",
+    "city": "3310 Žalec",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "SNG MARIBOR",
+    "subindustry": ["Kultura in umetnost", "Kino, gledališče in opera"],
+    "email": "sng.maribor@sng-mb.si",
+    "website": "http://www.sng-mb.si",
+    "address": "Slovenska ulica 27",
+    "city": "2000 Maribor",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "SOGEFI FILTRATION d.o.o.",
+    "subindustry": ["Avtodeli"],
+    "email": "",
+    "website": "",
+    "address": "Ladja 11",
+    "city": "1215 Medvode",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "STARKOM d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "info@starkom.si",
+    "website": "http://www.starkom.si",
+    "address": "Cesta k Tamu 18",
+    "city": "2000 Maribor",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "STATISTIČNI URAD REPUBLIKE SLOVENIJE",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.surs@gov.si",
+    "website": "https://www.stat.si",
+    "address": "Litostrojska cesta 54",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "STILLES d.o.o.",
+    "subindustry": ["Pohištvo in oprema", "Trgovina"],
+    "email": "stilles@stilles.si",
+    "website": "http://www.stilles.si",
+    "address": "Savska cesta 13",
+    "city": "8290 Sevnica",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "STUDIO MODERNA d.o.o. - v stečaju",
+    "subindustry": ["Spletna trgovina in prodaja po telefonu"],
+    "email": "",
+    "website": "",
+    "address": "Podvine 36",
+    "city": "1410 Zagorje ob Savi",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "SUMIDA SLOVENIJA, d.o.o.",
+    "subindustry": ["Elektronika", "Avtodeli"],
+    "email": "pegart@eu.sumida.com",
+    "website": "http://www.sumida.si",
+    "address": "Blejska Dobrava 124",
+    "city": "4273 Blejska Dobrava",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "SVZ HRASTOVEC",
+    "subindustry": ["Zdravstvo"],
+    "email": "zavod@hrastovec.org",
+    "website": "http://www.hrastovec.org",
+    "address": "HRASTOVEC V SLOVENSKIH GORICAH 22",
+    "city": "2230 LENART V SLOVENSKIH GORICAH",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "SiDG d. o. o.",
+    "subindustry": ["Gozdarstvo"],
+    "email": "tajnistvo@sidg.si",
+    "website": "http://www.sidg.si",
+    "address": "Rožna ulica 39",
+    "city": "1330 Kočevje",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "Sovita d.o.o.",
+    "subindustry": ["Dostava hrane", "Gostilne in restavracije"],
+    "email": "info@sovita.si",
+    "website": "https://www.sovita.si",
+    "address": "Tehnološki park 22A",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "Surovina d.o.o.",
+    "subindustry": ["Komunala in odpad"],
+    "email": "surovina@surovina.com",
+    "website": "",
+    "address": "Ulica Vita Kraigherja 5",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SŽ, d.o.o.",
+    "subindustry": ["Železniški promet", "Finančne storitve"],
+    "email": "",
+    "website": "http://www.slo-zeleznice.si",
+    "address": "Kolodvorska ulica 11",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "T - 2 d.o.o.",
+    "subindustry": ["Telekomunikacije", "Mobilna telefonija"],
+    "email": "info@t-2.net",
+    "website": "http://www.t-2.net",
+    "address": "Verovškova ulica 64A",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "TEDi BETRIEBS d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "slovenija@tedi.com",
+    "website": "https://www.tedi.com",
+    "address": "Ptujska cesta 190",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "TERME OLIMIA d.d.",
+    "subindustry": ["Kopališča in zdravilišča", "Hoteli", "Turizem"],
+    "email": "info@terme-olimia.com",
+    "website": "http://www.terme-olimia.com",
+    "address": "Zdraviliška cesta 24",
+    "city": "3254 Podčetrtek",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "TERME ČATEŽ d.d.",
+    "subindustry": ["Turizem", "Kopališča in zdravilišča", "Hoteli"],
+    "email": "info@terme-catez.si",
+    "website": "http://www.terme-catez.si",
+    "address": "Topliška cesta 35",
+    "city": "8250 Brežice",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "TEŠ d.o.o.",
+    "subindustry": ["Elektro"],
+    "email": "info@te-sostanj.si",
+    "website": "http://www.te-sostanj.si",
+    "address": "Cesta Lole Ribarja 18",
+    "city": "3325 Šoštanj",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "THERMANA D.D.",
+    "subindustry": ["Hoteli", "Kopališča in zdravilišča", "Turizem"],
+    "email": "info@thermana.si",
+    "website": "http://www.thermana.si",
+    "address": "Zdraviliška cesta 6",
+    "city": "3270 Laško",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "TKK d.o.o.",
+    "subindustry": ["Barve, laki in kemični izdelki"],
+    "email": "info@tkk.si",
+    "website": "http://www.tkk.si",
+    "address": "Srpenica 1",
+    "city": "5224 Srpenica",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "TOMPLAST, d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "tomplast@tomplast.si",
+    "website": "http://www.tomplast.si",
+    "address": "Cesta na Gradec 5",
+    "city": "8233 Mirna",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "TOSAMA d.o.o.",
+    "subindustry": [
+      "Zdravstveni in medicinski pripomočki",
+      "Zdravstvo",
+      "Tekstil in tekstilni izdelki",
+      "Trgovina"
+    ],
+    "email": "info@tosama.si",
+    "website": "http://www.tosama.si",
+    "address": "Šaranovičeva cesta 35",
+    "city": "1230 Domžale",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "TRIMO d.o.o.",
+    "subindustry": ["Gradbeništvo", "Kovinski izdelki in oprema"],
+    "email": "trimo@trimo-group.com",
+    "website": "https://www.trimo-group.com",
+    "address": "Prijateljeva cesta 12",
+    "city": "8210 Trebnje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Tajfun Planina d.o.o.",
+    "subindustry": ["Kmetijski in gozdarski stroji"],
+    "email": "info@tajfun.si",
+    "website": "http://www.tajfun.si",
+    "address": "Planina pri Sevnici 41A",
+    "city": "3225 Planina pri Sevnici",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "Tastepoint d.o.o.",
+    "subindustry": "",
+    "email": "",
+    "website": "",
+    "address": "Škofja vas 39",
+    "city": "3211 Škofja vas"
+  },
+  {
+    "name": "Titus d.o.o. Dekani",
+    "subindustry": [
+      "Kovinski izdelki in oprema",
+      "Trgovina",
+      "Ključavničarstvo"
+    ],
+    "email": "info@titusplus.com",
+    "website": "http://www.titusplus.com",
+    "address": "Dekani 5",
+    "city": "6271 Dekani",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "Trelleborg Slovenija, d.o.o.",
+    "subindustry": ["Gumarstvo"],
+    "email": "si.info@trelleborg.com",
+    "website": "https://www.trelleborgslovenija.com",
+    "address": "Škofjeloška cesta 6",
+    "city": "4000 Kranj",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "UL EF",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@ef.uni-lj.si",
+    "website": "http://www.ef.uni-lj.si",
+    "address": "Kardeljeva ploščad 17",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL FDV",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "fdv.faculty@fdv.uni-lj.si",
+    "website": "http://www.fdv.si",
+    "address": "Kardeljeva ploščad 5",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL FE",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "dekanat@fe.uni-lj.si",
+    "website": "http://www.fe.uni-lj.si",
+    "address": "Tržaška cesta 25",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL FS",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "dekanat@fs.uni-lj.si",
+    "website": "http://www.fs.uni-lj.si",
+    "address": "Aškerčeva cesta 6",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL VF",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "",
+    "website": "http://www.vf.uni-lj.si",
+    "address": "Gerbičeva ulica 60",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UNITUR d.o.o.",
+    "subindustry": ["Hoteli"],
+    "email": "unitur@unitur.eu",
+    "website": "https://www.unitur.eu",
+    "address": "Cesta na Roglo 15",
+    "city": "3214 Zreče",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "UPRAVA RS ZA ZAŠČITO IN REŠEVANJE",
+    "subindustry": ["Javna uprava"],
+    "email": "urszr@urszr.si",
+    "website": "http://www.sos112.si",
+    "address": "Vojkova cesta 61",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "UVHVVR",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.uvhvvr@gov.si",
+    "website": "http://www.uvhvvr.gov.si",
+    "address": "Dunajska cesta 22",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "VIPAP VIDEM KRŠKO d.d.",
+    "subindustry": ["Papirna galanterija"],
+    "email": "vipap@vipap.si",
+    "website": "https://www.vipap.si",
+    "address": "Tovarniška ulica 18",
+    "city": "8270 Krško",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "VOC Celje d.o.o.",
+    "subindustry": ["Cestne storitve in oprema"],
+    "email": "info@voc-celje.si",
+    "website": "http://www.voc-celje.si",
+    "address": "Lava 42",
+    "city": "3000 Celje",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "VRTEC SLOVENSKA BISTRICA",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "",
+    "website": "",
+    "address": "Zidanškova ulica 1A",
+    "city": "2310 Slovenska Bistrica"
+  },
+  {
+    "name": "ZAVOD REPUBLIKE SLOVENIJE ZA TRANSFUZIJSKO medicino",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@ztm.si",
+    "website": "http://www.ztm.si",
+    "address": "Šlajmerjeva ulica 6",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZAVOD ZA VARSTVO KULTURNE DEDIŠČINE SLOVENIJE - ZVKDS",
+    "subindustry": ["Javna uprava", "Kultura in umetnost"],
+    "email": "zvkds@zvkds.si",
+    "website": "http://www.zvkds.si",
+    "address": "Poljanska cesta 40",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ZD Celje",
+    "subindustry": ["Zdravstvo"],
+    "email": "infos@zd-celje.si",
+    "website": "http://www.zd-celje.si",
+    "address": "Gregorčičeva ulica 5",
+    "city": "3000 Celje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZD MURSKA SOBOTA",
+    "subindustry": ["Zdravstvo"],
+    "email": "zdravstveni.dom@zd-ms.si",
+    "website": "https://www.zd-ms.si",
+    "address": "Grajska ulica 24",
+    "city": "9000 Murska Sobota",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM DOMŽALE",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@zd-domzale.si",
+    "website": "http://www.zd-domzale.si",
+    "address": "Mestni trg 2",
+    "city": "1230 Domžale",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM KOPER CASA DELLA SANITA CAPODISTRIA",
+    "subindustry": ["Zdravstvo"],
+    "email": "",
+    "website": "http://www.zd-koper.si",
+    "address": "Dellavallejeva ulica 3",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM NOVO MESTO",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@zd-nm.si",
+    "website": "http://www.zd-nm.si",
+    "address": "Kandijska cesta 4",
+    "city": "8000 Novo mesto",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM PTUJ",
+    "subindustry": ["Zdravstvo", "Zobozdravstvo"],
+    "email": "tajnistvo@zd-ptuj.si",
+    "website": "http://www.zd-ptuj.si",
+    "address": "Potrčeva cesta 19A",
+    "city": "2250 Ptuj",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM VELENJE",
+    "subindustry": ["Zdravstvo", "Zobozdravstvo"],
+    "email": "info@zd-velenje.si",
+    "website": "http://www.zd-velenje.si",
+    "address": "Vodnikova cesta 1",
+    "city": "3320 Velenje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZGN Ljubljana",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "zgn.ljubljana@z-zgn.lj.edus.si",
+    "website": "http://www.zgnl.si",
+    "address": "Vojkova cesta 74",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ZRC SAZU",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "zrc@zrc-sazu.si",
+    "website": "http://www.zrc-sazu.si",
+    "address": "Novi trg 2",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ZUDV DORNAVA",
+    "subindustry": ["Zdravstvo"],
+    "email": "",
+    "website": "",
+    "address": "Dornava 128",
+    "city": "2252 Dornava",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZVEZA SONČEK SO.P.",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "zveza@soncek.org",
+    "website": "http://www.soncek.org",
+    "address": "Rožanska ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Zavod Brez ovir so.p.",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "",
+    "website": "",
+    "address": "Einspielerjeva ulica 6",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Zdravstveni dom Nova Gorica",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@zd-go.si",
+    "website": "http://www.zd-go.si",
+    "address": "Rejčeva ulica 4",
+    "city": "5000 Nova Gorica",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ebm-papst Slovenija d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "info@si.ebmpapst.si",
+    "website": "http://www.ebmpapst.si",
+    "address": "Podskrajnik 16",
+    "city": "1380 Cerknica",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ŠC Celje",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@sc-celje.si",
+    "website": "http://www.sc-celje.si",
+    "address": "Pot na Lavo 22",
+    "city": "3000 Celje",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ŠC NOVO MESTO",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@sc-nm.si",
+    "website": "http://www.sc-nm.com",
+    "address": "Šegova ulica 112",
+    "city": "8000 Novo mesto",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ŠC Nova Gorica",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "sc@scng.si",
+    "website": "http://www.scng.si",
+    "address": "Cankarjeva ulica 10",
+    "city": "5000 Nova Gorica",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ŽELVA d.o.o.",
+    "subindustry": ["Zaposlovanje", "Vrtnarstvo in urejanje okolice"],
+    "email": "info@zelva.si",
+    "website": "https://www.zelva.si",
+    "address": "Ulica Alme Sodnik 6",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "A.M Montaža d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "info@am-montaza.com",
+    "website": "",
+    "address": "Jadranska cesta 27",
+    "city": "2000 Maribor",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ACRON d.o.o.",
+    "subindustry": [
+      "Oblačila in modni dodatki",
+      "Knjigarne in papirnice",
+      "Spletna trgovina in prodaja po telefonu"
+    ],
+    "email": "info@acron-trgovina.si",
+    "website": "https://acron-trgovina.si",
+    "address": "Pameče 167",
+    "city": "2380 Slovenj Gradec",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ACRYFORM d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "",
+    "website": "https://www.acryform.com",
+    "address": "Kladje nad Blanco 35",
+    "city": "8283 Blanca",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "AD-FRONS d.o.o.",
+    "subindustry": ["Fasaderstvo"],
+    "email": "adfrons@gmail.com",
+    "website": "",
+    "address": "Cesta Františka Foita 8",
+    "city": "3320 Velenje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "AFIT, d.o.o.",
+    "subindustry": ["Obutev in čevljarstvo"],
+    "email": "info@afit.si",
+    "website": "https://afit.si",
+    "address": "Miren 129",
+    "city": "5291 Miren",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "AGM NEMEC d.o.o.",
+    "subindustry": ["Gradbeništvo"],
+    "email": "info@agm-nemec.si",
+    "website": "http://www.agm-nemec.si",
+    "address": "Marno 44",
+    "city": "1431 Dol pri Hrastniku",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "AJM OKNA-VRATA-SENČILA d.o.o.",
+    "subindustry": [
+      "Gradbeništvo",
+      "Stavbno pohištvo",
+      "Trgovina",
+      "Plastika in izdelki iz plastike",
+      "Lesna dejavnost"
+    ],
+    "email": "info@ajm.si",
+    "website": "https://www.ajm.si",
+    "address": "Kozjak nad Pesnico 2A",
+    "city": "2211 Pesnica pri Mariboru",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "AKTIVA INPOD d.o.o.",
+    "subindustry": ["Varnostni sistemi in storitve"],
+    "email": "varovanje@aktiva.si",
+    "website": "https://www.aktiva-varovanje.si",
+    "address": "Kraljeviča Marka ulica 5",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "AKTIVA TS d.o.o.",
+    "subindustry": [
+      "Čiščenje",
+      "Čistilnice in pralnice",
+      "Invalidska podjetja",
+      "Steklarstvo in stekleni izdelki",
+      "Vrtnarstvo in urejanje okolice"
+    ],
+    "email": "info@aktiva.si",
+    "website": "http://www.aktiva-skupina.si",
+    "address": "Ljubljanska cesta 12F",
+    "city": "1236 Trzin",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ARCONT IP d.o.o.",
+    "subindustry": [
+      "Gradbeništvo",
+      "Kovinski izdelki in oprema",
+      "Stavbno pohištvo"
+    ],
+    "email": "info@okna-vrata.si",
+    "website": "http://www.okna-vrata.si",
+    "address": "Ljutomerska cesta 30",
+    "city": "9250 Gornja Radgona",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ATLANTIC TRADE d.o.o., Ljubljana",
+    "subindustry": [
+      "Prehrambena industrija",
+      "Ribištvo, ribogojstvo in ribarnica"
+    ],
+    "email": "kontaktcentersi@atlanticgrupa.com",
+    "website": "https://www.atlanticgrupa.com",
+    "address": "Kolinska ulica 1",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "AVK Avtomatizacija d.o.o.",
+    "subindustry": ["Elektroinštalacije"],
+    "email": "peter@avk-automation.com",
+    "website": "http://www.avk-automation.com",
+    "address": "Sernčeva ulica 10",
+    "city": "3000 Celje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "AVTOTRANSPORTI KASTELEC KASTELEC LADO S.P.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info@at-kastelec.si",
+    "website": "https://at-kastelec.si",
+    "address": "Adamičeva cesta 57",
+    "city": "1290 Grosuplje",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "Adient Novo mesto d.o.o.",
+    "subindustry": ["Avtodeli", "Avtooprema"],
+    "email": "infoadientnm@adient.com",
+    "website": "",
+    "address": "Kandijska cesta 60",
+    "city": "8000 Novo mesto",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "ArisGlobal Adria, d.o.o.",
+    "subindustry": ["Računalništvo in informatika"],
+    "email": "infotehna@infotehna.com",
+    "website": "https://www.infotehna.si",
+    "address": "Podbreznik 15",
+    "city": "8000 Novo mesto",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "BIC LJUBLJANA",
+    "subindustry": [
+      "Izobraževalni tečaji in inštrukcije",
+      "Izobraževalne institucije"
+    ],
+    "email": "bic@bic-lj.si",
+    "website": "https://www.bic-lj.si",
+    "address": "Ižanska cesta 10",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "BIOPROD d.o.o.",
+    "subindustry": ["Medicinska in laboratorijska oprema"],
+    "email": "info@bioprod.si",
+    "website": "",
+    "address": "Stegne 11",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "BITSTAMP, storitve, d.o.o.",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "info@bitstamp.net",
+    "website": "",
+    "address": "Dalmatinova ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "BODOČNOST MARIBOR d.o.o.",
+    "subindustry": [
+      "Grafične storitve in oblikovanje",
+      "Mizarstvo",
+      "Tekstil in tekstilni izdelki",
+      "Izobraževalni tečaji in inštrukcije"
+    ],
+    "email": "info@bodocnost.com",
+    "website": "http://www.bodocnost.com",
+    "address": "Dalmatinska ulica 1",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "BOLNIŠNICA SEŽANA",
+    "subindustry": ["Zdravstvo"],
+    "email": "info@bsezana.si",
+    "website": "http://www.bolnisnica-sezana.si",
+    "address": "Cankarjeva ulica 4",
+    "city": "6210 Sežana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "Bourns d.o.o. Žužemberk",
+    "subindustry": ["Elektronika"],
+    "email": "info@keko-varicon.si",
+    "website": "http://www.keko-varicon.si",
+    "address": "Grajski trg 15",
+    "city": "8360 Žužemberk",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "CCC OBUTEV, d.o.o.",
+    "subindustry": ["Obutev in čevljarstvo"],
+    "email": "info.si@ccc.eu",
+    "website": "https://ccc.eu/si",
+    "address": "Loška ulica 10",
+    "city": "2000 Maribor",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "CIRIUS Kamnik",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "cirius-kamnik@guest.ames.si",
+    "website": "http://www.cirius-kamnik.si",
+    "address": "Novi trg 43A",
+    "city": "1241 Kamnik",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "CIRIUS Vipava",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@cirius-vipava.si",
+    "website": "http://www.cirius-vipava.si",
+    "address": "Vojkova ulica 33",
+    "city": "5271 Vipava",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "CP KRANJ d.o.o.",
+    "subindustry": ["Cestne storitve in oprema"],
+    "email": "info@cpkranj.si",
+    "website": "http://www.ggd.si",
+    "address": "Podbrezje 263",
+    "city": "4202 Naklo",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "CSD Gorenjska",
+    "subindustry": ["Javna uprava"],
+    "email": "gp-csd.goren@gov.si",
+    "website": "",
+    "address": "Koroška cesta 21",
+    "city": "4000 Kranj",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "CSGM",
+    "subindustry": ["Izobraževalne institucije", "Zdravstvo"],
+    "email": "tajnistvo@csgm.si",
+    "website": "http://www.csgm.si",
+    "address": "Vinarska ulica 6",
+    "city": "2000 Maribor",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "CUDV Dobrna",
+    "subindustry": ["Zdravstvo"],
+    "email": "uprava-zuvd@siol.net",
+    "website": "http://www.centerdobrna.si",
+    "address": "Lokovina 13A",
+    "city": "3204 Dobrna",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "CUDV Radovljica",
+    "subindustry": ["Domovi", "Zdravstvo"],
+    "email": "info@cudv-ml.si",
+    "website": "",
+    "address": "Cesta na Jezerca 17",
+    "city": "4240 Radovljica",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Calcit d.o.o.",
+    "subindustry": ["Gradbeni material", "Rudnine in kamnine", "Kamnoseštvo"],
+    "email": "info@calcit.si",
+    "website": "https://www.calcit.si",
+    "address": "Stahovica 15",
+    "city": "1242 Stahovica",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Cankarjev dom",
+    "subindustry": ["Kultura in umetnost"],
+    "email": "info@cd-cc.si",
+    "website": "http://www.cd-cc.si",
+    "address": "Prešernova cesta 10",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "Celjske lekarne",
+    "subindustry": ["Lekarne in specializirane trgovine"],
+    "email": "info@lekarnanaklik.si",
+    "website": "",
+    "address": "Ljubljanska cesta 20B",
+    "city": "3000 Celje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "Center Gustava Šiliha Maribor",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "osgusi@guest.arnes.si",
+    "website": "http://www2.arnes.si/~mbosgusi1s/",
+    "address": "Majcigerjeva ulica 31",
+    "city": "2000 Maribor",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "City Connect d.o.o.",
+    "subindustry": ["Obdelava podatkov"],
+    "email": "samanta@citycc.eu",
+    "website": "",
+    "address": "Ulica Vita Kraigherja 3",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "DAVIDOV HRAM d.o.o. Ljubno",
+    "subindustry": ["Pijače"],
+    "email": "info@davidovhram.si",
+    "website": "https://www.davidovhram.si",
+    "address": "Loke 37",
+    "city": "3333 Ljubno ob Savinji",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "DHL Ekspres (Slovenija), d.o.o.",
+    "subindustry": ["Kurirska služba"],
+    "email": "si.info@dhl.com",
+    "website": "http://www.dhl.si",
+    "address": "Špruha 19",
+    "city": "1236 Trzin",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "DIFA d.o.o.",
+    "subindustry": ["Livarstvo", "Orodjarstvo"],
+    "email": "difa@difa.si",
+    "website": "http://www.difa.si",
+    "address": "Kidričeva cesta 91",
+    "city": "4220 Škofja Loka",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "DOM DR. JOŽETA POTRČA POLJČANE",
+    "subindustry": ["Domovi"],
+    "email": "info@dom-poljcane.si",
+    "website": "http://www.dom-poljcane.si",
+    "address": "Potrčeva ulica 1",
+    "city": "2319 Poljčane",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM NINE POKORN GRMOVJE",
+    "subindustry": ["Domovi"],
+    "email": "info@dnpg.si",
+    "website": "http://www.dnpg.si/si/",
+    "address": "Pernovo 4A",
+    "city": "3310 Žalec",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM OB SAVINJI CELJE",
+    "subindustry": ["Domovi"],
+    "email": "tajnistvo@domobsavinji.si",
+    "website": "http://www.domobsavinji.si",
+    "address": "Jurčičeva ulica 6",
+    "city": "3000 Celje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM UPOKOJENCEV FRANC SALAMON Trbovlje",
+    "subindustry": ["Domovi", "Oskrba na domu"],
+    "email": "dom.upo-f-salamon@siol.net",
+    "website": "http://www.dufs.eu",
+    "address": "Kolonija 1. maja 21",
+    "city": "1420 Trbovlje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DOM UPOKOJENCEV Podbrdo",
+    "subindustry": ["Domovi"],
+    "email": "info@dompodbrdo.si",
+    "website": "http://www.dompodbrdo.si",
+    "address": "Podbrdo 33",
+    "city": "5243 Podbrdo",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "DONIT TESNIT, d.o.o.",
+    "subindustry": ["Gumarstvo", "Barve, laki in kemični izdelki"],
+    "email": "info@donit.eu",
+    "website": "https://donit.eu",
+    "address": "Cesta komandanta Staneta 38",
+    "city": "1215 Medvode",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "DRUŠTVO DISTROFIKOV SLOVENIJE",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "info@drustvo-distrofikov.si",
+    "website": "http://www.drustvo-distrofikov.si",
+    "address": "Linhartova cesta 1",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "DRŽAVNO ODVETNIŠTVO RS",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.dodv@gov.si",
+    "website": "https://www.dodv-rs.si",
+    "address": "Šubičeva ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "DSV Transport d.o.o.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info@si.dsv.com",
+    "website": "http://www.si.dsv.com",
+    "address": "Struževo 90",
+    "city": "4000 Kranj",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "Dom upokojencev Idrija, d.o.o.",
+    "subindustry": ["Domovi"],
+    "email": "samo.bericic@olvidnja.si",
+    "website": "http://www.duidrija.si",
+    "address": "Arkova ulica 4",
+    "city": "5280 Idrija",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Društvo MDSS Koper - Associazione INVI Capodistria",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "info@mdsskp.si",
+    "website": "",
+    "address": "Repičeva ulica 4",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Društvo Sonček Maribor",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "",
+    "website": "",
+    "address": "Trubarjeva ulica 15",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "EKWB d.o.o.",
+    "subindustry": ["Računalništvo in informatika"],
+    "email": "info@ekwb.com",
+    "website": "http://www.ekwb.com",
+    "address": "Pod lipami 18",
+    "city": "1218 Komenda",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "EMO - Orodjarna d.o.o.",
+    "subindustry": ["Orodjarstvo"],
+    "email": "info@emo-orodjarna.si",
+    "website": "https://emoorodjarna.com",
+    "address": "Bežigrajska cesta 10",
+    "city": "3000 Celje",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ESOL d.o.o.",
+    "subindustry": ["Lesna dejavnost", "Invalidska podjetja"],
+    "email": "esol@siol.net",
+    "website": "http://www.esol.si",
+    "address": "Belokranjska cesta 40",
+    "city": "8340 Črnomelj",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "ETA Kamnik, d.o.o.",
+    "subindustry": [
+      "Kmetijstvo, poljedelstvo in sadjarstvo",
+      "Prehrambena industrija"
+    ],
+    "email": "info@eta-kamnik.si",
+    "website": "https://natureta.si",
+    "address": "Kajuhova pot 4",
+    "city": "1241 Kamnik",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "EUROTEK Trebnje, d.o.o.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info@eurotek.si",
+    "website": "http://www.eurotek.si",
+    "address": "Bič 11",
+    "city": "8213 Veliki Gaber",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "Elaphe d.o.o.",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "alenka@elaphe-ev.com",
+    "website": "https://www.in-wheel.com",
+    "address": "Teslova ulica 30",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Emil Frey Avtocenter d.o.o.",
+    "subindustry": ["Avtohiša in gospodarska vozila"],
+    "email": "info@emilfrey.si",
+    "website": "https://emilfrey.si",
+    "address": "Baragova ulica 7",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "FIT varovanje, d.d.",
+    "subindustry": ["Varnostni sistemi in storitve"],
+    "email": "info@fitvarovanje.si",
+    "website": "http://www.fitvarovanje.si",
+    "address": "Mala ulica 1",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "FLUIDMASTER d.o.o.",
+    "subindustry": [
+      "Plastika in izdelki iz plastike",
+      "Gospodinjski aparati, izdelki in servis"
+    ],
+    "email": "sanitary.liv@fluidmaster.com",
+    "website": "",
+    "address": "Industrijska cesta 2",
+    "city": "6230 Postojna",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "FMG STORITVE d.o.o.",
+    "subindustry": ["Čiščenje", "Podjetniške in poslovne storitve"],
+    "email": "info@fmg.si",
+    "website": "http://www.fmg.si",
+    "address": "Stegne 21",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "GARNOL, d.o.o.",
+    "subindustry": ["Komunalna infrastruktura"],
+    "email": "info@garnol.si",
+    "website": "",
+    "address": "Verovškova ulica 64A",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "GB LJUBLJANA",
+    "subindustry": ["Gasilstvo in protipožarna zaščita"],
+    "email": "gbl@gb.ljubljana.si",
+    "website": "https://gasilskabrigadaljubljana.si",
+    "address": "Vojkova cesta 19",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "GLOBAL SISTEM d.o.o.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "office@globalsistem.si",
+    "website": "",
+    "address": "Cvetkova ulica 1",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "GRADBENIŠTVO RAVMANOVSKI d.o.o.",
+    "subindustry": [
+      "Podjetniške in poslovne storitve",
+      "Zaključna dela v gradbeništvu"
+    ],
+    "email": "kadri.ravmanovski@gmail.com",
+    "website": "",
+    "address": "Ukmarjeva ulica 6",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "GRM NOVO MESTO",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "s-sksgrm.nm@guest.arnes.si",
+    "website": "http://www.ksgrm.net",
+    "address": "Sevno 13",
+    "city": "8000 Novo mesto",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "GVS d.d.",
+    "subindustry": ["Varnostni sistemi in storitve"],
+    "email": "",
+    "website": "",
+    "address": "Kočevarjeva ulica 2",
+    "city": "8000 Novo mesto",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Gabrijel Aluminium d.o.o.",
+    "subindustry": ["Galvanizacija", "Kovinski izdelki in oprema"],
+    "email": "",
+    "website": "http://www.gabrijel.com",
+    "address": "Pod jelšami 7",
+    "city": "1290 Grosuplje",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "Gorenjske lekarne",
+    "subindustry": ["Lekarne in specializirane trgovine"],
+    "email": "uprava@gorenjske-lekarne.si",
+    "website": "http://www.gorenjske-lekarne.si",
+    "address": "Gosposvetska ulica 12",
+    "city": "4000 Kranj",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "HIDRO MAT d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "info@hidromat.si",
+    "website": "http://hidromat.si",
+    "address": "Nasipna ulica 55",
+    "city": "2000 Maribor",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "HIT Alpinea d.o.o.",
+    "subindustry": ["Turizem", "Hoteli"],
+    "email": "info@hit-alpinea.si",
+    "website": "https://www.hit-alpinea.si",
+    "address": "Borovška cesta 99",
+    "city": "4280 Kranjska Gora",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "HLEBČEK d.o.o.",
+    "subindustry": ["Pekarstvo in slaščičarstvo"],
+    "email": "pekarna@hlebcek.si",
+    "website": "http://www.hlebcek.si",
+    "address": "Ptujska cesta 74",
+    "city": "2331 Pragersko",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "I.H.S. d.o.o.",
+    "subindustry": ["Dvigalne in transportne naprave"],
+    "email": "",
+    "website": "https://www.ihs.systems",
+    "address": "Cesta 4. julija 84D",
+    "city": "8270 Krško",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "IBE d.d.",
+    "subindustry": ["Projektiranje"],
+    "email": "",
+    "website": "http://www.ibe.si",
+    "address": "Hajdrihova ulica 4",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ILIRIJA, d.o.o.",
+    "subindustry": ["Kozmetična dejavnost"],
+    "email": "info@ilirija.si",
+    "website": "https://www.ilirija.si",
+    "address": "Tržaška cesta 40",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ILMEST d.o.o. Nova Gorica",
+    "subindustry": ["Lesna dejavnost", "Pohištvo in oprema", "Trgovina"],
+    "email": "info@ilmest.com",
+    "website": "",
+    "address": "Industrijska cesta 5",
+    "city": "5000 Nova Gorica",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "IMP PUMPS, d.o.o.",
+    "subindustry": ["Črpalke in kompresorji"],
+    "email": "info@imp-pumps.com",
+    "website": "https://imp-pumps.com",
+    "address": "Pod hrasti 28",
+    "city": "1218 Komenda",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "INEL d.o.o.",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "info@inel-ce.si",
+    "website": "http://www.inel-ce.si",
+    "address": "Bukovžlak 105",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "INTEC MKD, d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Kovinostrugarstvo"],
+    "email": "mkd@intec.si",
+    "website": "http://www.intec.si",
+    "address": "Loka 122",
+    "city": "4290 Tržič",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "INTERSOCKS d.o.o., Kočevje",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "info@intersocks.com",
+    "website": "http://www.intersocks.com",
+    "address": "Reška cesta 29",
+    "city": "1330 Kočevje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ITX S, d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "",
+    "website": "",
+    "address": "Ameriška ulica 8",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "JAVNI HOLDING Ljubljana, d.o.o.",
+    "subindustry": ["Finančne storitve", "Podjetniške in poslovne storitve"],
+    "email": "info@jhl.si",
+    "website": "http://www.jhl.si",
+    "address": "Verovškova ulica 70",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "JGZ Brdo",
+    "subindustry": ["Gostilne in restavracije", "Hoteli"],
+    "email": "hotel@brdo.si",
+    "website": "http://www.brdo.si",
+    "address": "Predoslje 39",
+    "city": "4000 Kranj",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "JURČIČ & CO., d.o.o.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info@jurcic.com",
+    "website": "http://www.jurcic.com",
+    "address": "Poslovna cona A 45",
+    "city": "4208 Šenčur",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "KOLEKTOR ASCOM d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "kolektor@kolektor.com",
+    "website": "http://www.kolektor.com",
+    "address": "Vojkova ulica 10",
+    "city": "5280 Idrija",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "KOLEKTOR KFH d.o.o.",
+    "subindustry": ["Električni stroji in naprave"],
+    "email": "kfh@kolektor.com",
+    "website": "http://www.kolektor.com",
+    "address": "Vojkova ulica 10",
+    "city": "5280 Idrija",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "KOLEKTOR MOBILITY d.o.o.",
+    "subindustry": ["Finančne storitve"],
+    "email": "",
+    "website": "",
+    "address": "Vojkova ulica 10",
+    "city": "5280 Idrija",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "KOMUNALA NOVO MESTO d.o.o.",
+    "subindustry": ["Komunala in odpad", "Ekologija"],
+    "email": "info@komunala-nm.si",
+    "website": "http://www.komunala-nm.si",
+    "address": "Podbevškova ulica 12",
+    "city": "8000 Novo mesto",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KOMUNALA PTUJ d.d.",
+    "subindustry": ["Komunala in odpad"],
+    "email": "info@komunala-ptuj.si",
+    "website": "http://www.komunala-ptuj.si",
+    "address": "Puhova ulica 10",
+    "city": "2250 Ptuj",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KOMUNALNO PODJETJE VELENJE, d.o.o.",
+    "subindustry": ["Ekologija", "Komunala in odpad"],
+    "email": "kpv@kp-velenje.si",
+    "website": "http://www.kp-velenje.si",
+    "address": "Koroška cesta 37B",
+    "city": "3320 Velenje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KONUS KONEX d.o.o.",
+    "subindustry": [
+      "Čiščenje",
+      "Gospodinjski aparati, izdelki in servis",
+      "Spletna trgovina in prodaja po telefonu"
+    ],
+    "email": "info@konuskonex.com",
+    "website": "http://www.konuskonex.com",
+    "address": "Mestni trg 18",
+    "city": "3210 Slovenske Konjice",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KOROŠKI DOM STAROSTNIKOV",
+    "subindustry": ["Domovi"],
+    "email": "kdsd@siol.net",
+    "website": "https://kds-dravograd.si",
+    "address": "Črneče 146",
+    "city": "2370 Dravograd",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "KOVINTRADE d.d. Celje",
+    "subindustry": ["Trgovina", "Rudnine in kamnine"],
+    "email": "info@kovintrade.si",
+    "website": "https://www.kovintrade.com",
+    "address": "Mariborska cesta 7",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "KOZMETIKA AFRODITA d.o.o.",
+    "subindustry": ["Kozmetična dejavnost"],
+    "email": "info@kozmetika-afrodita.si",
+    "website": "",
+    "address": "Kidričeva ulica 54",
+    "city": "3250 Rogaška Slatina",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "KRAS d.o.o.",
+    "subindustry": ["Meso in mesni izdelki", "Prehrambena industrija"],
+    "email": "info@kras.si",
+    "website": "http://www.kras.si",
+    "address": "Šepulje 31",
+    "city": "6210 Sežana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "KVIBO, d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "",
+    "website": "http://www.kvibo.si",
+    "address": "Mlaka 2A",
+    "city": "4290 Tržič",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "KZ TOLMIN z.o.o. TOLMIN",
+    "subindustry": ["Kmetijstvo, poljedelstvo in sadjarstvo", "Trgovina"],
+    "email": "info@kz-tolmin.si",
+    "website": "http://www.kz-tolmin.si",
+    "address": "Rutarjeva ulica 35",
+    "city": "5220 Tolmin",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "Kemofarmacija d.d.",
+    "subindustry": ["Farmacija", "Zdravstveni in medicinski pripomočki"],
+    "email": "info@kemofarmacija.si",
+    "website": "http://www.kemofarmacija.si",
+    "address": "Cesta na Brdo 100",
+    "city": "1000 Ljubljana",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "Kuehne + Nagel d.o.o.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info.ljubljana@kuehne-nagel.com",
+    "website": "http://www.kuehne-nagel.com",
+    "address": "Zgornji Brnik 300",
+    "city": "4210 BRNIK",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "LESONIT d.o.o.",
+    "subindustry": ["Lesna dejavnost"],
+    "email": "info@lesonit.net",
+    "website": "http://www.lesonit.net",
+    "address": "Ulica Nikola Tesla 11",
+    "city": "6250 Ilirska Bistrica",
+    "industry": "Kmetijstvo"
+  },
+  {
+    "name": "LESTRO-LEDINEK d.o.o.",
+    "subindustry": [null],
+    "email": "info@lestro-ledinek.com",
+    "website": "https://www.ledinek.com",
+    "address": "Slivniška cesta 6",
+    "city": "2311 Hoče"
+  },
+  {
+    "name": "LISCA d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki", "Trgovina"],
+    "email": "lisca@lisca.si",
+    "website": "https://www.lisca.si",
+    "address": "Prešernova ulica 4",
+    "city": "8290 Sevnica",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "LPP Fashion d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "office.slovenia@lppsa.com",
+    "website": "http://www.lppsa.com",
+    "address": "Verovškova ulica 55A",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Lekarne Maribor",
+    "subindustry": ["Lekarne in specializirane trgovine"],
+    "email": "info@mb-lekarne.si",
+    "website": "https://www.mb-lekarne.si",
+    "address": "Minařikova ulica 6",
+    "city": "2000 Maribor",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "MAGISTRAT INTERNATIONAL d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@emporium.si",
+    "website": "http://www.emporium.si",
+    "address": "Kotnikova ulica 28",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MAGNA STEYR d.o.o.",
+    "subindustry": ["Avtostoritve"],
+    "email": "info.slovenia.magnasteyr@magna.com",
+    "website": "",
+    "address": "Cesta Janeza Puha 1",
+    "city": "2312 Orehova vas",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "MANPOWER d.o.o.",
+    "subindustry": ["Zaposlovanje", "Podjetniške in poslovne storitve"],
+    "email": "info@manpower.si",
+    "website": "http://www.manpower.si",
+    "address": "Vilharjeva cesta 46",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MAROVT d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Trgovina", "Avtodeli"],
+    "email": "info@marovt.com",
+    "website": "http://www.marovt.com",
+    "address": "Stranice 55",
+    "city": "3206 Stranice",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MASS, d.o.o.",
+    "subindustry": ["Obutev in čevljarstvo"],
+    "email": "info@mass.si",
+    "website": "http://www.mass.si",
+    "address": "Virska cesta 1",
+    "city": "1230 Domžale",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "MEDIS, d.o.o.",
+    "subindustry": [
+      "Farmacija",
+      "Zdravstveni in medicinski pripomočki",
+      "Trgovina"
+    ],
+    "email": "medis@medis.si",
+    "website": "http://www.medis.si",
+    "address": "Brnčičeva ulica 1",
+    "city": "1231 LJUBLJANA-ČRNUČE",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "MELAMIN d.d. Kočevje",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "info@melamin.si",
+    "website": "http://www.melamin.si",
+    "address": "Tomšičeva cesta 9",
+    "city": "1330 Kočevje",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MESTNA OBČINA KOPER",
+    "subindustry": [
+      "Občine, upravne enote in lokalne skupnosti",
+      "Javna uprava"
+    ],
+    "email": "obcina@koper.si",
+    "website": "http://www.koper.si",
+    "address": "Verdijeva ulica 10",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "METAL TEH, d.o.o.",
+    "subindustry": ["Kovinostrugarstvo"],
+    "email": "",
+    "website": "",
+    "address": "Nasipna ulica 55",
+    "city": "2000 Maribor",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "METREL Mehanika d.o.o.",
+    "subindustry": ["Mehanika in finomehanika", "Kovinski izdelki in oprema"],
+    "email": "mehanika@metrel.si",
+    "website": "http://www.metrel.mehanika.si",
+    "address": "Ljubljanska cesta 80",
+    "city": "1354 Horjul",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "MILŠPED d.o.o.",
+    "subindustry": [
+      "Tekstil in tekstilni izdelki",
+      "Prevozništvo in transport"
+    ],
+    "email": "office@milsped.com",
+    "website": "",
+    "address": "Industrijska cesta 3",
+    "city": "1290 Grosuplje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "MINISTRSTVO ZA ZDRAVJE",
+    "subindustry": ["Javna uprava"],
+    "email": "gp.mz@gov.si",
+    "website": "http://www.mz.gov.si",
+    "address": "Štefanova ulica 5",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "MK Založba d.d.",
+    "subindustry": ["Založništvo"],
+    "email": "info@mladinska-knjiga.si",
+    "website": "https://www.mladinska-knjiga.si",
+    "address": "Slovenska cesta 29",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Mavida domovi d.o.o.",
+    "subindustry": ["Domovi"],
+    "email": "info@comett.si",
+    "website": "http://www.comett.si",
+    "address": "Zgornji Brnik 130H",
+    "city": "4210 BRNIK",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Montecristo SL d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "info@modiana.si",
+    "website": "http://www.modiana.si",
+    "address": "Trdinova ulica 4",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "NEW YORKER d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "si-stabslovenia@newyorker.de",
+    "website": "http://www.newyorker.de",
+    "address": "Verovškova ulica 55",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "NIB",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "tajnistvo@nib.si",
+    "website": "http://www.nib.si",
+    "address": "Večna pot 121",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "NIL d.o.o.",
+    "subindustry": [
+      "Izobraževalni tečaji in inštrukcije",
+      "Računalništvo in informatika",
+      "Telekomunikacije"
+    ],
+    "email": "info@nil.com",
+    "website": "http://www.nil.com",
+    "address": "Baragova ulica 5",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "NIVO EKO, d.o.o.",
+    "subindustry": "",
+    "email": "info@nivoeko.si",
+    "website": "http://nivoeko.si",
+    "address": "Ulica XIV. divizije 10",
+    "city": "3000 Celje"
+  },
+  {
+    "name": "NKD d.o.o.",
+    "subindustry": ["Trgovina", "Tekstil in tekstilni izdelki"],
+    "email": "tajnistvo@nkd.si",
+    "website": "http://www.nkd.si",
+    "address": "Ulica XIV. divizije 12",
+    "city": "3000 Celje",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OBALNI DOM UPOKOJENCEV KOPER - CASA COSTIERA DEL PENSIONATO CAPODISTRIA",
+    "subindustry": ["Domovi"],
+    "email": "info@odu.si",
+    "website": "http://www.odu-koper.si",
+    "address": "Krožna cesta 5",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "OC IMP Klima d.o.o.",
+    "subindustry": ["Klima in prezračevanje"],
+    "email": "info@oc-impklima.com",
+    "website": "https://www.oc-impklima.com",
+    "address": "Godovič 150",
+    "city": "5275 Godovič",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "OKROŽNO SODIŠČE V NOVEM MESTU",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.oznm@sodisce.si",
+    "website": "http://www.sodisce.si/okronm/",
+    "address": "Jerebova ulica 2",
+    "city": "8000 Novo mesto",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OKROŽNO SODIŠČE V NOVI GORICI",
+    "subindustry": ["Pravne storitve"],
+    "email": "",
+    "website": "",
+    "address": "Kidričeva ulica 14",
+    "city": "5000 Nova Gorica",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "OMCO METALS SLOVENIA d.o.o.",
+    "subindustry": ["Livarstvo", "Trgovina"],
+    "email": "feniks@feniks-omco.si",
+    "website": "http://www.feniks-omco.si",
+    "address": "Cesta Žalskega tabora 10",
+    "city": "3310 Žalec",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "OSNOVNA ŠOLA DUŠANA FLISA HOČE",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "os-hoce@guest.arnes.si",
+    "website": "https://www.os-hoce.si",
+    "address": "Šolska ulica 10",
+    "city": "2311 Hoče",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OSNOVNA ŠOLA FRANJA GOLOBA",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "o-fgprevalje.mb@guest.arnes.si",
+    "website": "http://os-prevalje.mojasola.si",
+    "address": "Polje 4",
+    "city": "2391 Prevalje",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OSNOVNA ŠOLA STIČNA",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "o-sticna.lj@guest.arnes.si",
+    "website": "http://www.os-sticna.si",
+    "address": "Cesta občine Hirschaid 1",
+    "city": "1295 Ivančna Gorica",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OSNOVNA ŠOLA ŠENČUR",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "group1.oskrsen@guest.arnes.si",
+    "website": "http://www.os-sencur.si",
+    "address": "Pipanova cesta 43",
+    "city": "4208 Šenčur",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OTROŠKI VRTEC AJDOVŠČINA",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "info@mojedete.si",
+    "website": "http://www.mojedete.si",
+    "address": "Pot v Žapuže 14",
+    "city": "5270 Ajdovščina"
+  },
+  {
+    "name": "OŠ IVANA CANKARJA",
+    "subindustry": [
+      "Izobraževalni tečaji in inštrukcije",
+      "Izobraževalne institucije"
+    ],
+    "email": "group1.osljic@guest.arnes.si",
+    "website": "http://www.osivanacankarja.si",
+    "address": "Lošca 1",
+    "city": "1360 Vrhnika",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OŠ Janka Modra, Dol pri Ljubljani",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "osjm.dol@guest.arnes.si",
+    "website": "http://www.os-jmdol.si",
+    "address": "Videm 17",
+    "city": "1262 Dol pri Ljubljani",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OŠ LA GROSUPLJE",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "janja.zupancic2@guest.arnes.si",
+    "website": "http://www.oslag.si",
+    "address": "Tovarniška cesta 14",
+    "city": "1290 Grosuplje",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OŠ Leskovec pri Krškem",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "os.leskovec-kk@guest.arnes.si",
+    "website": "http://www.os-leskovec.si",
+    "address": "Pionirska cesta 4",
+    "city": "8273 Leskovec pri Krškem",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OŠ ŠEMPETER PRI GORICI",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "o-irsempeter.ng@guest.arnes.si",
+    "website": "http://www.os-iroba.si",
+    "address": "Ulica Andreja Gabrščka 1",
+    "city": "5290 Šempeter pri Gorici",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "OŠ ŠKOFLJICA",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "o-skofljica.lj@guest.arnes.si",
+    "website": "http://www.os-skofljica.si",
+    "address": "Klanec 5",
+    "city": "1291 Škofljica",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "PET NETWORK SI d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "info@mrpet.si",
+    "website": "http://www.mrpet.si",
+    "address": "Celovška cesta 258",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "PODKRIŽNIK d.o.o.",
+    "subindustry": ["Mehanika in finomehanika"],
+    "email": "info@podkriznik.si",
+    "website": "http://www.podkriznik.si",
+    "address": "Loke 33",
+    "city": "3333 Ljubno ob Savinji",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "POLIDENT d.o.o.",
+    "subindustry": [
+      "Zdravstveni in medicinski pripomočki",
+      "Zobozdravstvo",
+      "Medicinska in laboratorijska oprema"
+    ],
+    "email": "polident@polident.si",
+    "website": "http://www.polident.si",
+    "address": "Volčja Draga 42",
+    "city": "5293 Volčja Draga",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "POMURSKE MLEKARNE d.d.",
+    "subindustry": ["Mleko in mlečni izdelki", "Trgovina"],
+    "email": "info@pomurske-mlekarne.si",
+    "website": "http://www.pomurske-mlekarne.si",
+    "address": "Industrijska ulica 10",
+    "city": "9000 Murska Sobota",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "PRO RRP d.o.o. - v stečaju",
+    "subindustry": ["Podjetniške in poslovne storitve"],
+    "email": "info@fmg.si",
+    "website": "",
+    "address": "Vajdova ulica 71",
+    "city": "8333 Semič",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "PSIHIATRIČNA BOLNIŠNICA BEGUNJE",
+    "subindustry": ["Zdravstvo"],
+    "email": "tajnistvo@pb-begunje.si",
+    "website": "http://www.pb-begunje.si",
+    "address": "Begunje na Gorenjskem 55",
+    "city": "4275 Begunje na Gorenjskem",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "PSIHIATRIČNA BOLNIŠNICA VOJNIK",
+    "subindustry": ["Zdravstvo"],
+    "email": "mira.mastnak@pb-vojnik.si",
+    "website": "http://www.pb-vojnik.si/",
+    "address": "Celjska cesta 37",
+    "city": "3212 Vojnik",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "Panvita Agromerkur d.o.o.",
+    "subindustry": ["Reja in prodaja živali"],
+    "email": "agromerkur@panvita.si",
+    "website": "http://www.panvita.si",
+    "address": "Industrijska ulica 8",
+    "city": "9000 Murska Sobota",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "Partner Consulting d.o.o.",
+    "subindustry": ["Šport in oprema", "Zaposlovanje"],
+    "email": "info@ekadri.net",
+    "website": "http://www.ekadri.net",
+    "address": "Leskoškova cesta 2",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "Pepco d.o.o.",
+    "subindustry": ["Trgovina"],
+    "email": "legal.hr@pepco.eu",
+    "website": "",
+    "address": "Tržaška cesta 515",
+    "city": "1351 Brezovica pri Ljubljani",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "RADEČE PAPIR NOVA, d.o.o.",
+    "subindustry": ["Papirna galanterija"],
+    "email": "info@radecepapir.si",
+    "website": "http://www.radecepapir.si",
+    "address": "Njivice 7",
+    "city": "1433 Radeče",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "RGP d.o.o.",
+    "subindustry": ["Gradbeništvo"],
+    "email": "info@rgp.si",
+    "website": "http://www.rgp.si",
+    "address": "Rudarska cesta 6",
+    "city": "3320 Velenje",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "RIKO, d.o.o.",
+    "subindustry": ["Projektiranje"],
+    "email": "riko@riko.si",
+    "website": "http://www.riko.si",
+    "address": "Bizjanova ulica 2",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ROLETARSTVO MEDLE d.o.o.",
+    "subindustry": [
+      "Senčila",
+      "Krovstvo, kleparstvo in tesarstvo",
+      "Stavbno pohištvo",
+      "Kovinski izdelki in oprema"
+    ],
+    "email": "info@medle.si",
+    "website": "http://www.medle.si",
+    "address": "Podbevškova ulica 48",
+    "city": "8000 Novo mesto",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "ROSENBAUER, d.o.o.",
+    "subindustry": ["Avtodomi in prikolice", "Kovinski izdelki in oprema"],
+    "email": "vodstvo@rosenbauer.com",
+    "website": "http://www.rosenbauer.com",
+    "address": "Ljutomerska cesta 6",
+    "city": "9250 Gornja Radgona",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "ROTIS d.o.o.",
+    "subindustry": ["Mehanika in finomehanika", "Kovinski izdelki in oprema"],
+    "email": "rotis@rotis-lj.si",
+    "website": "http://www.rotis-lj.si",
+    "address": "Brodišče 5",
+    "city": "1236 Trzin",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ROTO - PAVLINJEK d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "tajnistvo@roto.si",
+    "website": "",
+    "address": "Gorička ulica 150",
+    "city": "9000 Murska Sobota",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "S E P d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "info@sep.si",
+    "website": "http://www.sep.si",
+    "address": "Stari trg 2A",
+    "city": "8230 Mokronog",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "S. OLIVER S L O d.o.o.",
+    "subindustry": ["Tekstil in tekstilni izdelki"],
+    "email": "info@soliver.si",
+    "website": "http://www.soliver.com",
+    "address": "Stritarjeva ulica 7",
+    "city": "1000 Ljubljana",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "SAM d.o.o. Domžale",
+    "subindustry": [
+      "Kovinski izdelki in oprema",
+      "Gradbeni material",
+      "Trgovina"
+    ],
+    "email": "info@sam.si",
+    "website": "https://www.sam.si",
+    "address": "Preserska cesta 1",
+    "city": "1235 Radomlje",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "SAUBERMACHER SLOVENIJA d.o.o.",
+    "subindustry": [
+      "Prevozništvo in transport",
+      "Trgovina",
+      "Komunala in odpad"
+    ],
+    "email": "pisarna@saubermacher.si",
+    "website": "https://saubermacher.si",
+    "address": "Ulica Matije Gubca 2",
+    "city": "9000 Murska Sobota",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "SCHENKER d.d.",
+    "subindustry": ["Prevozništvo in transport", "Selitveni servis"],
+    "email": "si.dl.lju.info@dbschenker.com",
+    "website": "http://www.dbschenker.com/si",
+    "address": "Brnčičeva ulica 51",
+    "city": "1231 LJUBLJANA-ČRNUČE",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "SINTAL MARIBOR d.o.o.",
+    "subindustry": ["Projektiranje", "Varnostni sistemi in storitve"],
+    "email": "",
+    "website": "http://www.sintal.si",
+    "address": "Perhavčeva ulica 14",
+    "city": "2000 Maribor",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "SIQ Ljubljana",
+    "subindustry": ["Merilni sistemi in naprave"],
+    "email": "info@siq.si",
+    "website": "https://www.siq.si",
+    "address": "Mašera-Spasićeva ulica 10",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "SPORT VISION d.o.o.",
+    "subindustry": ["Šport in oprema"],
+    "email": "online@sportvision-slovenija.com",
+    "website": "https://www.sportvision-slovenija.com",
+    "address": "Hrvaška ulica 18",
+    "city": "1000 Ljubljana",
+    "industry": "Prosti čas"
+  },
+  {
+    "name": "SPORTRADAR d.o.o.",
+    "subindustry": ["Računalništvo in informatika"],
+    "email": "info@sportradar.com",
+    "website": "https://www.sportradar.com/about-us/make-the-team/ljubljana",
+    "address": "Litostrojska cesta 52A",
+    "city": "1000 Ljubljana",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "SUMMIT LEASING SLOVENIJA d.o.o.",
+    "subindustry": ["Finančne storitve", "Leasing"],
+    "email": "info@summit-leasing.si",
+    "website": "http://www.summit-leasing.si",
+    "address": "Flajšmanova ulica 3",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "SVP AVIO d.o.o.",
+    "subindustry": ["Letalstvo"],
+    "email": "info@svpyachts.com",
+    "website": "",
+    "address": "Zapuže 10A",
+    "city": "4275 Begunje na Gorenjskem",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "SYSTEMAIR d.o.o.",
+    "subindustry": ["Klima in prezračevanje"],
+    "email": "info@systemair.si",
+    "website": "https://www.systemair.com",
+    "address": "Špelina ulica 2",
+    "city": "2000 Maribor",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Salesianer Miettex Periteks d.o.o.",
+    "subindustry": ["Čistilnice in pralnice"],
+    "email": "info@salesianer.si",
+    "website": "http://www.salesianer.si",
+    "address": "Blatnica 2",
+    "city": "1236 Trzin",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Sartorius BIA Separations d.o.o.",
+    "subindustry": ["Barve, laki in kemični izdelki"],
+    "email": "info@biaseparations.com",
+    "website": "",
+    "address": "Mirce 21",
+    "city": "5270 Ajdovščina",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "Strip's d.o.o.",
+    "subindustry": ["Elektronika", "Električni stroji in naprave"],
+    "email": "info@strips.eu",
+    "website": "http://www.strips.eu",
+    "address": "KANDRŠE 7",
+    "city": "1252 Vače",
+    "industry": "Računalništvo in informatika"
+  },
+  {
+    "name": "T-MOMO d.o.o.",
+    "subindustry": ["Zaposlovanje"],
+    "email": "info@t-momo.si",
+    "website": "",
+    "address": "Trinkova ulica 2",
+    "city": "6000 Koper - Capodistria",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "T.L.Sirk d.o.o.",
+    "subindustry": ["Prevozništvo in transport"],
+    "email": "info@tls.si",
+    "website": "http://www.tls.si",
+    "address": "Cesta dveh cesarjev 393",
+    "city": "1000 Ljubljana",
+    "industry": "Avtomobilizem"
+  },
+  {
+    "name": "TEM Čatež, d.o.o.",
+    "subindustry": ["Elektro", "Elektroinštalacije"],
+    "email": "tem@tem.si",
+    "website": "http://www.tem.si",
+    "address": "Čatež 13",
+    "city": "8212 Velika Loka",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "TERME DOBRNA d.d.",
+    "subindustry": ["Hoteli", "Kopališča in zdravilišča", "Turizem"],
+    "email": "",
+    "website": "http://www.terme-dobrna.si",
+    "address": "Dobrna 50",
+    "city": "3204 Dobrna",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "TERMIT d.d.",
+    "subindustry": ["Rudnine in kamnine"],
+    "email": "info@termit.si",
+    "website": "http://www.termit.si",
+    "address": "Drtija 51",
+    "city": "1251 Moravče",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "TKI HRASTNIK, d.d.",
+    "subindustry": ["Barve, laki in kemični izdelki"],
+    "email": "info@tki.si",
+    "website": "http://www.tki.si/",
+    "address": "Za Savo 6",
+    "city": "1430 Hrastnik",
+    "industry": "Dom in vrt"
+  },
+  {
+    "name": "TKO d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema"],
+    "email": "tko@siol.net",
+    "website": "",
+    "address": "Tišinska ulica 29B",
+    "city": "9000 Murska Sobota",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "TURNA d.o.o.",
+    "subindustry": ["Plastika in izdelki iz plastike"],
+    "email": "info@turna.si",
+    "website": "http://www.turna.si",
+    "address": "Primorska cesta 6B",
+    "city": "3325 Šoštanj",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "UL FFA",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "tajnistvo@ffa.uni-lj.si",
+    "website": "http://www.ffa.uni-lj.si",
+    "address": "Aškerčeva cesta 7",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL FGG",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "tajnistvo@fgg.uni-lj.si",
+    "website": "https://www.fgg.uni-lj.si",
+    "address": "Jamova cesta 2",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL FRI",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "dekanat@fri.uni-lj.si",
+    "website": "http://www.fri.uni-lj.si",
+    "address": "Večna pot 113",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "UL NTF",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "majda.strakl@ntf.uni-lj.si",
+    "website": "https://www.ntf.uni-lj.si",
+    "address": "Aškerčeva cesta 12",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "VALINA VAROVANJE d.o.o.",
+    "subindustry": ["Varnostni sistemi in storitve"],
+    "email": "",
+    "website": "http://www.valina.si",
+    "address": "Litijska cesta 45",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "VALJI d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Livarstvo"],
+    "email": "info@valji.si",
+    "website": "http://www.valji.si",
+    "address": "Železarska cesta 3",
+    "city": "3220 Štore",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "VEPLAS, d.d.",
+    "subindustry": [
+      "Zdravstveni in medicinski pripomočki",
+      "Keramika in keramični izdelki",
+      "Kovinski izdelki in oprema",
+      "Plastika in izdelki iz plastike",
+      "Steklarstvo in stekleni izdelki"
+    ],
+    "email": "veplas@siol.net",
+    "website": "http://www.veplas.si",
+    "address": "Cesta Simona Blatnika 11",
+    "city": "3320 Velenje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "VIŠJE SODIŠČE V LJUBLJANI",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.vislj@sodisce.si",
+    "website": "",
+    "address": "Tavčarjeva ulica 9",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "VRHOVNO SODIŠČE REPUBLIKE SLOVENIJE",
+    "subindustry": ["Pravne storitve"],
+    "email": "urad.vsrs@sodisce.si",
+    "website": "",
+    "address": "Tavčarjeva ulica 9",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "VRTEC ANTONA MEDVEDA KAMNIK",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "",
+    "website": "",
+    "address": "Novi trg 26B",
+    "city": "1241 Kamnik"
+  },
+  {
+    "name": "VRTEC DOMŽALE",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "vrtec.domzale@guest.arnes.si",
+    "website": "http://www.vrtec-domzale.si",
+    "address": "Ljubljanska cesta 70",
+    "city": "1230 Domžale"
+  },
+  {
+    "name": "VRTEC KOPER",
+    "subindustry": "",
+    "email": "info@vrteckoper.si",
+    "website": "http://www.vrteckoper.si",
+    "address": "Kettejeva ulica 13",
+    "city": "6000 Koper - Capodistria"
+  },
+  {
+    "name": "VRTEC NAJDIHOJCA",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "vrtec.najdihojca-lj@guest.arnes.si",
+    "website": "http://www.najdihojca.si",
+    "address": "Gorazdova ulica 6",
+    "city": "1000 Ljubljana"
+  },
+  {
+    "name": "VRTEC PTUJ",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "vrtec@vrtec-ptuj.si",
+    "website": "http://vrtec-ptuj.si",
+    "address": "Mlinska cesta 1B",
+    "city": "2250 Ptuj"
+  },
+  {
+    "name": "VRTEC SEŽANA",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "vrtec.sezana@guest.arnes.si",
+    "website": "http://www.vrtec-sezana.si",
+    "address": "Ulica Jožeta Pahorja 1",
+    "city": "6210 Sežana"
+  },
+  {
+    "name": "VRTEC ŠENTVID",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "vrtec.sentvid@guest.arnes.si",
+    "website": "http://www.vrtecsentvid.si",
+    "address": "Ulica pregnancev 6",
+    "city": "1210 LJUBLJANA-ŠENTVID"
+  },
+  {
+    "name": "VRTEC ŠKOFJA LOKA",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "vrtec.s-loka@vrtec-skofjaloka.si",
+    "website": "http://vrtec-skofjaloka.si",
+    "address": "Partizanska cesta 1E",
+    "city": "4220 Škofja Loka"
+  },
+  {
+    "name": "VRTEC ŽALEC",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "vrtec.zalec@siol.net",
+    "website": "http://www.vrtec-zalec.si",
+    "address": "Prežihova ulica 2",
+    "city": "3310 Žalec"
+  },
+  {
+    "name": "VVZ Slovenj Gradec",
+    "subindustry": ["Vzgoja in varstvo otrok"],
+    "email": "vrtec.slov-gradec@guest.arnes.si",
+    "website": "http://www.vrtec-sg.si/cms/",
+    "address": "Maistrova ulica 2A",
+    "city": "2380 Slovenj Gradec"
+  },
+  {
+    "name": "WALDORFSKA ŠOLA LJUBLJANA",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "tajnistvo@waldorf.si",
+    "website": "http://www.wsl.si",
+    "address": "Streliška ulica 12",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "WE MOVE d.o.o.",
+    "subindustry": ["Skladišča"],
+    "email": "info@wemove.si",
+    "website": "https://www.wemove.si",
+    "address": "Dunajska cesta 159",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "WILLY STADLER d.o.o.",
+    "subindustry": ["Kovinski izdelki in oprema", "Stavbno pohištvo"],
+    "email": "sa@w-stadler.si",
+    "website": "https://willystadler.si",
+    "address": "Velika vas pri Krškem 62A",
+    "city": "8273 Leskovec pri Krškem",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "YHD - DRUŠTVO ZA TEORIJO IN KULTURO HENDIKEPA",
+    "subindustry": ["Društvo, organizacija, združenje"],
+    "email": "",
+    "website": "",
+    "address": "Železna cesta 14",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "Yokohama TWS Slovenija d.o.o.",
+    "subindustry": ["Gumarstvo"],
+    "email": "tws.info.moto@trelleborg.com",
+    "website": "http://www.mitas-moto.com",
+    "address": "Škofjeloška cesta 6",
+    "city": "4000 Kranj",
+    "industry": "Proizvodnja in obrt"
+  },
+  {
+    "name": "ZAVOD REPUBLIKE SLOVENIJE ZA ŠOLSTVO",
+    "subindustry": ["Javna uprava"],
+    "email": "info@zrss.si",
+    "website": "http://www.zrss.si",
+    "address": "Poljanska cesta 28",
+    "city": "1000 Ljubljana",
+    "industry": "Poslovni svet"
+  },
+  {
+    "name": "ZD KAMNIK",
+    "subindustry": ["Zdravstvo"],
+    "email": "UPRAVA@ZDKAMNIK.SI",
+    "website": "http://www.zdkamnik.si",
+    "address": "Novi trg 26",
+    "city": "1241 Kamnik",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZD KRŠKO",
+    "subindustry": ["Zdravstvo"],
+    "email": "uprava@zd-krsko.si",
+    "website": "https://www.zd-krsko.si",
+    "address": "Cesta krških žrtev 132C",
+    "city": "8270 Krško",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZD Tolmin",
+    "subindustry": ["Zdravstvo", "Zobozdravstvo"],
+    "email": "info@zd-tolmin.si",
+    "website": "http://www.zd-tolmin.si",
+    "address": "Prešernova ulica 6A",
+    "city": "5220 Tolmin",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZD Trbovlje",
+    "subindustry": ["Zdravstvo"],
+    "email": "zd.trbovlje@siol.net",
+    "website": "http://www.zd-trbovlje.si",
+    "address": "Rudarska cesta 12",
+    "city": "1420 Trbovlje",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZD Šmarje pri Jelšah",
+    "subindustry": ["Zdravstvo"],
+    "email": "",
+    "website": "http://www.zd-smarje.si/",
+    "address": "Celjska cesta 16",
+    "city": "3240 Šmarje pri Jelšah",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM AJDOVŠČINA",
+    "subindustry": ["Zdravstvo"],
+    "email": "tajnistvo@zd-ajdovscina.si",
+    "website": "http://www.zd-ajdovscina.si",
+    "address": "Tovarniška cesta 3",
+    "city": "5270 Ajdovščina",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM RAVNE NA KOROŠKEM",
+    "subindustry": [
+      "Medicinska in laboratorijska oprema",
+      "Zdravstvo",
+      "Zobozdravstvo"
+    ],
+    "email": "zdravstveni.dom@zd-ravne.si",
+    "website": "http://www.zd-ravne.si",
+    "address": "Ob Suhi 11",
+    "city": "2390 Ravne na Koroškem",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ZDRAVSTVENI DOM SLOVENSKA BISTRICA",
+    "subindustry": ["Zdravstvo", "Zobozdravstvo"],
+    "email": "info@zd-sb.si",
+    "website": "https://www.zd-sb.si",
+    "address": "Partizanska ulica 30",
+    "city": "2310 Slovenska Bistrica",
+    "industry": "Lepota in zdravje"
+  },
+  {
+    "name": "ŠC Kranj",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "info@sckr.si",
+    "website": "http://www.tsckr.si",
+    "address": "Kidričeva cesta 55",
+    "city": "4000 Kranj",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ŠC LJUBLJANA",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "solski-center.lj@guest.arnes.si",
+    "website": "https://www.sclj.si",
+    "address": "Aškerčeva cesta 1",
+    "city": "1000 Ljubljana",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ŠC PTUJ",
+    "subindustry": ["Izobraževalne institucije"],
+    "email": "infoscp@scptuj.si",
+    "website": "https://scptuj.si",
+    "address": "Volkmerjeva cesta 19",
+    "city": "2250 Ptuj",
+    "industry": "Izobraževanje in turizem"
+  },
+  {
+    "name": "ŠKRLJ d.o.o.",
+    "subindustry": ["Gostinska oprema"],
+    "email": "sk@sk-skrlj.com",
+    "website": "https://sk-skrlj.com",
+    "address": "Dunajska cesta 196",
+    "city": "1000 Ljubljana",
+    "industry": "Gostinstvo in turizem"
+  },
+  {
+    "name": "ŠUMER d.o.o.",
+    "subindustry": [
+      "Kovinski izdelki in oprema",
+      "Plastika in izdelki iz plastike",
+      "Šport in oprema"
+    ],
+    "email": "info@sumer.si",
+    "website": "http://www.sumer.si",
+    "address": "Cesta v Celje 2",
+    "city": "3202 Ljubečna",
+    "industry": "Proizvodnja in obrt"
+  }
+]

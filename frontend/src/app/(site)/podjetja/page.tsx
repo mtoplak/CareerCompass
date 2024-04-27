@@ -1,7 +1,7 @@
 import About from "@/components/About";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import CompanyFilter from "@/components/CompanyFilter";
-import CompanyPageJobs from "@/components/CompanyPageJobs";
+import CompanyFilter from "@/components/AllCompanies/CompanyFilter";
+import CompanyPageJobs from "@/components/AllCompanies/CompanyPageJobs";
 import Team from "@/components/Team";
 import { Metadata } from "next";
 
