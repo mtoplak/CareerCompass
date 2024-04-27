@@ -5,3 +5,9 @@
 ```bash
 node companiesScraper.js
 ```
+
+## Modify scraper results
+
+```bash
+node companyPostprocessing.js
+```

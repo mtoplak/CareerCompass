@@ -122,7 +122,7 @@ async function scrapeCurrentSite(page) {
       if (industry[0] != company.name) {
         industry = industry[0].split(";").map((item) => item.trim());
       } else {
-        industry = [industry[1]]; // industry[1]; //
+        industry = [industry[1]];
       }
     } else {
       industry = "";
