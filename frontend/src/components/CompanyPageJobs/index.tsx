@@ -42,19 +42,12 @@ const teamData: TeamType[] = [
 ];
 
 
-const LandingPageJobs = () => {
+const CompanyPageJobs = () => {
   return (
-    <section className="bg-gray-1 py-20 dark:bg-dark-2 md:py-[120px]">
+    <section className="bg-gray-1 py-20 dark:bg-dark-2 md:py-[10px]">
       <div className="container px-4">
-        <SectionTitle
-          subtitle="Zaposlitve"
-          title="Poišči zaposlitev"
-          paragraph="Preberi komentarje in izkušnje drugih zaposlenih ter se na podlagi teh odloči za najboljši poklic zate!"
-          width="640px"
-          center
-        />
 
-        <div className="mt-[60px] flex flex-wrap lg:mt-20 gap-y-8">
+        <div className="mt-[10px] mb-[50px] flex flex-wrap gap-y-8">
           {teamData.map((team, i) => (
             <SingleJobs key={i} team={team} />
           ))}
@@ -64,4 +57,4 @@ const LandingPageJobs = () => {
   );
 };
 
-export default LandingPageJobs;
+export default CompanyPageJobs;

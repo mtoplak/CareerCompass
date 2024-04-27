@@ -9,13 +9,13 @@ const Breadcrumb = ({
 }) => {
   return (
     <>
-      <div className="dark:bg-dark relative z-10 overflow-hidden pb-[60px] pt-[120px] md:pt-[130px] lg:pt-[160px]">
-        <div className="from-stroke/0 via-stroke to-stroke/0 dark:via-dark-3 absolute bottom-0 left-0 h-px w-full bg-gradient-to-r"></div>
+      <section
+      className="relative overflow-hidden bg-indigo-800 pt-[120px] pb-[60px] md:pt-[130px] lg:pt-[160px] bg-[url('/images/hero/hero-background-indigo-700.png')]">
         <div className="container">
-          <div className="-mx-4 flex flex-wrap items-center">
+        <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4">
               <div className="text-center">
-                <h1 className="text-dark mb-4 text-3xl font-bold dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
+                <h1 className="text-white mb-4 text-3xl font-bold dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]">
                   {pageName}
                 </h1>
                 <p className="text-body-color dark:text-dark-6 mb-5 text-base">
@@ -26,14 +26,14 @@ const Breadcrumb = ({
                   <li>
                     <Link
                       href="/"
-                      className="text-dark flex items-center gap-[10px] text-base font-medium dark:text-white"
+                      className="text-white flex items-center gap-[10px] text-base font-medium dark:text-white"
                     >
-                      Home
+                      Domov
                     </Link>
                   </li>
                   <li>
-                    <p className="text-body-color flex items-center gap-[10px] text-base font-medium">
-                      <span className="text-body-color dark:text-dark-6">
+                    <p className="text-slate-400 flex items-center gap-[10px] text-base font-medium">
+                      <span className="text-slate-400 dark:text-dark-6">
                         {" "}
                         /{" "}
                       </span>
@@ -45,7 +45,7 @@ const Breadcrumb = ({
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

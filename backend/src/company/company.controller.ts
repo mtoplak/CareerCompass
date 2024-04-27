@@ -8,9 +8,10 @@ import {
     Patch
 } from '@nestjs/common';
 import { CompanyResponse, SuccessResponse } from 'src/data.response';
-import { CreateUpdateCompanyDto } from './create-update-company.dto';
+import { CreateUpdateCompanyDto } from './dto/create-update-company.dto';
 import { Company } from 'src/entities/company.model';
 import { CompanyService } from './company.service';
+import { SearchCompanyDto } from './dto/search-company.dto';
 
 @Controller('/company')
 export class CompanyController {
@@ -45,5 +46,12 @@ export class CompanyController {
     async removeCompany(@Param('id') companyId: string): Promise<SuccessResponse> {
       return this.companyService.removeCompany(companyId);
     }
+
+    
+    @Post('/search')
+    async getSingleCompanyByName(@Body() searchDto: SearchCompanyDto): Promise<CompanyResponse[]> {
+        return await this.companyService.getSingleCompanyByName(searchDto);
+    }
+    
 
 }

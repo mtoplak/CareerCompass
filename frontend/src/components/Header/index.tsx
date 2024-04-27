@@ -61,7 +61,7 @@ const Header = () => {
                   sticky ? "py-2" : "py-5"
                 } `}
               >
-                {pathUrl !== "/" ? (
+                {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
                   <>
                     <Image
                       src={`/images/logo/logo-dark.png`}
@@ -113,8 +113,8 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? " top-[7px] rotate-45" : " "
-                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
-                      pathUrl === "/" && sticky
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && "!bg-dark dark:!bg-white"} ${
+                      (pathUrl === "/" || pathUrl === "/podjetja") && sticky
                         ? "bg-dark dark:bg-white"
                         : "bg-white"
                     }`}
@@ -122,8 +122,8 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? "opacity-0 " : " "
-                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
-                      pathUrl === "/" && sticky
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && "!bg-dark dark:!bg-white"} ${
+                      (pathUrl === "/" || pathUrl === "/podjetja") && sticky
                         ? "bg-dark dark:bg-white"
                         : "bg-white"
                     }`}
@@ -131,8 +131,8 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? " top-[-8px] -rotate-45" : " "
-                    } ${pathUrl !== "/" && "!bg-dark dark:!bg-white"} ${
-                      pathUrl === "/" && sticky
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && "!bg-dark dark:!bg-white"} ${
+                      (pathUrl === "/" || pathUrl === "/podjetja") && sticky
                         ? "bg-dark dark:bg-white"
                         : "bg-white"
                     }`}
@@ -150,7 +150,7 @@ const Header = () => {
                     {menuData.map((menuItem, index) =>
                       menuItem.path ? (
                         <li key={index} className="group relative">
-                          {pathUrl !== "/" ? (
+                          {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
                             <Link
                               onClick={navbarToggleHandler}
                               scroll={false}
@@ -181,7 +181,7 @@ const Header = () => {
                         </li>
                       ) : (
                         <li className="submenu-item group relative" key={index}>
-                          {pathUrl !== "/" ? (
+                          {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
                             <button
                               onClick={() => handleSubmenu(index)}
                               className={`ud-menu-scroll flex items-center justify-between py-2 text-base text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800 lg:inline-flex lg:px-0 lg:py-6`}
@@ -276,7 +276,7 @@ const Header = () => {
                     <svg
                       viewBox="0 0 23 23"
                       className={`h-[30px] w-[30px] fill-current text-dark dark:hidden ${
-                        !sticky && pathUrl === "/" && "text-white"
+                        !sticky && (pathUrl === "/" || pathUrl === "/podjetja") && "text-white"
                       }`}
                     >
                       <g clipPath="url(#clip0_40_125)">
@@ -290,12 +290,12 @@ const Header = () => {
                   <>
                     <p
                       className={`loginBtn px-7 py-3 text-base font-medium ${
-                        !sticky && pathUrl === "/" ? "text-white" : "text-dark"
+                        !sticky && (pathUrl === "/" || pathUrl === "/podjetja") ? "text-white" : "text-dark"
                       }`}
                     >
                       {session?.user?.name}
                     </p>
-                    {pathUrl !== "/" || sticky ? (
+                    {pathUrl !== "/" && pathUrl !== "/podjetja" || sticky ? (
                       <button
                         onClick={() => signOut()}
                         className="signUpBtn rounded-lg bg-indigo-800 bg-opacity-100 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-20 hover:text-dark"
@@ -313,7 +313,7 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    {pathUrl !== "/" ? (
+                    {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
                       <>
                         <Link
                           href="/signin"

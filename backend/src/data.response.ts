@@ -1,6 +1,8 @@
 import { Company } from "./entities/company.model";
 import { JobAdvertisement } from "./entities/job-advertisement.model";
 import { Industry } from "./enums/industry.enum";
+import { InterviewDifficulty } from "./enums/interview-difficulty.enum";
+import { InterviewExperience } from "./enums/interview-experience.enum";
 
 export interface SuccessResponse {
     success: boolean;
@@ -12,9 +14,10 @@ export interface CompanyResponse {
     address: string;
     city: string;
     logo: string;
-    industry: Industry;
+    industry: Industry[];
     email: string;
     claimed: boolean;
+    avg_rating: number;
 }
 
 export interface UserResponse {
@@ -39,19 +42,19 @@ export interface JobAdvertisementResponse {
 export interface RatingResponse {
     id: string;
     company: Company;
-    team: string;
-    personal_development: string;
-    flexibility: string;
-    work_life_balance: string;
-    work_enviroment: string;
-    leadership: string;
+    team: number;
+    personal_development: number;
+    flexibility: number;
+    work_life_balance: number;
+    work_enviroment: number;
+    leadership: number;
     general_assessment_comment: string;
-    benefits: string;
-    remote_work: string;
-    bonuses: string;
+    benefits: number;
+    remote_work: boolean;
+    bonuses: number;
     salary_and_benefits_comment: string;
-    experience: string;
+    experience: InterviewExperience;
     duration: string;
-    difficulty: string;
+    difficulty: InterviewDifficulty;
     interviews_comment: string;
 }
