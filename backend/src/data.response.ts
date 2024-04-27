@@ -14,6 +14,7 @@ export interface CompanyResponse {
     address: string;
     city: string;
     logo: string;
+    website: string;
     industry: Industry[];
     email: string;
     claimed: boolean;
