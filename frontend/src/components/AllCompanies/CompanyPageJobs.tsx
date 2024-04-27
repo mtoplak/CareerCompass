@@ -1,6 +1,6 @@
 import { TeamType } from "@/types/team";
-import SectionTitle from "../Common/SectionTitle";
 import SingleJobs from "../Common/SingleJobs";
+
 
 const teamData: TeamType[] = [
   {
@@ -49,7 +49,7 @@ const CompanyPageJobs = () => {
 
         <div className="mt-[10px] mb-[50px] flex flex-wrap gap-y-8">
           {teamData.map((team, i) => (
-            <SingleJobs key={i} team={team} />
+              <SingleJobs team={team} />
           ))}
         </div>
       </div>
