@@ -29,7 +29,7 @@ export class RatingController {
   }
 
   @Get(':id')
-  async getSingleRating(@Param('id') id: string): Promise<Rating> {
+  async getSingleRating(@Param('id') id: string): Promise<RatingResponse> {
     return await this.ratingService.getSingleRating(id);
   }
 

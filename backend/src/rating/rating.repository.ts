@@ -10,7 +10,7 @@ export class RatingRepository {
     @InjectModel('Rating') public ratingModel: Model<Rating>,
   ) { }
 
-  async findOne(ratingFilterQuery: FilterQuery<Rating>): Promise<Rating> {
+  async findOne(ratingFilterQuery: FilterQuery<Rating>): Promise<RatingResponse> {
     try {
       return await this.ratingModel
         .findOne(ratingFilterQuery)
@@ -19,12 +19,22 @@ export class RatingRepository {
     }
   }
 
-  async find(ratingsFilterQuery: FilterQuery<Rating>): Promise<RatingResponse[]> {
+  async find(ratingsFilterQuery: FilterQuery<Rating>, session = null): Promise<RatingResponse[]> {
     try {
+      const options = session ? { session } : {};
       return await this.ratingModel
-        .find(ratingsFilterQuery)
+        .find(ratingsFilterQuery, options)
     } catch (err) {
       throw new NotFoundException('Could not find ratings.');
+    }
+  }
+
+  async createSession(rating: Rating, session = null): Promise<Rating> {
+    try {
+      const options = session ? { session } : {};
+      return await new this.ratingModel(rating).save(options);
+    } catch (err) {
+      throw new NotFoundException('Could not create rating.');
     }
   }
 

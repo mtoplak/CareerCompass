@@ -78,5 +78,6 @@ export class CompanyService {
       throw new NotFoundException('Could not get the companies from database.');
     }
   }
+  
 }
 
