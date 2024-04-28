@@ -1,5 +1,11 @@
 # Company scraper
 
+## Instal dependencies
+
+```bash
+npm install
+```
+
 ## Run scraper
 
 ```bash
