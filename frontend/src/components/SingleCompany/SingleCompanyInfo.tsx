@@ -5,8 +5,8 @@ import { Testimonial } from "@/types/testimonial";
 import SingleRating from "../Rating/SingleRating";
 
 export const metadata: Metadata = {
-  title: "Podjetja Details",
-  description: "Details page for individual podjetja.",
+  title: "Career Compass - Podjetje",
+  description: "Profil podjetja",
 };
 
 type Props = {
@@ -46,31 +46,37 @@ const testimonialData: Testimonial[] = [
 const SingleCompanyPage = ({ team }: Props) => {
   return (
     <div className="container mx-auto py-8 pt-[120px]">
-      <div className="flex flex-col md:flex-row items-center">
-        <div className="md:w-1/4 mb-4 md:mb-0">
-          <Image src={team.image} alt={team.name} width={200} height={200} className="rounded-full" />
+      <div className="flex flex-col items-center md:flex-row">
+        <div className="mb-4 md:mb-0 md:w-1/4">
+          <Image
+            src="https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FBSH%20HI%C5%A0NI%20APARATI%20d.o.o.%20Nazarje_logo.jpg?alt=media&token=c278b382-604b-4999-8bbe-5fc869593b85"
+            alt={team.name}
+            width={150}
+            height={200}
+            className="rounded-full"
+          />
         </div>
         {/*Moremo prilagodit naslednji del ko ne bo več statično*/}
-        <div className="md:w-1/4 pl-10">
+        <div className="pl-10 md:w-1/4">
           <h1 className="text-3xl font-bold">{team.name}</h1>
           <p className="text-lg text-gray-600">{team.designation}</p>
-          <div className="flex mt-4">
-            <span className="text-yellow-400 mr-1">&#9733;</span>
-            <span className="text-yellow-400 mr-1">&#9733;</span>
-            <span className="text-yellow-400 mr-1">&#9733;</span>
-            <span className="text-yellow-400 mr-1">&#9733;</span>
+          <div className="mt-4 flex">
+            <span className="mr-1 text-yellow-400">&#9733;</span>
+            <span className="mr-1 text-yellow-400">&#9733;</span>
+            <span className="mr-1 text-yellow-400">&#9733;</span>
+            <span className="mr-1 text-yellow-400">&#9733;</span>
             <span className="text-yellow-400">&#9733;</span>
-            <span className="text-gray-600 ml-2">(5.0)</span>
+            <span className="ml-2 text-gray-600">(5.0)</span>
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-300 my-10"></div>
+      <div className="my-10 border-t border-gray-300"></div>
       <div className="mt-20">
-        <h2 className="text-2xl font-semibold mb-4">Zaposlitve</h2>
-            Podjetje nima objavljenih zaposlitev.
+        <h2 className="mb-4 text-2xl font-semibold">Zaposlitve</h2>
+        Podjetje nima objavljenih zaposlitev.
       </div>
       <div className="my-20">
-        <h2 className="text-2xl font-semibold mb-4">Komentarji in Ocene</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Komentarji in Ocene</h2>
         <div className="mt-[20px] flex flex-wrap gap-y-8">
           {testimonialData.map((testimonial, i) => (
             <SingleRating key={i} testimonial={testimonial} />

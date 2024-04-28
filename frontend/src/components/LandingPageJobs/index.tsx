@@ -1,8 +1,7 @@
-import { TeamType } from "@/types/team";
 import SectionTitle from "../Common/SectionTitle";
-import SingleJobs from "../Common/SingleJobs";
+import SingleCompany from "../Common/SingleCompany";
 
-const teamData: TeamType[] = [
+const teamData = [
   {
     id: 1,
     name: "Inova",
@@ -11,6 +10,8 @@ const teamData: TeamType[] = [
     facebookLink: "/#",
     twitterLink: "/#",
     instagramLink: "/#",
+    logo: "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FTEM%20%C4%8Cate%C5%BE%2C%20d.o.o._logo.jpg?alt=media&token=351f509f-2c6d-4d5e-baf1-a9b01f4c5e63",
+    industry: "Software Development",
   },
   {
     id: 2,
@@ -20,6 +21,8 @@ const teamData: TeamType[] = [
     facebookLink: "/#",
     twitterLink: "/#",
     instagramLink: "/#",
+    logo: "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FTEM%20%C4%8Cate%C5%BE%2C%20d.o.o._logo.jpg?alt=media&token=351f509f-2c6d-4d5e-baf1-a9b01f4c5e63",
+    industry: "",
   },
   {
     id: 3,
@@ -29,6 +32,8 @@ const teamData: TeamType[] = [
     facebookLink: "/#",
     twitterLink: "/#",
     instagramLink: "/#",
+    logo: "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FTEM%20%C4%8Cate%C5%BE%2C%20d.o.o._logo.jpg?alt=media&token=351f509f-2c6d-4d5e-baf1-a9b01f4c5e63",
+    industry: "",
   },
   {
     id: 4,
@@ -38,9 +43,10 @@ const teamData: TeamType[] = [
     facebookLink: "/#",
     twitterLink: "/#",
     instagramLink: "/#",
+    logo: "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FTEM%20%C4%8Cate%C5%BE%2C%20d.o.o._logo.jpg?alt=media&token=351f509f-2c6d-4d5e-baf1-a9b01f4c5e63",
+    industry: "",
   },
 ];
-
 
 const LandingPageJobs = () => {
   return (
@@ -53,10 +59,9 @@ const LandingPageJobs = () => {
           width="640px"
           center
         />
-
-        <div className="mt-[60px] flex flex-wrap lg:mt-20 gap-y-8">
+        <div className="mt-[60px] flex flex-wrap gap-y-8 lg:mt-20">
           {teamData.map((team, i) => (
-            <SingleJobs key={i} team={team} />
+            <SingleCompany key={i} company={team} />
           ))}
         </div>
       </div>

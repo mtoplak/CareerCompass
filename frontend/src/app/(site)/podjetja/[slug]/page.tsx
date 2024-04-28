@@ -4,8 +4,8 @@ import SingleCompanyPage from "@/components/SingleCompany/SingleCompanyInfo";
 //import TeamDetails from "@/components/TeamDetails";
 
 export const metadata: Metadata = {
-  title: "Podjetja Details",
-  description: "Details page for individual podjetja.",
+  title: "Career Compass - Podjetje",
+  description: "Profil podjetja",
 };
 
 type Props = {
@@ -52,12 +52,9 @@ const teamData: TeamType[] = [
 ];
 
 export default function PodjetjaPage({ params }: Props) {
-  // Find the team with the matching slug
-  const team = teamData.find((team) => team.name.toLowerCase() === params.slug.toLowerCase());
-
-  return (
-    <>
-      {team && <SingleCompanyPage team={team} />}
-    </>
+  const team = teamData.find(
+    (team) => team.name.toLowerCase() === params.slug.toLowerCase(),
   );
+
+  return <>{team && <SingleCompanyPage team={team} />}</>;
 }

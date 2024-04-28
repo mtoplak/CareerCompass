@@ -2,21 +2,30 @@ import About from "@/components/About";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import CompanyFilter from "@/components/AllCompanies/CompanyFilter";
 import CompanyPageJobs from "@/components/AllCompanies/CompanyPageJobs";
-import Team from "@/components/Team";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Companies",
-  description: "A catalog page of all the companies.",
+  title: "Career Compass - Podjetja",
+  description: "Vsa podjetja",
 };
 
-const CompaniesPage = () => {
+async function getCompanies() {
+  const res = await fetch(`http://localhost:4000/company`, {
+    cache: "no-store",
+  });
+  const companies = await res.json();
+
+  return companies;
+}
+
+const CompaniesPage = async () => {
+  const companies = await getCompanies();
+
   return (
     <main>
       <Breadcrumb pageName="Vsa podjetja" />
       <CompanyFilter />
-      <CompanyPageJobs />
+      <CompanyPageJobs companies={companies} />
     </main>
   );
 };
