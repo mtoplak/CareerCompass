@@ -29,7 +29,7 @@ export class CompanyController {
         return await this.companyService.getAllCompanies();
     }
 
-    @Get(':id')
+    @Get('/id/:id')
     async getSingleCompany(@Param('id') id: string): Promise<Company> {
         return await this.companyService.getSingleCompany(id);
     }
