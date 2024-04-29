@@ -18,14 +18,42 @@ export const CompanySchema = new Schema({
   // rating
   avg_rating: { type: Number, default: 0 },
   ratings_count: { type: Number, default: 0 },
-  avg_team: { type: Number },
-  avg_personal_development: { type: Number },
-  avg_flexibility: { type: Number },
-  avg_work_life_balance: { type: Number },
-  avg_work_enviroment: { type: Number },
-  avg_leadership: { type: Number },
-  avg_benefits: { type: Number },
-  avg_bonuses: { type: Number },
+  avg_team: { type: Number, default: 0 },
+  avg_personal_development: { type: Number, default: 0 },
+  avg_flexibility: { type: Number, default: 0 },
+  avg_work_life_balance: { type: Number, default: 0 },
+  avg_work_enviroment: { type: Number, default: 0 },
+  avg_leadership: { type: Number, default: 0 },
+  avg_benefits: { type: Number, default: 0 },
+  avg_bonuses: { type: Number, default: 0 },
+  remote_work_distribution: {
+    yes: { type: Number, default: 0 },
+    no: { type: Number, default: 0 }
+  },
+  remote_work_percentage: {
+    yes: { type: Number, default: 0 },
+    no: { type: Number, default: 0 },
+  },
+  experience_distribution: {
+    pozitivna: { type: Number, default: 0 },
+    nevtralna: { type: Number, default: 0 },
+    negativna: { type: Number, default: 0 }
+  },
+  experience_percentage: {
+    pozitivna: { type: Number, default: 0 },
+    nevtralna: { type: Number, default: 0 },
+    negativna: { type: Number, default: 0 },
+  },
+  difficulty_distribution: {
+    enostavno: { type: Number, default: 0 },
+    srednje: { type: Number, default: 0 },
+    težko: { type: Number, default: 0 }
+  },
+  difficulty_percentage: {
+    enostavno: { type: Number, default: 0 },
+    srednje: { type: Number, default: 0 },
+    težko: { type: Number, default: 0 },
+  }
 });
 
 export interface Company extends Document {
@@ -47,7 +75,35 @@ export interface Company extends Document {
   avg_work_enviroment: number,
   avg_leadership: number,
   avg_benefits: number,
-  avg_bonuses: number;
+  avg_bonuses: number,
+  remote_work_distribution: {
+    yes: number,
+    no: number,
+  },
+  remote_work_percentage: {
+    yes: number,
+    no: number,
+  },
+  experience_distribution: {
+    pozitivna: number,
+    nevtralna: number,
+    negativna: number,
+  },
+  experience_percentage: {
+    pozitivna: number,
+    nevtralna: number,
+    negativna: number,
+  },
+  difficulty_distribution: {
+    enostavno: number,
+    srednje: number,
+    težko: number,
+  },
+  difficulty_percentage: {
+    enostavno: number,
+    srednje: number,
+    težko: number,
+  },
 }
 
 export const CompanyModel: Model<Company> = model<Company>('Company', CompanySchema);

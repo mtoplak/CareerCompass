@@ -29,6 +29,34 @@ export interface CompanyResponse {
     avg_leadership: number;
     avg_benefits: number;
     avg_bonuses: number;
+    remote_work_distribution: {
+        yes: number,
+        no: number,
+    };
+    remote_work_percentage: {
+        yes: number,
+        no: number,
+    };
+    experience_distribution: {
+        pozitivna: number,
+        nevtralna: number,
+        negativna: number,
+    };
+    experience_percentage: {
+        pozitivna: number,
+        nevtralna: number,
+        negativna: number,
+    };
+    difficulty_distribution: {
+        enostavno: number,
+        srednje: number,
+        težko: number,
+    };
+    difficulty_percentage: {
+        enostavno: number,
+        srednje: number,
+        težko: number,
+    };
 }
 
 export interface UserResponse {

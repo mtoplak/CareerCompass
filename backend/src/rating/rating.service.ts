@@ -96,9 +96,64 @@ export class RatingService {
     }, 0);
 
     company.avg_rating = sumOfAverages / categories.length;
+
+    // remote work
+    if (rating.remote_work === true) {
+      company.remote_work_distribution.yes += 1;
+    } else if (rating.remote_work === false) {
+      company.remote_work_distribution.no += 1;
+    }
+    const remoteWorkPercentages = await this.calculateRemoteWorkPercentages(company.remote_work_distribution);
+    company.remote_work_percentage = {
+      yes: parseFloat(remoteWorkPercentages.yes),
+      no: parseFloat(remoteWorkPercentages.no),
+    };
+
+    // experience and difficulty
+    company.experience_distribution[rating.experience.toLowerCase()] += 1;
+    company.difficulty_distribution[rating.difficulty.toLowerCase()] += 1;
+    const experiencePercentages = await this.calculateExperiencePercentages(company.experience_distribution);
+    const difficultyPercentages = await this.calculateDifficultyPercentages(company.difficulty_distribution);
+    company.experience_percentage = {
+      pozitivna: parseFloat(experiencePercentages.pozitivna),
+      nevtralna: parseFloat(experiencePercentages.nevtralna),
+      negativna: parseFloat(experiencePercentages.negativna),
+    };
+    company.difficulty_percentage = {
+      enostavno: parseFloat(difficultyPercentages.enostavno),
+      srednje: parseFloat(difficultyPercentages.srednje),
+      težko: parseFloat(difficultyPercentages.težko),
+    };
+
     company.ratings_count += 1;
 
     await company.save();
+  }
+
+  async calculateRemoteWorkPercentages(distribution) {
+    const totalRemote = distribution.yes + distribution.no;
+    return {
+      yes: ((distribution.yes / totalRemote) * 100).toFixed(2),
+      no: ((distribution.no / totalRemote) * 100).toFixed(2)
+    };
+  }
+
+  async calculateExperiencePercentages(distribution) {
+    const total = distribution.pozitivna + distribution.nevtralna + distribution.negativna;
+    return {
+      pozitivna: (distribution.pozitivna / total * 100).toFixed(2),
+      nevtralna: (distribution.nevtralna / total * 100).toFixed(2),
+      negativna: (distribution.negativna / total * 100).toFixed(2)
+    };
+  }
+
+  async calculateDifficultyPercentages(distribution) {
+    const total = distribution.enostavno + distribution.srednje + distribution.težko;
+    return {
+      enostavno: (distribution.enostavno / total * 100).toFixed(2),
+      srednje: (distribution.srednje / total * 100).toFixed(2),
+      težko: (distribution.težko / total * 100).toFixed(2)
+    };
   }
 
 }
