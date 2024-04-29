@@ -6,6 +6,7 @@ export const CompanySchema = new Schema({
   address: { type: String, required: true },
   city: { type: String, required: true },
   logo: { type: String, required: true },
+  slug: { type: String, required: true },
   website: { type: String, required: false },
   industry: [{
     type: String,
@@ -32,6 +33,7 @@ export interface Company extends Document {
   address: string, // naslov
   city: string, // kraj
   logo: string, // logo
+  slug: string, // slug
   website: string, // spletna stran
   industry: Industry[], // panoga
   email: string, // email
@@ -45,7 +47,7 @@ export interface Company extends Document {
   avg_work_enviroment: number,
   avg_leadership: number,
   avg_benefits: number,
-  avg_bonuses: number
+  avg_bonuses: number;
 }
 
 export const CompanyModel: Model<Company> = model<Company>('Company', CompanySchema);

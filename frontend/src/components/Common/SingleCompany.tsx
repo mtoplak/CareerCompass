@@ -7,7 +7,7 @@ const starIcon = (
 );
 
 const SingleCompany = ({ company }: { company: any }) => {
-  const { logo, name, industry } = company;
+  const { logo, name, industry, slug } = company;
 
   let ratingIcons = [];
   for (let index = 0; index < 5; index++) {
@@ -20,7 +20,7 @@ const SingleCompany = ({ company }: { company: any }) => {
   return (
     <div className="w-full px-4 sm:w-1/2 lg:w-1/4 xl:w-1/4">
       <div className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-12 shadow-testimonial dark:bg-dark dark:shadow-none">
-        <Link href={`/podjetja/${company.name}`}>
+        <Link href={`/podjetje/${slug}`}>
           <div className="relative z-10 mx-auto mb-5 h-[120px] w-[120px]">
             <Image
               src={logo}

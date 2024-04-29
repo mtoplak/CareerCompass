@@ -42,6 +42,17 @@ export class CompanyService {
     }
   }
 
+  async getCompanyBySlug(slug: string): Promise<Company> {
+    try {
+      return await this.companyRepository.findOne({ slug: slug });
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    }
+  }
+
   async updateCompany(
     companyId: string,
     companyUpdates: CreateUpdateCompanyDto,
@@ -70,14 +81,14 @@ export class CompanyService {
         name: { $regex: new RegExp('^' + searchDto.keyword, 'i') }
       });
       if (companies.length === 0) {
-          return []; 
+        return [];
       }
       return companies;
-  } catch (error) {
+    } catch (error) {
       console.error('Error while searching for companies:', error);
       throw new NotFoundException('Could not get the companies from database.');
     }
   }
-  
+
 }
 

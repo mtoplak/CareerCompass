@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import { TeamType } from "@/types/team";
 import Image from "next/image";
 import { Testimonial } from "@/types/testimonial";
 import SingleRating from "../Rating/SingleRating";
+import { Company } from "@/types/company";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  team: TeamType;
+  company: Company;
 };
 
 const testimonialData: Testimonial[] = [
@@ -43,14 +43,14 @@ const testimonialData: Testimonial[] = [
   },
 ];
 
-const SingleCompanyPage = ({ team }: Props) => {
+const SingleCompanyPage = async ({ company }: Props) => {
   return (
     <div className="container mx-auto py-8 pt-[120px]">
       <div className="flex flex-col items-center md:flex-row">
         <div className="mb-4 md:mb-0 md:w-1/4">
           <Image
-            src="https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FBSH%20HI%C5%A0NI%20APARATI%20d.o.o.%20Nazarje_logo.jpg?alt=media&token=c278b382-604b-4999-8bbe-5fc869593b85"
-            alt={team.name}
+            src={company.logo}
+            alt={company.name}
             width={150}
             height={200}
             className="rounded-full"
@@ -58,8 +58,8 @@ const SingleCompanyPage = ({ team }: Props) => {
         </div>
         {/*Moremo prilagodit naslednji del ko ne bo več statično*/}
         <div className="pl-10 md:w-1/4">
-          <h1 className="text-3xl font-bold">{team.name}</h1>
-          <p className="text-lg text-gray-600">{team.designation}</p>
+          <h1 className="text-3xl font-bold">{company.name}</h1>
+          <p className="text-lg text-gray-600">{company.industry}</p>
           <div className="mt-4 flex">
             <span className="mr-1 text-yellow-400">&#9733;</span>
             <span className="mr-1 text-yellow-400">&#9733;</span>

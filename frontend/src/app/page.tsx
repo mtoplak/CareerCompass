@@ -17,7 +17,8 @@ import LandingPageJobs from "@/components/LandingPageJobs";
 
 export const metadata: Metadata = {
   title: "Career Compass",
-  description: "Free Next.js SaaS Boilerplate and Starter Kit designed and built for SaaS startups. It comes with all necessary integrations, pages, and components you need to launch a feature-rich SaaS websites.",
+  description:
+    "CareerCompass is a platform that helps job seekers to find the right company to work for. It provides a list of companies with their ratings and reviews. Users can also look for job advertisements and chat with an AI chatbot to get career advice.",
 };
 
 export default function Home() {

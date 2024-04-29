@@ -29,29 +29,35 @@ export class CompanyController {
         return await this.companyService.getAllCompanies();
     }
 
-    @Get(':id')
+    @Get('/id/:id')
     async getSingleCompany(@Param('id') id: string): Promise<Company> {
         return await this.companyService.getSingleCompany(id);
     }
 
-    @Patch(':id')
-    async updateCompany(
-      @Param('id') companyId: string,
-      @Body() updateCompanyDto: CreateUpdateCompanyDto,
-    ): Promise<Company> {
-      return await this.companyService.updateCompany(companyId, updateCompanyDto);
-    }
-  
-    @Delete(':id')
-    async removeCompany(@Param('id') companyId: string): Promise<SuccessResponse> {
-      return this.companyService.removeCompany(companyId);
+    @Get(':slug')
+    async getCompanyBySlug(@Param('slug') slug: string): Promise<Company> {
+        console.log(slug);
+        return await this.companyService.getCompanyBySlug(slug);
     }
 
-    
+    @Patch(':id')
+    async updateCompany(
+        @Param('id') companyId: string,
+        @Body() updateCompanyDto: CreateUpdateCompanyDto,
+    ): Promise<Company> {
+        return await this.companyService.updateCompany(companyId, updateCompanyDto);
+    }
+
+    @Delete(':id')
+    async removeCompany(@Param('id') companyId: string): Promise<SuccessResponse> {
+        return this.companyService.removeCompany(companyId);
+    }
+
+
     @Post('/search')
     async getSingleCompanyByName(@Body() searchDto: SearchCompanyDto): Promise<CompanyResponse[]> {
         return await this.companyService.getSingleCompanyByName(searchDto);
     }
-    
+
 
 }

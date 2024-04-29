@@ -12,6 +12,7 @@ const teamData = [
     instagramLink: "/#",
     logo: "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FTEM%20%C4%8Cate%C5%BE%2C%20d.o.o._logo.jpg?alt=media&token=351f509f-2c6d-4d5e-baf1-a9b01f4c5e63",
     industry: "Software Development",
+    slug: "inova",
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const teamData = [
     instagramLink: "/#",
     logo: "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FTEM%20%C4%8Cate%C5%BE%2C%20d.o.o._logo.jpg?alt=media&token=351f509f-2c6d-4d5e-baf1-a9b01f4c5e63",
     industry: "",
+    slug: "gasilko",
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const teamData = [
     instagramLink: "/#",
     logo: "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FTEM%20%C4%8Cate%C5%BE%2C%20d.o.o._logo.jpg?alt=media&token=351f509f-2c6d-4d5e-baf1-a9b01f4c5e63",
     industry: "",
+    slug: "feri",
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ const teamData = [
     instagramLink: "/#",
     logo: "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FTEM%20%C4%8Cate%C5%BE%2C%20d.o.o._logo.jpg?alt=media&token=351f509f-2c6d-4d5e-baf1-a9b01f4c5e63",
     industry: "",
+    slug: "nkb-maribor",
   },
 ];
 

@@ -16,9 +16,11 @@ CareerCompass is a platform that helps job seekers to find the right company to 
 ## Tech Stack
 
 <div style="width: 100%; text-align: center;">
+
 | TypeScript | NextJS | NestJS | MongoDB | Firebase | OpenAI |
 | :--------: | :---: | :----: | :-----: | :------: | :----: |
 | <a href="https://www.typescriptlang.org/" title="Typescript"><img src="https://github.com/get-icon/geticon/raw/master/icons/typescript-icon.svg" alt="Typescript" width="50px" height="50px"></a> | <a href="https://nextjs.org/" title="NextJS"><img src="https://github.com/get-icon/geticon/raw/master/icons/nextjs.svg" alt="React" width="50px" height="50px"></a> | <a href="https://nestjs.com/" title="NestJS"><img src="https://github.com/get-icon/geticon/raw/master/icons/nestjs.svg" alt="NestJS" width="50px" height="50px"></a> | <a href="https://www.mongodb.com/" title="MongoDB"><img src="https://github.com/get-icon/geticon/raw/master/icons/mongodb.svg" alt="MongoDB" width="80px" height="50px"></a> | <a href="https://www.firebase.com/" title="Firebase"><img src="https://github.com/get-icon/geticon/raw/master/icons/firebase.svg" alt="Firebase" width="50px" height="50px"></a> | <a href="https://openai.com/" title="OpenAI"><img src="https://assets-global.website-files.com/5e6aa3e3f001fae105b8e1e7/63920ffe0f48f96db746221d_open-ai-logo-8B9BFEDC26-seeklogo.com.png" alt="OpenAI" width="50px" height="50px"></a> |
+
 </div>
 
 # Backend
@@ -37,7 +39,7 @@ in `backend` directory to build the server
 
 Create a new file `.env` in `backend` directory and add the following content
 
-```
+```env
 MONGODB_URI=mongodb+srv://<username>:<password>@careercompassdatabase.7a8bbng.mongodb.net/
 ```
 
@@ -81,7 +83,7 @@ in `frontend` directory to build the client
 
 Create a new file `.env` in `frontend` directory and add the following content
 
-```
+```env
 SECRET=
 NEXTAUTH_URL=
 NEXT_PUBLIC_SITE_URL=
