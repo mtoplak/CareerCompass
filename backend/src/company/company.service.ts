@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CompanyRepository } from './company.repository';
 import { CreateUpdateCompanyDto } from './dto/create-update-company.dto';
-import { Company } from 'src/entities/company.model';
+import { Company } from 'src/db/entities/company.model';
 import { CompanyResponse, SuccessResponse } from 'src/data.response';
 import { SearchCompanyDto } from './dto/search-company.dto';
 
@@ -75,20 +75,47 @@ export class CompanyService {
     return await this.companyRepository.deleteOne({ _id: companyId });
   }
 
-  async getSingleCompanyByName(searchDto: SearchCompanyDto): Promise<CompanyResponse[]> {
+  async getFourBestCompanies(): Promise<CompanyResponse[]> {
     try {
-      const companies = await this.companyRepository.find({
-        name: { $regex: new RegExp('^' + searchDto.keyword, 'i') }
-      });
-      if (companies.length === 0) {
-        return [];
-      }
-      return companies;
+      console.log("1")
+      const b =  await this.companyRepository.find(
+        {},
+        { sort: { avg_rating: -1 }, limit: 4 }
+      );
+      console.log("2");
+      console.log(b);
+      return b;
     } catch (error) {
-      console.error('Error while searching for companies:', error);
+      throw new NotFoundException('Could not retrieve top companies.');
+    }
+  }
+
+
+  async getCompaniesByCriteria(searchDto: SearchCompanyDto): Promise<CompanyResponse[]> {
+    const query: any = {};
+
+    if (searchDto.name) {
+      query.name = { $regex: new RegExp('^' + this.escapeRegex(searchDto.name), 'i') };
+    }
+    if (searchDto.city) {
+      query.city = { $regex: new RegExp(searchDto.city + '$', 'i') };
+    }
+    if (searchDto.industry) {
+      query.industry = searchDto.industry;
+    }
+
+    try {
+      const companies = await this.companyRepository.find(query);
+      return companies.length > 0 ? companies : [];
+    } catch (error) {
       throw new NotFoundException('Could not get the companies from database.');
     }
   }
+
+  async escapeRegex(text: string): Promise<string> {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  }
+
 
 }
 

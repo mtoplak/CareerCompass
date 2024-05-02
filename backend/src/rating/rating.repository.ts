@@ -2,7 +2,7 @@ import { Injectable, InternalServerErrorException, NotFoundException } from '@ne
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
 import { RatingResponse, SuccessResponse } from 'src/data.response';
-import { Rating } from 'src/entities/rating.model';
+import { Rating } from 'src/db/entities/rating.model';
 
 @Injectable()
 export class RatingRepository {

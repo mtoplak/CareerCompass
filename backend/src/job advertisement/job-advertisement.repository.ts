@@ -2,7 +2,7 @@ import { Injectable, InternalServerErrorException, NotFoundException } from '@ne
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
 import { JobAdvertisementResponse, SuccessResponse } from 'src/data.response';
-import { JobAdvertisement } from 'src/entities/job-advertisement.model';
+import { JobAdvertisement } from 'src/db/entities/job-advertisement.model';
 
 @Injectable()
 export class JobAdvertisementRepository {

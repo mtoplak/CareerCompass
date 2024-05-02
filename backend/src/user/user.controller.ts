@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { UserResponse, SuccessResponse } from 'src/data.response';
 import { CreateUpdateUserDto } from './create-update-user.dto';
-import { User } from 'src/entities/user.model';
+import { User } from 'src/db/entities/user.model';
 import { UserService } from './user.service';
 
 @Controller('/user')

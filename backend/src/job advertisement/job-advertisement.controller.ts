@@ -8,7 +8,7 @@ import {
     Patch
 } from '@nestjs/common';
 import { JobAdvertisementResponse, SuccessResponse } from 'src/data.response';
-import { JobAdvertisement } from 'src/entities/job-advertisement.model';
+import { JobAdvertisement } from 'src/db/entities/job-advertisement.model';
 import { JobAdvertisementService } from './job-advertisement.service';
 import { CreateUpdateJobAdvertisementDto } from './create-update-job-advertisement.dto';
 

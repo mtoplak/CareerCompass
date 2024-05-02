@@ -1,3 +1,3 @@
-import { UserModel } from "src/entities/user.model";
+import { UserModel } from "src/db/entities/user.model";
 
 export class CreateUpdateUserDto extends UserModel { }

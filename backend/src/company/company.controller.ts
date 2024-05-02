@@ -5,16 +5,19 @@ import {
     Post,
     Param,
     Delete,
-    Patch
+    Patch,
+    Logger
 } from '@nestjs/common';
 import { CompanyResponse, SuccessResponse } from 'src/data.response';
 import { CreateUpdateCompanyDto } from './dto/create-update-company.dto';
-import { Company } from 'src/entities/company.model';
+import { Company } from 'src/db/entities/company.model';
 import { CompanyService } from './company.service';
 import { SearchCompanyDto } from './dto/search-company.dto';
 
 @Controller('/company')
 export class CompanyController {
+    private readonly logger = new Logger(CompanyController.name);
+
     constructor(private readonly companyService: CompanyService) { }
 
     @Post()
@@ -54,9 +57,26 @@ export class CompanyController {
 
 
     @Post('/search')
-    async getSingleCompanyByName(@Body() searchDto: SearchCompanyDto): Promise<CompanyResponse[]> {
-        return await this.companyService.getSingleCompanyByName(searchDto);
+    async getCompaniesByCriteria(@Body() searchDto: SearchCompanyDto): Promise<CompanyResponse[]> {
+        return await this.companyService.getCompaniesByCriteria(searchDto);
     }
-
+    /*
+        @Get("/best")
+        async getFourBest(): Promise<CompanyResponse[]> {
+            this.logger.log("getFourBesttttt");
+    
+            console.log("getFourBest");
+            const b = await this.companyService.getFourBestCompanies();
+            console.log("prisu sem tja");
+            console.log(b);
+            return b;
+        } 
+    
+        @Get('/bestic')
+        async getFourBest(): Promise<string> {
+            console.log("getFourBest endpoint hit");
+            return 'This is a test response';
+        }
+        */
 
 }

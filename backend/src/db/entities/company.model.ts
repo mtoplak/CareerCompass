@@ -16,7 +16,7 @@ export const CompanySchema = new Schema({
   email: { type: String, required: false, lowercase: true },
   claimed: { type: Boolean, required: true, default: false },
   // rating
-  avg_rating: { type: Number, default: 0 },
+  avg_rating: { type: Number, default: 0, index: true },
   ratings_count: { type: Number, default: 0 },
   avg_team: { type: Number, default: 0 },
   avg_personal_development: { type: Number, default: 0 },

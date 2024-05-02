@@ -1,3 +1,5 @@
 export class SearchCompanyDto {
-    keyword: string;
+    name?: string;
+    city?: string;
+    industry?: string;
 }

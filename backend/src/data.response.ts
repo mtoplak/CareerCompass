@@ -1,5 +1,5 @@
-import { Company } from "./entities/company.model";
-import { JobAdvertisement } from "./entities/job-advertisement.model";
+import { Company } from "./db/entities/company.model";
+import { JobAdvertisement } from "./db/entities/job-advertisement.model";
 import { Industry } from "./enums/industry.enum";
 import { InterviewDifficulty } from "./enums/interview-difficulty.enum";
 import { InterviewExperience } from "./enums/interview-experience.enum";

@@ -1,11 +1,11 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose/dist";
-import { RatingSchema } from "src/entities/rating.model";
+import { RatingSchema } from "src/db/entities/rating.model";
 import { RatingController } from "./rating.controller";
 import { RatingRepository } from "./rating.repository";
 import { RatingService } from "./rating.service";
 import { CompanyRepository } from "src/company/company.repository";
-import { CompanySchema } from "src/entities/company.model";
+import { CompanySchema } from "src/db/entities/company.model";
 
 @Module({
     imports: [

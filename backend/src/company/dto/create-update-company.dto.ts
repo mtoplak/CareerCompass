@@ -1,3 +1,3 @@
-import { CompanyModel } from "src/entities/company.model";
+import { CompanyModel } from "src/db/entities/company.model";
 
 export class CreateUpdateCompanyDto extends CompanyModel { }
