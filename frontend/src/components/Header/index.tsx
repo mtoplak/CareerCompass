@@ -316,7 +316,7 @@ const Header = () => {
                     {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
                       <>
                         <Link
-                          href="/signin"
+                          href="/prijava"
                           className="px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white"
                         >
                           Prijava
@@ -331,7 +331,7 @@ const Header = () => {
                     ) : (
                       <>
                         <Link
-                          href="/signin"
+                          href="/prijava"
                           className={`px-7 py-3 text-base font-medium hover:opacity-70 ${
                             sticky ? "text-dark dark:text-white" : "text-white"
                           }`}

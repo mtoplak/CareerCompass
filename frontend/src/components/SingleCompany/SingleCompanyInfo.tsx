@@ -81,7 +81,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
         <div className="container flex flex-col rounded-xl bg-sky-100 py-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="mb-2 flex items-center lg:mb-0">
             <img
-              src="/images/icons/email-svgrepo-com.png"
+              src="/images/icons/email.png"
               alt="Email Icon"
               className="mr-2 h-6 w-6"
             />
@@ -89,7 +89,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
           </div>
           <div className="mb-2 flex items-center lg:mb-0">
             <img
-              src="/images/icons/location-pin-svgrepo-com.png"
+              src="/images/icons/location.png"
               alt="Address Icon"
               className="mr-2 h-6 w-6"
             />
@@ -97,7 +97,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
           </div>
           <div className="flex items-center">
             <img
-              src="/images/icons/link-alt-1-svgrepo-com.png"
+              src="/images/icons/link.png"
               alt="Website Icon"
               className="mr-2 h-6 w-6"
             />
