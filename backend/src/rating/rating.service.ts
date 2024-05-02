@@ -84,10 +84,12 @@ export class RatingService {
       'work_enviroment', 'leadership', 'benefits', 'bonuses'
     ];
     categories.forEach(category => {
-      const avgField = `avg_${category}`;
-      const currentAvg = company[avgField] || 0;
-      const newAvg = ((currentAvg * company.ratings_count) + rating[category]) / (company.ratings_count + 1);
-      company[avgField] = newAvg;
+      if (rating[category] != null) {
+        const avgField = `avg_${category}`;
+        const currentAvg = company[avgField] || 0;
+        const newAvg = ((currentAvg * company.ratings_count) + rating[category]) / (company.ratings_count + 1);
+        company[avgField] = newAvg;
+      }
     });
 
     const sumOfAverages = categories.reduce((acc, category) => {
@@ -110,20 +112,38 @@ export class RatingService {
     };
 
     // experience and difficulty
-    company.experience_distribution[rating.experience.toLowerCase()] += 1;
-    company.difficulty_distribution[rating.difficulty.toLowerCase()] += 1;
-    const experiencePercentages = await this.calculateExperiencePercentages(company.experience_distribution);
-    const difficultyPercentages = await this.calculateDifficultyPercentages(company.difficulty_distribution);
-    company.experience_percentage = {
-      pozitivna: parseFloat(experiencePercentages.pozitivna),
-      nevtralna: parseFloat(experiencePercentages.nevtralna),
-      negativna: parseFloat(experiencePercentages.negativna),
-    };
-    company.difficulty_percentage = {
-      enostavno: parseFloat(difficultyPercentages.enostavno),
-      srednje: parseFloat(difficultyPercentages.srednje),
-      težko: parseFloat(difficultyPercentages.težko),
-    };
+    if (rating.experience) {
+      company.experience_distribution[rating.experience.toLowerCase()] += 1;
+      const experiencePercentages = await this.calculateExperiencePercentages(company.experience_distribution);
+      company.experience_percentage = {
+        pozitivna: parseFloat(experiencePercentages.pozitivna),
+        nevtralna: parseFloat(experiencePercentages.nevtralna),
+        negativna: parseFloat(experiencePercentages.negativna),
+      };
+    }
+
+    if (rating.difficulty) {
+      company.difficulty_distribution[rating.difficulty.toLowerCase()] += 1;
+      const difficultyPercentages = await this.calculateDifficultyPercentages(company.difficulty_distribution);
+      company.difficulty_percentage = {
+        enostavno: parseFloat(difficultyPercentages.enostavno),
+        srednje: parseFloat(difficultyPercentages.srednje),
+        težko: parseFloat(difficultyPercentages.težko),
+      };
+    }
+
+    if (rating.general_assessment_comment) {
+      company.general_assessment_comments.push(rating.general_assessment_comment);
+    }
+    if (rating.salary_and_benefits_comment) {
+      company.salary_and_benefits_comments.push(rating.salary_and_benefits_comment);
+    }
+    if (rating.interviews_comment) {
+      company.interviews_comments.push(rating.interviews_comment);
+    }
+    if (rating.duration) {
+      company.avg_duration.push(rating.duration);
+    }
 
     company.ratings_count += 1;
 
