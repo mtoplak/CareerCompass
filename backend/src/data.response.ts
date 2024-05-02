@@ -9,7 +9,6 @@ export interface SuccessResponse {
 }
 
 export interface CompanyResponse {
-    id: string;
     name: string;
     address: string;
     city: string;
@@ -29,6 +28,10 @@ export interface CompanyResponse {
     avg_leadership: number;
     avg_benefits: number;
     avg_bonuses: number;
+    general_assessment_comments: string[];
+    salary_and_benefits_comments: string[];
+    interviews_comments: string[];
+    avg_duration: string[];
     remote_work_distribution: {
         yes: number,
         no: number,
