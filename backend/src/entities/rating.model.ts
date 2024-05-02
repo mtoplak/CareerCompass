@@ -50,7 +50,7 @@ export const RatingSchema = new Schema({
     max: 5,
     required: true,
   },
-  remote_work: { type: Boolean},
+  remote_work: { type: Boolean },
   bonuses: {
     type: Number,
     min: 1,

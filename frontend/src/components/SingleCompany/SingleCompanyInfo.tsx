@@ -57,7 +57,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
           />
         </div>
         {/*Moremo prilagodit naslednji del ko ne bo več statično*/}
-        <div className="pl-10 md:w-1/4">
+        <div className="pl-10 md:w-2/4">
           <h1 className="text-3xl font-bold">{company.name}</h1>
           <p className="text-lg text-gray-600">{company.industry}</p>
           <div className="mt-4 flex">
@@ -76,7 +76,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
         Podjetje nima objavljenih zaposlitev.
       </div>
       <div className="my-20">
-        <h2 className="mb-4 text-2xl font-semibold">Komentarji in Ocene</h2>
+        <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
         <div className="mt-[20px] flex flex-wrap gap-y-8">
           {testimonialData.map((testimonial, i) => (
             <SingleRating key={i} testimonial={testimonial} />

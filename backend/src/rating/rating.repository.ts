@@ -13,7 +13,7 @@ export class RatingRepository {
   async findOne(ratingFilterQuery: FilterQuery<Rating>): Promise<RatingResponse> {
     try {
       return await this.ratingModel
-        .findOne(ratingFilterQuery)
+        .findOne(ratingFilterQuery);
     } catch (err) {
       throw new NotFoundException('Could not get the rating.');
     }
@@ -23,7 +23,7 @@ export class RatingRepository {
     try {
       const options = session ? { session } : {};
       return await this.ratingModel
-        .find(ratingsFilterQuery, options)
+        .find(ratingsFilterQuery, options);
     } catch (err) {
       throw new NotFoundException('Could not find ratings.');
     }

@@ -11,11 +11,9 @@ type Props = {
 };
 
 async function getCompany(slug: string) {
-  console.log(slug);
   const res = await fetch(`http://localhost:4000/company/${slug}`, {
     cache: "no-store",
   });
-  console.log(res);
   const companies = await res.json();
 
   return companies;
@@ -23,7 +21,6 @@ async function getCompany(slug: string) {
 
 export default async function PodjetjePage({ params }: Props) {
   const company = await getCompany(params.slug);
-  console.log(company);
 
   return <>{params && <SingleCompanyPage company={company} />}</>;
 }

@@ -36,7 +36,6 @@ export class CompanyController {
 
     @Get(':slug')
     async getCompanyBySlug(@Param('slug') slug: string): Promise<Company> {
-        console.log(slug);
         return await this.companyService.getCompanyBySlug(slug);
     }
 

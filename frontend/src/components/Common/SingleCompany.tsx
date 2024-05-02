@@ -25,7 +25,7 @@ const SingleCompany = ({ company }: { company: any }) => {
             <Image
               src={logo}
               alt={name}
-              className="w-full rounded-full"
+              className="w-full"
               width={120}
               height={120}
             />
