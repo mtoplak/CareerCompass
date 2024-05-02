@@ -26,6 +26,10 @@ export const CompanySchema = new Schema({
   avg_leadership: { type: Number, default: 0 },
   avg_benefits: { type: Number, default: 0 },
   avg_bonuses: { type: Number, default: 0 },
+  general_assessment_comments: [{ type: String }],
+  salary_and_benefits_comments: [{ type: String }],
+  interviews_comments: [{ type: String }],
+  avg_duration: [{ type: String }],
   remote_work_distribution: {
     yes: { type: Number, default: 0 },
     no: { type: Number, default: 0 }
@@ -76,6 +80,10 @@ export interface Company extends Document {
   avg_leadership: number,
   avg_benefits: number,
   avg_bonuses: number,
+  avg_duration: string[],
+  general_assessment_comments: string[],
+  salary_and_benefits_comments: string[],
+  interviews_comments: string[],
   remote_work_distribution: {
     yes: number,
     no: number,

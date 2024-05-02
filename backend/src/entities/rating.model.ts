@@ -10,67 +10,67 @@ export const RatingSchema = new Schema({
     type: Number,
     min: 1,
     max: 5,
-    required: true,
+    required: false,
   },
   personal_development: {
     type: Number,
     min: 1,
     max: 5,
-    required: true,
+    required: false,
   },
   flexibility: {
     type: Number,
     min: 1,
     max: 5,
-    required: true,
+    required: false,
   },
   work_life_balance: {
     type: Number,
     min: 1,
     max: 5,
-    required: true,
+    required: false,
   },
   work_enviroment: {
     type: Number,
     min: 1,
     max: 5,
-    required: true,
+    required: false,
   },
   leadership: {
     type: Number,
     min: 1,
     max: 5,
-    required: true,
+    required: false,
   },
-  general_assessment_comment: { type: String },
+  general_assessment_comment: { type: String, required: false },
   // salary and benefits
   benefits: {
     type: Number,
     min: 1,
     max: 5,
-    required: true,
+    required: false,
   },
   remote_work: { type: Boolean },
   bonuses: {
     type: Number,
     min: 1,
     max: 5,
-    required: true,
+    required: false,
   },
-  salary_and_benefits_comment: { type: String },
+  salary_and_benefits_comment: { type: String, required: false },
   // interviews
   experience: {
     type: String,
-    required: true,
+    required: false,
     enum: Object.values(InterviewExperience),
   },
-  duration: { type: String }, // ?
+  duration: { type: String },
   difficulty: {
     type: String,
-    required: true,
+    required: false,
     enum: Object.values(InterviewDifficulty),
   },
-  interviews_comment: { type: String },
+  interviews_comment: { type: String, required: false },
 });
 
 export interface Rating extends Document {
