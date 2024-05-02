@@ -60,16 +60,16 @@ const Signin = () => {
               <div className="mb-10 text-center">
                 <Link href="/" className="mx-auto inline-block max-w-[160px]">
                   <Image
-                    src="/images/logo/logo.svg"
+                    src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={140}
+                    width={100}
                     height={30}
                     className="dark:hidden"
                   />
                   <Image
-                    src="/images/logo/logo-white.svg"
+                    src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={140}
+                    width={100}
                     height={30}
                     className="hidden dark:block"
                   />
@@ -81,7 +81,7 @@ const Signin = () => {
               <span className="z-1 relative my-8 block text-center">
                 <span className="-z-1 absolute left-0 top-1/2 block h-px w-full bg-stroke dark:bg-dark-3"></span>
                 <span className="text-body-secondary relative z-10 inline-block bg-white px-3 text-base dark:bg-dark-2">
-                  OR
+                  ALI
                 </span>
               </span>
 
@@ -105,7 +105,7 @@ const Signin = () => {
                   <div className="mb-[22px]">
                     <input
                       type="password"
-                      placeholder="Password"
+                      placeholder="Geslo"
                       onChange={(e) =>
                         setLoginData({ ...loginData, password: e.target.value })
                       }
@@ -118,7 +118,7 @@ const Signin = () => {
                       type="submit"
                       className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-primary/90"
                     >
-                      Sign In {loading && <Loader />}
+                      Prijava {loading && <Loader />}
                     </button>
                   </div>
                 </form>
@@ -130,12 +130,15 @@ const Signin = () => {
                 href="/forgot-password"
                 className="mb-2 inline-block text-base text-dark hover:text-primary dark:text-white dark:hover:text-primary"
               >
-                Forget Password?
+                Pozabljeno geslo
               </Link>
               <p className="text-body-secondary text-base">
-                Not a member yet?{" "}
-                <Link href="/signup" className="text-primary hover:underline">
-                  Sign Up
+                Še nimate računa?{" "}
+                <Link
+                  href="/registracija"
+                  className="text-primary hover:underline"
+                >
+                  Registracija
                 </Link>
               </p>
 

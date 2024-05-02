@@ -58,7 +58,7 @@ const MagicLink = () => {
           type="submit"
           className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
         >
-          Send Magic Link {loader && <Loader />}
+          Pošlji magični link {loader && <Loader />}
         </button>
       </div>
     </form>

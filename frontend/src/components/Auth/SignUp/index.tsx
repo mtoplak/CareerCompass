@@ -33,7 +33,7 @@ const SignUp = () => {
       .then((data) => {
         toast.success("Successfully registered");
         setLoading(false);
-        router.push("/signin");
+        router.push("/prijava");
       })
       .catch((err) => {
         toast.error(err.message);
@@ -53,16 +53,16 @@ const SignUp = () => {
               <div className="mb-10 text-center">
                 <Link href="/" className="mx-auto inline-block max-w-[160px]">
                   <Image
-                    src="/images/logo/logo.svg"
+                    src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={140}
+                    width={100}
                     height={30}
                     className="dark:hidden"
                   />
                   <Image
-                    src="/images/logo/logo-white.svg"
+                    src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={140}
+                    width={100}
                     height={30}
                     className="hidden dark:block"
                   />
@@ -74,7 +74,7 @@ const SignUp = () => {
               <span className="z-1 relative my-8 block text-center">
                 <span className="-z-1 absolute left-0 top-1/2 block h-px w-full bg-stroke dark:bg-dark-3"></span>
                 <span className="text-body-secondary relative z-10 inline-block bg-white px-3 text-base dark:bg-dark-2">
-                  OR
+                  ALI
                 </span>
               </span>
 
@@ -117,7 +117,7 @@ const SignUp = () => {
                       type="submit"
                       className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
                     >
-                      Sign Up {loading && <Loader />}
+                      Registracija {loading && <Loader />}
                     </button>
                   </div>
                 </form>
@@ -137,12 +137,12 @@ const SignUp = () => {
               </p>
 
               <p className="text-body-secondary text-base">
-                Already have an account?
+                Ali že imate račun?
                 <Link
-                  href="/signin"
+                  href="/prijava"
                   className="pl-2 text-primary hover:underline"
                 >
-                  Sign In
+                  Prijava
                 </Link>
               </p>
 
