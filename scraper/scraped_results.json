@@ -510,7 +510,7 @@
     "website": "https://www.um.si",
     "address": "Slomškov trg 15",
     "city": "2000 Maribor",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "um",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUM_logo.jpg?alt=media&token=3213cd9e-c9a5-45d3-888f-052d83f09f61"
   },
@@ -895,7 +895,7 @@
     "website": "https://www.ijs.si",
     "address": "Jamova cesta 39",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ijs",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FIJS_logo.jpg?alt=media&token=f8a133bf-ca69-4735-b6a6-d93a8b4848b0"
   },
@@ -1474,7 +1474,7 @@
     "website": "http://www.bf.uni-lj.si",
     "address": "Jamnikarjeva ulica 101",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-bf",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20BF_logo.jpg?alt=media&token=e509ceab-98b8-4ded-aa5c-465fdf96a27c"
   },
@@ -1485,7 +1485,7 @@
     "website": "",
     "address": "Aškerčeva cesta 2",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-ff",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FF_logo.jpg?alt=media&token=6746b85c-d0e9-45ae-9fbf-a3b6e2369c5b"
   },
@@ -1496,7 +1496,7 @@
     "website": "http://www.mf.uni-lj.si",
     "address": "Vrazov trg 2",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-mf",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20MF_logo.jpg?alt=media&token=af57be81-fbd7-4ce5-b5e6-5d17744377dc"
   },
@@ -1507,7 +1507,7 @@
     "website": "http://www.upr.si",
     "address": "Titov trg 4",
     "city": "6000 Koper - Capodistria",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "up",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUniverza%20na%20Primorskem_logo.jpg?alt=media&token=c3f68fed-4789-42af-a1aa-5f3efcff617b"
   },
@@ -2622,7 +2622,7 @@
     "website": "http://www.fkkt.uni-lj.si",
     "address": "Večna pot 113",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-fkkt",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FKKT_logo.jpg?alt=media&token=8fc8140b-e589-4075-916d-f0d78aafc870"
   },
@@ -2633,7 +2633,7 @@
     "website": "http://www.fmf.uni-lj.si",
     "address": "Jadranska ulica 19",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-fmf",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FMF_logo.jpg?alt=media&token=afb9f4b1-1ded-4a48-859e-db21a3aa51ab"
   },
@@ -2644,7 +2644,7 @@
     "website": "https://www.pef.uni-lj.si",
     "address": "Kardeljeva ploščad 16",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-pef",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20PEF_logo.jpg?alt=media&token=b8af536a-0fdd-4099-91d9-9e815899a541"
   },
@@ -2725,7 +2725,7 @@
     "website": "http://www.stanislav.si",
     "address": "Štula 23",
     "city": "1210 LJUBLJANA-ŠENTVID",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "zavod-sv-stanislava",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FZAVOD%20SV.%20STANISLAVA_logo.jpg?alt=media&token=adf68e02-7623-4bdc-99e6-604a2e0ed59e"
   },
@@ -2779,7 +2779,7 @@
     "website": "https://www.scv.si",
     "address": "Trg mladosti 3",
     "city": "3320 Velenje",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "sc-velenje",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2F%C5%A0C%20Velenje_logo.jpg?alt=media&token=ff9eb018-f970-4e3c-adb1-e9688ffadd1a"
   },
@@ -3194,7 +3194,7 @@
     "website": "https://www.csod.si",
     "address": "Frankopanska ulica 9",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "csod",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FC%C5%A0OD_logo.jpg?alt=media&token=c1e0c066-2627-49d5-8298-0d7034629b03"
   },
@@ -3707,7 +3707,7 @@
     "website": "http://www.ki.si",
     "address": "Hajdrihova ulica 19",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ki",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FKI_logo.jpg?alt=media&token=53021031-60a3-4c93-a9ed-ca4ed3e760b2"
   },
@@ -4476,7 +4476,7 @@
     "website": "http://www.sng-mb.si",
     "address": "Slovenska ulica 27",
     "city": "2000 Maribor",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "sng-maribor",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FSNG%20MARIBOR_logo.jpg?alt=media&token=2c6c5a2d-2a2b-41da-a8ae-95cb1391904e"
   },
@@ -4770,7 +4770,7 @@
     "website": "http://www.ef.uni-lj.si",
     "address": "Kardeljeva ploščad 17",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-ef",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20EF_logo.jpg?alt=media&token=2d1fa4d2-a35d-4656-aade-b1939a9dd1f8"
   },
@@ -4781,7 +4781,7 @@
     "website": "http://www.fdv.si",
     "address": "Kardeljeva ploščad 5",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-fdv",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FDV_logo.jpg?alt=media&token=5117d870-a684-4dd9-869b-82e00eb79030"
   },
@@ -4792,7 +4792,7 @@
     "website": "http://www.fe.uni-lj.si",
     "address": "Tržaška cesta 25",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-fe",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FE_logo.jpg?alt=media&token=26a25c32-2b93-430d-bf52-e017be456005"
   },
@@ -4803,7 +4803,7 @@
     "website": "http://www.fs.uni-lj.si",
     "address": "Aškerčeva cesta 6",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-fs",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FS_logo.jpg?alt=media&token=bdaadbab-77ce-455d-8ed7-b7775ccf5545"
   },
@@ -4814,7 +4814,7 @@
     "website": "http://www.vf.uni-lj.si",
     "address": "Gerbičeva ulica 60",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-vf",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20VF_logo.jpg?alt=media&token=7b87cd5c-9085-445e-91f2-84e3796e509c"
   },
@@ -4989,7 +4989,7 @@
     "website": "http://www.zgnl.si",
     "address": "Vojkova cesta 74",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "zgn-ljubljana",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FZGN%20Ljubljana_logo.jpg?alt=media&token=fabd23ab-4604-4470-89a7-0d802457527f"
   },
@@ -5066,7 +5066,7 @@
     "website": "http://www.sc-celje.si",
     "address": "Pot na Lavo 22",
     "city": "3000 Celje",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "sc-celje",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2F%C5%A0C%20Celje_logo.jpg?alt=media&token=5c647c6b-96ec-4fe9-a9ef-0b69900be992"
   },
@@ -5077,7 +5077,7 @@
     "website": "http://www.sc-nm.com",
     "address": "Šegova ulica 112",
     "city": "8000 Novo mesto",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "sc-novo-mesto",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2F%C5%A0C%20NOVO%20MESTO_logo.jpg?alt=media&token=d5c3a3b9-9a0a-4da8-8790-e838a5f51c19"
   },
@@ -5088,7 +5088,7 @@
     "website": "http://www.scng.si",
     "address": "Cankarjeva ulica 10",
     "city": "5000 Nova Gorica",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "sc-nova-gorica",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2F%C5%A0C%20Nova%20Gorica_logo.jpg?alt=media&token=f6b37563-51cf-49e3-bba9-475adbe552b9"
   },
@@ -5301,7 +5301,7 @@
     "website": "https://www.bic-lj.si",
     "address": "Ižanska cesta 10",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "bic-ljubljana",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FBIC%20LJUBLJANA_logo.jpg?alt=media&token=ead059a8-b844-44f4-afd9-77c3d2ec1d97"
   },
@@ -5383,7 +5383,7 @@
     "website": "http://www.cirius-kamnik.si",
     "address": "Novi trg 43A",
     "city": "1241 Kamnik",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "cirius-kamnik",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FCIRIUS%20Kamnik_logo.jpg?alt=media&token=b45e29d2-1fb8-41ff-93b9-15bec6e265e2"
   },
@@ -5394,7 +5394,7 @@
     "website": "http://www.cirius-vipava.si",
     "address": "Vojkova ulica 33",
     "city": "5271 Vipava",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "cirius-vipava",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FCIRIUS%20Vipava_logo.jpg?alt=media&token=2673597e-2cdd-4c21-bff6-8d6ca34ab6b1"
   },
@@ -5427,7 +5427,7 @@
     "website": "http://www.csgm.si",
     "address": "Vinarska ulica 6",
     "city": "2000 Maribor",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "csgm",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FCSGM_logo.jpg?alt=media&token=27947846-f99b-415c-8695-a3b4c112eafa"
   },
@@ -5471,7 +5471,7 @@
     "website": "http://www.cd-cc.si",
     "address": "Prešernova cesta 10",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "cankarjev-dom",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FCankarjev%20dom_logo.jpg?alt=media&token=52555778-20de-4280-bb4b-2aa74a6504b2"
   },
@@ -5493,7 +5493,7 @@
     "website": "http://www2.arnes.si/~mbosgusi1s/",
     "address": "Majcigerjeva ulica 31",
     "city": "2000 Maribor",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "center-gustava-siliha-maribor",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FCenter%20Gustava%20%C5%A0iliha%20Maribor_logo.jpg?alt=media&token=bef8489d-1f75-4862-b85c-0a9f44064686"
   },
@@ -5843,7 +5843,7 @@
     "website": "http://www.ksgrm.net",
     "address": "Sevno 13",
     "city": "8000 Novo mesto",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "grm-novo-mesto",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FGRM%20NOVO%20MESTO_logo.jpg?alt=media&token=15991adf-e20a-40bc-99c6-2f64a4d66779"
   },
@@ -6476,7 +6476,7 @@
     "website": "http://www.nil.com",
     "address": "Baragova ulica 5",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "nil-doo",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FNIL%20d.o.o._logo.jpg?alt=media&token=9f2bf7df-cf81-43fb-ad41-8f8a7e29a4b9"
   },
@@ -6563,7 +6563,7 @@
     "website": "https://www.os-hoce.si",
     "address": "Šolska ulica 10",
     "city": "2311 Hoče",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "osnovna-sola-dusana-flisa-hoce",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FOSNOVNA%20%C5%A0OLA%20DU%C5%A0ANA%20FLISA%20HO%C4%8CE_logo.jpg?alt=media&token=4bfba539-3471-4212-b8b8-dd59ccbbf922"
   },
@@ -6574,7 +6574,7 @@
     "website": "http://os-prevalje.mojasola.si",
     "address": "Polje 4",
     "city": "2391 Prevalje",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "osnovna-sola-franja-goloba",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FOSNOVNA%20%C5%A0OLA%20FRANJA%20GOLOBA_logo.jpg?alt=media&token=6959f735-d530-402d-a11f-6850e463ec09"
   },
@@ -6585,7 +6585,7 @@
     "website": "http://www.os-sticna.si",
     "address": "Cesta občine Hirschaid 1",
     "city": "1295 Ivančna Gorica",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "osnovna-sola-sticna",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FOSNOVNA%20%C5%A0OLA%20STI%C4%8CNA_logo.jpg?alt=media&token=199fd6e6-27b3-4f69-b4ad-f14019972bc2"
   },
@@ -6596,7 +6596,7 @@
     "website": "http://www.os-sencur.si",
     "address": "Pipanova cesta 43",
     "city": "4208 Šenčur",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "osnovna-sola-sencur",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FOSNOVNA%20%C5%A0OLA%20%C5%A0EN%C4%8CUR_logo.jpg?alt=media&token=03b75bfa-8240-45f8-9020-d2bbbfc5ada1"
   },
@@ -6620,7 +6620,7 @@
     "website": "http://www.osivanacankarja.si",
     "address": "Lošca 1",
     "city": "1360 Vrhnika",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "os-ivana-cankarja",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FO%C5%A0%20IVANA%20CANKARJA_logo.jpg?alt=media&token=f8ba38fd-5160-4d61-9fc3-1926198fc23c"
   },
@@ -6631,7 +6631,7 @@
     "website": "http://www.os-jmdol.si",
     "address": "Videm 17",
     "city": "1262 Dol pri Ljubljani",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "os-janka-modra-dol-pri-ljubljani",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FO%C5%A0%20Janka%20Modra%2C%20Dol%20pri%20Ljubljani_logo.jpg?alt=media&token=9df0c910-d7b4-4ac0-9f0f-3047d1eb3326"
   },
@@ -6642,7 +6642,7 @@
     "website": "http://www.oslag.si",
     "address": "Tovarniška cesta 14",
     "city": "1290 Grosuplje",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "os-la-grosuplje",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FO%C5%A0%20LA%20GROSUPLJE_logo.jpg?alt=media&token=54737e8a-f9ac-4be5-bf4a-ee05c4dd36be"
   },
@@ -6653,7 +6653,7 @@
     "website": "http://www.os-leskovec.si",
     "address": "Pionirska cesta 4",
     "city": "8273 Leskovec pri Krškem",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "os-leskovec-pri-krskem",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FO%C5%A0%20Leskovec%20pri%20Kr%C5%A1kem_logo.jpg?alt=media&token=3c8797dd-9c1b-4671-9c46-a1ddb22834af"
   },
@@ -6664,7 +6664,7 @@
     "website": "http://www.os-iroba.si",
     "address": "Ulica Andreja Gabrščka 1",
     "city": "5290 Šempeter pri Gorici",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "os-sempeter-pri-gorici",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FO%C5%A0%20%C5%A0EMPETER%20PRI%20GORICI_logo.jpg?alt=media&token=7ed4b531-bcee-440a-bb1b-1806d204a2b6"
   },
@@ -6675,7 +6675,7 @@
     "website": "http://www.os-skofljica.si",
     "address": "Klanec 5",
     "city": "1291 Škofljica",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "os-skofljica",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FO%C5%A0%20%C5%A0KOFLJICA_logo.jpg?alt=media&token=f3cb3a6d-99fc-4ff9-8873-4a452a2e6db7"
   },
@@ -7143,7 +7143,7 @@
     "website": "http://www.ffa.uni-lj.si",
     "address": "Aškerčeva cesta 7",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-ffa",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FFA_logo.jpg?alt=media&token=935e73fe-2d03-4037-bd00-612b2f665b56"
   },
@@ -7154,7 +7154,7 @@
     "website": "https://www.fgg.uni-lj.si",
     "address": "Jamova cesta 2",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-fgg",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FGG_logo.jpg?alt=media&token=87e8b3ca-b1ac-42c3-8973-44d2ee16888c"
   },
@@ -7165,7 +7165,7 @@
     "website": "http://www.fri.uni-lj.si",
     "address": "Večna pot 113",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-fri",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20FRI_logo.jpg?alt=media&token=58becf37-5fd6-49f2-9636-931d26a3d179"
   },
@@ -7176,7 +7176,7 @@
     "website": "https://www.ntf.uni-lj.si",
     "address": "Aškerčeva cesta 12",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "ul-ntf",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FUL%20NTF_logo.jpg?alt=media&token=66802f17-eb4f-484a-8f4f-83618392e67a"
   },
@@ -7348,7 +7348,7 @@
     "website": "http://www.wsl.si",
     "address": "Streliška ulica 12",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "waldorfska-sola-ljubljana",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2FWALDORFSKA%20%C5%A0OLA%20LJUBLJANA_logo.jpg?alt=media&token=51671359-da66-4eff-8dbe-8b8fb9b48c94"
   },
@@ -7506,7 +7506,7 @@
     "website": "http://www.tsckr.si",
     "address": "Kidričeva cesta 55",
     "city": "4000 Kranj",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "sc-kranj",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2F%C5%A0C%20Kranj_logo.jpg?alt=media&token=51acc7f3-d66e-4bf3-954a-49f2f100aa7b"
   },
@@ -7517,7 +7517,7 @@
     "website": "https://www.sclj.si",
     "address": "Aškerčeva cesta 1",
     "city": "1000 Ljubljana",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "sc-ljubljana",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2F%C5%A0C%20LJUBLJANA_logo.jpg?alt=media&token=762e19ac-147e-4df5-b6b2-b9448b975b4d"
   },
@@ -7528,7 +7528,7 @@
     "website": "https://scptuj.si",
     "address": "Volkmerjeva cesta 19",
     "city": "2250 Ptuj",
-    "industry": "Izobraževanje in turizem",
+    "industry": "Izobraževanje in kultura",
     "slug": "sc-ptuj",
     "logo": "https://firebasestorage.googleapis.com/v0/b/career-compass-ed243.appspot.com/o/companyLogos%2F%C5%A0C%20PTUJ_logo.jpg?alt=media&token=4acfaa8f-72d9-4a56-919a-5b196704667f"
   },

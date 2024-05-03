@@ -6,7 +6,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="relative overflow-hidden bg-indigo-800 pt-[120px] md:pt-[130px] lg:pt-[160px] bg-[url('/images/hero/hero-background-indigo-700.png')]"
+        className="relative overflow-hidden bg-indigo-800 bg-[url('/images/hero/hero-background-indigo-700.png')] pt-[120px] md:pt-[130px] lg:pt-[160px]"
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap items-center ">
@@ -19,38 +19,43 @@ const Hero = () => {
                   Dobrodošli na CareerCompass
                 </h1>
                 <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-white sm:text-lg sm:leading-[1.44]">
-                  Inovativna platforma, ki  omogoča ocenjevanje slovenskih podjetij s strani zaposlenih, hkrati pa nudi možnost iskanja zaposlitve in objavo zaposlitvenih oglasov.
+                  Inovativna platforma, ki omogoča ocenjevanje slovenskih
+                  podjetij s strani zaposlenih, hkrati pa nudi možnost iskanja
+                  zaposlitve in objavo zaposlitvenih oglasov.
                 </p>
                 <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
                   <li>
                     <input
                       type="text"
                       placeholder="Poišči..."
-                      className="px-4 py-2 w-64 border rounded-md focus:outline-none focus:border-blue-500"
+                      className="w-64 rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
                     />
                   </li>
-                  <li> 
-                    <button className="bg-indigo-600 hover:bg-indigo-950 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                      <img src="/images/hero/compass-icon.png" alt="My Icon" className="w-6 h-6" />
+                  <li>
+                    <button className="focus:shadow-outline rounded bg-indigo-600 px-4 py-2 font-bold text-white hover:bg-indigo-950 focus:outline-none">
+                      <img
+                        src="/images/hero/compass-icon.png"
+                        alt="My Icon"
+                        className="h-6 w-6"
+                      />
                     </button>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          
         </div>
       </section>
       <section className="relative bg-indigo-800">
-            <div className="w-full">
-              <Image
-                src="/images/hero/hero-indigo-950.png"
-                alt="Landscape Photo"
-                layout="responsive"
-                width={1920}
-                height={200}
-              />
-            </div>
+        <div className="w-full">
+          <Image
+            src="/images/hero/hero-indigo-950.png"
+            alt="Landscape Photo"
+            // layout="responsive"
+            width={1920}
+            height={200}
+          />
+        </div>
       </section>
     </>
   );

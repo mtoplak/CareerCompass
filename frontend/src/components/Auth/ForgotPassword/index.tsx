@@ -15,7 +15,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     if (!email) {
-      toast.error("Please enter your email address.");
+      toast.error("Vnesite veljaven e-poštni naslov.");
 
       return;
     }
@@ -28,7 +28,7 @@ const ForgotPassword = () => {
       });
 
       if (res.status === 404) {
-        toast.error("User not found.");
+        toast.error("Račun ne obstaja.");
         return;
       }
 
@@ -57,16 +57,16 @@ const ForgotPassword = () => {
               <div className="mb-10 text-center">
                 <Link href="/" className="mx-auto inline-block max-w-[160px]">
                   <Image
-                    src="/images/logo/logo.svg"
+                    src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={140}
+                    width={100}
                     height={30}
                     className="dark:hidden"
                   />
                   <Image
-                    src="/images/logo/logo-white.svg"
+                    src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={140}
+                    width={100}
                     height={30}
                     className="hidden dark:block"
                   />
@@ -90,7 +90,7 @@ const ForgotPassword = () => {
                     type="submit"
                     className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
                   >
-                    Pošlji e-mail {loader && <Loader />}
+                    Pošlji e-mail za novo geslo {loader && <Loader />}
                   </button>
                 </div>
               </form>
