@@ -64,17 +64,30 @@ export class UserService {
   }
 
   async getSingleUserByEmail(email: string): Promise<User> {
-    try {
-      return await this.userRepository.findOne({ email });
-    } catch (error) {
-      if (error instanceof NotFoundException) {
-        throw new NotFoundException(error.message);
-      }
-      throw error;
+    const user = await this.userRepository.findOne({ email });
+    if (!user) {
+      throw new NotFoundException(`User with email ${email} not found.`);
     }
+    return user;
   }
 
+
   async updateUserByEmail(
+    email: string,
+    updatedUserData: Partial<User>,
+  ): Promise<User> {
+    const updatedUser = await this.userRepository.findOneAndUpdate(
+      { email },
+      updatedUserData,
+      { new: true }
+    );
+    if (!updatedUser) {
+      throw new NotFoundException(`User with email ${email} not found.`);
+    }
+    return updatedUser;
+  }
+
+  async updateUserByEmailOld(
     email: string,
     updatedUserData: Partial<User>,
   ): Promise<User> {

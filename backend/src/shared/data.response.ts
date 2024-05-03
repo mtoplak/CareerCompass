@@ -16,6 +16,7 @@ export interface CompanyResponse {
     slug: string;
     website: string;
     industry: Industry[];
+    subindustry: string[];
     email: string;
     claimed: boolean;
     avg_rating: number;

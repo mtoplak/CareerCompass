@@ -18,6 +18,7 @@ export class CompanyMapper {
             slug: company.slug,
             website: company.website,
             industry: company.industry,
+            subindustry: company.subindustry,
             email: company.email,
             claimed: company.claimed,
             avg_rating: company.avg_rating,
@@ -39,7 +40,7 @@ export class CompanyMapper {
             remote_work_percentage: company.remote_work_percentage,
             experience_percentage: company.experience_percentage,
             difficulty_percentage: company.difficulty_percentage,
-            
+
         } as CompanyDto;
     }
 }

@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
 import { SuccessResponse } from 'src/shared/data.response';
 import { Company } from 'src/db/entities/company.model';
+import { CompanyDto } from './dto/create-update-company.dto';
 
 @Injectable()
 export class CompanyRepository {
@@ -10,7 +11,7 @@ export class CompanyRepository {
     @InjectModel('Company') public companyModel: Model<Company>,
   ) { }
 
-  async findOne(companyFilterQuery: FilterQuery<Company>): Promise<Company> {
+  async findOne(companyFilterQuery: FilterQuery<Company>): Promise<CompanyDto> {
     try {
       return await this.companyModel
         .findOne(companyFilterQuery);

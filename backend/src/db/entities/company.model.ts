@@ -13,6 +13,7 @@ export const CompanySchema = new Schema({
     required: true,
     enum: Object.values(Industry),
   }],
+  subindustry: [{ type: String, required: true }],
   email: { type: String, required: false, lowercase: true },
   claimed: { type: Boolean, required: true, default: false },
   // rating
@@ -68,6 +69,7 @@ export interface Company extends Document {
   slug: string, // slug
   website: string, // spletna stran
   industry: Industry[], // panoga
+  subindustry: string[],
   email: string, // email
   claimed: boolean, // potrjeno
   avg_rating: number, // povprečna ocena

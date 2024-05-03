@@ -42,15 +42,12 @@ export class CompanyService {
     }
   }
 
-  async getCompanyBySlug(slug: string): Promise<Company> {
-    try {
-      return await this.companyRepository.findOne({ slug: slug });
-    } catch (error) {
-      if (error instanceof NotFoundException) {
-        throw new NotFoundException(error.message);
-      }
-      throw error;
+  async getCompanyBySlug(slug: string): Promise<CompanyDto> {
+    const company = await this.companyRepository.findOne({ slug: slug });
+    if (!company) {
+      throw new NotFoundException(`Company with slug '${slug}' not found`);
     }
+    return company;
   }
 
   async updateCompany(
