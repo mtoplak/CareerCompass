@@ -4,8 +4,6 @@ import ratingData from "./ratingData";
 import SingleCompany from "../Common/SingleCompany";
 import { Company } from "@/types/company";
 
-
-
 const LandingPageRate = ({ companies }: { companies: Company[] }) => {
   if (!companies) {
     return <div>Loading...</div>;
@@ -22,20 +20,20 @@ const LandingPageRate = ({ companies }: { companies: Company[] }) => {
           paragraph="Omogočamo možnost podajanja ocen glede na vaše izkušnje na različnih področjih znotraj podjetja."
         />
 
-        <div className="mt-12 md:mt-20 md:flex md:items-start md:justify-between rounded-xl bg-indigo-100 py-[20px]">
+        <div className="mt-12 rounded-xl bg-indigo-100 py-[20px] md:mt-20 md:flex md:items-start md:justify-between">
           {ratingData.map((feature, i) => (
             <SingleFeature key={i} feature={feature} />
           ))}
         </div>
         <div className="pt-20">
-          <span className="mb-2 mx-4 block text-lg font-semibold">
-            Najbolje ocenjena podjetja...
+          <span className="mx-4 mb-2 block text-lg font-semibold">
+            Najboljše ocenjena podjetja...
           </span>
           <div className="mb-[20px] mt-[10px] flex flex-wrap gap-y-8">
-          {displayedCompanies.map((company: Company) => (
-            <SingleCompany key={company.name} company={company} />
-          ))}
-        </div>
+            {displayedCompanies.map((company: Company) => (
+              <SingleCompany key={company.name} company={company} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
