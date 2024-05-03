@@ -57,35 +57,41 @@ const SingleCompanyPage = async ({ company }: Props) => {
         </div>
         <div className="pl-10 md:w-2/4">
           <h1 className="text-3xl font-bold">{company.name}</h1>
-          <p className="text-lg text-gray-600">{company.industry}</p>
-          <p className="text-md text-gray-600">
-            {company.subindustry.map((sub, index) => (
-              <span key={index}>
-                {sub}
-                {index !== company.subindustry.length - 1 && ", "}
-              </span>
-            ))}
+          <p className="text-lg text-gray-600 dark:text-gray-400">
+            {company.industry}
           </p>
+          {company.subindustry !== undefined ? (
+            <p className="text-md text-gray-600 dark:text-gray-400">
+              {company.subindustry.map((sub, index) => (
+                <span key={index}>
+                  {sub}
+                  {index !== company.subindustry.length - 1 && ", "}
+                </span>
+              ))}
+            </p>
+          ) : (
+            <p></p>
+          )}
           <div className="mt-4 flex">
             <span className="mr-1 text-yellow-400">&#9733;</span>
             <span className="mr-1 text-yellow-400">&#9733;</span>
             <span className="mr-1 text-yellow-400">&#9733;</span>
             <span className="mr-1 text-yellow-400">&#9733;</span>
             <span className="text-yellow-400">&#9733;</span>
-            <span className="ml-2 text-gray-600">(5.0)</span>
+            <span className="ml-2 text-gray-600 dark:text-gray-400">(5.0)</span>
           </div>
         </div>
       </div>
       <div className="my-10 border-t border-gray-300"></div>
       <div className="mt-10">
-        <div className="container flex flex-col rounded-xl bg-sky-100 py-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="container flex flex-col rounded-xl bg-sky-100 py-4 dark:bg-sky-900 lg:flex-row lg:items-center lg:justify-between">
           <div className="mb-2 flex items-center lg:mb-0">
             <img
               src="/images/icons/email.png"
               alt="Email Icon"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-sky-700">{company.email}</p>
+            <p className="text-sky-700 dark:text-sky-300">{company.email}</p>
           </div>
           <div className="mb-2 flex items-center lg:mb-0">
             <img
@@ -93,7 +99,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
               alt="Address Icon"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-sky-700">{company.address}</p>
+            <p className="text-sky-700 dark:text-sky-300">{company.address}</p>
           </div>
           <div className="flex items-center">
             <img
@@ -101,7 +107,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
               alt="Website Icon"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-sky-700">{company.website}</p>
+            <p className="text-sky-700 dark:text-sky-300">{company.website}</p>
           </div>
         </div>
         <div className="mt-20">

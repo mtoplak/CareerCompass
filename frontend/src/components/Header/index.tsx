@@ -61,7 +61,7 @@ const Header = () => {
                   sticky ? "py-2" : "py-5"
                 } `}
               >
-                {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
+                {pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" ? (
                   <>
                     <Image
                       src={`/images/logo/logo-dark.png`}
@@ -113,8 +113,8 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? " top-[7px] rotate-45" : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && "!bg-dark dark:!bg-white"} ${
-                      (pathUrl === "/" || pathUrl === "/podjetja") && sticky
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
+                      (pathUrl === "/" || pathUrl === "/podjetja" || pathUrl === "/registracija" || pathUrl === "/prijava") && sticky
                         ? "bg-dark dark:bg-white"
                         : "bg-white"
                     }`}
@@ -122,8 +122,8 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? "opacity-0 " : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && "!bg-dark dark:!bg-white"} ${
-                      (pathUrl === "/" || pathUrl === "/podjetja") && sticky
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
+                      (pathUrl === "/" || pathUrl === "/podjetja" || pathUrl === "/registracija" || pathUrl === "/prijava") && sticky
                         ? "bg-dark dark:bg-white"
                         : "bg-white"
                     }`}
@@ -131,8 +131,8 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? " top-[-8px] -rotate-45" : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && "!bg-dark dark:!bg-white"} ${
-                      (pathUrl === "/" || pathUrl === "/podjetja") && sticky
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
+                      (pathUrl === "/" || pathUrl === "/podjetja" || pathUrl === "/registracija" || pathUrl === "/prijava") && sticky
                         ? "bg-dark dark:bg-white"
                         : "bg-white"
                     }`}
@@ -150,7 +150,7 @@ const Header = () => {
                     {menuData.map((menuItem, index) =>
                       menuItem.path ? (
                         <li key={index} className="group relative">
-                          {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
+                          {pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" ? (
                             <Link
                               onClick={navbarToggleHandler}
                               scroll={false}
@@ -181,7 +181,7 @@ const Header = () => {
                         </li>
                       ) : (
                         <li className="submenu-item group relative" key={index}>
-                          {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
+                          {pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" ? (
                             <button
                               onClick={() => handleSubmenu(index)}
                               className={`ud-menu-scroll flex items-center justify-between py-2 text-base text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800 lg:inline-flex lg:px-0 lg:py-6`}
@@ -255,11 +255,28 @@ const Header = () => {
                         </li>
                       ),
                     )}
+                    <li className="relative flex items-center">
+                      <Link
+                        href="/ai-svetovalec"
+                        className={`ud-menu-scroll py-2 text-base font-medium duration-300 ease-in-out ${
+                          sticky
+                            ? "rounded-lg px-6 py-3 bg-indigo-300 hover:bg-indigo-950 dark:bg-white/10 dark:hover:bg-white/20"
+                            : "rounded-lg px-6 py-3 bg-white hover:bg-white/20"
+                        } ${
+                          navbarOpen
+                            ? "text-indigo-800"
+                            : ""
+                        }`}
+                      >
+                        AI Svetovalec
+                      </Link>
+                    </li>
                   </ul>
                 </nav>
               </div>
-              <div className="hidden items-center justify-end pr-16 sm:flex lg:pr-0">
+              <div className="items-center justify-end pr-16 sm:flex lg:pr-0">
                 {/* theme toggler */}
+                <div className="hidden items-center justify-end sm:flex lg:pr-0">
                 <button
                   aria-label="theme toggler"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -276,7 +293,7 @@ const Header = () => {
                     <svg
                       viewBox="0 0 23 23"
                       className={`h-[30px] w-[30px] fill-current text-dark dark:hidden ${
-                        !sticky && (pathUrl === "/" || pathUrl === "/podjetja") && "text-white"
+                        !sticky && (pathUrl === "/" || pathUrl === "/podjetja" || pathUrl === "/registracija" || pathUrl === "/prijava") && "text-white"
                       }`}
                     >
                       <g clipPath="url(#clip0_40_125)">
@@ -285,17 +302,19 @@ const Header = () => {
                     </svg>
                   </span>
                 </button>
-
+                </div>
                 {session?.user ? (
                   <>
+                  <div className="hidden items-center justify-end sm:flex lg:pr-0">
                     <p
                       className={`loginBtn px-7 py-3 text-base font-medium ${
-                        !sticky && (pathUrl === "/" || pathUrl === "/podjetja") ? "text-white" : "text-dark"
+                        !sticky && (pathUrl === "/" || pathUrl === "/podjetja" || pathUrl === "/registracija" || pathUrl === "/prijava") ? "text-white" : "text-dark"
                       }`}
                     >
                       {session?.user?.name}
                     </p>
-                    {pathUrl !== "/" && pathUrl !== "/podjetja" || sticky ? (
+                  </div>
+                    {pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" || sticky ? (
                       <button
                         onClick={() => signOut()}
                         className="signUpBtn rounded-lg bg-indigo-800 bg-opacity-100 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-20 hover:text-dark"
@@ -313,19 +332,13 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    {pathUrl !== "/" && pathUrl !== "/podjetja" ? (
+                    {pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" ? (
                       <>
                         <Link
                           href="/prijava"
                           className="px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white"
                         >
                           Prijava
-                        </Link>
-                        <Link
-                          href="/ai-svetovalec"
-                          className="rounded-lg bg-indigo-800 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-indigo-950 dark:bg-white/10 dark:hover:bg-white/20"
-                        >
-                          AI-Svetovalec
                         </Link>
                       </>
                     ) : (
@@ -337,16 +350,6 @@ const Header = () => {
                           }`}
                         >
                           Prijava
-                        </Link>
-                        <Link
-                          href="/ai-svetovalec"
-                          className={`rounded-lg px-6 py-3 text-base font-medium text-white duration-300 ease-in-out ${
-                            sticky
-                              ? "bg-indigo-800 hover:bg-indigo-950 dark:bg-white/10 dark:hover:bg-white/20"
-                              : "bg-white/10 hover:bg-white/20"
-                          }`}
-                        >
-                          AI-Svetovalec
                         </Link>
                       </>
                     )}

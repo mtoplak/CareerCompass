@@ -22,7 +22,7 @@ const LandingPageRate = ({ companies }: { companies: Company[] }) => {
           paragraph="Omogočamo možnost podajanja ocen glede na vaše izkušnje na različnih področjih znotraj podjetja."
         />
 
-        <div className="mt-12 md:mt-20 md:flex md:items-start md:justify-between rounded-xl bg-indigo-100 py-[20px]">
+        <div className="mt-12 md:mt-20 md:flex md:items-start md:justify-between rounded-xl bg-indigo-100 dark:bg-slate-700 py-[20px]">
           {ratingData.map((feature, i) => (
             <SingleFeature key={i} feature={feature} />
           ))}
