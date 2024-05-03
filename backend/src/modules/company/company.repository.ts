@@ -20,9 +20,9 @@ export class CompanyRepository {
     }
   }
 
-  async find(filter: any, options: any = {}): Promise<Company[]> {
+  async find(filter: any, options: any = {}): Promise<CompanyDto[]> {
     try {
-      return await this.companyModel.find(filter, null, options);
+      return await this.companyModel.find(filter, null, options) as CompanyDto[];
     } catch (err) {
       throw new NotFoundException('Error fetching companies.');
     }

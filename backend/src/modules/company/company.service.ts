@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CompanyRepository } from './company.repository';
 import { CompanyDto } from './dto/create-update-company.dto';
 import { Company } from 'src/db/entities/company.model';
-import { CompanyResponse, SuccessResponse } from 'src/shared/data.response';
+import { SuccessResponse } from 'src/shared/data.response';
 import { SearchCompanyDto } from './dto/search-company.dto';
 
 @Injectable()
@@ -84,7 +84,7 @@ export class CompanyService {
   }
 
 
-  async getCompaniesByCriteria(searchDto: SearchCompanyDto): Promise<CompanyResponse[]> {
+  async getCompaniesByCriteria(searchDto: SearchCompanyDto): Promise<CompanyDto[]> {
     const query: any = {};
 
     if (searchDto.name) {
@@ -108,7 +108,6 @@ export class CompanyService {
   async escapeRegex(text: string): Promise<string> {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
   }
-
 
 }
 

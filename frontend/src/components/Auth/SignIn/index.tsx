@@ -6,8 +6,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialSignIn from "../SocialSignIn";
-import SwitchOption from "../SwitchOption";
-import MagicLink from "../MagicLink";
 import Loader from "@/components/Common/Loader";
 
 const Signin = () => {
@@ -19,7 +17,6 @@ const Signin = () => {
     checkboxToggle: false,
   });
 
-  const [isPassword, setIsPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const loginUser = (e: any) => {
@@ -36,12 +33,13 @@ const Signin = () => {
         }
 
         if (callback?.ok && !callback?.error) {
-          toast.success("Login successful");
+          toast.success("Uspešna prijava");
           setLoading(false);
           router.push("/");
         }
       })
       .catch((err) => {
+        console.log(err);
         setLoading(false);
         console.log(err.message);
         toast.error(err.message);
@@ -85,49 +83,40 @@ const Signin = () => {
                 </span>
               </span>
 
-              <SwitchOption
-                isPassword={isPassword}
-                setIsPassword={setIsPassword}
-              />
-
-              {isPassword ? (
-                <form onSubmit={(e) => e.preventDefault()}>
-                  <div className="mb-[22px]">
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      onChange={(e) =>
-                        setLoginData({ ...loginData, email: e.target.value })
-                      }
-                      className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                    />
-                  </div>
-                  <div className="mb-[22px]">
-                    <input
-                      type="password"
-                      placeholder="Geslo"
-                      onChange={(e) =>
-                        setLoginData({ ...loginData, password: e.target.value })
-                      }
-                      className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                    />
-                  </div>
-                  <div className="mb-9">
-                    <button
-                      onClick={loginUser}
-                      type="submit"
-                      className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-primary/90"
-                    >
-                      Prijava {loading && <Loader />}
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <MagicLink />
-              )}
+              <form onSubmit={(e) => e.preventDefault()}>
+                <div className="mb-[22px]">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    onChange={(e) =>
+                      setLoginData({ ...loginData, email: e.target.value })
+                    }
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-[22px]">
+                  <input
+                    type="password"
+                    placeholder="Geslo"
+                    onChange={(e) =>
+                      setLoginData({ ...loginData, password: e.target.value })
+                    }
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-9">
+                  <button
+                    onClick={loginUser}
+                    type="submit"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-primary/90"
+                  >
+                    Prijava {loading && <Loader />}
+                  </button>
+                </div>
+              </form>
 
               <Link
-                href="/forgot-password"
+                href="/novogeslo"
                 className="mb-2 inline-block text-base text-dark hover:text-primary dark:text-white dark:hover:text-primary"
               >
                 Pozabljeno geslo

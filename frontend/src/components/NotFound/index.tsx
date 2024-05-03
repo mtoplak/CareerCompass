@@ -56,18 +56,14 @@ const NotFound = () => {
                   />
                 </svg>
               </div>
-              <h3 className="mb-5 text-2xl font-semibold text-dark dark:text-white">
-                We Can&#39;t Seem to Find The Page You&#39;re Looking For.
+              <h3 className="mb-10 text-2xl font-semibold text-dark dark:text-white">
+                Stran, ki jo iščete, ne obstaja.
               </h3>
-              <p className="mb-8 text-base text-body-color dark:text-dark-6">
-                Oops! The page you are looking for does not exist. It might have
-                been moved or deleted.
-              </p>
               <Link
                 href="/"
                 className="rounded-md bg-dark px-7 py-3 text-base font-medium text-white transition hover:bg-primary dark:bg-primary dark:hover:bg-primary/80"
               >
-                Go To Home
+                Pojdi domov
               </Link>
             </div>
           </div>

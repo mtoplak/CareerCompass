@@ -59,7 +59,6 @@ export class UserRepository {
     }
   }
 
-
   async deleteOne(userFilterQuery: FilterQuery<User>): Promise<SuccessResponse> {
     try {
       await this.userModel.deleteOne(userFilterQuery);

@@ -11,11 +11,11 @@ import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 // This approach is taken from https://github.com/vercel/next.js/tree/canary/examples/with-mongodb
-if (!process.env.MONGODB_URI) {
-  throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
-}
+// if (!process.env.MONGODB_URI) {
+//   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"');
+// }
 
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI as string;
 const options = {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -73,7 +73,19 @@ export const authOptions: NextAuthOptions = {
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Izpolnite vsa polja.");
         }
+        // console.log(credentials);
 
+        let user;
+        if (authOptions && authOptions.adapter && authOptions.adapter.getUserByEmail) {
+          user = await authOptions.adapter.getUserByEmail(credentials.email);
+          console.log(user);
+        } else {
+          console.error("authOptions.adapter is undefined or null");
+        }
+
+        console.log(user);
+
+        return user || null;
         // check to see if user already exist
         // const user = await prisma.user.findUnique({
         //   where: {
@@ -82,7 +94,6 @@ export const authOptions: NextAuthOptions = {
         // });
 
 
-        //todo odkomentiraj
 
         // if user was not found
         // if (!user || !user?.password) {
@@ -126,6 +137,7 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     jwt: async (payload: any) => {
+      // console.log(payload);
       const { token } = payload;
       const user = payload.user;
 
@@ -139,6 +151,8 @@ export const authOptions: NextAuthOptions = {
     },
 
     session: async ({ session, token }) => {
+      // console.log(session);
+      // console.log(token);
       if (session?.user) {
         return {
           ...session,

@@ -4,14 +4,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import SocialSignIn from "../SocialSignIn";
-import SwitchOption from "../SwitchOption";
 import { useState } from "react";
-import MagicLink from "../MagicLink";
 import Loader from "@/components/Common/Loader";
 
 const SignUp = () => {
   const router = useRouter();
-  const [isPassword, setIsPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: any) => {
@@ -31,7 +28,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("Successfully registered");
+        toast.success("Uspešna registracija!");
         setLoading(false);
         router.push("/prijava");
       })
@@ -78,61 +75,52 @@ const SignUp = () => {
                 </span>
               </span>
 
-              <SwitchOption
-                isPassword={isPassword}
-                setIsPassword={setIsPassword}
-              />
-
-              {isPassword ? (
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-[22px]">
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      name="name"
-                      required
-                      className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                    />
-                  </div>
-                  <div className="mb-[22px]">
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      required
-                      className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                    />
-                  </div>
-                  <div className="mb-[22px]">
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      required
-                      className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                    />
-                  </div>
-                  <div className="mb-9">
-                    <button
-                      type="submit"
-                      className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
-                    >
-                      Registracija {loading && <Loader />}
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <MagicLink />
-              )}
+              <form onSubmit={handleSubmit}>
+                <div className="mb-[22px]">
+                  <input
+                    type="text"
+                    placeholder="Ime in priimek"
+                    name="name"
+                    required
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-[22px]">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    required
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-[22px]">
+                  <input
+                    type="password"
+                    placeholder="Geslo"
+                    name="password"
+                    required
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-9">
+                  <button
+                    type="submit"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
+                  >
+                    Registracija {loading && <Loader />}
+                  </button>
+                </div>
+              </form>
 
               <p className="text-body-secondary mb-4 text-base">
-                By creating an account you are agree with our{" "}
+                Z ustvarjanjem računa se strinjate z{" "}
                 <a href="/#" className="text-primary hover:underline">
-                  Privacy
+                  Politiko zasebnosti (GDPR)
                 </a>{" "}
-                and{" "}
+                in{" "}
                 <a href="/#" className="text-primary hover:underline">
-                  Policy
+                  Splošnimi pogoji poslovanja
                 </a>
               </p>
 

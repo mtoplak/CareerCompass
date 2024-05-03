@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 		},
 	});
 
-	const resetURL = `${process.env.SITE_URL}/reset-password/${resetToken}`;
+	const resetURL = `${process.env.SITE_URL}/novogeslo/${resetToken}`;
 
 	try {
 		await sendEmail({

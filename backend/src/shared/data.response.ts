@@ -66,7 +66,6 @@ export interface CompanyResponse {
 export interface UserResponse {
     id: string;
     name: string;
-    surname: string;
     email: string;
     saved_advertisements: JobAdvertisement[];
 }

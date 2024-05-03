@@ -4,8 +4,6 @@ import ratingData from "./ratingData";
 import SingleCompany from "../Common/SingleCompany";
 import { Company } from "@/types/company";
 
-
-
 const LandingPageRate = ({ companies }: { companies: Company[] }) => {
   if (!companies) {
     return <div>Loading...</div>;
@@ -28,14 +26,14 @@ const LandingPageRate = ({ companies }: { companies: Company[] }) => {
           ))}
         </div>
         <div className="pt-20">
-          <span className="mb-2 mx-4 block text-lg font-semibold">
-            Najbolje ocenjena podjetja...
+          <span className="mx-4 mb-2 block text-lg font-semibold">
+            Najboljše ocenjena podjetja...
           </span>
           <div className="mb-[20px] mt-[10px] flex flex-wrap gap-y-8">
-          {displayedCompanies.map((company: Company) => (
-            <SingleCompany key={company.name} company={company} />
-          ))}
-        </div>
+            {displayedCompanies.map((company: Company) => (
+              <SingleCompany key={company.name} company={company} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

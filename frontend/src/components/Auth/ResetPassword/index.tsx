@@ -34,7 +34,7 @@ const ResetPassword = ({ token }: { token: string }) => {
         }
       } catch (error: any) {
         toast.error(error?.response?.data);
-        router.push("/forgot-password");
+        router.push("/novogeslo");
       }
     };
 

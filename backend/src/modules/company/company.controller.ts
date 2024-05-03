@@ -6,8 +6,9 @@ import {
     Param,
     Delete,
     Patch,
+    Query,
 } from '@nestjs/common';
-import { CompanyResponse, SuccessResponse } from 'src/shared/data.response';
+import { SuccessResponse } from 'src/shared/data.response';
 import { CompanyDto } from './dto/create-update-company.dto';
 import { Company } from 'src/db/entities/company.model';
 import { CompanyService } from './company.service';
@@ -46,6 +47,11 @@ export class CompanyController {
         return this.companyMapper.mapCompany(companies);
     }
 
+    @Get('/search')
+    async getCompaniesByCriteria(@Query() searchDto: SearchCompanyDto): Promise<CompanyDto[]> {
+        return await this.companyService.getCompaniesByCriteria(searchDto);
+    }
+
     @Get(':slug')
     async getCompanyBySlug(@Param('slug') slug: string): Promise<CompanyDto> {
         const company = await this.companyService.getCompanyBySlug(slug);
@@ -63,12 +69,6 @@ export class CompanyController {
     @Delete(':id')
     async removeCompany(@Param('id') companyId: string): Promise<SuccessResponse> {
         return this.companyService.removeCompany(companyId);
-    }
-
-    @Post('/search')
-    async getCompaniesByCriteria(@Body() searchDto: SearchCompanyDto): Promise<CompanyResponse[]> {
-        return await this.companyService.getCompaniesByCriteria(searchDto);
-        // TODO: spremenim v dto?
     }
 
 }
