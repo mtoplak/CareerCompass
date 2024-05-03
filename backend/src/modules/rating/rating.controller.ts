@@ -7,7 +7,7 @@ import {
   Delete,
   Patch
 } from '@nestjs/common';
-import { RatingResponse, SuccessResponse } from 'src/data.response';
+import { RatingResponse, SuccessResponse } from 'src/shared/data.response';
 import { Rating } from 'src/db/entities/rating.model';
 import { RatingService } from './rating.service';
 import { CreateUpdateRatingDto } from './create-update-rating.dto';

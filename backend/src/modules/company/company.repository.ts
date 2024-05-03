@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
-import { CompanyResponse, SuccessResponse } from 'src/data.response';
+import { SuccessResponse } from 'src/shared/data.response';
 import { Company } from 'src/db/entities/company.model';
 
 @Injectable()
@@ -19,7 +19,7 @@ export class CompanyRepository {
     }
   }
 
-  async find(filter: any, options: any = {}): Promise<CompanyResponse[]> {
+  async find(filter: any, options: any = {}): Promise<Company[]> {
     try {
       return await this.companyModel.find(filter, null, options);
     } catch (err) {

@@ -30,7 +30,7 @@ export const RatingSchema = new Schema({
     max: 5,
     required: false,
   },
-  work_enviroment: {
+  work_environment: {
     type: Number,
     min: 1,
     max: 5,
@@ -80,7 +80,7 @@ export interface Rating extends Document {
   personal_development: number; // osebni razvoj
   flexibility: number; //fleksibilnost
   work_life_balance: number; // ravnovesje dela in življenja
-  work_enviroment: number; // delovno vzdušje
+  work_environment: number; // delovno vzdušje
   leadership: number; // vodstvo
   general_assessment_comment: string; // poljuben komentar
   // plače in ugodnosti

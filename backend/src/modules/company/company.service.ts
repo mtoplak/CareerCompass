@@ -1,15 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CompanyRepository } from './company.repository';
-import { CreateUpdateCompanyDto } from './dto/create-update-company.dto';
+import { CompanyDto } from './dto/create-update-company.dto';
 import { Company } from 'src/db/entities/company.model';
-import { CompanyResponse, SuccessResponse } from 'src/data.response';
+import { CompanyResponse, SuccessResponse } from 'src/shared/data.response';
 import { SearchCompanyDto } from './dto/search-company.dto';
 
 @Injectable()
 export class CompanyService {
   constructor(private readonly companyRepository: CompanyRepository) { }
 
-  async createCompany(companyData: CreateUpdateCompanyDto): Promise<Company> {
+  async createCompany(companyData: CompanyDto): Promise<Company> {
     try {
       return await this.companyRepository.create(companyData);
     } catch (error) {
@@ -20,7 +20,7 @@ export class CompanyService {
     }
   }
 
-  async getAllCompanies(): Promise<CompanyResponse[]> {
+  async getAllCompanies(): Promise<Company[]> {
     try {
       return await this.companyRepository.find({});
     } catch (error) {
@@ -55,7 +55,7 @@ export class CompanyService {
 
   async updateCompany(
     companyId: string,
-    companyUpdates: CreateUpdateCompanyDto,
+    companyUpdates: CompanyDto,
   ): Promise<Company> {
     try {
       return await this.companyRepository.findOneAndUpdate(
@@ -75,16 +75,12 @@ export class CompanyService {
     return await this.companyRepository.deleteOne({ _id: companyId });
   }
 
-  async getFourBestCompanies(): Promise<CompanyResponse[]> {
+  async getFourBestCompanies(): Promise<Company[]> {
     try {
-      console.log("1")
-      const b =  await this.companyRepository.find(
+      return await this.companyRepository.find(
         {},
         { sort: { avg_rating: -1 }, limit: 4 }
       );
-      console.log("2");
-      console.log(b);
-      return b;
     } catch (error) {
       throw new NotFoundException('Could not retrieve top companies.');
     }

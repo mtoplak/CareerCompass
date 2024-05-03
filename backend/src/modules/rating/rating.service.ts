@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { RatingResponse, SuccessResponse } from 'src/data.response';
+import { RatingResponse, SuccessResponse } from 'src/shared/data.response';
 import { RatingRepository } from './rating.repository';
 import { CreateUpdateRatingDto } from './create-update-rating.dto';
 import { Rating } from 'src/db/entities/rating.model';
-import { CompanyRepository } from 'src/company/company.repository';
+import { CompanyRepository } from 'src/modules/company/company.repository';
 
 @Injectable()
 export class RatingService {
@@ -81,7 +81,7 @@ export class RatingService {
 
     const categories = [
       'team', 'personal_development', 'flexibility', 'work_life_balance',
-      'work_enviroment', 'leadership', 'benefits', 'bonuses'
+      'work_environment', 'leadership', 'benefits', 'bonuses'
     ];
     categories.forEach(category => {
       if (rating[category] != null) {

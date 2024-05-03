@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { JobAdvertisementResponse, SuccessResponse } from 'src/data.response';
+import { JobAdvertisementResponse, SuccessResponse } from 'src/shared/data.response';
 import { CreateUpdateJobAdvertisementDto } from './create-update-job-advertisement.dto';
 import { JobAdvertisement } from 'src/db/entities/job-advertisement.model';
 import { JobAdvertisementRepository } from './job-advertisement.repository';

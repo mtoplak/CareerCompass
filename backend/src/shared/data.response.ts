@@ -1,8 +1,8 @@
-import { Company } from "./db/entities/company.model";
-import { JobAdvertisement } from "./db/entities/job-advertisement.model";
-import { Industry } from "./enums/industry.enum";
-import { InterviewDifficulty } from "./enums/interview-difficulty.enum";
-import { InterviewExperience } from "./enums/interview-experience.enum";
+import { Company } from "../db/entities/company.model";
+import { JobAdvertisement } from "../db/entities/job-advertisement.model";
+import { Industry } from "../enums/industry.enum";
+import { InterviewDifficulty } from "../enums/interview-difficulty.enum";
+import { InterviewExperience } from "../enums/interview-experience.enum";
 
 export interface SuccessResponse {
     success: boolean;
@@ -24,7 +24,7 @@ export interface CompanyResponse {
     avg_personal_development: number;
     avg_flexibility: number;
     avg_work_life_balance: number;
-    avg_work_enviroment: number;
+    avg_work_environment: number;
     avg_leadership: number;
     avg_benefits: number;
     avg_bonuses: number;
@@ -88,7 +88,7 @@ export interface RatingResponse {
     personal_development: number;
     flexibility: number;
     work_life_balance: number;
-    work_enviroment: number;
+    work_environment: number;
     leadership: number;
     general_assessment_comment: string;
     benefits: number;
