@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   title: "Stran ne obstaja! | Career Compass",
 };
 
-const ErrorPage = () => {
+const ErrorPage = ({ what }: { what: string }) => {
   return (
     <>
-      <Breadcrumb pageName="Stran ne obstaja" />
+      <Breadcrumb pageName={what + " ne obstaja!"} />
       <NotFound />
     </>
   );

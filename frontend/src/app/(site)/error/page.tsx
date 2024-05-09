@@ -3,7 +3,7 @@ import NotFound from "@/components/NotFound";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Stran ne obstaja! | Compass Career",
+  title: "Stran ne obstaja! | Career Compass",
 };
 
 const ErrorPage = () => {
