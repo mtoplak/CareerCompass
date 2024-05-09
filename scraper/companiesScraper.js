@@ -179,6 +179,7 @@ async function scrapeCurrentSite(page) {
     } else {
       city = "";
     }
+    //city = city.replace(/\d+/g, '').trim();
     console.log(city);
     company.city = city;
 

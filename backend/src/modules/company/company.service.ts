@@ -4,6 +4,7 @@ import { CompanyDto } from './dto/create-update-company.dto';
 import { Company } from 'src/db/entities/company.model';
 import { SuccessResponse } from 'src/shared/data.response';
 import { SearchCompanyDto } from './dto/search-company.dto';
+import { escapeRegex } from 'src/shared/regex';
 
 @Injectable()
 export class CompanyService {
@@ -83,30 +84,31 @@ export class CompanyService {
     }
   }
 
+  async getCompaniesByCriteria(criteria: SearchCompanyDto): Promise<CompanyDto[]> {
+    const conditions = [];
 
-  async getCompaniesByCriteria(searchDto: SearchCompanyDto): Promise<CompanyDto[]> {
-    const query: any = {};
-
-    if (searchDto.name) {
-      query.name = { $regex: new RegExp('^' + this.escapeRegex(searchDto.name), 'i') };
+    if (criteria.name) {
+      conditions.push({ name: { $regex: new RegExp('^' + escapeRegex(criteria.name), 'i') } });
     }
-    if (searchDto.city) {
-      query.city = { $regex: new RegExp(searchDto.city + '$', 'i') };
+    if (criteria.city) {
+      conditions.push({ city: { $regex: new RegExp('^' + escapeRegex(criteria.city), 'i') } });
     }
-    if (searchDto.industry) {
-      query.industry = searchDto.industry;
+    if (criteria.industry) {
+      conditions.push({ industry: criteria.industry });
     }
 
+    const query = conditions.length > 0 ? { $and: conditions } : {};
     try {
       const companies = await this.companyRepository.find(query);
-      return companies.length > 0 ? companies : [];
+      if (companies.length > 0) {
+        return companies;
+      } else {
+        return [];
+      }
     } catch (error) {
+      console.error('Error executing query:', error);
       throw new NotFoundException('Could not get the companies from database.');
     }
-  }
-
-  async escapeRegex(text: string): Promise<string> {
-    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
   }
 
 }
