@@ -4,7 +4,7 @@ import { CompanyDto } from './dto/create-update-company.dto';
 import { Company } from '../../db/entities/company.model';
 import { SuccessResponse } from '../../shared/data.response';
 import { SearchCompanyDto } from './dto/search-company.dto';
-import { escapeRegex } from 'src/shared/regex';
+import { escapeRegex } from '../../shared/regex';
 
 @Injectable()
 export class CompanyService {
