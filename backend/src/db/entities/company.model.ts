@@ -1,5 +1,5 @@
 import { Schema, Document, Model, model } from 'mongoose';
-import { Industry } from 'src/enums/industry.enum';
+import { Industry } from '../../enums/industry.enum';
 
 export const CompanySchema = new Schema({
   name: { type: String, required: true },

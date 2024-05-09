@@ -4,6 +4,7 @@ import LandingPageRate from "@/components/LandingPageRate";
 import Hero from "@/components/Hero";
 import { Metadata } from "next";
 import LandingPageJobs from "@/components/LandingPageJobs";
+import { api } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Career Compass",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 async function getCompanies() {
-  const res = await fetch(`http://localhost:4000/company/best`, {
+  const res = await fetch(`${api}/company/best`, {
     cache: "no-store",
   });
   const companies = await res.json();

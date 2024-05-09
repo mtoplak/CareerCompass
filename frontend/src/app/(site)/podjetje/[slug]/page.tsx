@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import SingleCompanyPage from "@/components/SingleCompany/SingleCompanyInfo";
+import { api } from "@/constants";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -11,7 +12,7 @@ type Props = {
 };
 
 async function getCompany(slug: string) {
-  const res = await fetch(`http://localhost:4000/company/${slug}`, {
+  const res = await fetch(`${api}}/company/${slug}`, {
     cache: "no-store",
   });
   const companies = await res.json();

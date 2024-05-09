@@ -2,6 +2,7 @@
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import CompanyPageJobs from "@/components/AllCompanies/CompanyPageJobs";
+import { api } from "@/constants";
 
 const SearchResults = () => {
   const [companies, setCompanies] = useState([]);
@@ -21,7 +22,7 @@ const SearchResults = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:4000/company/search?name=${ime}&city=${lokacija}&industry=${dejavnost}`,
+          `${api}/company/search?name=${ime}&city=${lokacija}&industry=${dejavnost}`,
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");

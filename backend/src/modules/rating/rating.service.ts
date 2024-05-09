@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { RatingResponse, SuccessResponse } from 'src/shared/data.response';
+import { RatingResponse, SuccessResponse } from '../../shared/data.response';
 import { RatingRepository } from './rating.repository';
 import { CreateUpdateRatingDto } from './create-update-rating.dto';
-import { Rating } from 'src/db/entities/rating.model';
-import { CompanyRepository } from 'src/modules/company/company.repository';
+import { Rating } from '../../db/entities/rating.model';
+import { CompanyRepository } from '../../modules/company/company.repository';
 
 @Injectable()
 export class RatingService {
