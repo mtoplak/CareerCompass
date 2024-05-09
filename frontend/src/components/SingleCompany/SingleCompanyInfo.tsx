@@ -3,6 +3,12 @@ import Image from "next/image";
 import { Testimonial } from "@/types/testimonial";
 import SingleRating from "../Rating/SingleRating";
 import { Company } from "@/types/company";
+import stars from "../Common/Stars";
+import { SetStateAction, useState } from "react";
+import GeneralAssessmenta from "./GeneralAssessment";
+import GeneralAssessment from "./GeneralAssessment";
+import SaleryAndBenefits from "./SaleryAndBenefits";
+import Interviews from "./Interviews";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -72,14 +78,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
           ) : (
             <p></p>
           )}
-          <div className="mt-4 flex">
-            <span className="mr-1 text-yellow-400">&#9733;</span>
-            <span className="mr-1 text-yellow-400">&#9733;</span>
-            <span className="mr-1 text-yellow-400">&#9733;</span>
-            <span className="mr-1 text-yellow-400">&#9733;</span>
-            <span className="text-yellow-400">&#9733;</span>
-            <span className="ml-2 text-gray-600 dark:text-gray-400">(5.0)</span>
-          </div>
+          <div className="mt-4 flex">{stars(company.avg_rating)}</div>
         </div>
       </div>
       <div className="my-10 border-t border-gray-300"></div>
@@ -99,7 +98,9 @@ const SingleCompanyPage = async ({ company }: Props) => {
               alt="Address Icon"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-sky-700 dark:text-sky-300">{company.address}</p>
+            <p className="text-sky-700 dark:text-sky-300">
+              {company.address}, {company.city}
+            </p>
           </div>
           <div className="flex items-center">
             <img
@@ -114,13 +115,17 @@ const SingleCompanyPage = async ({ company }: Props) => {
           <h2 className="mb-4 text-2xl font-semibold">Zaposlitve</h2>
           Podjetje nima objavljenih zaposlitev.
         </div>
-        <div className="my-20">
+        <div className="mt-12">
           <h2 className="mb-4 text-2xl font-semibold">Komentarji in Ocene</h2>
-          <div className="mt-[20px] flex flex-wrap gap-y-8">
-            {testimonialData.map((testimonial, i) => (
-              <SingleRating key={i} testimonial={testimonial} />
-            ))}
+          <div className="mt-[20px] flex flex-wrap gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+            <GeneralAssessment company={company} />
           </div>
+          <div className="mt-[20px] flex flex-wrap gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+            <SaleryAndBenefits company={company} />
+          </div>
+          {/*<div className="mt-[20px] flex flex-wrap gap-y-8 px-4 md:items-start md:justify-between rounded-xl bg-gray-100 dark:bg-slate-700 py-[20px]">
+            <Interviews company={company}/>
+        </div>*/}
         </div>
       </div>
     </div>
