@@ -12,7 +12,7 @@ type Props = {
 };
 
 async function getCompany(slug: string) {
-  const res = await fetch(`${api}}/company/${slug}`, {
+  const res = await fetch(`${api}/company/${slug}`, {
     cache: "no-store",
   });
   const companies = await res.json();
