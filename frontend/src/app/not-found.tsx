@@ -3,14 +3,13 @@ import NotFound from "@/components/NotFound";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "404 Page | Career Compass",
+  title: "Stran ne obstaja! | Career Compass",
 };
 
-const ErrorPage = () => {
+const ErrorPage = ({ what }: { what: string }) => {
   return (
     <>
-      <Breadcrumb pageName="404 Page" />
-
+      <Breadcrumb pageName={what + " ne obstaja!"} />
       <NotFound />
     </>
   );

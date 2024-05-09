@@ -1,8 +1,8 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
-import { SuccessResponse } from 'src/shared/data.response';
-import { Company } from 'src/db/entities/company.model';
+import { SuccessResponse } from '../../shared/data.response';
+import { Company } from '../../db/entities/company.model';
 import { CompanyDto } from './dto/create-update-company.dto';
 
 @Injectable()

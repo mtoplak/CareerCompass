@@ -1,3 +1,4 @@
+import { api } from "@/constants";
 import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
 import { prisma } from "@/utils/prismaDB";
@@ -30,5 +31,5 @@ export async function POST(request: any) {
     },
   });
 
-  return NextResponse.json("User created successfully!", { status: 200 });
+  return NextResponse.json("Uspešna registracija!", { status: 200 });
 }

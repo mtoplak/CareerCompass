@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import SingleCompanyPage from "@/components/SingleCompany/SingleCompanyInfo";
+import { api } from "@/constants";
+import ErrorPage from "@/app/not-found";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -11,16 +13,20 @@ type Props = {
 };
 
 async function getCompany(slug: string) {
-  const res = await fetch(`http://localhost:4000/company/${slug}`, {
+  const res = await fetch(`${api}/company/${slug}`, {
     cache: "no-store",
   });
-  const companies = await res.json();
+  const company = await res.json();
 
-  return companies;
+  return company;
 }
 
 export default async function PodjetjePage({ params }: Props) {
   const company = await getCompany(params.slug);
+
+  if (company.statusCode === 404) {
+    return <ErrorPage what="Podjetje" />;
+  }
 
   return <>{params && <SingleCompanyPage company={company} />}</>;
 }

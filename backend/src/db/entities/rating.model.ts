@@ -1,7 +1,7 @@
 import { Schema, Document, Model, model } from 'mongoose';
 import { Company } from './company.model';
-import { InterviewExperience } from 'src/enums/interview-experience.enum';
-import { InterviewDifficulty } from 'src/enums/interview-difficulty.enum';
+import { InterviewExperience } from '../../enums/interview-experience.enum';
+import { InterviewDifficulty } from '../../enums/interview-difficulty.enum';
 
 export const RatingSchema = new Schema({
   company: [{ type: Schema.Types.ObjectId, ref: 'Company', required: true }],

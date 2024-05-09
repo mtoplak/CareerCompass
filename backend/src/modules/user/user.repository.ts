@@ -1,8 +1,8 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
-import { UserResponse, SuccessResponse } from 'src/shared/data.response';
-import { User } from 'src/db/entities/user.model';
+import { UserResponse, SuccessResponse } from '../../shared/data.response';
+import { User } from '../../db/entities/user.model';
 
 @Injectable()
 export class UserRepository {
@@ -13,7 +13,7 @@ export class UserRepository {
   async findOne(userFilterQuery: FilterQuery<User>): Promise<User> {
     try {
       return await this.userModel
-        .findOne(userFilterQuery)
+        .findOne(userFilterQuery);
     } catch (err) {
       throw new NotFoundException('Could not get the user.');
     }
@@ -22,7 +22,7 @@ export class UserRepository {
   async find(usersFilterQuery: FilterQuery<User>): Promise<UserResponse[]> {
     try {
       return await this.userModel
-        .find(usersFilterQuery)
+        .find(usersFilterQuery);
     } catch (err) {
       throw new NotFoundException('Could not find the users.');
     }
