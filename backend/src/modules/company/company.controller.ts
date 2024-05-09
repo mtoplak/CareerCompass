@@ -8,9 +8,9 @@ import {
     Patch,
     Query,
 } from '@nestjs/common';
-import { SuccessResponse } from 'src/shared/data.response';
+import { SuccessResponse } from '../../shared/data.response';
 import { CompanyDto } from './dto/create-update-company.dto';
-import { Company } from 'src/db/entities/company.model';
+import { Company } from '../../db/entities/company.model';
 import { CompanyService } from './company.service';
 import { SearchCompanyDto } from './dto/search-company.dto';
 import { CompanyMapper } from './company.mapper';

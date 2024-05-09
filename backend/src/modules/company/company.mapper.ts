@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { Company } from "src/db/entities/company.model";
+import { Company } from "../../db/entities/company.model";
 import { CompanyDto } from "./dto/create-update-company.dto";
 
 @Injectable()

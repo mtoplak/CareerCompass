@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CompanyRepository } from './company.repository';
 import { CompanyDto } from './dto/create-update-company.dto';
-import { Company } from 'src/db/entities/company.model';
-import { SuccessResponse } from 'src/shared/data.response';
+import { Company } from '../../db/entities/company.model';
+import { SuccessResponse } from '../../shared/data.response';
 import { SearchCompanyDto } from './dto/search-company.dto';
 
 @Injectable()
