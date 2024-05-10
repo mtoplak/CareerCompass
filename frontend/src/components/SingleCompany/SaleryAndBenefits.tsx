@@ -13,19 +13,19 @@ const SaleryAndBenefits = async ({ company }: Props) => {
     { label: "Bonusi", rating: company.avg_bonuses },
   ].map((item, index) => (
     <div key={index} className="flex items-center">
-      <span className="mr-1 mt-4">{item.label}:</span>
+      <span className="mr-1 mt-4 lg:gap-4">{item.label}:</span>
       {stars(item.rating)}
     </div>
   ));
 
   return (
     <div className="flex flex-col justify-between gap-4 md:flex-row">
-      <div className="w-full lg:w-3/5">
+      <div className="w-full lg:w-2/5">
         <div className="rounded-xl bg-white px-4 py-[30px] shadow-testimonial dark:bg-dark sm:px-[30px]">
           <div className="mb-1 flex flex-col gap-1">{ratingIcons}</div>
         </div>
       </div>
-      <div className="flex flex-col w-full lg:w-2/5">
+      <div className="flex flex-col w-full lg:w-3/5">
         <SingleComment company={company} />
       </div>
     </div>

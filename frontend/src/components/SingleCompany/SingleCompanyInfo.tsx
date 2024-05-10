@@ -78,7 +78,16 @@ const SingleCompanyPage = async ({ company }: Props) => {
           ) : (
             <p></p>
           )}
-          <div className="mt-4 flex">{stars(company.avg_rating)}</div>
+          <div className="mt-4 flex">
+            {company.ratings_count === 0 && company.avg_rating === 0 ? (
+              <span className="text-sm">Podjetje se ni bilo ocenjeno</span>
+            ) : (
+              <>
+                {stars(company.avg_rating)}
+                <span className="text-sm">{company.ratings_count} ocen</span>
+              </>
+            )}
+          </div>
         </div>
       </div>
       <div className="my-10 border-t border-gray-300"></div>
@@ -117,13 +126,16 @@ const SingleCompanyPage = async ({ company }: Props) => {
         </div>
         <div className="mt-12">
           <h2 className="mb-4 text-2xl font-semibold">Komentarji in Ocene</h2>
-          <div className="mt-[20px] flex flex-wrap gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+          <h2 className="text-xl font-semibold mb-2">Splošna ocena</h2>
             <GeneralAssessment company={company} />
           </div>
-          <div className="mt-[20px] flex flex-wrap gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+          <h2 className="text-xl font-semibold mb-2">Plača in ugodnosti</h2>
             <SaleryAndBenefits company={company} />
           </div>
           {/*<div className="mt-[20px] flex flex-wrap gap-y-8 px-4 md:items-start md:justify-between rounded-xl bg-gray-100 dark:bg-slate-700 py-[20px]">
+          <h2 className="text-xl font-semibold mb-2">Razgovori</h2>
             <Interviews company={company}/>
         </div>*/}
         </div>
