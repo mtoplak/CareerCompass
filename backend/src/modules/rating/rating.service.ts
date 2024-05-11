@@ -53,7 +53,7 @@ export class RatingService {
       throw error;
     }
   }
-
+  
   async updateRating(
     ratingId: string,
     ratingUpdates: CreateUpdateRatingDto,

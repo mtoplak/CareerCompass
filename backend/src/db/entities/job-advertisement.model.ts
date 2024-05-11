@@ -8,7 +8,7 @@ export const JobAdvertisementSchema = new Schema({
   city: { type: String, required: true },
   company_linked: [{ type: Schema.Types.ObjectId, ref: 'Company' }],
   company_nlinked: { type: String },
-  hourly_rate: { type: String },
+  salary: { type: String },
 });
 
 export interface JobAdvertisement extends Document {
@@ -18,7 +18,7 @@ export interface JobAdvertisement extends Document {
   city: string; // kraj
   company_linked: Company; // podjetje
   company_nlinked: string; // podjetje ne linkano
-  hourly_rate: string; // urna_postavka
+  salary: string; // urna_postavka
 }
 
 export const JobAdvertisementModel: Model<JobAdvertisement> = model<JobAdvertisement>('JobAdvertisement', JobAdvertisementSchema);

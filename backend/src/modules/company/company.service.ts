@@ -96,6 +96,10 @@ export class CompanyService {
     if (criteria.industry) {
       conditions.push({ industry: criteria.industry });
     }
+    if (criteria.rating) {
+      conditions.push({ avg_rating: { $gte: criteria.rating } });
+    }
+
 
     const query = conditions.length > 0 ? { $and: conditions } : {};
     try {
@@ -113,7 +117,7 @@ export class CompanyService {
 
   async checkEmail(email: string): Promise<SuccessResponse> {
     const company = await this.companyRepository.findOne({ email: email.toLowerCase() });
-    if(company) {
+    if (company) {
       return { success: true };
     } else {
       return { success: false };

@@ -1,37 +1,37 @@
+import Image from "next/image";
+
 const CompanyFilter = () => {
   return (
     <form action="/iskanje">
       <section
         id="company-filter"
-        className="bg-gray-1 pb-8 pt-10 dark:bg-dark-2 lg:pb-[70px] "
+        className="bg-gray-1 pb-8 pt-10 dark:bg-dark-2 lg:pb-[70px]"
       >
-        <div className="gap-4-4 container grid rounded-xl bg-gray-100 dark:bg-gray-600 xs:px-[20px] xs:py-[20px] sm:grid-cols-4 lg:grid-cols-7">
-          <div className="mx-2 flex rounded-md xs:pb-[5px] sm:col-span-2 lg:col-span-2">
+        <div className="container mx-auto flex flex-wrap justify-between items-center bg-gray-100 dark:bg-gray-600 px-[20px] py-[20px] rounded-xl">
+          <div className="flex flex-1 min-w-[160px] mx-2 mb-4 lg:mb-0 lg:col-span-1">
             <input
               type="text"
               placeholder="Vnesi ime..."
-              className="flex-grow rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
               name="ime"
             />
           </div>
-          <div className="mx-2 flex rounded-md xs:pb-[5px] sm:col-span-2 lg:col-span-2">
+          <div className="flex flex-1 min-w-[160px] mx-2 mb-4 lg:mb-0 lg:col-span-1">
             <input
               type="text"
               placeholder="Vnesi lokacijo..."
-              className="flex-grow rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
               name="lokacija"
             />
           </div>
-          <div className="mx-2 flex rounded-md xs:pb-[5px] sm:col-span-3 lg:col-span-2">
+          <div className="flex flex-1 min-w-[160px] mx-2 mb-4 lg:mb-0 lg:col-span-1">
             <select
               id="industry"
-              className="flex-grow rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
+              className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
               name="dejavnost"
               defaultValue=""
             >
-              <option value="" disabled hidden>
-                Dejavnost
-              </option>
+              <option value="" disabled hidden>Dejavnost</option>
               <option>Avtomobilizem</option>
               <option>Dom in vrt</option>
               <option>Gostinstvo in turizem</option>
@@ -44,13 +44,29 @@ const CompanyFilter = () => {
               <option>Računalništvo in informatika</option>
             </select>
           </div>
-          <div className="mx-2 flex rounded-md xs:pb-[5px] sm:col-span-1 lg:col-span-1">
-            <button className="focus:shadow-outline flex-grow rounded bg-indigo-600 px-4 py-2 font-bold text-white hover:bg-indigo-950 focus:outline-none">
-              <div className="flex items-center">
-                <img
+          <div className="flex flex-1 min-w-[160px] mx-2 mb-4 lg:mb-0 lg:col-span-1">
+            <select
+              id="rating"
+              className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
+              name="ocena"
+              defaultValue=""
+            >
+              <option value="" disabled hidden>Ocena</option>
+              <option>1+</option>
+              <option>2+</option>
+              <option>3+</option>
+              <option>4+</option>
+            </select>
+          </div>
+          <div className="flex w-full justify-center mx-2 mt-4 lg:mt-0 lg:w-auto">
+            <button className="focus:shadow-outline rounded bg-indigo-600 px-4 py-2 font-bold text-white hover:bg-indigo-500 focus:outline-none">
+              <div className="flex items-center justify-center">
+                <Image
                   src="/images/hero/compass-icon.png"
-                  alt="My Icon"
-                  className="mr-2 h-6 w-6"
+                  alt="logo"
+                  width={24}
+                  height={24}
+                  className="mr-2"
                 />
                 <span>Poišči</span>
               </div>
