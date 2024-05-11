@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import CompanyPageJobs from "@/components/AllCompanies/CompanyPageJobs";
 import { api } from "@/constants";
+import CompanyFilter from "./CompanyFilter";
 
 const SearchResults = () => {
   const [companies, setCompanies] = useState([]);
@@ -16,19 +17,19 @@ const SearchResults = () => {
   const ime = searchParams.get("ime") || "";
   const lokacija = searchParams.get("lokacija") || "";
   const dejavnost = searchParams.get("dejavnost") || "";
+  const ocena = searchParams.get("ocena") || "";
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `${api}/company/search?name=${ime}&city=${lokacija}&industry=${dejavnost}`,
+          `${api}/company/search?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}`,
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        console.log(data);
         setCompanies(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -40,10 +41,11 @@ const SearchResults = () => {
     fetchData();
 
     return () => {};
-  }, []);
+  }, [ime, lokacija, dejavnost, ocena]);
 
   return (
     <>
+      <CompanyFilter ime={ime} lokacija={lokacija} dejavnost={dejavnost} ocena={ocena} />
       {!isLoading ? (
         <CompanyPageJobs companies={companies} />
       ) : (

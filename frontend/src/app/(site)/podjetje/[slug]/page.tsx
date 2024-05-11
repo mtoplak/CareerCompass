@@ -3,14 +3,25 @@ import SingleCompanyPage from "@/components/SingleCompany/SingleCompanyInfo";
 import { api } from "@/constants";
 import ErrorPage from "@/app/not-found";
 
-export const metadata: Metadata = {
-  title: "Career Compass - Podjetje",
-  description: "Profil podjetja",
-};
-
 type Props = {
   params: { slug: string };
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const company = await getCompany(params.slug);
+
+  return {
+    title:
+      company.name != undefined
+        ? "Career Compass - " + company.name
+        : "Career Compass - Podjetje",
+    description: "Profil podjetja" + company.name,
+  };
+}
 
 async function getCompany(slug: string) {
   const res = await fetch(`${api}/company/${slug}`, {

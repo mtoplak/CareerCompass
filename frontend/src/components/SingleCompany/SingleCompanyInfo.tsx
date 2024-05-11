@@ -1,10 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import { Testimonial } from "@/types/testimonial";
 import SingleRating from "../Rating/SingleRating";
 import { Company } from "@/types/company";
 import stars from "../Common/Stars";
-import { SetStateAction, useState } from "react";
 import GeneralAssessmenta from "./GeneralAssessment";
 import GeneralAssessment from "./GeneralAssessment";
 import SaleryAndBenefits from "./SaleryAndBenefits";
@@ -18,36 +16,6 @@ export const metadata: Metadata = {
 type Props = {
   company: Company;
 };
-
-const testimonialData: Testimonial[] = [
-  {
-    id: 1,
-    name: "Sabo Masties",
-    designation: "Founder @ Rolex",
-    content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/author-01.png",
-    star: 5,
-  },
-  {
-    id: 2,
-    name: "Margin Gesmu",
-    designation: "Founder @ UI Hunter",
-    content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/author-02.png",
-    star: 5,
-  },
-  {
-    id: 3,
-    name: "William Smith",
-    designation: "Founder @ Trorex",
-    content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/author-03.png",
-    star: 5,
-  },
-];
 
 const SingleCompanyPage = async ({ company }: Props) => {
   return (
@@ -80,7 +48,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
           )}
           <div className="mt-4 flex">
             {company.ratings_count === 0 && company.avg_rating === 0 ? (
-              <span className="text-sm">Podjetje se ni bilo ocenjeno</span>
+              <span className="text-sm">Podjetje še ni bilo ocenjeno</span>
             ) : (
               <>
                 {stars(company.avg_rating)}
@@ -99,7 +67,9 @@ const SingleCompanyPage = async ({ company }: Props) => {
               alt="Email Icon"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-sky-700 dark:text-sky-300">{company.email}</p>
+            <p className="text-sky-700 dark:text-sky-300">
+              <a href={`mailto:${company.email}`}>{company.email}</a>
+            </p>
           </div>
           <div className="mb-2 flex items-center lg:mb-0">
             <img
@@ -108,7 +78,11 @@ const SingleCompanyPage = async ({ company }: Props) => {
               className="mr-2 h-6 w-6"
             />
             <p className="text-sky-700 dark:text-sky-300">
-              {company.address}, {company.city}
+              <a
+                href={`https://www.google.com/maps/search/${company.address + " " + company.city}`}
+              >
+                {company.address}, {company.city}
+              </a>
             </p>
           </div>
           <div className="flex items-center">
@@ -117,7 +91,9 @@ const SingleCompanyPage = async ({ company }: Props) => {
               alt="Website Icon"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-sky-700 dark:text-sky-300">{company.website}</p>
+            <p className="text-sky-700 dark:text-sky-300">
+              <a href={company.website}>{company.website}</a>
+            </p>
           </div>
         </div>
         <div className="mt-20">
@@ -127,11 +103,11 @@ const SingleCompanyPage = async ({ company }: Props) => {
         <div className="mt-12">
           <h2 className="mb-4 text-2xl font-semibold">Komentarji in Ocene</h2>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
-          <h2 className="text-xl font-semibold mb-2">Splošna ocena</h2>
+            <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
             <GeneralAssessment company={company} />
           </div>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
-          <h2 className="text-xl font-semibold mb-2">Plača in ugodnosti</h2>
+            <h2 className="mb-2 text-xl font-semibold">Plača in ugodnosti</h2>
             <SaleryAndBenefits company={company} />
           </div>
           {/*<div className="mt-[20px] flex flex-wrap gap-y-8 px-4 md:items-start md:justify-between rounded-xl bg-gray-100 dark:bg-slate-700 py-[20px]">
