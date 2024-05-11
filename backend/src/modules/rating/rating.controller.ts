@@ -11,10 +11,13 @@ import { RatingResponse, SuccessResponse } from '../../shared/data.response';
 import { Rating } from '../../db/entities/rating.model';
 import { RatingService } from './rating.service';
 import { CreateUpdateRatingDto } from './create-update-rating.dto';
+import { AiService } from '../../ai/ai.service';
 
 @Controller('/rating')
 export class RatingController {
-  constructor(private readonly ratingService: RatingService) { }
+  constructor(private readonly ratingService: RatingService,
+    private readonly aiService: AiService
+  ) { }
 
   @Post()
   async addRating(
@@ -44,6 +47,12 @@ export class RatingController {
   @Delete(':id')
   async removeRating(@Param('id') ratingId: string): Promise<SuccessResponse> {
     return this.ratingService.removeRating(ratingId);
+  }
+
+  @Post('/api')
+  async checkAI(@Body() body: { comment: string }): Promise<boolean> {
+    const comment = body.comment;
+    return await this.aiService.checkComment(comment);
   }
 
 }

@@ -96,6 +96,10 @@ export class CompanyService {
     if (criteria.industry) {
       conditions.push({ industry: criteria.industry });
     }
+    if (criteria.rating) {
+      conditions.push({ avg_rating: { $gte: criteria.rating } });
+    }
+
 
     const query = conditions.length > 0 ? { $and: conditions } : {};
     try {
@@ -108,6 +112,15 @@ export class CompanyService {
     } catch (error) {
       console.error('Error executing query:', error);
       throw new NotFoundException('Could not get the companies from database.');
+    }
+  }
+
+  async checkEmail(email: string): Promise<SuccessResponse> {
+    const company = await this.companyRepository.findOne({ email: email.toLowerCase() });
+    if (company) {
+      return { success: true };
+    } else {
+      return { success: false };
     }
   }
 

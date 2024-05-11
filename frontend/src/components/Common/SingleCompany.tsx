@@ -2,23 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import stars from "./Stars";
 
-
 const SingleCompany = ({ company }: { company: any }) => {
   const { logo, name, industry, slug } = company;
 
-  
   return (
     <div className="w-full px-4 sm:w-1/2 lg:w-1/4 xl:w-1/4">
-      <div className="transition ease-in-out delay-150 group mb-8 rounded-xl bg-white px-5 pb-10 pt-12 shadow-testimonial dark:bg-dark dark:shadow-none hover:-translate-y-1 hover:scale-105 hover:bg-indigo-50 duration-300" style={{ height: '380px' }}>
+      <div
+        className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-12 shadow-testimonial transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-50 dark:bg-dark dark:shadow-none"
+        style={{ height: "380px" }}
+      >
         <Link href={`/podjetje/${slug}`}>
-          <div className="relative z-10 mx-auto mb-5 h-[120px] w-[120px] flex justify-center items-center">
+          <div className="relative z-10 mx-auto mb-5 flex h-[120px] w-[120px] items-center justify-center">
             <Image
               src={logo}
               alt={name}
-              className="w-full"
-              width={120}
-              height={120}
-              style={{ maxHeight: '120px' }}
+              width="0"
+              height="0"
+              sizes="100vw"
+              className="h-auto w-full"
+              style={{ maxHeight: "120px" }}
             />
           </div>
           <div className="text-center">
