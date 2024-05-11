@@ -17,7 +17,6 @@ async function getCompanies() {
     cache: "no-store",
   });
   const companies = await res.json();
-
   return companies;
 }
 

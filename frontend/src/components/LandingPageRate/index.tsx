@@ -9,8 +9,6 @@ const LandingPageRate = ({ companies }: { companies: Company[] }) => {
     return <div>Loading...</div>;
   }
 
-  const displayedCompanies = companies.slice(0, 4);
-
   return (
     <section className="pb-8 pt-20 dark:bg-dark lg:pb-[70px] lg:pt-[120px]">
       <div className="container rounded-xl bg-indigo-50 dark:bg-slate-800 xs:px-[20px] xs:py-[20px]">
@@ -20,7 +18,7 @@ const LandingPageRate = ({ companies }: { companies: Company[] }) => {
           paragraph="Omogočamo možnost podajanja ocen glede na vaše izkušnje na različnih področjih znotraj podjetja."
         />
 
-        <div className="mt-12 md:mt-20 md:flex md:items-start md:justify-between rounded-xl bg-indigo-100 dark:bg-slate-700 py-[20px]">
+        <div className="mt-12 rounded-xl bg-indigo-100 py-[20px] dark:bg-slate-700 md:mt-20 md:flex md:items-start md:justify-between">
           {ratingData.map((feature, i) => (
             <SingleFeature key={i} feature={feature} />
           ))}
@@ -30,7 +28,7 @@ const LandingPageRate = ({ companies }: { companies: Company[] }) => {
             Najboljše ocenjena podjetja...
           </span>
           <div className="mb-[20px] mt-[10px] flex flex-wrap gap-y-8">
-            {displayedCompanies.map((company: Company) => (
+            {companies.map((company: Company) => (
               <SingleCompany key={company.name} company={company} />
             ))}
           </div>

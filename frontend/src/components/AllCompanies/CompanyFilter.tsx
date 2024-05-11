@@ -3,9 +3,9 @@ const CompanyFilter = ({
   lokacija,
   dejavnost,
 }: {
-  ime: string;
-  lokacija: string;
-  dejavnost: string;
+  ime?: string;
+  lokacija?: string;
+  dejavnost?: string;
 }) => {
   return (
     <form action="/iskanje">

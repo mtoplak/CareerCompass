@@ -29,7 +29,6 @@ const SearchResults = () => {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        console.log(data);
         setCompanies(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -41,7 +40,7 @@ const SearchResults = () => {
     fetchData();
 
     return () => {};
-  }, []);
+  }, [ime, lokacija, dejavnost]);
 
   return (
     <>
