@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import CompanyPageJobs from "@/components/AllCompanies/CompanyPageJobs";
 import { api } from "@/constants";
+import CompanyFilter from "./CompanyFilter";
 
 const SearchResults = () => {
   const [companies, setCompanies] = useState([]);
@@ -44,6 +45,7 @@ const SearchResults = () => {
 
   return (
     <>
+      <CompanyFilter ime={ime} lokacija={lokacija} dejavnost={dejavnost} />
       {!isLoading ? (
         <CompanyPageJobs companies={companies} />
       ) : (

@@ -1,4 +1,12 @@
-const CompanyFilter = () => {
+const CompanyFilter = ({
+  ime,
+  lokacija,
+  dejavnost,
+}: {
+  ime: string;
+  lokacija: string;
+  dejavnost: string;
+}) => {
   return (
     <form action="/iskanje">
       <section
@@ -12,6 +20,7 @@ const CompanyFilter = () => {
               placeholder="Vnesi ime..."
               className="flex-grow rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
               name="ime"
+              defaultValue={ime}
             />
           </div>
           <div className="mx-2 flex rounded-md xs:pb-[5px] sm:col-span-2 lg:col-span-2">
@@ -20,6 +29,7 @@ const CompanyFilter = () => {
               placeholder="Vnesi lokacijo..."
               className="flex-grow rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
               name="lokacija"
+              defaultValue={lokacija}
             />
           </div>
           <div className="mx-2 flex rounded-md xs:pb-[5px] sm:col-span-3 lg:col-span-2">
@@ -27,21 +37,25 @@ const CompanyFilter = () => {
               id="industry"
               className="flex-grow rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
               name="dejavnost"
-              defaultValue=""
+              defaultValue={dejavnost}
             >
-              <option value="" disabled hidden>
-                Dejavnost
+              <option value="">Vse</option>
+              <option value="Avtomobilizem">Avtomobilizem</option>
+              <option value="Dom_in_vrt">Dom in vrt</option>
+              <option value="Gostinstvo in turizem">
+                Gostinstvo in turizem
               </option>
-              <option>Avtomobilizem</option>
-              <option>Dom in vrt</option>
-              <option>Gostinstvo in turizem</option>
-              <option>Izobraževanje in kultura</option>
-              <option>Kmetijstvo</option>
-              <option>Lepota in zdravje</option>
-              <option>Poslovni svet</option>
-              <option>Proizvodnja in obrt</option>
-              <option>Prosti čas</option>
-              <option>Računalništvo in informatika</option>
+              <option value="Izobraževanje in kultura">
+                Izobraževanje in kultura
+              </option>
+              <option value="Kmetijstvo">Kmetijstvo</option>
+              <option value="Lepota in zdravje">Lepota in zdravje</option>
+              <option value="Poslovni svet">Poslovni svet</option>
+              <option value="Proizvodnja in obrt">Proizvodnja in obrt</option>
+              <option value="Prosti čas">Prosti čas</option>
+              <option value="Računalništvo in informatika">
+                Računalništvo in informatika
+              </option>
             </select>
           </div>
           <div className="mx-2 flex rounded-md xs:pb-[5px] sm:col-span-1 lg:col-span-1">
