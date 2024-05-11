@@ -4,12 +4,14 @@ import { RatingRepository } from './rating.repository';
 import { CreateUpdateRatingDto } from './create-update-rating.dto';
 import { Rating } from '../../db/entities/rating.model';
 import { CompanyRepository } from '../../modules/company/company.repository';
+import { AiService } from '../../ai/ai.service';
 
 @Injectable()
 export class RatingService {
   constructor(
     private readonly ratingRepository: RatingRepository,
-    private readonly companyRepository: CompanyRepository
+    private readonly companyRepository: CompanyRepository,
+    private readonly aiService: AiService
   ) { }
 
   async createRating(ratingData: CreateUpdateRatingDto): Promise<Rating> {
@@ -74,7 +76,6 @@ export class RatingService {
     return await this.ratingRepository.deleteOne({ _id: ratingId });
   }
 
-
   async calculateAverageRating(ratingId: string, companyId: string): Promise<void> {
     const rating = await this.ratingRepository.findOne({ _id: ratingId });
     const company = await this.companyRepository.findOne({ _id: companyId });
@@ -132,6 +133,15 @@ export class RatingService {
       };
     }
 
+    //TODO: odkomentiraj
+    /* 
+        await this.checkAndAddComment(rating.general_assessment_comment, company.general_assessment_comments);
+        await this.checkAndAddComment(rating.salary_and_benefits_comment, company.salary_and_benefits_comments);
+        await this.checkAndAddComment(rating.interviews_comment, company.interviews_comments);
+        await this.checkAndAddComment(rating.duration, company.avg_duration);
+    */
+
+    //TODO: zakomentiraj
     if (rating.general_assessment_comment) {
       company.general_assessment_comments.push(rating.general_assessment_comment);
     }
@@ -174,6 +184,15 @@ export class RatingService {
       srednje: (distribution.srednje / total * 100).toFixed(2),
       težko: (distribution.težko / total * 100).toFixed(2)
     };
+  }
+
+  private async checkAndAddComment(comment: string, commentsArray: string[]) {
+    if (comment) {
+      const isAppropriate = await this.aiService.checkComment(comment);
+      if (isAppropriate) {
+        commentsArray.push(comment);
+      }
+    }
   }
 
 }

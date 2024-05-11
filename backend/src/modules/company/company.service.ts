@@ -111,5 +111,14 @@ export class CompanyService {
     }
   }
 
+  async checkEmail(email: string): Promise<SuccessResponse> {
+    const company = await this.companyRepository.findOne({ email: email.toLowerCase() });
+    if(company) {
+      return { success: true };
+    } else {
+      return { success: false };
+    }
+  }
+
 }
 

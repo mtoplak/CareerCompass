@@ -71,4 +71,11 @@ export class CompanyController {
         return this.companyService.removeCompany(companyId);
     }
 
+    @Post('/claim')
+    async claimCompany(
+        @Body('email') email: string,
+    ): Promise<SuccessResponse> {
+        return await this.companyService.checkEmail(email);
+    }
+
 }
