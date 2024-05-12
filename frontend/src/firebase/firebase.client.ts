@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, sendSignInLinkToEmail } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendSignInLinkToEmail, signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -25,5 +25,21 @@ export async function registerUser(email: string, password: string) {
     return userCredential;
   } catch (error) {
     console.error("Error registering user:", error);
+  }
+}
+
+
+export async function signInUser(email: string, password: string) {
+  const auth = getAuth(app);
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password,
+    );
+    return userCredential.user;
+  } catch (error: any) {
+    throw new Error(error);
   }
 }

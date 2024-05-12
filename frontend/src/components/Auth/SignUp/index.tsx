@@ -54,16 +54,20 @@ const SignUp = () => {
                   <Image
                     src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={100}
-                    height={30}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
                     className="dark:hidden"
+                    style={{ maxWidth: "100px" }}
                   />
                   <Image
                     src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={100}
-                    height={30}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
                     className="hidden dark:block"
+                    style={{ maxWidth: "100px" }}
                   />
                 </Link>
               </div>

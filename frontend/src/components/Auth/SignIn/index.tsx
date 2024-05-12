@@ -10,7 +10,6 @@ import Loader from "@/components/Common/Loader";
 
 const Signin = () => {
   const router = useRouter();
-
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -19,31 +18,39 @@ const Signin = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const loginUser = (e: any) => {
+  const loginUser = async (e: any) => {
     e.preventDefault();
 
     setLoading(true);
-    signIn("credentials", { ...loginData, redirect: false })
-      .then((callback) => {
-        if (callback?.error) {
-          toast.error(callback?.error);
-          console.log(callback?.error);
-          setLoading(false);
-          return;
-        }
-
-        if (callback?.ok && !callback?.error) {
-          toast.success("Uspešna prijava");
-          setLoading(false);
-          router.push("/");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-        console.log(err.message);
-        toast.error(err.message);
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
       });
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Uspešna prijava!");
+        const res = await signIn("credentials", {
+          ...loginData,
+          redirect: false,
+        });
+        // console.log(res);
+        router.push("/");
+      }
+      if (response.status === 401) {
+        toast.error(data.error);
+      }
+    } catch (err: any) {
+      console.log(err);
+      console.log(err.message);
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -60,16 +67,20 @@ const Signin = () => {
                   <Image
                     src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={100}
-                    height={30}
-                    className="dark:hidden"
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="h-auto w-full dark:hidden"
+                    style={{ maxWidth: "100px" }}
                   />
                   <Image
                     src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={100}
-                    height={30}
-                    className="hidden dark:block"
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="hidden h-auto w-full dark:block"
+                    style={{ maxWidth: "100px" }}
                   />
                 </Link>
               </div>

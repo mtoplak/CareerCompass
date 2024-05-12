@@ -59,16 +59,20 @@ const ForgotPassword = () => {
                   <Image
                     src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={100}
-                    height={30}
-                    className="dark:hidden"
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="h-auto w-full dark:hidden"
+                    style={{ maxWidth: "100px" }}
                   />
                   <Image
                     src="/images/logo/logocompass.png"
                     alt="logo"
-                    width={100}
-                    height={30}
-                    className="hidden dark:block"
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="hidden h-auto w-full dark:block"
+                    style={{ maxWidth: "100px" }}
                   />
                 </Link>
               </div>
@@ -90,7 +94,8 @@ const ForgotPassword = () => {
                     type="submit"
                     className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
                   >
-                    Pošlji e-mail za novo geslo {loader && <Loader />}
+                    Pošlji e-mail za nastavitev novega gesla{" "}
+                    {loader && <Loader />}
                   </button>
                 </div>
               </form>

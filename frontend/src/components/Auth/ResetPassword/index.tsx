@@ -91,16 +91,20 @@ const ResetPassword = ({ token }: { token: string }) => {
                   <Image
                     src="/images/logo/logo.svg"
                     alt="logo"
-                    width={140}
-                    height={30}
-                    className="dark:hidden"
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="h-auto w-full dark:hidden"
+                    style={{ maxWidth: "140px" }}
                   />
                   <Image
                     src="/images/logo/logo-white.svg"
                     alt="logo"
-                    width={140}
-                    height={30}
-                    className="hidden dark:block"
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="hidden h-auto w-full dark:block"
+                    style={{ maxWidth: "140px" }}
                   />
                 </Link>
               </div>

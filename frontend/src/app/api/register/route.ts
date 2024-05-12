@@ -10,7 +10,7 @@ export async function POST(request: any) {
     return NextResponse.json("Manjkajo polja.", { status: 400 });
   }
   if (password.length < 6) {
-    console.log("Password is too short.");
+    console.log("Geslo mora vsebovati vsaj 6 znakov!");
     return NextResponse.json("Geslo je prekratko.", { status: 400 });
   }
 
@@ -23,7 +23,7 @@ export async function POST(request: any) {
 
   // save user to firebase
   const user = registerUser(email, password);
-  console.log(user);
+  // console.log(user);
 
   // save user to database
   const res = await fetch(`${api}/user`, {
