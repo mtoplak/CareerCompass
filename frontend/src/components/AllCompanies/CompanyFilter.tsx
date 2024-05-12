@@ -81,10 +81,11 @@ const CompanyFilter = ({
               <div className="flex items-center justify-center">
                 <Image
                   src="/images/hero/compass-icon.png"
-                  alt="logo"
-                  width={24}
-                  height={24}
-                  className="mr-2"
+                  alt="Search Compass Icon"
+                  className="mr-2 h-6 w-6"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
                 />
                 <span>Poišči</span>
               </div>

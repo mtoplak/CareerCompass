@@ -27,15 +27,18 @@ const Hero = () => {
                   <li>
                     <input
                       type="text"
-                      placeholder="Poišči..."
+                      placeholder="Poišči podjetje..."
                       className="w-64 rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
                     />
                   </li>
                   <li>
                     <button className="focus:shadow-outline rounded bg-indigo-600 px-4 py-2 font-bold text-white hover:bg-indigo-950 focus:outline-none">
-                      <img
+                      <Image
                         src="/images/hero/compass-icon.png"
-                        alt="My Icon"
+                        alt="Search Compass Icon"
+                        width="0"
+                        height="0"
+                        sizes="100vw"
                         className="h-6 w-6"
                       />
                     </button>
@@ -51,7 +54,6 @@ const Hero = () => {
           <Image
             src="/images/hero/hero-indigo-950.png"
             alt="Landscape Photo"
-            // layout="responsive"
             width={1920}
             height={200}
           />
