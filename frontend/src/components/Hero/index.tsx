@@ -23,24 +23,32 @@ const Hero = () => {
                   podjetij s strani zaposlenih, hkrati pa nudi možnost iskanja
                   zaposlitve in objavo zaposlitvenih oglasov.
                 </p>
-                <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
-                  <li>
-                    <input
-                      type="text"
-                      placeholder="Poišči..."
-                      className="w-64 rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
-                    />
-                  </li>
-                  <li>
-                    <button className="focus:shadow-outline rounded bg-indigo-600 px-4 py-2 font-bold text-white hover:bg-indigo-950 focus:outline-none">
-                      <img
-                        src="/images/hero/compass-icon.png"
-                        alt="My Icon"
-                        className="h-6 w-6"
+                <form action="/iskanje" method="get">
+                  <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
+                    <li>
+                      <input
+                        type="text"
+                        placeholder="Poišči podjetje"
+                        className="w-64 rounded-md border px-4 py-2 focus:border-blue-500 focus:outline-none"
+                        name="ime"
                       />
-                    </button>
-                  </li>
-                </ul>
+                    </li>
+                    <li>
+                      <button
+                        type="submit"
+                        className="focus:shadow-outline rounded bg-indigo-600 px-4 py-2 font-bold text-white hover:bg-indigo-500 focus:outline-none"
+                      >
+                        <Image
+                          src="/images/hero/compass-icon.png"
+                          alt="logo"
+                          width={24}
+                          height={24}
+                          className="h-6 w-6"
+                        />
+                      </button>
+                    </li>
+                  </ul>
+                </form>
               </div>
             </div>
           </div>
@@ -51,7 +59,6 @@ const Hero = () => {
           <Image
             src="/images/hero/hero-indigo-950.png"
             alt="Landscape Photo"
-            // layout="responsive"
             width={1920}
             height={200}
           />
