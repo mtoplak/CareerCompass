@@ -30,8 +30,14 @@ export class CompanyController {
     }
 
     @Get()
-    async getAllCompanies(): Promise<CompanyDto[]> {
-        const companies = await this.companyService.getAllCompanies();
+    async getAllCompanies(
+        @Query('page') page: string,
+        @Query('size') size: string
+    ): Promise<CompanyDto[]> {
+        const pageNum = parseInt(page, 10) || 1;
+        const sizeNum = parseInt(size, 10) || 28;
+
+        const companies = await this.companyService.getAllCompanies(pageNum, sizeNum);
         return this.companyMapper.mapCompany(companies);
     }
 
@@ -48,8 +54,16 @@ export class CompanyController {
     }
 
     @Get('/search')
-    async getCompaniesByCriteria(@Query() searchDto: SearchCompanyDto): Promise<CompanyDto[]> {
-        return await this.companyService.getCompaniesByCriteria(searchDto);
+    async getCompaniesByCriteria(
+        @Query() searchDto: SearchCompanyDto,
+        @Query('page') page: string,
+        @Query('size') size: string
+    ): Promise<CompanyDto[]> {
+        const pageNum = parseInt(page, 10) || 1;
+        const sizeNum = parseInt(size, 10) || 28;
+
+        const companies = await this.companyService.getCompaniesByCriteria(searchDto, pageNum, sizeNum);
+        return companies.map(company => this.companyMapper.mapOneCompany(company));
     }
 
     @Get(':slug')

@@ -44,6 +44,7 @@ const Hero = () => {
                           width="0"
                           height="0"
                           sizes="100vw"
+                          className="h-6 w-6"
                         />
                       </button>
                     </li>
