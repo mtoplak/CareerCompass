@@ -25,8 +25,11 @@ const SingleCompanyPage = async ({ company }: Props) => {
           <Image
             src={company.logo}
             alt={company.name}
-            width={150}
-            height={200}
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="h-auto"
+            style={{ width: "150px", height: "auto" }}
           />
         </div>
         <div className="pl-10 md:w-2/4">
@@ -46,13 +49,15 @@ const SingleCompanyPage = async ({ company }: Props) => {
           ) : (
             <p></p>
           )}
-          <div className="mt-4 flex">
+          <div className="mt-4">
             {company.ratings_count === 0 && company.avg_rating === 0 ? (
               <span className="text-sm">Podjetje še ni bilo ocenjeno</span>
             ) : (
               <>
-                {stars(company.avg_rating)}
-                <span className="text-sm">{company.ratings_count} ocen</span>
+                <div className="flex items-center">
+                  {stars(company.avg_rating)}
+                </div>
+                  <p className="text-sm font-bold text-gray-600 dark:text-gray-300">Število ocen: {company.ratings_count}</p>
               </>
             )}
           </div>
@@ -62,9 +67,12 @@ const SingleCompanyPage = async ({ company }: Props) => {
       <div className="mt-10">
         <div className="container flex flex-col rounded-xl bg-sky-100 py-4 dark:bg-sky-900 lg:flex-row lg:items-center lg:justify-between">
           <div className="mb-2 flex items-center lg:mb-0">
-            <img
+            <Image
               src="/images/icons/email.png"
               alt="Email Icon"
+              width="0"
+              height="0"
+              sizes="100vw"
               className="mr-2 h-6 w-6"
             />
             <p className="text-sky-700 dark:text-sky-300">
@@ -72,9 +80,12 @@ const SingleCompanyPage = async ({ company }: Props) => {
             </p>
           </div>
           <div className="mb-2 flex items-center lg:mb-0">
-            <img
+            <Image
               src="/images/icons/location.png"
               alt="Address Icon"
+              width="0"
+              height="0"
+              sizes="100vw"
               className="mr-2 h-6 w-6"
             />
             <p className="text-sky-700 dark:text-sky-300">
@@ -86,9 +97,12 @@ const SingleCompanyPage = async ({ company }: Props) => {
             </p>
           </div>
           <div className="flex items-center">
-            <img
+            <Image
               src="/images/icons/link.png"
               alt="Website Icon"
+              width="0"
+              height="0"
+              sizes="100vw"
               className="mr-2 h-6 w-6"
             />
             <p className="text-sky-700 dark:text-sky-300">
@@ -101,7 +115,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
           Podjetje nima objavljenih zaposlitev.
         </div>
         <div className="mt-12">
-          <h2 className="mb-4 text-2xl font-semibold">Komentarji in Ocene</h2>
+          <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
             <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
             <GeneralAssessment company={company} />
@@ -110,10 +124,10 @@ const SingleCompanyPage = async ({ company }: Props) => {
             <h2 className="mb-2 text-xl font-semibold">Plača in ugodnosti</h2>
             <SaleryAndBenefits company={company} />
           </div>
-          {/*<div className="mt-[20px] flex flex-wrap gap-y-8 px-4 md:items-start md:justify-between rounded-xl bg-gray-100 dark:bg-slate-700 py-[20px]">
-          <h2 className="text-xl font-semibold mb-2">Razgovori</h2>
+          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+          <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
             <Interviews company={company}/>
-        </div>*/}
+        </div>
         </div>
       </div>
     </div>

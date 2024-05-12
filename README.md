@@ -41,6 +41,7 @@ Create a new file `.env` in `backend` directory and add the following content
 
 ```env
 MONGODB_URI=mongodb+srv://<username>:<password>@careercompassdatabase.7a8bbng.mongodb.net/
+OPENAI_API_KEY=
 ```
 
 Run
@@ -92,6 +93,12 @@ GOOGLE_CLIENT_ID=
 MONGODB_URI=
 NEXT_PUBLIC_API_URL=
 NODE_ENV=
+FIREBASE_STORAGE_BUCKET=
+FIREBASE_API_KEY=
+FIREBASE_AUTH_DOMAIN=
+FIREBASE_PROJECT_ID=
+FIREBASE_MESSAGING_SENDER_ID=
+FIREBASE_APP_ID=
 ```
 
 Run

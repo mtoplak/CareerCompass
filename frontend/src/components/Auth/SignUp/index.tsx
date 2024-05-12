@@ -11,7 +11,7 @@ const SignUp = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     setLoading(true);
@@ -19,23 +19,25 @@ const SignUp = () => {
     const value = Object.fromEntries(data.entries());
     const finalData = { ...value };
 
-    fetch("/api/register", {
+    const res = await fetch("/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(finalData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.success("Uspešna registracija!");
-        setLoading(false);
-        router.push("/prijava");
-      })
-      .catch((err) => {
-        toast.error(err.message);
-        setLoading(false);
-      });
+    });
+    if (res.status === 200) {
+      toast.success("Uspešna registracija!");
+      router.push("/prijava");
+    } else {
+      const error = await res.text();
+      if (res.status === 400 || res.status === 409) {
+        toast.error(error);
+      } else {
+        toast.error("Napaka pri registraciji.");
+      }
+    }
+    setLoading(false);
   };
 
   return (

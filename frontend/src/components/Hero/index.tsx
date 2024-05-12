@@ -40,10 +40,10 @@ const Hero = () => {
                       >
                         <Image
                           src="/images/hero/compass-icon.png"
-                          alt="logo"
-                          width={24}
-                          height={24}
-                          className="h-6 w-6"
+                          alt="Search Compass Icon"
+                          width="0"
+                          height="0"
+                          sizes="100vw"
                         />
                       </button>
                     </li>
