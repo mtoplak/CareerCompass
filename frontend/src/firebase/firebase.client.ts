@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, sendSignInLinkToEmail, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -21,10 +21,10 @@ export async function registerUser(email: string, password: string) {
       email,
       password,
     );
-    await sendSignInLinkToEmail(auth, email, { url: "https://career-compass-front.vercel.app/prijava", handleCodeInApp: true });
+    await sendEmailVerification(userCredential.user);
     return userCredential;
   } catch (error) {
-    console.error("Error registering user:", error);
+    console.error(error);
   }
 }
 
@@ -39,6 +39,17 @@ export async function signInUser(email: string, password: string) {
       password,
     );
     return userCredential.user;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+}
+
+
+export async function resetPassword(email: string) {
+  const auth = getAuth(app);
+
+  try {
+    await sendPasswordResetEmail(auth, email);
   } catch (error: any) {
     throw new Error(error);
   }

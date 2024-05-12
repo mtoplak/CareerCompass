@@ -27,7 +27,9 @@ const SignUp = () => {
       body: JSON.stringify(finalData),
     });
     if (res.status === 200) {
-      toast.success("Uspešna registracija!");
+      toast.success(
+        "Uspešna registracija! Na izbran email ste prejeli potrditveno povezavo.",
+      );
       router.push("/prijava");
     } else {
       const error = await res.text();

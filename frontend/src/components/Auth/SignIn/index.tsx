@@ -41,7 +41,11 @@ const Signin = () => {
         // console.log(res);
         router.push("/");
       }
-      if (response.status === 401) {
+      if (
+        response.status === 401 ||
+        response.status === 403 ||
+        response.status === 400
+      ) {
         toast.error(data.error);
       }
     } catch (err: any) {

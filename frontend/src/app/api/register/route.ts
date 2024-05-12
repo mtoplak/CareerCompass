@@ -7,11 +7,10 @@ export async function POST(request: any) {
   const { name, email, password } = body;
 
   if (!name || !email || !password) {
-    return NextResponse.json("Manjkajo polja.", { status: 400 });
+    return NextResponse.json("Izpolniti morate vsa polja!", { status: 400 });
   }
   if (password.length < 6) {
-    console.log("Geslo mora vsebovati vsaj 6 znakov!");
-    return NextResponse.json("Geslo je prekratko.", { status: 400 });
+    return NextResponse.json("Geslo mora vsebovati vsaj 6 znakov!", { status: 400 });
   }
 
   const response = await fetch(`${api}/user/get/${email}`);
@@ -41,5 +40,5 @@ export async function POST(request: any) {
     return NextResponse.json("Napaka pri registraciji.", { status: 500 });
   }
 
-  return NextResponse.json("Uspešna registracija! Na izbran email ste prejeli potrditveno povezavo.", { status: 200 });
+  return NextResponse.json({ success: true }, { status: 200 });
 }
