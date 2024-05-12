@@ -19,7 +19,6 @@ const DifficultyChart = ({ company }: Props) => {
       <p className="text-md font-bold mb-2">Težavnost razgovora</p> {/* Title */}
       <div className="relative h-6">
         <svg className="h-full w-full">
-          {/* Easy portion */}
           <rect
             x="0"
             y="0"
@@ -27,7 +26,6 @@ const DifficultyChart = ({ company }: Props) => {
             height="100%"
             fill="#3730a3"
           />
-          {/* Medium portion */}
           <rect
             x={`${easyPercentage}%`}
             y="0"
@@ -35,7 +33,6 @@ const DifficultyChart = ({ company }: Props) => {
             height="100%"
             fill="#C7D2FE"
           />
-          {/* Hard portion */}
           <rect
             x={`${easyPercentage + mediumPercentage}%`}
             y="0"

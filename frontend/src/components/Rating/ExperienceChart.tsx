@@ -19,7 +19,6 @@ const ExperienceChart = ({ company }: Props) => {
       <p className="text-md font-bold mb-2">Izkušnja z razgovorom</p>
       <div className="relative h-6">
         <svg className="h-full w-full">
-          {/* Positive portion */}
           <rect
             x="0"
             y="0"
@@ -27,7 +26,6 @@ const ExperienceChart = ({ company }: Props) => {
             height="100%"
             fill="#3730a3"
           />
-          {/* Neutral portion */}
           <rect
             x={`${positivePercentage}%`}
             y="0"
@@ -35,7 +33,6 @@ const ExperienceChart = ({ company }: Props) => {
             height="100%"
             fill="#C7D2FE"
           />
-          {/* Negative portion */}
           <rect
             x={`${positivePercentage + neutralPercentage}%`}
             y="0"

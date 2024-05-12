@@ -7,6 +7,7 @@ import GeneralAssessmenta from "./GeneralAssessment";
 import GeneralAssessment from "./GeneralAssessment";
 import SaleryAndBenefits from "./SaleryAndBenefits";
 import Interviews from "./Interviews";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -54,10 +55,20 @@ const SingleCompanyPage = async ({ company }: Props) => {
                 <div className="flex items-center">
                   {stars(company.avg_rating)}
                 </div>
-                  <p className="text-sm font-bold text-gray-600 dark:text-gray-300">Število ocen: {company.ratings_count}</p>
+                <p className="text-sm font-bold text-gray-600 dark:text-gray-300">
+                  Število ocen: {company.ratings_count}
+                </p>
               </>
             )}
           </div>
+        </div>
+        <div className="mb-4 md:mb-0 md:w-1/4 ">
+          <Link
+            href={`/ocenjevanje/${company.slug}`}
+            className="rounded bg-indigo-700 px-4 py-2 font-bold text-white hover:bg-indigo-900 dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
+          >
+            Oceni podjetje
+          </Link>
         </div>
       </div>
       <div className="my-10 border-t border-gray-300"></div>
@@ -113,9 +124,9 @@ const SingleCompanyPage = async ({ company }: Props) => {
             <SaleryAndBenefits company={company} />
           </div>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
-          <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
-            <Interviews company={company}/>
-        </div>
+            <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
+            <Interviews company={company} />
+          </div>
         </div>
       </div>
     </div>
