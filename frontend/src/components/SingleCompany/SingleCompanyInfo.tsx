@@ -62,10 +62,10 @@ const SingleCompanyPage = async ({ company }: Props) => {
             )}
           </div>
         </div>
-        <div className="mb-4 md:mb-0 md:w-1/4 ">
+        <div className="mb-4 mt-5 flex justify-end md:mb-0 md:w-1/4">
           <Link
             href={`/ocenjevanje/${company.slug}`}
-            className="rounded bg-indigo-700 px-4 py-2 font-bold text-white hover:bg-indigo-900 dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
+            className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
           >
             Oceni podjetje
           </Link>
