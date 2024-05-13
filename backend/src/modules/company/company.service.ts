@@ -5,6 +5,7 @@ import { Company } from '../../db/entities/company.model';
 import { SuccessResponse } from '../../shared/data.response';
 import { SearchCompanyDto } from './dto/search-company.dto';
 import { escapeRegex } from '../../shared/regex';
+import slugify from 'slugify';
 
 @Injectable()
 export class CompanyService {
@@ -12,6 +13,7 @@ export class CompanyService {
 
   async createCompany(companyData: CompanyDto): Promise<Company> {
     try {
+      companyData.slug = slugify(companyData.name, { lower: true, strict: true });
       return await this.companyRepository.create(companyData);
     } catch (error) {
       if (error instanceof NotFoundException) {

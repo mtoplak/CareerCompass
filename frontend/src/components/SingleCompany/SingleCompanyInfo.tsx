@@ -57,7 +57,9 @@ const SingleCompanyPage = async ({ company }: Props) => {
                 <div className="flex items-center">
                   {stars(company.avg_rating)}
                 </div>
-                  <p className="text-sm font-bold text-gray-600 dark:text-gray-300">Število ocen: {company.ratings_count}</p>
+                <p className="text-sm font-bold text-gray-600 dark:text-gray-300">
+                  Število ocen: {company.ratings_count}
+                </p>
               </>
             )}
           </div>
@@ -97,17 +99,21 @@ const SingleCompanyPage = async ({ company }: Props) => {
             </p>
           </div>
           <div className="flex items-center">
-            <Image
-              src="/images/icons/link.png"
-              alt="Website Icon"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="mr-2 h-6 w-6"
-            />
-            <p className="text-sky-700 dark:text-sky-300">
-              <a href={company.website}>{company.website}</a>
-            </p>
+            {company.website && (
+              <>
+                <Image
+                  src="/images/icons/link.png"
+                  alt="Website Icon"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="mr-2 h-6 w-6"
+                />
+                <p className="text-sky-700 dark:text-sky-300">
+                  <a href={company.website}>{company.website}</a>
+                </p>
+              </>
+            )}
           </div>
         </div>
         <div className="mt-20">
@@ -125,9 +131,9 @@ const SingleCompanyPage = async ({ company }: Props) => {
             <SaleryAndBenefits company={company} />
           </div>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
-          <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
-            <Interviews company={company}/>
-        </div>
+            <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
+            <Interviews company={company} />
+          </div>
         </div>
       </div>
     </div>
