@@ -17,9 +17,11 @@ export class RatingService {
   async createRating(ratingData: CreateUpdateRatingDto): Promise<Rating> {
     try {
       const newRating = await this.ratingRepository.create(ratingData);
-      const company = await this.companyRepository.findOne({ _id: newRating.company });
+      console.log(newRating);
+      
+      const company = await this.companyRepository.findOne({ slug: newRating.company_slug });
       if (!company) {
-        throw new Error(`Could not find company with id ${newRating.company}`);
+        throw new Error(`Could not find company with slug ${newRating.company_slug}`);
       } else {
         await this.calculateAverageRating(newRating._id, company._id);
         return newRating;

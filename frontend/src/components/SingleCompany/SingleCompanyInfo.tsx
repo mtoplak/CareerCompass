@@ -6,6 +6,7 @@ import stars from "../Common/Stars";
 import GeneralAssessment from "./GeneralAssessment";
 import SaleryAndBenefits from "./SaleryAndBenefits";
 import Interviews from "./Interviews";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -62,6 +63,14 @@ const SingleCompanyPage = async ({ company }: Props) => {
               </>
             )}
           </div>
+        </div>
+        <div className="mb-4 mt-5 flex justify-end md:mb-0 md:w-1/4">
+          <Link
+            href={`/ocenjevanje/${company.slug}`}
+            className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
+          >
+            Oceni podjetje
+          </Link>
         </div>
       </div>
       <div className="my-10 border-t border-gray-300"></div>

@@ -72,7 +72,7 @@ const Header = () => {
                       width="0"
                       height="0"
                       sizes="100vw"
-                      className="header-logo dark:hiddenw-full h-auto w-full"
+                      className="header-logo h-auto w-full w-full dark:hidden"
                     />
                     <Image
                       src={`/images/logo/logo.png`}
@@ -335,7 +335,7 @@ const Header = () => {
                   <>
                     <div className="hidden items-center justify-end sm:flex lg:pr-0">
                       <p
-                        className={`loginBtn px-7 py-3 text-base font-medium ${
+                        className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${
                           !sticky &&
                           (pathUrl === "/" ||
                             pathUrl === "/podjetja" ||
