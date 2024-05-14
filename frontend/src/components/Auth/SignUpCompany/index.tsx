@@ -7,8 +7,6 @@ import { useState } from "react";
 import Loader from "@/components/Common/Loader";
 import { Industry, industries } from "@/types/industry";
 import { industryMappings } from "@/types/subindustry";
-import { api } from "@/constants";
-import { uploadImageToStorage } from "@/firebase/firebase.client";
 
 const industryOptions = industries.map((industry: Industry) => (
   <option key={industry} value={industry}>
@@ -42,23 +40,37 @@ const SignUpCompany = () => {
     if (!companyLogo) {
       return;
     }
+    const formData = new FormData(e.currentTarget);
+    const values = Object.fromEntries(formData.entries());
 
-    const data = new FormData(e.currentTarget);
-    const value = Object.fromEntries(data.entries());
-    console.log(value);
+    const reader = new FileReader();
+    reader.readAsDataURL(companyLogo);
+    reader.onload = async function () {
+      const base64String = reader.result;
 
-    const fileBuffer = await companyLogo.arrayBuffer();
+      const data = {
+        ...values,
+        logo: base64String,
+      };
 
-    const finalData = { ...value };
-
-    console.log(finalData);
-
-    const companyLogoUrl = await uploadImageToStorage(
-      fileBuffer,
-      finalData.name,
-    );
-
-    // TODO fetch api
+      const res = await fetch(`/api/registerCompany`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (res.status === 200) {
+        toast.success(
+          "Uspešna registracija! Zdaj lahko prevzamete profil podjetja.",
+        );
+        router.push("/za-delodajalce/prevzemi");
+      } else {
+        // const error = await res.json();
+        toast.error("Napaka pri registraciji podjetja.");
+      }
+      setLoading(false);
+    };
   };
 
   return (
@@ -95,6 +107,12 @@ const SignUpCompany = () => {
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-base text-dark"
+                  >
+                    Ime podjetja
+                  </label>
                   <input
                     type="text"
                     placeholder="Polno ime podjetja"
@@ -104,6 +122,12 @@ const SignUpCompany = () => {
                   />
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="address"
+                    className="mb-2 block text-base text-dark"
+                  >
+                    Naslov
+                  </label>
                   <input
                     type="text"
                     placeholder="Naslov podjetja"
@@ -113,6 +137,12 @@ const SignUpCompany = () => {
                   />
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="city"
+                    className="mb-2 block text-base text-dark"
+                  >
+                    Mesto
+                  </label>
                   <input
                     type="text"
                     placeholder="Mesto podjetja"
@@ -122,6 +152,12 @@ const SignUpCompany = () => {
                   />
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-base text-dark"
+                  >
+                    Email
+                  </label>
                   <input
                     type="email"
                     placeholder="Email podjetja"
@@ -131,6 +167,12 @@ const SignUpCompany = () => {
                   />
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="website"
+                    className="mb-2 block text-base text-dark"
+                  >
+                    Spletna stran
+                  </label>
                   <input
                     type="text"
                     placeholder="Spletna stran"
@@ -139,6 +181,12 @@ const SignUpCompany = () => {
                   />
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="industry"
+                    className="mb-2 block text-base text-dark"
+                  >
+                    Dejavnost
+                  </label>
                   <select
                     name="industry"
                     className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none md:col-span-1 lg:col-span-3"
@@ -151,8 +199,14 @@ const SignUpCompany = () => {
                   </select>
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="subindustry"
+                    className="mb-2 block text-base text-dark"
+                  >
+                    Poddejavnost
+                  </label>
                   <select
-                    name="industry"
+                    name="subindustry"
                     className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none md:col-span-1 lg:col-span-3"
                   >
                     <option value="">Poddejavnost</option>
@@ -160,7 +214,14 @@ const SignUpCompany = () => {
                   </select>
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="companyLogo"
+                    className="mb-2 block text-base text-dark"
+                  >
+                    Logotip podjetja
+                  </label>
                   <input
+                    id="companyLogo"
                     type="file"
                     placeholder="Logo podjetja"
                     name="logo"
