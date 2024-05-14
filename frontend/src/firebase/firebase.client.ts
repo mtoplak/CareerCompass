@@ -1,4 +1,5 @@
-import { stringToBlob } from "@/utils/stringToBlob";
+import { stringToBlob } from "@/utils/convertImage";
+import { resizeImage } from "@/utils/resizeImage";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
@@ -62,8 +63,10 @@ export async function resetPassword(email: string) {
 export async function uploadImageToStorage(image: any, companyName: FormDataEntryValue): Promise<string> {
   const blob = stringToBlob(image);
 
+  const resizedImage = await resizeImage(blob, 300);
+
   const storageRef = ref(storage, `companyLogos/${companyName}_logo.jpg`);
-  const uploadTask = uploadBytes(storageRef, blob, {
+  const uploadTask = uploadBytes(storageRef, resizedImage, {
     contentType: "image/jpeg",
   });
   const snapshot = await uploadTask;

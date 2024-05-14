@@ -1,85 +1,37 @@
 "use client";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import Loader from "@/components/Common/Loader";
-import { Industry, industries } from "@/types/industry";
-import { industryMappings } from "@/types/subindustry";
+import { api } from "@/constants";
 
-const industryOptions = industries.map((industry: Industry) => (
-  <option key={industry} value={industry}>
-    {industry}
-  </option>
-));
-
-const SignUpCompany = () => {
+const ClaimCompanyProfile = () => {
   const router = useRouter();
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+    checkboxToggle: false,
+  });
+
   const [loading, setLoading] = useState(false);
-  const [selectedIndustry, setSelectedIndustry] = useState<Industry>(
-    "" as Industry,
-  );
-  const [companyLogo, setCompanyLogo] = useState<File | null>(null);
 
-  const subindustries = Object.entries(industryMappings)
-    .filter(([subindustry, industry]) => industry === selectedIndustry)
-    .map(([subindustry]) => subindustry);
-
-  const subindustryOptions = subindustries.map((subindustry) => (
-    <option key={subindustry} value={subindustry}>
-      {subindustry}
-    </option>
-  ));
-
-  const handleSubmit = async (e: any) => {
+  const claimCompany = async (e: any) => {
     e.preventDefault();
 
     setLoading(true);
-
-    if (!companyLogo) {
-      return;
-    }
-    const formData = new FormData(e.currentTarget);
-    const values = Object.fromEntries(formData.entries());
-
-    const reader = new FileReader();
-    reader.readAsDataURL(companyLogo);
-    reader.onload = async function () {
-      const base64String = reader.result;
-
-      const data = {
-        ...values,
-        logo: base64String,
-      };
-
-      const res = await fetch(`/api/registerCompany`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      if (res.status === 200) {
-        toast.success(
-          "Uspešna registracija! Zdaj lahko prevzamete profil podjetja.",
-        );
-        router.push("/za-delodajalce/prevzemi");
-      } else {
-        // const error = await res.json();
-        toast.error("Napaka pri registraciji podjetja.");
-      }
-      setLoading(false);
-    };
+    //TODO fetch POST claim company, set company claimed & create firebase user
   };
 
   return (
-    <section className="bg-[#F4F7FF] py-14 dark:bg-dark lg:py-[90px]">
+    <section className="bg-[#F4F7FF] py-14 dark:bg-dark lg:py-20">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div
-              className="wow fadeInUp shadow-form relative mx-auto max-w-[525px] overflow-hidden rounded-xl bg-white px-8 py-14 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]"
+              className="wow fadeInUp relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white px-8 py-14 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]"
               data-wow-delay=".15s"
             >
               <div className="mb-10 text-center">
@@ -90,7 +42,7 @@ const SignUpCompany = () => {
                     width="0"
                     height="0"
                     sizes="100vw"
-                    className="dark:hidden"
+                    className="h-auto w-full dark:hidden"
                     style={{ maxWidth: "100px" }}
                   />
                   <Image
@@ -99,58 +51,13 @@ const SignUpCompany = () => {
                     width="0"
                     height="0"
                     sizes="100vw"
-                    className="hidden dark:block"
+                    className="hidden h-auto w-full dark:block"
                     style={{ maxWidth: "100px" }}
                   />
                 </Link>
               </div>
 
-              <form onSubmit={handleSubmit}>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="name"
-                    className="mb-2 block text-base text-dark"
-                  >
-                    Ime podjetja
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Polno ime podjetja"
-                    name="name"
-                    required
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
-                </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="address"
-                    className="mb-2 block text-base text-dark"
-                  >
-                    Naslov
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Naslov podjetja"
-                    name="address"
-                    required
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
-                </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="city"
-                    className="mb-2 block text-base text-dark"
-                  >
-                    Mesto
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Mesto podjetja"
-                    name="city"
-                    required
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
-                </div>
+              <form onSubmit={(e) => e.preventDefault()}>
                 <div className="mb-[22px]">
                   <label
                     htmlFor="email"
@@ -160,107 +67,53 @@ const SignUpCompany = () => {
                   </label>
                   <input
                     type="email"
-                    placeholder="Email podjetja"
-                    name="email"
-                    required
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
-                </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="website"
-                    className="mb-2 block text-base text-dark"
-                  >
-                    Spletna stran
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Spletna stran"
-                    name="website"
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
-                </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="industry"
-                    className="mb-2 block text-base text-dark"
-                  >
-                    Dejavnost
-                  </label>
-                  <select
-                    name="industry"
-                    className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none md:col-span-1 lg:col-span-3"
+                    placeholder="Email naslov podjetja"
                     onChange={(e) =>
-                      setSelectedIndustry(e.target.value as Industry)
+                      setLoginData({ ...loginData, email: e.target.value })
                     }
-                  >
-                    <option value="">Dejavnost</option>
-                    {industryOptions}
-                  </select>
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
                 </div>
                 <div className="mb-[22px]">
                   <label
-                    htmlFor="subindustry"
+                    htmlFor="name"
                     className="mb-2 block text-base text-dark"
                   >
-                    Poddejavnost
-                  </label>
-                  <select
-                    name="subindustry"
-                    className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none md:col-span-1 lg:col-span-3"
-                  >
-                    <option value="">Poddejavnost</option>
-                    {subindustryOptions}
-                  </select>
-                </div>
-                <div className="mb-[22px]">
-                  <label
-                    htmlFor="companyLogo"
-                    className="mb-2 block text-base text-dark"
-                  >
-                    Logotip podjetja
+                    Geslo
                   </label>
                   <input
-                    id="companyLogo"
-                    type="file"
-                    placeholder="Logo podjetja"
-                    name="logo"
-                    accept="image/*"
+                    type="password"
+                    placeholder="Geslo"
                     onChange={(e) =>
-                      e.target.files && setCompanyLogo(e.target.files[0])
+                      setLoginData({ ...loginData, password: e.target.value })
                     }
                     className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
                   />
                 </div>
                 <div className="mb-9">
                   <button
+                    onClick={claimCompany}
                     type="submit"
-                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-primary/90"
                   >
-                    Registracija {loading && <Loader />}
+                    Prijava {loading && <Loader />}
                   </button>
                 </div>
               </form>
 
-              <p className="text-body-secondary mb-4 text-base">
-                Z ustvarjanjem računa podjetja se strinjate z{" "}
-                <a href="/#" className="text-primary hover:underline">
-                  Politiko zasebnosti (GDPR)
-                </a>{" "}
-                in{" "}
-                <a href="/#" className="text-primary hover:underline">
-                  Splošnimi pogoji poslovanja
-                </a>
-                . Vaše podjetje bo javno vidno in na voljo za ocenjevanje.
-              </p>
-
+              <Link
+                href="/novogeslo"
+                className="mb-2 inline-block text-base text-dark hover:text-primary dark:text-white dark:hover:text-primary"
+              >
+                Pozabljeno geslo
+              </Link>
               <p className="text-body-secondary text-base">
-                Ali je vaše podjetje že na platoformi?
+                Vaše podjetje še ni na platformi?{" "}
                 <Link
-                  href="/za-delodajalce/prevzemi"
-                  className="pl-2 text-primary hover:underline"
+                  href="/za-delodajalce/registracija"
+                  className="text-primary hover:underline"
                 >
-                  Prevzemite profil
+                  Registracija podjetja
                 </Link>
               </p>
 
@@ -490,4 +343,4 @@ const SignUpCompany = () => {
   );
 };
 
-export default SignUpCompany;
+export default ClaimCompanyProfile;

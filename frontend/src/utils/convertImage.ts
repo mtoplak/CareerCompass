@@ -12,3 +12,7 @@ export const stringToBlob = (dataURI: string): Blob => {
 
     return blob;
 };
+
+export const blobToArrayBuffer = (blob: Blob): Promise<ArrayBuffer> => {
+    return blob.arrayBuffer();
+}

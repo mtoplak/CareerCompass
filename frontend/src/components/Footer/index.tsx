@@ -68,15 +68,15 @@ const Footer = () => {
               <ul>
                 <li>
                   <a
-                    href="/#"
+                    href="/za-delodajalce/registracija"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
-                    Prijava
+                    Registracija
                   </a>
                 </li>
                 <li>
                   <a
-                    href="/#"
+                    href="/za-delodajalce/prevzemi"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Prevzem profila
@@ -84,7 +84,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="/#"
+                    href="/za-delodajalce/objava"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Objava zaposlitve

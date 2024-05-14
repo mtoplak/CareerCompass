@@ -7,12 +7,7 @@ export async function POST(request: any) {
 
     // save company logo to firebase
     const companyLogoUrl = await uploadImageToStorage(body.logo, body.name);
-    console.log(companyLogoUrl);
-
-    console.log("to je telo zdaj");
     body.logo = companyLogoUrl;
-    console.log(body);
-
 
     // save company to database;
     const res = await fetch(`${api}/company`, {
