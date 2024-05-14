@@ -4,7 +4,7 @@ import { InterviewExperience } from '../../enums/interview-experience.enum';
 import { InterviewDifficulty } from '../../enums/interview-difficulty.enum';
 
 export const RatingSchema = new Schema({
-  company: [{ type: Schema.Types.ObjectId, ref: 'Company', required: true }],
+  company_slug: { type: Schema.Types.String, ref: 'Company', required: true },
   // general assessment
   team: {
     type: Number,
@@ -74,7 +74,7 @@ export const RatingSchema = new Schema({
 });
 
 export interface Rating extends Document {
-  company: Company; // podjetje
+  company_slug: Company; // podjetje slug
   // splošna ocena
   team: number; // ekipa
   personal_development: number; // osebni razvoj

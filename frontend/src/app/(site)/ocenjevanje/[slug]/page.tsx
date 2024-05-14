@@ -42,6 +42,6 @@ export default async function PodjetjePage({ params }: Props) {
   }
 
   return <>
-  {params && <RateCompany />}
+  {params && <RateCompany company={company}/>}
   </>;
 }

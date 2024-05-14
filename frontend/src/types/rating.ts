@@ -1,7 +1,9 @@
+import { InterviewDifficulty } from "@/enums/interview-difficulty.enum";
 import { Company } from "./company";
+import { InterviewExperience } from "@/enums/interview-experience.enum";
 
 export interface Rating {
-    company: Company;
+    company_slug: Company;
     team: number;
     personal_development: number;
     flexibility: number;
@@ -13,16 +15,8 @@ export interface Rating {
     remote_work: boolean;
     bonuses: number;
     salary_and_benefits_comment: string;
-    experience: {
-        pozitivna: number;
-        nevtralna: number;
-        negativna: number;
-    };
+    experience: InterviewExperience;
     duration: string;
-    difficulty: {
-        enostavno: number;
-        srednje: number;
-        težko: number;
-    };
+    difficulty: InterviewDifficulty;
     interviews_comment: string;
   }

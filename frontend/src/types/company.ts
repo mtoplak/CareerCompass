@@ -1,4 +1,5 @@
 export type Company = {
+    id: string;
     name: string;
     industry: string[];
     subindustry: string[];

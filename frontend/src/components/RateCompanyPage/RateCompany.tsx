@@ -1,18 +1,99 @@
+"use client";
 import { useState } from "react";
+import { Rating } from "@material-tailwind/react";
+import { api } from "@/constants";
+import { Company } from "@/types/company";
 
-const RateCompany = () => {
+
+type Props = {
+  company: Company;
+};
+
+const RateCompany = ({ company }: Props) => {
+  const [experience, setExperience] = useState("");
+  const [interviewDifficulty, setInterviewDifficulty] = useState("");
+  const [formData, setFormData] = useState({
+    company_slug: company.slug,
+    team: null,
+    personal_development: null,
+    flexibility: null,
+    work_life_balance: null,
+    work_environment: null,
+    leadership: null,
+    general_assessment_comment: "",
+    benefits: null,
+    remote_work: false,
+    salary_and_benefits_comment: "",
+    bonuses: null,
+    experience: "Nevtralna",
+    duration: "",
+    difficulty: "Srednje",
+    interviews_comment: "",
+  });
+
+  const handleSubmit = async (e: any) => {
+    console.log(company.slug + " slug pojetja")
+    console.log(company.name + " ime pojetja")
+    e.preventDefault();
+    try {
+      console.log(formData);
+      const response = await fetch(`${api}/rating`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(response)
+      const responseData = await response.json();
+      console.log("Rating submitted successfully:", responseData);
+      setFormData({
+        company_slug: company.slug,
+        team: null,
+        personal_development: null,
+        flexibility: null,
+        work_life_balance: null,
+        work_environment: null,
+        leadership: null,
+        general_assessment_comment: "",
+        benefits: null,
+        remote_work: false,
+        salary_and_benefits_comment: "",
+        bonuses: null,
+        experience: "",
+        duration: "",
+        difficulty: "",
+        interviews_comment: "",
+      });
+    } catch (error) {
+      console.error("Error submitting rating:", error);
+    }
+  };
+  
+  const handleChange = (e: any) => {
+    const { name, value, type, checked } = e.target;
+    const newValue = type === 'checkbox' ? checked : value;
+    console.log(checked ? "checked" : "")
+  
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: newValue,
+    }));
+  };
+
   return (
     <div>
-      <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+      <div className="isolate px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Oceni podjetje
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+            Oceni podjetje {company.name}
           </h2>
         </div>
         <form
-          action="#"
+          onSubmit={handleSubmit}
           method="POST"
           className="mx-auto mt-16 max-w-xl sm:mt-20"
+          
         >
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between ">
             <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
@@ -20,138 +101,96 @@ const RateCompany = () => {
               <div>
                 <label
                   htmlFor="team"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Ekipa
                 </label>
-                <select
+                <Rating
                   id="team"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="team"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                  value={0}
+                  onChange={handleChange}
+                  className="text-yellow-400"
+                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
               </div>
               <div>
                 <label
                   htmlFor="personal_development"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Osebna rast
                 </label>
-                <select
+                <Rating
                   id="personal_development"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="personal_development"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                  value={0}
+                  onChange={handleChange}
+                  className="text-yellow-400"
+                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div>
+              <div className="mt-4">
                 <label
                   htmlFor="flexibility"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Fleksibilnost
                 </label>
-                <select
+                <Rating
                   id="flexibility"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="flexibility"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                  value={0}
+                  onChange={handleChange}
+                  className="text-yellow-400"
+                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
               </div>
-              <div>
+              <div className="mt-4">
                 <label
                   htmlFor="work_life_balance"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Ravnovesje dela in življenja
                 </label>
-                <select
+                <Rating
                   id="work_life_balance"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="work_life_balance"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                  value={0}
+                  onChange={handleChange}
+                  className="text-yellow-400"
+                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div>
+              <div className="mt-4">
                 <label
                   htmlFor="work_environment"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Delovno vzdušje
                 </label>
-                <select
+                <Rating
                   id="work_environment"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="work_environment"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                  value={0}
+                  onChange={handleChange}
+                  className="text-yellow-400"
+                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
               </div>
-              <div>
+              <div className="mt-4">
                 <label
                   htmlFor="leadership"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Vodstvo
                 </label>
-                <select
+                <Rating
                   id="leadership"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="leadership"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                  value={0}
+                  onChange={handleChange}
+                  className="text-yellow-400"
+                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
               </div>
             </div>
-            <div className="sm:col-span-2">
+            <div className="sm:col-span-2 mt-4">
               <label
                 htmlFor="general_assessment_comment"
-                className="block text-sm font-semibold leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Komentar
               </label>
@@ -162,6 +201,8 @@ const RateCompany = () => {
                   rows={4}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={""}
+                  onChange={handleChange}
+                  required
                 />
               </div>
             </div>
@@ -169,73 +210,53 @@ const RateCompany = () => {
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
             <h2 className="mb-2 text-xl font-semibold">Plače in ugodnosti</h2>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div>
+              <div className="mt-4">
                 <label
                   htmlFor="benefits"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Ugodnosti
                 </label>
-                <select
+                <Rating
                   id="benefits"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="benefits"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                  value={0}
+                  onChange={handleChange}
+                  className="text-yellow-400"
+                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
               </div>
-              <div>
+              <div className="mt-4">
                 <label
                   htmlFor="bonuses"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Bonusi
                 </label>
-                <select
+                <Rating
                   id="bonuses"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="bonuses"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
+                  value={0}
+                  onChange={handleChange}
+                  className="text-yellow-400"
+                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div className="sm:col-span-2 mt-4">
+              <label
+                htmlFor="remote_work"
+                className="block text-md font-semibold leading-6 text-gray-900"
+              >
+                Delo na daljavo
+              </label>
               <div>
-                <label
-                  htmlFor="remote_work"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
-                >
-                  Delo na daljavo
-                </label>
-                <select
-                  id="remote_work"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="remote_work"
-                  defaultValue=""
-                >
-                  <option value="">Izberi možnost</option>
-                  <option value="False">Omogočeno</option>
-                  <option value="True">Neomogočeno</option>
-                </select>
+                <div className="flex items-center gap-4">
+                <input type="checkbox" id="remote_work" name="remote_work" onChange={handleChange}/>
+                  <label htmlFor="remote_work">Omogočeno</label>
+                </div>
               </div>
-              </div>
-            <div className="sm:col-span-2">
+            </div>
+            <div className="sm:col-span-2 mt-4">
               <label
                 htmlFor="salary_and_benefits_comment"
-                className="block text-sm font-semibold leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Komentar
               </label>
@@ -246,16 +267,18 @@ const RateCompany = () => {
                   rows={4}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={""}
+                  onChange={handleChange}
+                  required
                 />
               </div>
             </div>
           </div>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
             <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
-            <div className="sm:col-span-2">
+            <div className="sm:col-span-2 mt-4">
               <label
                 htmlFor="duration"
-                className="block text-sm font-semibold leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Dolžina
               </label>
@@ -270,49 +293,95 @@ const RateCompany = () => {
               </div>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div>
+              <div className="mt-4">
                 <label
-                  htmlFor="experience"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
-                >
-                  Izkušnja z razgovorom
-                </label>
-                <select
-                  id="experience"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="experience"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="Pozitivna">Pozitivna</option>
-                  <option value="Nevtralna">Nevtralna</option>
-                  <option value="Negativna">Negativna</option>
-                </select>
-              </div>
-              <div>
-                <label
-                  htmlFor="bonuses"
-                  className="block text-sm font-semibold leading-6 text-gray-900"
+                  htmlFor="interviewDifficulty"
+                  className="block text-md font-semibold leading-6 text-gray-900"
                 >
                   Težavnost razgovora
                 </label>
-                <select
-                  id="bonuses"
-                  className="w-full rounded-md border px-4 py-2 focus:border-indigo-500 focus:outline-none"
-                  name="bonuses"
-                  defaultValue=""
-                >
-                  <option value="">Izberi oceno</option>
-                  <option value="Enostavno">1</option>
-                  <option value="Srednje">2</option>
-                  <option value="Težko">3</option>
-                </select>
+                <div>
+                  <div className="flex items-center gap-4">
+                    <input
+                      type="radio"
+                      id="interviewDifficultyEasy"
+                      name="interviewDifficulty"
+                      value="Enostavno"
+                      checked={interviewDifficulty === "Enostavno"}
+                      onChange={() => setInterviewDifficulty("Enostavno")}
+                      required
+                    />
+                    <label htmlFor="interviewDifficultyEasy">Enostavno</label>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <input
+                      type="radio"
+                      id="interviewDifficultyMedium"
+                      name="interviewDifficulty"
+                      value="Srednje"
+                      checked={interviewDifficulty === "Srednje"}
+                      onChange={() => setInterviewDifficulty("Srednje")}
+                    />
+                    <label htmlFor="interviewDifficultyMedium">Srednje</label>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <input
+                      type="radio"
+                      id="interviewDifficultyHard"
+                      name="interviewDifficulty"
+                      value="Težko"
+                      checked={interviewDifficulty === "Težko"}
+                      onChange={() => setInterviewDifficulty("Težko")}
+                    />
+                    <label htmlFor="interviewDifficultyHard">Težko</label>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4">
+                <label className="block text-md font-semibold leading-6 text-gray-900">
+                  Izkušnja z razgovorom
+                </label>
+                <div>
+                  <div className="flex items-center gap-4">
+                    <input
+                      type="radio"
+                      id="positiveExperience"
+                      name="experience"
+                      value="Pozitivna"
+                      checked={experience === "Pozitivna"}
+                      onChange={() => setExperience("Pozitivna")}
+                    />
+                    <label htmlFor="positiveExperience">Pozitivna</label>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <input
+                      type="radio"
+                      id="neutralExperience"
+                      name="experience"
+                      value="Nevtralna"
+                      checked={experience === "Nevtralna"}
+                      onChange={() => setExperience("Nevtralna")}
+                    />
+                    <label htmlFor="neutralExperience">Nevtralna</label>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <input
+                      type="radio"
+                      id="negativeExperience"
+                      name="experience"
+                      value="Negativna"
+                      checked={experience === "Negativna"}
+                      onChange={() => setExperience("Negativna")}
+                    />
+                    <label htmlFor="negativeExperience">Negativna</label>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="sm:col-span-2">
+            <div className="sm:col-span-2 mt-4">
               <label
                 htmlFor="interviews_comment"
-                className="block text-sm font-semibold leading-6 text-gray-900"
+                className="block text-md font-semibold leading-6 text-gray-900"
               >
                 Komentar
               </label>
@@ -323,6 +392,8 @@ const RateCompany = () => {
                   rows={4}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={""}
+                  onChange={handleChange}
+                  required
                 />
               </div>
             </div>

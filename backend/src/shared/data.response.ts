@@ -83,7 +83,7 @@ export interface JobAdvertisementResponse {
 
 export interface RatingResponse {
     id: string;
-    company: Company;
+    company_slug: Company;
     team: number;
     personal_development: number;
     flexibility: number;
