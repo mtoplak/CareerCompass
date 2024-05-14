@@ -1,14 +1,12 @@
-import { Injectable } from "@nestjs/common";
-import { Company } from "../../db/entities/company.model";
-import { CompanyDto } from "./dto/create-update-company.dto";
+import { Injectable } from '@nestjs/common';
+import { Company } from '../../db/entities/company.model';
+import { AverageRating } from '../../db/entities/average-rating.model';
+import { CompanyDto } from './dto/company.dto';
+import { AverageRatingRepository } from '../average-rating/average-rating.repository';
 
 @Injectable()
 export class CompanyMapper {
-    mapCompany(companies: Company[]): CompanyDto[] {
-        return companies.map(company => this.mapOneCompany(company));
-    }
-
-    mapOneCompany(company: Company): CompanyDto {
+    mapOneCompany(company: Company, averageRating: AverageRating | null): CompanyDto {
         return {
             id: company._id.toString(),
             name: company.name,
@@ -21,26 +19,37 @@ export class CompanyMapper {
             subindustry: company.subindustry,
             email: company.email,
             claimed: company.claimed,
-            avg_rating: company.avg_rating,
-            ratings_count: company.ratings_count,
-            avg_team: company.avg_team,
-            avg_personal_development: company.avg_personal_development,
-            avg_flexibility: company.avg_flexibility,
-            avg_work_life_balance: company.avg_work_life_balance,
-            avg_work_environment: company.avg_work_environment,
-            avg_leadership: company.avg_leadership,
-            avg_benefits: company.avg_benefits,
-            avg_bonuses: company.avg_bonuses,
-            general_assessment_comments: company.general_assessment_comments,
-            salary_and_benefits_comments: company.salary_and_benefits_comments,
-            interviews_comments: company.interviews_comments,
-            remote_work_distribution: company.remote_work_distribution,
-            experience_distribution: company.experience_distribution,
-            difficulty_distribution: company.difficulty_distribution,
-            remote_work_percentage: company.remote_work_percentage,
-            experience_percentage: company.experience_percentage,
-            difficulty_percentage: company.difficulty_percentage,
-
+            avg_rating: averageRating ? averageRating.avg_rating : 0,
+            avg_team: averageRating ? averageRating.avg_team : 0,
+            avg_personal_development: averageRating ? averageRating.avg_personal_development : 0,
+            avg_flexibility: averageRating ? averageRating.avg_flexibility : 0,
+            avg_work_life_balance: averageRating ? averageRating.avg_work_life_balance : 0,
+            avg_work_environment: averageRating ? averageRating.avg_work_environment : 0,
+            avg_leadership: averageRating ? averageRating.avg_leadership : 0,
+            avg_benefits: averageRating ? averageRating.avg_benefits : 0,
+            avg_bonuses: averageRating ? averageRating.avg_bonuses : 0,
+            general_assessment_comments: averageRating ? averageRating.general_assessment_comments : [],
+            salary_and_benefits_comments: averageRating ? averageRating.salary_and_benefits_comments : [],
+            interviews_comments: averageRating ? averageRating.interviews_comments : [],
+            avg_duration: averageRating ? averageRating.avg_duration : [],
+            remote_work_distribution: averageRating ? averageRating.remote_work_distribution : { yes: 0, no: 0 },
+            remote_work_percentage: averageRating ? averageRating.remote_work_percentage : { yes: 0, no: 0 },
+            experience_distribution: averageRating ? averageRating.experience_distribution : { pozitivna: 0, nevtralna: 0, negativna: 0 },
+            experience_percentage: averageRating ? averageRating.experience_percentage : { pozitivna: 0, nevtralna: 0, negativna: 0 },
+            difficulty_distribution: averageRating ? averageRating.difficulty_distribution : { enostavno: 0, srednje: 0, težko: 0 },
+            difficulty_percentage: averageRating ? averageRating.difficulty_percentage : { enostavno: 0, srednje: 0, težko: 0 }
         } as CompanyDto;
+    }
+
+    async mapManyCompanies(companies: Company[], averageRatingRepository: AverageRatingRepository): Promise<CompanyDto[]> {
+        const companyDtos: CompanyDto[] = [];
+
+        for (const company of companies) {
+            const averageRating = await averageRatingRepository.findOne({ company: company._id });
+            const companyDto = this.mapOneCompany(company, averageRating);
+            companyDtos.push(companyDto);
+        }
+
+        return companyDtos;
     }
 }

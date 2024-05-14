@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
 import { SuccessResponse } from '../../shared/data.response';
 import { Company } from '../../db/entities/company.model';
-import { CompanyDto } from './dto/create-update-company.dto';
 
 @Injectable()
 export class CompanyRepository {
@@ -11,18 +10,18 @@ export class CompanyRepository {
     @InjectModel('Company') public companyModel: Model<Company>,
   ) { }
 
-  async findOne(companyFilterQuery: FilterQuery<Company>): Promise<CompanyDto> {
+  async findOne(companyFilterQuery: FilterQuery<Company>): Promise<Company> {
     try {
       return await this.companyModel
         .findOne(companyFilterQuery);
     } catch (err) {
-      throw new NotFoundException('Could not get the company from database!');
+      throw new NotFoundException('Could not get the company from database.');
     }
   }
 
-  async find(filter: any, options: any = {}): Promise<CompanyDto[]> {
+  async find(filter: any, options: any = {}): Promise<Company[]> {
     try {
-      return await this.companyModel.find(filter, null, options) as CompanyDto[];
+      return await this.companyModel.find(filter, null, options);
     } catch (err) {
       throw new NotFoundException('Error fetching companies.');
     }

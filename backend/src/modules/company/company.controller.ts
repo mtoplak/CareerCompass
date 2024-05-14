@@ -9,11 +9,11 @@ import {
     Query,
 } from '@nestjs/common';
 import { SuccessResponse } from '../../shared/data.response';
-import { CompanyDto } from './dto/create-update-company.dto';
-import { Company } from '../../db/entities/company.model';
+import { CompanyDto } from './dto/company.dto';
 import { CompanyService } from './company.service';
 import { SearchCompanyDto } from './dto/search-company.dto';
 import { CompanyMapper } from './company.mapper';
+import { UpdateCompanyDto } from './dto/update-company.dto';
 
 @Controller('/company')
 export class CompanyController {
@@ -25,7 +25,7 @@ export class CompanyController {
     @Post()
     async addCompany(
         @Body() createCompanyDto: CompanyDto,
-    ): Promise<Company> {
+    ): Promise<CompanyDto> {
         return await this.companyService.createCompany(createCompanyDto);
     }
 
@@ -37,20 +37,17 @@ export class CompanyController {
         const pageNum = parseInt(page, 10) || 1;
         const sizeNum = parseInt(size, 10) || 28;
 
-        const companies = await this.companyService.getAllCompanies(pageNum, sizeNum);
-        return this.companyMapper.mapCompany(companies);
+        return await this.companyService.getAllCompanies(pageNum, sizeNum);
     }
 
     @Get('/id/:id')
     async getSingleCompany(@Param('id') id: string): Promise<CompanyDto> {
-        const company = await this.companyService.getSingleCompany(id);
-        return this.companyMapper.mapOneCompany(company);
+        return await this.companyService.getSingleCompany(id);
     }
 
     @Get('/best')
     async getFourBest(): Promise<CompanyDto[]> {
-        const companies = await this.companyService.getFourBestCompanies();
-        return this.companyMapper.mapCompany(companies);
+        return await this.companyService.getFourBestCompanies();
     }
 
     @Get('/search')
@@ -62,21 +59,19 @@ export class CompanyController {
         const pageNum = parseInt(page, 10) || 1;
         const sizeNum = parseInt(size, 10) || 28;
 
-        const companies = await this.companyService.getCompaniesByCriteria(searchDto, pageNum, sizeNum);
-        return companies.map(company => this.companyMapper.mapOneCompany(company));
+        return await this.companyService.getCompaniesByCriteria(searchDto, pageNum, sizeNum);
     }
 
     @Get(':slug')
     async getCompanyBySlug(@Param('slug') slug: string): Promise<CompanyDto> {
-        const company = await this.companyService.getCompanyBySlug(slug);
-        return this.companyMapper.mapOneCompany(company);
+        return await this.companyService.getCompanyBySlug(slug);
     }
 
     @Patch(':id')
     async updateCompany(
         @Param('id') companyId: string,
-        @Body() updateCompanyDto: CompanyDto,
-    ): Promise<Company> {
+        @Body() updateCompanyDto: UpdateCompanyDto,
+    ): Promise<CompanyDto> {
         return await this.companyService.updateCompany(companyId, updateCompanyDto);
     }
 

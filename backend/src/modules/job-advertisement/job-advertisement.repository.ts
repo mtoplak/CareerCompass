@@ -59,7 +59,6 @@ export class JobAdvertisementRepository {
     }
   }
 
-
   async deleteOne(jobAdvertisementFilterQuery: FilterQuery<JobAdvertisement>): Promise<SuccessResponse> {
     try {
       await this.jobAdvertisementModel.deleteOne(jobAdvertisementFilterQuery);

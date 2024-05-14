@@ -5,9 +5,11 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { CompanyModule } from './modules/company/company.module'
 import { UserModule } from './modules/user/user.module'
-import { JobAdvertisementModule } from './modules/job advertisement/job-advertisement.module'
+import { JobAdvertisementModule } from './modules/job-advertisement/job-advertisement.module'
 import { RatingModule } from './modules/rating/rating.module'
 import { DatabaseModule } from './db/database.module'
+import { AiModule } from './modules/ai/ai.module'
+import { AverageRatingModule } from './modules/average-rating/average-rating.module'
 
 @Module({
   imports: [
@@ -17,7 +19,9 @@ import { DatabaseModule } from './db/database.module'
     CompanyModule,
     UserModule,
     JobAdvertisementModule,
-    RatingModule
+    RatingModule,
+    AverageRatingModule,
+    AiModule
   ],
   controllers: [AppController],
   providers: [AppService]
