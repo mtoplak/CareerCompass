@@ -1,5 +1,7 @@
+import { stringToBlob } from "@/utils/stringToBlob";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -11,6 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
 
 export async function registerUser(email: string, password: string) {
   const auth = getAuth(app);
@@ -53,4 +56,18 @@ export async function resetPassword(email: string) {
   } catch (error: any) {
     throw new Error(error);
   }
+}
+
+
+export async function uploadImageToStorage(image: any, companyName: FormDataEntryValue): Promise<string> {
+  const blob = stringToBlob(image);
+
+  const storageRef = ref(storage, `companyLogos/${companyName}_logo.jpg`);
+  const uploadTask = uploadBytes(storageRef, blob, {
+    contentType: "image/jpeg",
+  });
+  const snapshot = await uploadTask;
+  const downloadURL = await getDownloadURL(snapshot.ref);
+
+  return downloadURL;
 }

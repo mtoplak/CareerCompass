@@ -3,7 +3,6 @@ import Image from "next/image";
 import SingleRating from "../Rating/SingleRating";
 import { Company } from "@/types/company";
 import stars from "../Common/Stars";
-import GeneralAssessmenta from "./GeneralAssessment";
 import GeneralAssessment from "./GeneralAssessment";
 import SaleryAndBenefits from "./SaleryAndBenefits";
 import Interviews from "./Interviews";
@@ -38,9 +37,9 @@ const SingleCompanyPage = async ({ company }: Props) => {
           <p className="text-lg text-gray-600 dark:text-gray-400">
             {company.industry}
           </p>
-          {company.subindustry !== undefined ? (
+          {Array.isArray(company.subindustry) ? (
             <p className="text-md text-gray-600 dark:text-gray-400">
-              {company.subindustry.map((sub, index) => (
+              {company.subindustry.map((sub: string, index: number) => (
                 <span key={index}>
                   {sub}
                   {index !== company.subindustry.length - 1 && ", "}
