@@ -1,57 +1,73 @@
 "use client";
-import React from "react";
-import { useState } from "react";
-import toast from "react-hot-toast";
-import axios from "axios";
-import Loader from "@/components/Common/Loader";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { useState } from "react";
+import Loader from "@/components/Common/Loader";
+import { Industry, industries } from "@/types/industry";
+import { industryMappings } from "@/types/subindustry";
+import { api } from "@/constants";
+import { uploadImageToStorage } from "@/firebase/firebase.client";
 
-const ForgotPassword = () => {
-  const [email, setEmail] = useState("");
-  const [loader, setLoader] = useState(false);
+const industryOptions = industries.map((industry: Industry) => (
+  <option key={industry} value={industry}>
+    {industry}
+  </option>
+));
+
+const SignUpCompany = () => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [selectedIndustry, setSelectedIndustry] = useState<Industry>(
+    "" as Industry,
+  );
+  const [companyLogo, setCompanyLogo] = useState<File | null>(null);
+
+  const subindustries = Object.entries(industryMappings)
+    .filter(([subindustry, industry]) => industry === selectedIndustry)
+    .map(([subindustry]) => subindustry);
+
+  const subindustryOptions = subindustries.map((subindustry) => (
+    <option key={subindustry} value={subindustry}>
+      {subindustry}
+    </option>
+  ));
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    if (!email) {
-      toast.error("Vnesite veljaven e-poštni naslov.");
+    setLoading(true);
 
+    if (!companyLogo) {
       return;
     }
 
-    setLoader(true);
+    const data = new FormData(e.currentTarget);
+    const value = Object.fromEntries(data.entries());
+    console.log(value);
 
-    try {
-      const res = await axios.post("/api/forgot-password/reset", {
-        email: email.toLowerCase(),
-      });
+    const fileBuffer = await companyLogo.arrayBuffer();
 
-      if (res.status === 404) {
-        toast.error("Račun ne obstaja.");
-        return;
-      }
+    const finalData = { ...value };
 
-      if (res.status === 200) {
-        toast.success(res.data);
-        setEmail("");
-      }
+    console.log(finalData);
 
-      setEmail("");
-      setLoader(false);
-    } catch (error: any) {
-      toast.error(error?.response.data);
-      setLoader(false);
-    }
+    const companyLogoUrl = await uploadImageToStorage(
+      fileBuffer,
+      finalData.name,
+    );
+
+    // TODO fetch api
   };
 
   return (
-    <section className="bg-[#F4F7FF] py-14 dark:bg-dark lg:py-20">
+    <section className="bg-[#F4F7FF] py-14 dark:bg-dark lg:py-[90px]">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div
-              className="wow fadeInUp relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-white px-8 py-14 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]"
+              className="wow fadeInUp shadow-form relative mx-auto max-w-[525px] overflow-hidden rounded-xl bg-white px-8 py-14 text-center dark:bg-dark-2 sm:px-12 md:px-[60px]"
               data-wow-delay=".15s"
             >
               <div className="mb-10 text-center">
@@ -62,7 +78,7 @@ const ForgotPassword = () => {
                     width="0"
                     height="0"
                     sizes="100vw"
-                    className="h-auto w-full dark:hidden"
+                    className="dark:hidden"
                     style={{ maxWidth: "100px" }}
                   />
                   <Image
@@ -71,7 +87,7 @@ const ForgotPassword = () => {
                     width="0"
                     height="0"
                     sizes="100vw"
-                    className="hidden h-auto w-full dark:block"
+                    className="hidden dark:block"
                     style={{ maxWidth: "100px" }}
                   />
                 </Link>
@@ -80,25 +96,112 @@ const ForgotPassword = () => {
               <form onSubmit={handleSubmit}>
                 <div className="mb-[22px]">
                   <input
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    type="text"
+                    placeholder="Polno ime podjetja"
+                    name="name"
                     required
                     className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
                   />
                 </div>
-                <div className="">
+                <div className="mb-[22px]">
+                  <input
+                    type="text"
+                    placeholder="Naslov podjetja"
+                    name="address"
+                    required
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-[22px]">
+                  <input
+                    type="text"
+                    placeholder="Mesto podjetja"
+                    name="city"
+                    required
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-[22px]">
+                  <input
+                    type="email"
+                    placeholder="Email podjetja"
+                    name="email"
+                    required
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-[22px]">
+                  <input
+                    type="text"
+                    placeholder="Spletna stran"
+                    name="website"
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-[22px]">
+                  <select
+                    name="industry"
+                    className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none md:col-span-1 lg:col-span-3"
+                    onChange={(e) =>
+                      setSelectedIndustry(e.target.value as Industry)
+                    }
+                  >
+                    <option value="">Dejavnost</option>
+                    {industryOptions}
+                  </select>
+                </div>
+                <div className="mb-[22px]">
+                  <select
+                    name="industry"
+                    className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none md:col-span-1 lg:col-span-3"
+                  >
+                    <option value="">Poddejavnost</option>
+                    {subindustryOptions}
+                  </select>
+                </div>
+                <div className="mb-[22px]">
+                  <input
+                    type="file"
+                    placeholder="Logo podjetja"
+                    name="logo"
+                    accept="image/*"
+                    onChange={(e) =>
+                      e.target.files && setCompanyLogo(e.target.files[0])
+                    }
+                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                  />
+                </div>
+                <div className="mb-9">
                   <button
                     type="submit"
                     className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
                   >
-                    Pošlji e-mail za nastavitev novega gesla{" "}
-                    {loader && <Loader />}
+                    Registracija {loading && <Loader />}
                   </button>
                 </div>
               </form>
+
+              <p className="text-body-secondary mb-4 text-base">
+                Z ustvarjanjem računa podjetja se strinjate z{" "}
+                <a href="/#" className="text-primary hover:underline">
+                  Politiko zasebnosti (GDPR)
+                </a>{" "}
+                in{" "}
+                <a href="/#" className="text-primary hover:underline">
+                  Splošnimi pogoji poslovanja
+                </a>
+                . Vaše podjetje bo javno vidno in na voljo za ocenjevanje.
+              </p>
+
+              <p className="text-body-secondary text-base">
+                Ali je vaše podjetje že na platoformi?
+                <Link
+                  href="/za-delodajalce/prijava"
+                  className="pl-2 text-primary hover:underline"
+                >
+                  Prevzemite profil
+                </Link>
+              </p>
 
               <div>
                 <span className="absolute right-1 top-1">
@@ -326,4 +429,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default SignUpCompany;

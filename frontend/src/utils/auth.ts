@@ -1,11 +1,7 @@
-import bcrypt from "bcrypt";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { PrismaClient } from "@prisma/client";
-import { prisma } from "./prismaDB";
 import type { Adapter } from "next-auth/adapters";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import { MongoClient, ServerApiVersion } from "mongodb";
@@ -53,7 +49,7 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/auth/prijava",
   },
-  adapter: MongoDBAdapter(clientPromise), //PrismaAdapter(prisma) as Adapter,
+  adapter: MongoDBAdapter(clientPromise),
   secret: process.env.SECRET,
   session: {
     strategy: "jwt",
@@ -94,26 +90,11 @@ export const authOptions: NextAuthOptions = {
         // });
 
 
-
         // if user was not found
         // if (!user || !user?.password) {
         //   throw new Error("In valid email or password");
         // }
 
-        // check to see if passwords match
-        // const passwordMatch = await bcrypt.compare(
-        //   credentials.password,
-        //   user.password,
-        // );
-
-        // console.log(passwordMatch);
-
-        // if (!passwordMatch) {
-        //   console.log("test", passwordMatch);
-        //   throw new Error("Incorrect password");
-        // }
-
-        // return user;
       },
     }),
 

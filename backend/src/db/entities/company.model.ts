@@ -6,7 +6,7 @@ export const CompanySchema = new Schema({
   address: { type: String, required: true },
   city: { type: String, required: true },
   logo: { type: String, required: true },
-  slug: { type: String, required: true },
+  slug: { type: String, required: false },
   website: { type: String, required: false },
   industry: [{
     type: String,

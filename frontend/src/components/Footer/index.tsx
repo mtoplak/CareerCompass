@@ -15,9 +15,11 @@ const Footer = () => {
                 <Image
                   src="/images/logo/logo.png"
                   alt="logo"
-                  width={140}
-                  height={30}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
                   className="h-auto w-full max-w-full"
+                  style={{ maxWidth: "140px" }}
                 />
               </Link>
               <p className="mb-8 max-w-[270px] text-base text-gray-7">

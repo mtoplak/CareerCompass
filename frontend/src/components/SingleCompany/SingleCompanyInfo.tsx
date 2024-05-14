@@ -26,8 +26,11 @@ const SingleCompanyPage = async ({ company }: Props) => {
           <Image
             src={company.logo}
             alt={company.name}
-            width={150}
-            height={200}
+            width="0"
+            height="0"
+            sizes="100vw"
+            className="h-auto"
+            style={{ width: "150px", height: "auto" }}
           />
         </div>
         <div className="pl-10 md:w-2/4">
@@ -75,9 +78,12 @@ const SingleCompanyPage = async ({ company }: Props) => {
       <div className="mt-10">
         <div className="container flex flex-col rounded-xl bg-sky-100 py-4 dark:bg-sky-900 lg:flex-row lg:items-center lg:justify-between">
           <div className="mb-2 flex items-center lg:mb-0">
-            <img
+            <Image
               src="/images/icons/email.png"
               alt="Email Icon"
+              width="0"
+              height="0"
+              sizes="100vw"
               className="mr-2 h-6 w-6"
             />
             <p className="text-sky-700 dark:text-sky-300">
@@ -85,9 +91,12 @@ const SingleCompanyPage = async ({ company }: Props) => {
             </p>
           </div>
           <div className="mb-2 flex items-center lg:mb-0">
-            <img
+            <Image
               src="/images/icons/location.png"
               alt="Address Icon"
+              width="0"
+              height="0"
+              sizes="100vw"
               className="mr-2 h-6 w-6"
             />
             <p className="text-sky-700 dark:text-sky-300">
@@ -99,14 +108,21 @@ const SingleCompanyPage = async ({ company }: Props) => {
             </p>
           </div>
           <div className="flex items-center">
-            <img
-              src="/images/icons/link.png"
-              alt="Website Icon"
-              className="mr-2 h-6 w-6"
-            />
-            <p className="text-sky-700 dark:text-sky-300">
-              <a href={company.website}>{company.website}</a>
-            </p>
+            {company.website && (
+              <>
+                <Image
+                  src="/images/icons/link.png"
+                  alt="Website Icon"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="mr-2 h-6 w-6"
+                />
+                <p className="text-sky-700 dark:text-sky-300">
+                  <a href={company.website}>{company.website}</a>
+                </p>
+              </>
+            )}
           </div>
         </div>
         <div className="mt-20">
@@ -114,7 +130,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
           Podjetje nima objavljenih zaposlitev.
         </div>
         <div className="mt-12">
-          <h2 className="mb-4 text-2xl font-semibold">Komentarji in Ocene</h2>
+          <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
             <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
             <GeneralAssessment company={company} />

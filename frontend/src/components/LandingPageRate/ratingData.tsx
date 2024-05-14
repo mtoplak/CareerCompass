@@ -30,7 +30,7 @@ const rateData: Feature[] = [
     ),
     title: "Splošne ocene",
     paragraph:
-      "Oceni podjetje glede na ekipi, osebnem razvoju, fleksibilnosti, vodstvu, ipd.",
+      "Oceni podjetje glede ekipe, osebnega razvoja, fleksibilnosti, vodstva, ipd.",
     btn: "Oceni podjetje...",
     btnLink: "/#",
   },
@@ -52,7 +52,7 @@ const rateData: Feature[] = [
     ),
     title: "Plača in ugodnosti",
     paragraph:
-      "Oceni podjetje glede na bonuse, delo na daljavo, rasti plače in drugimi ugodnostmi.",
+      "Oceni podjetje glede na bonuse, delo na daljavo, rasti plače in druge ugodnosti.",
     btn: "Oceni podjetje...",
     btnLink: "/#",
   },
@@ -81,7 +81,7 @@ const rateData: Feature[] = [
     ),
     title: "Razgovori",
     paragraph:
-      "Oceni podjetje glede na vaše izkušnje s trajanjem postopka in težavnostjo.",
+      "Oceni podjetje glede na vaše izkušnje s trajanjem postopka razgovora in težavnostjo.",
     btn: "Oceni podjetje...",
     btnLink: "/#",
   },

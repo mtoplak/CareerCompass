@@ -5,6 +5,7 @@ import { Company } from '../../db/entities/company.model';
 import { SuccessResponse } from '../../shared/data.response';
 import { SearchCompanyDto } from './dto/search-company.dto';
 import { escapeRegex } from '../../shared/regex';
+import slugify from 'slugify';
 
 @Injectable()
 export class CompanyService {
@@ -12,6 +13,7 @@ export class CompanyService {
 
   async createCompany(companyData: CompanyDto): Promise<Company> {
     try {
+      companyData.slug = slugify(companyData.name, { lower: true, strict: true });
       return await this.companyRepository.create(companyData);
     } catch (error) {
       if (error instanceof NotFoundException) {
@@ -21,9 +23,13 @@ export class CompanyService {
     }
   }
 
-  async getAllCompanies(): Promise<Company[]> {
+  async getAllCompanies(page: number, size: number): Promise<Company[]> {
+    const skip = (page - 1) * size;
     try {
-      return await this.companyRepository.find({});
+      return await this.companyRepository.find({}, {
+        skip: skip,
+        limit: size
+      });
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);
@@ -84,11 +90,10 @@ export class CompanyService {
     }
   }
 
-  async getCompaniesByCriteria(criteria: SearchCompanyDto): Promise<CompanyDto[]> {
+  async getCompaniesByCriteria(criteria: SearchCompanyDto, page: number, size: number): Promise<Company[]> {
     const conditions = [];
-
     if (criteria.name) {
-      conditions.push({ name: { $regex: new RegExp('^' + escapeRegex(criteria.name), 'i') } });
+      conditions.push({ name: { $regex: new RegExp(escapeRegex(criteria.name), 'i') } });
     }
     if (criteria.city) {
       conditions.push({ city: { $regex: new RegExp('^' + escapeRegex(criteria.city), 'i') } });
@@ -100,15 +105,14 @@ export class CompanyService {
       conditions.push({ avg_rating: { $gte: criteria.rating } });
     }
 
-
     const query = conditions.length > 0 ? { $and: conditions } : {};
+    const skip = (page - 1) * size;
     try {
-      const companies = await this.companyRepository.find(query);
-      if (companies.length > 0) {
-        return companies;
-      } else {
-        return [];
-      }
+      const companies = await this.companyRepository.find(query, {
+        skip: skip,
+        limit: size
+      });
+      return companies;
     } catch (error) {
       console.error('Error executing query:', error);
       throw new NotFoundException('Could not get the companies from database.');

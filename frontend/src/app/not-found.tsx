@@ -9,7 +9,9 @@ export const metadata: Metadata = {
 const ErrorPage = ({ what }: { what: string }) => {
   return (
     <>
-      <Breadcrumb pageName={what + " ne obstaja!"} />
+      <Breadcrumb
+        pageName={what ? what + " ne obstaja!" : "Stran ne obstaja!"}
+      />
       <NotFound />
     </>
   );

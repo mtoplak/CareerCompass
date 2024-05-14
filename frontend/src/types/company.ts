@@ -1,8 +1,10 @@
+import { Industry } from "./industry";
+
 export type Company = {
     id: string;
     name: string;
-    industry: string[];
-    subindustry: string[];
+    industry: Industry;
+    subindustry: string[] | string;
     slug: string;
     logo: string;
     website: string;
