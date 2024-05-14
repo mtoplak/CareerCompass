@@ -1,4 +1,4 @@
-import { AverageRating } from "src/db/entities/average-rating.model";
+import { AverageRating } from "../db/entities/average-rating.model";
 import { Company } from "../db/entities/company.model";
 import { JobAdvertisement } from "../db/entities/job-advertisement.model";
 import { Industry } from "../enums/industry.enum";

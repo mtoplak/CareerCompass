@@ -29,15 +29,21 @@ export class CompanyController {
         return await this.companyService.createCompany(createCompanyDto);
     }
 
-    @Get()
-    async getAllCompanies(
+    @Get("pagination")
+    async getAllPaginatedCompanies(
         @Query('page') page: string,
         @Query('size') size: string
     ): Promise<CompanyDto[]> {
         const pageNum = parseInt(page, 10) || 1;
         const sizeNum = parseInt(size, 10) || 28;
 
-        return await this.companyService.getAllCompanies(pageNum, sizeNum);
+        return await this.companyService.getAllPaginatedCompanies(pageNum, sizeNum);
+    }
+
+    @Get()
+    async getAllCompanies(
+    ): Promise<CompanyDto[]> {
+        return await this.companyService.getAllCompanies();
     }
 
     @Get('/id/:id')
@@ -50,8 +56,8 @@ export class CompanyController {
         return await this.companyService.getFourBestCompanies();
     }
 
-    @Get('/search')
-    async getCompaniesByCriteria(
+    @Get('/searchPaginated')
+    async getPaginatedCompaniesByCriteria(
         @Query() searchDto: SearchCompanyDto,
         @Query('page') page: string,
         @Query('size') size: string
@@ -59,7 +65,14 @@ export class CompanyController {
         const pageNum = parseInt(page, 10) || 1;
         const sizeNum = parseInt(size, 10) || 28;
 
-        return await this.companyService.getCompaniesByCriteria(searchDto, pageNum, sizeNum);
+        return await this.companyService.getPaginatedCompaniesByCriteria(searchDto, pageNum, sizeNum);
+    }
+
+    @Get('/search')
+    async getCompaniesByCriteria(
+        @Query() searchDto: SearchCompanyDto,
+    ): Promise<CompanyDto[]> {
+        return await this.companyService.getCompaniesByCriteria(searchDto);
     }
 
     @Get(':slug')

@@ -1,5 +1,5 @@
-import { AverageRating } from "src/db/entities/average-rating.model";
-import { Industry } from "src/enums/industry.enum";
+import { AverageRating } from "../../../db/entities/average-rating.model";
+import { Industry } from "../../../enums/industry.enum";
 
 export class CreateCompanyDto {
   id: string;

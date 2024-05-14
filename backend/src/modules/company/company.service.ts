@@ -6,7 +6,7 @@ import { escapeRegex } from '../../shared/regex';
 import slugify from 'slugify';
 import { CompanyMapper } from './company.mapper';
 import { AverageRatingRepository } from '../average-rating/average-rating.repository';
-import { CompanyModel } from '../../db/entities/company.model';
+import { Company, CompanyModel } from '../../db/entities/company.model';
 import { AverageRatingModel } from '../../db/entities/average-rating.model';
 import { UpdateCompanyDto } from './dto/update-company.dto';
 import { CompanyDto } from './dto/company.dto';
@@ -97,8 +97,21 @@ export class CompanyService {
     }
   }
 
-  async getAllCompanies(page: number, size: number): Promise<CompanyDto[]> {
-    const companies = await this.companyRepository.find({}, {
+  async getAllCompanies(): Promise<CompanyDto[]> {
+    const companies = await this.companyRepository.find();
+
+    const companyDtos = [];
+    for (const company of companies) {
+      const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
+      const companyDto = this.companyMapper.mapOneCompany(company, averageRating);
+      companyDtos.push(companyDto);
+    }
+
+    return companyDtos;
+  }
+
+  async getAllPaginatedCompanies(page: number, size: number): Promise<CompanyDto[]> {
+    const companies = await this.companyRepository.findPaginated({}, {
       skip: (page - 1) * size,
       limit: size
     });
@@ -172,7 +185,7 @@ export class CompanyService {
 
   async getFourBestCompanies(): Promise<CompanyDto[]> {
     try {
-      const companies = await this.companyRepository.find(
+      const companies = await this.companyRepository.findPaginated(
         {},
         { sort: { avg_rating: -1 }, limit: 4 }
       );
@@ -190,8 +203,7 @@ export class CompanyService {
     }
   }
 
-
-  async getCompaniesByCriteria(criteria: SearchCompanyDto, page: number, size: number): Promise<CompanyDto[]> {
+  async getPaginatedCompaniesByCriteria(criteria: SearchCompanyDto, page: number, size: number): Promise<CompanyDto[]> {
     const conditions = [];
     if (criteria.name) {
       conditions.push({ name: { $regex: new RegExp(escapeRegex(criteria.name), 'i') } });
@@ -202,17 +214,75 @@ export class CompanyService {
     if (criteria.industry) {
       conditions.push({ industry: criteria.industry });
     }
-    if (criteria.rating) {
-      conditions.push({ avg_rating: { $gte: criteria.rating } });
+
+    const query = conditions.length > 0 ? { $and: conditions } : {};
+    try {
+      const companies = await this.companyRepository.findPaginated(query, {
+        skip: (page - 1) * size,
+        limit: size
+      });
+      let ratedCompanies;
+      let companyDtos = [];
+      if (criteria.rating) {
+        ratedCompanies = await this.getCompaniesByRating(criteria.rating, companies);
+        companyDtos = ratedCompanies;
+      } else {
+        for (const company of companies) {
+          const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
+          const companyDto = this.companyMapper.mapOneCompany(company, averageRating);
+          companyDtos.push(companyDto);
+        }
+      }
+      return companyDtos;
+    } catch (error) {
+      console.error('Error executing query:', error);
+      throw new NotFoundException('Could not get the companies from database.');
+    }
+  }
+
+  async getCompaniesByCriteria(criteria: SearchCompanyDto): Promise<CompanyDto[]> {
+    const conditions = [];
+    if (criteria.name) {
+      conditions.push({ name: { $regex: new RegExp(escapeRegex(criteria.name), 'i') } });
+    }
+    if (criteria.city) {
+      conditions.push({ city: { $regex: new RegExp('^' + escapeRegex(criteria.city), 'i') } });
+    }
+    if (criteria.industry) {
+      conditions.push({ industry: criteria.industry });
     }
 
     const query = conditions.length > 0 ? { $and: conditions } : {};
     try {
-      const companies = await this.companyRepository.find(query, {
-        skip: (page - 1) * size,
-        limit: size
-      });
+      const companies = await this.companyRepository.findPaginated(query);
 
+      let companinies;
+      let companyDtos = [];
+      if (criteria.rating) {
+        console.log(criteria.rating);
+        companinies = await this.getCompaniesByRating(criteria.rating, companies);
+        companyDtos = companinies;
+      } else {
+        for (const company of companies) {
+          const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
+          const companyDto = this.companyMapper.mapOneCompany(company, averageRating);
+          companyDtos.push(companyDto);
+        }
+      }
+      console.log(companyDtos)
+      return companyDtos;
+    } catch (error) {
+      console.error('Error executing query:', error);
+      throw new NotFoundException('Could not get the companies from database.');
+    }
+  }
+
+  async getCompaniesByRating(rating: number, filteredCompanies: Company[]): Promise<Company[]> {
+    try {
+      const allCompanyIds = filteredCompanies.map(company => company._id);
+      const averageRatings = await AverageRatingModel.find({ avg_rating: { $gte: rating }, company: { $in: allCompanyIds } }).exec();
+      const companyIds = averageRatings.map(averageRating => averageRating.company);
+      const companies = await CompanyModel.find({ _id: { $in: companyIds } }).populate('average').exec();
       const companyDtos = [];
       for (const company of companies) {
         const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
@@ -221,12 +291,12 @@ export class CompanyService {
       }
 
       return companyDtos;
+
     } catch (error) {
-      console.error('Error executing query:', error);
-      throw new NotFoundException('Could not get the companies from database.');
+      console.error('Error fetching companies by rating:', error);
+      throw error;
     }
   }
-
 
   async checkEmail(email: string): Promise<SuccessResponse> {
     const company = await this.companyRepository.findOne({ email: email.toLowerCase() });

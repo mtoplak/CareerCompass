@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose/dist";
-import { AverageRatingSchema } from "src/db/entities/average-rating.model";
+import { AverageRatingSchema } from "../../db/entities/average-rating.model";
 import { AverageRatingRepository } from "./average-rating.repository";
 import { AverageRatingService } from "./average-rating.service";
 import { RatingRepository } from "../rating/rating.repository";

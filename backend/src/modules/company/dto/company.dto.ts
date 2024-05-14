@@ -1,4 +1,4 @@
-import { Industry } from "src/enums/industry.enum";
+import { Industry } from "../../../enums/industry.enum";
 
 export class CompanyDto {
   id: string;
@@ -13,6 +13,7 @@ export class CompanyDto {
   email: string;
   claimed: boolean;
   avg_rating: number;
+  ratings_count: number;
   avg_team: number;
   avg_personal_development: number;
   avg_flexibility: number;

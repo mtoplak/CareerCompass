@@ -20,6 +20,7 @@ export class CompanyMapper {
             email: company.email,
             claimed: company.claimed,
             avg_rating: averageRating ? averageRating.avg_rating : 0,
+            ratings_count: averageRating ? averageRating.ratings_count : 0,
             avg_team: averageRating ? averageRating.avg_team : 0,
             avg_personal_development: averageRating ? averageRating.avg_personal_development : 0,
             avg_flexibility: averageRating ? averageRating.avg_flexibility : 0,
