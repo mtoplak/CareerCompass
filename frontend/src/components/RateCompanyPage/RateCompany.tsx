@@ -3,78 +3,85 @@ import { useState } from "react";
 import { Rating } from "@material-tailwind/react";
 import { api } from "@/constants";
 import { Company } from "@/types/company";
-
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 type Props = {
   company: Company;
 };
 
+const initialRatings = {
+  team: 0,
+  personal_development: 0,
+  flexibility: 0,
+  work_life_balance: 0,
+  work_environment: 0,
+  leadership: 0,
+  benefits: 0,
+  bonuses: 0,
+};
+
+const initialFormData = {
+  team: null,
+  personal_development: null,
+  flexibility: null,
+  work_life_balance: null,
+  work_environment: null,
+  leadership: null,
+  general_assessment_comment: "",
+  benefits: null,
+  remote_work: false,
+  salary_and_benefits_comment: "",
+  bonuses: null,
+  experience: "Nevtralna",
+  duration: "",
+  difficulty: "Srednje",
+  interviews_comment: "",
+};
+
 const RateCompany = ({ company }: Props) => {
+  const router = useRouter();
   const [experience, setExperience] = useState("");
   const [interviewDifficulty, setInterviewDifficulty] = useState("");
   const [formData, setFormData] = useState({
     company_slug: company.slug,
-    team: null,
-    personal_development: null,
-    flexibility: null,
-    work_life_balance: null,
-    work_environment: null,
-    leadership: null,
-    general_assessment_comment: "",
-    benefits: null,
-    remote_work: false,
-    salary_and_benefits_comment: "",
-    bonuses: null,
-    experience: "Nevtralna",
-    duration: "",
-    difficulty: "Srednje",
-    interviews_comment: "",
+    ...initialFormData,
   });
+  const [ratings, setRatings] = useState(initialRatings);
+
+  const handleChangeRating = (id: any, value: any) => {
+    setRatings((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
 
   const handleSubmit = async (e: any) => {
-    console.log(company.slug + " slug pojetja")
-    console.log(company.name + " ime pojetja")
     e.preventDefault();
     try {
-      console.log(formData);
+      const rating = { ...formData, ...ratings };
       const response = await fetch(`${api}/rating`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(rating),
       });
-      console.log(response)
+
       const responseData = await response.json();
-      console.log("Rating submitted successfully:", responseData);
-      setFormData({
-        company_slug: company.slug,
-        team: null,
-        personal_development: null,
-        flexibility: null,
-        work_life_balance: null,
-        work_environment: null,
-        leadership: null,
-        general_assessment_comment: "",
-        benefits: null,
-        remote_work: false,
-        salary_and_benefits_comment: "",
-        bonuses: null,
-        experience: "",
-        duration: "",
-        difficulty: "",
-        interviews_comment: "",
-      });
-    } catch (error) {
+
+      toast.success("Uspešno ste ocenili podjetje!");
+      router.push(`/podjetje/${company.slug}`);
+    } catch (error: any) {
+      toast.error(error.message);
       console.error("Error submitting rating:", error);
     }
   };
-  
+
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
-    const newValue = type === 'checkbox' ? checked : value;
-    console.log(checked ? "checked" : "")
-  
+    const newValue = type === "checkbox" ? checked : value;
+
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: newValue,
@@ -85,7 +92,7 @@ const RateCompany = ({ company }: Props) => {
     <div>
       <div className="isolate px-6 py-24 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Oceni podjetje {company.name}
           </h2>
         </div>
@@ -93,7 +100,6 @@ const RateCompany = ({ company }: Props) => {
           onSubmit={handleSubmit}
           method="POST"
           className="mx-auto mt-16 max-w-xl sm:mt-20"
-          
         >
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between ">
             <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
@@ -101,96 +107,126 @@ const RateCompany = ({ company }: Props) => {
               <div>
                 <label
                   htmlFor="team"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Ekipa
                 </label>
                 <Rating
                   id="team"
-                  value={0}
-                  onChange={handleChange}
+                  value={ratings.team}
+                  onChange={(value) => handleChangeRating("team", value)}
                   className="text-yellow-400"
-                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+                  defaultValue={0}
+                  placeholder={undefined}
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
+                />
               </div>
               <div>
                 <label
                   htmlFor="personal_development"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Osebna rast
                 </label>
                 <Rating
                   id="personal_development"
                   value={0}
-                  onChange={handleChange}
+                  onChange={(value) =>
+                    handleChangeRating("personal_development", value)
+                  }
                   className="text-yellow-400"
-                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+                  defaultValue={0}
+                  placeholder={undefined}
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
+                />
               </div>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div className="mt-4">
                 <label
                   htmlFor="flexibility"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Fleksibilnost
                 </label>
                 <Rating
                   id="flexibility"
                   value={0}
-                  onChange={handleChange}
+                  onChange={(value) => handleChangeRating("flexibility", value)}
                   className="text-yellow-400"
-                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+                  defaultValue={0}
+                  placeholder={undefined}
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
+                />
               </div>
               <div className="mt-4">
                 <label
                   htmlFor="work_life_balance"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Ravnovesje dela in življenja
                 </label>
                 <Rating
                   id="work_life_balance"
                   value={0}
-                  onChange={handleChange}
+                  onChange={(value) =>
+                    handleChangeRating("work_life_balance", value)
+                  }
                   className="text-yellow-400"
-                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+                  defaultValue={0}
+                  placeholder={undefined}
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
+                />
               </div>
             </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div className="mt-4">
                 <label
                   htmlFor="work_environment"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Delovno vzdušje
                 </label>
                 <Rating
                   id="work_environment"
                   value={0}
-                  onChange={handleChange}
+                  onChange={(value) =>
+                    handleChangeRating("work_environment", value)
+                  }
                   className="text-yellow-400"
-                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+                  defaultValue={0}
+                  placeholder={undefined}
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
+                />
               </div>
               <div className="mt-4">
                 <label
                   htmlFor="leadership"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Vodstvo
                 </label>
                 <Rating
                   id="leadership"
                   value={0}
-                  onChange={handleChange}
+                  onChange={(value) => handleChangeRating("leadership", value)}
                   className="text-yellow-400"
-                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+                  defaultValue={0}
+                  placeholder={undefined}
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
+                />
               </div>
             </div>
-            <div className="sm:col-span-2 mt-4">
+            <div className="mt-4 sm:col-span-2">
               <label
                 htmlFor="general_assessment_comment"
-                className="block text-md font-semibold leading-6 text-gray-900"
+                className="text-md block font-semibold leading-6 text-gray-900"
               >
                 Komentar
               </label>
@@ -200,9 +236,9 @@ const RateCompany = ({ company }: Props) => {
                   id="general_assessment_comment"
                   rows={4}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={""}
+                  defaultValue=""
+                  value={formData.general_assessment_comment}
                   onChange={handleChange}
-                  required
                 />
               </div>
             </div>
@@ -213,50 +249,64 @@ const RateCompany = ({ company }: Props) => {
               <div className="mt-4">
                 <label
                   htmlFor="benefits"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Ugodnosti
                 </label>
                 <Rating
                   id="benefits"
                   value={0}
-                  onChange={handleChange}
+                  onChange={(value) => handleChangeRating("benefits", value)}
                   className="text-yellow-400"
-                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+                  defaultValue={0}
+                  placeholder={undefined}
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
+                />
               </div>
               <div className="mt-4">
                 <label
                   htmlFor="bonuses"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Bonusi
                 </label>
                 <Rating
                   id="bonuses"
                   value={0}
-                  onChange={handleChange}
+                  onChange={(value) => handleChangeRating("bonuses", value)}
                   className="text-yellow-400"
-                  defaultValue={0} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}/>
+                  defaultValue={0}
+                  placeholder={undefined}
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
+                />
               </div>
             </div>
-            <div className="sm:col-span-2 mt-4">
+            <div className="mt-4 sm:col-span-2">
               <label
                 htmlFor="remote_work"
-                className="block text-md font-semibold leading-6 text-gray-900"
+                className="text-md block font-semibold leading-6 text-gray-900"
               >
                 Delo na daljavo
               </label>
               <div>
                 <div className="flex items-center gap-4">
-                <input type="checkbox" id="remote_work" name="remote_work" onChange={handleChange}/>
+                  <input
+                    type="checkbox"
+                    id="remote_work"
+                    name="remote_work"
+                    checked={formData.remote_work}
+                    onChange={handleChange}
+                  />
                   <label htmlFor="remote_work">Omogočeno</label>
                 </div>
               </div>
             </div>
-            <div className="sm:col-span-2 mt-4">
+            <div className="mt-4 sm:col-span-2">
               <label
                 htmlFor="salary_and_benefits_comment"
-                className="block text-md font-semibold leading-6 text-gray-900"
+                className="text-md block font-semibold leading-6 text-gray-900"
               >
                 Komentar
               </label>
@@ -266,19 +316,19 @@ const RateCompany = ({ company }: Props) => {
                   id="salary_and_benefits_comment"
                   rows={4}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={""}
+                  defaultValue=""
+                  value={formData.salary_and_benefits_comment}
                   onChange={handleChange}
-                  required
                 />
               </div>
             </div>
           </div>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
             <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
-            <div className="sm:col-span-2 mt-4">
+            <div className="mt-4 sm:col-span-2">
               <label
                 htmlFor="duration"
-                className="block text-md font-semibold leading-6 text-gray-900"
+                className="text-md block font-semibold leading-6 text-gray-900"
               >
                 Dolžina
               </label>
@@ -288,6 +338,8 @@ const RateCompany = ({ company }: Props) => {
                   name="duration"
                   id="duration"
                   autoComplete="organization"
+                  value={formData.duration}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -296,7 +348,7 @@ const RateCompany = ({ company }: Props) => {
               <div className="mt-4">
                 <label
                   htmlFor="interviewDifficulty"
-                  className="block text-md font-semibold leading-6 text-gray-900"
+                  className="text-md block font-semibold leading-6 text-gray-900"
                 >
                   Težavnost razgovora
                 </label>
@@ -338,7 +390,7 @@ const RateCompany = ({ company }: Props) => {
                 </div>
               </div>
               <div className="mt-4">
-                <label className="block text-md font-semibold leading-6 text-gray-900">
+                <label className="text-md block font-semibold leading-6 text-gray-900">
                   Izkušnja z razgovorom
                 </label>
                 <div>
@@ -378,10 +430,10 @@ const RateCompany = ({ company }: Props) => {
                 </div>
               </div>
             </div>
-            <div className="sm:col-span-2 mt-4">
+            <div className="mt-4 sm:col-span-2">
               <label
                 htmlFor="interviews_comment"
-                className="block text-md font-semibold leading-6 text-gray-900"
+                className="text-md block font-semibold leading-6 text-gray-900"
               >
                 Komentar
               </label>
@@ -391,9 +443,9 @@ const RateCompany = ({ company }: Props) => {
                   id="interviews_comment"
                   rows={4}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={""}
+                  defaultValue=""
+                  value={formData.interviews_comment}
                   onChange={handleChange}
-                  required
                 />
               </div>
             </div>

@@ -29,7 +29,7 @@ export class CompanyController {
         return await this.companyService.createCompany(createCompanyDto);
     }
 
-    @Get("pagination")
+    @Get('/pagination')
     async getAllPaginatedCompanies(
         @Query('page') page: string,
         @Query('size') size: string
