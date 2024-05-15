@@ -24,7 +24,7 @@ const SearchResults = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `${api}/company/search?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}`,
+          `${api}/company/searchPaginated?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}`,
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");

@@ -107,6 +107,7 @@ export class CompanyService {
       companyDtos.push(companyDto);
     }
 
+    companyDtos.sort((a, b) => (b.ratings_count ?? 0) - (a.ratings_count ?? 0));
     return companyDtos;
   }
 
@@ -123,6 +124,7 @@ export class CompanyService {
       companyDtos.push(companyDto);
     }
 
+    companyDtos.sort((a, b) => (b.ratings_count ?? 0) - (a.ratings_count ?? 0));
     return companyDtos;
   }
 
@@ -197,6 +199,7 @@ export class CompanyService {
         companyDtos.push(companyDto);
       }
 
+      companyDtos.sort((a, b) => (b.avg_rating ?? 0) - (a.avg_rating ?? 0));
       return companyDtos;
     } catch (error) {
       throw new NotFoundException('Could not retrieve top companies.');
@@ -226,6 +229,7 @@ export class CompanyService {
       if (criteria.rating) {
         ratedCompanies = await this.getCompaniesByRating(criteria.rating, companies);
         companyDtos = ratedCompanies;
+        companyDtos.sort((a, b) => (a.avg_rating ?? 0) - (b.avg_rating ?? 0));
       } else {
         for (const company of companies) {
           const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
@@ -233,6 +237,8 @@ export class CompanyService {
           companyDtos.push(companyDto);
         }
       }
+
+      companyDtos.sort((a, b) => (b.ratings_count ?? 0) - (a.ratings_count ?? 0));
       return companyDtos;
     } catch (error) {
       console.error('Error executing query:', error);
@@ -256,12 +262,12 @@ export class CompanyService {
     try {
       const companies = await this.companyRepository.findPaginated(query);
 
-      let companinies;
+      let ratedCompanies;
       let companyDtos = [];
       if (criteria.rating) {
-        console.log(criteria.rating);
-        companinies = await this.getCompaniesByRating(criteria.rating, companies);
-        companyDtos = companinies;
+        ratedCompanies = await this.getCompaniesByRating(criteria.rating, companies);
+        companyDtos = ratedCompanies;
+        companyDtos.sort((a, b) => (a.avg_rating ?? 0) - (b.avg_rating ?? 0));
       } else {
         for (const company of companies) {
           const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
@@ -269,7 +275,8 @@ export class CompanyService {
           companyDtos.push(companyDto);
         }
       }
-      console.log(companyDtos)
+
+      companyDtos.sort((a, b) => (b.ratings_count ?? 0) - (a.ratings_count ?? 0));
       return companyDtos;
     } catch (error) {
       console.error('Error executing query:', error);

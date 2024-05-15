@@ -1,5 +1,4 @@
-//import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { Controller, Post, Body } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { AiService } from './ai.service';
 
 @Controller('ai')
@@ -11,12 +10,15 @@ export class AiController {
     const comment = body.comment;
     return await this.aiService.checkComment(comment);
   }
+
+  @Post('/generate')
+  async generateCompletion(
+    @Body('content') content: string
+  ) {
+    return this.aiService.generateCompletion(content);
+  }
+
   /*
-    @Post('upload')
-    async uploadAndFineTune() {
-      return this.aiService.uploadAndFineTune();
-    }
-  
     @Get('list-jobs/:limit')
     async listJobs(@Param('limit') limit: number) {
       return this.aiService.listFineTuningJobs(limit);
@@ -36,10 +38,6 @@ export class AiController {
     async listEvents(@Param('jobId') jobId: string, @Param('limit') limit: number) {
       return this.aiService.listFineTuneJobEvents(jobId, limit);
     }
-  
-    @Get('generate-completion/:modelId')
-    async generateCompletion(@Param('modelId') modelId: string) {
-      return this.aiService.generateCompletion(modelId);
-    }
-    */
+  */
+
 }

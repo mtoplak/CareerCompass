@@ -25,7 +25,7 @@ export class JobAdvertisementController {
 
   @Get()
   async getAllCompanies(): Promise<JobAdvertisementResponse[]> {
-    return await this.jobAdvertisementService.getAllCompanies();
+    return await this.jobAdvertisementService.getAllJobAdvertisements();
   }
 
   @Get(':id')

@@ -19,7 +19,7 @@ export class JobAdvertisementService {
     }
   }
 
-  async getAllCompanies(): Promise<JobAdvertisementResponse[]> {
+  async getAllJobAdvertisements(): Promise<JobAdvertisementResponse[]> {
     try {
       return await this.jobAdvertisementRepository.find({});
     } catch (error) {

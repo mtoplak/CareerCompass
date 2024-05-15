@@ -10,6 +10,7 @@ import { RatingModule } from './modules/rating/rating.module'
 import { DatabaseModule } from './db/database.module'
 import { AiModule } from './modules/ai/ai.module'
 import { AverageRatingModule } from './modules/average-rating/average-rating.module'
+import { ChatHistoryModule } from './modules/chat-history/chat-history.module'
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { AverageRatingModule } from './modules/average-rating/average-rating.mod
     JobAdvertisementModule,
     RatingModule,
     AverageRatingModule,
+    ChatHistoryModule,
     AiModule
   ],
   controllers: [AppController],

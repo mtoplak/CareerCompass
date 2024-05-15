@@ -1,3 +1,4 @@
+import { User } from "../db/entities/user.model";
 import { AverageRating } from "../db/entities/average-rating.model";
 import { Company } from "../db/entities/company.model";
 import { JobAdvertisement } from "../db/entities/job-advertisement.model";
@@ -59,4 +60,10 @@ export interface RatingResponse {
     duration: string;
     difficulty: InterviewDifficulty;
     interviews_comment: string;
+}
+
+export interface ChatHistoryResponse {
+    id: string;
+    user: User;
+    chat_history: string[];
 }

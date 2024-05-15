@@ -12,14 +12,12 @@ import { SuccessResponse } from '../../shared/data.response';
 import { CompanyDto } from './dto/company.dto';
 import { CompanyService } from './company.service';
 import { SearchCompanyDto } from './dto/search-company.dto';
-import { CompanyMapper } from './company.mapper';
 import { UpdateCompanyDto } from './dto/update-company.dto';
 
 @Controller('/company')
 export class CompanyController {
     constructor(
-        private readonly companyService: CompanyService,
-        private readonly companyMapper: CompanyMapper
+        private readonly companyService: CompanyService
     ) { }
 
     @Post()

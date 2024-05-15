@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 async function getCompanies() {
-  const res = await fetch(`${api}/company`, {
+  const res = await fetch(`${api}/company/pagination`, {
     cache: "no-store",
   });
   const companies = await res.json();
