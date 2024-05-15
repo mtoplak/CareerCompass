@@ -59,7 +59,7 @@ const SignUp = () => {
                     width="0"
                     height="0"
                     sizes="100vw"
-                    className="dark:hidden"
+                    className="h-auto w-full dark:hidden"
                     style={{ maxWidth: "100px" }}
                   />
                   <Image
@@ -68,7 +68,7 @@ const SignUp = () => {
                     width="0"
                     height="0"
                     sizes="100vw"
-                    className="hidden dark:block"
+                    className="hidden h-auto w-full dark:block"
                     style={{ maxWidth: "100px" }}
                   />
                 </Link>
