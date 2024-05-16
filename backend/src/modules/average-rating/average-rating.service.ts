@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { SuccessResponse } from '../../shared/data.response';
 import { AverageRatingRepository } from './average-rating.repository';
 import { AverageRating, AverageRatingModel } from '../../db/entities/average-rating.model';
@@ -16,11 +16,8 @@ export class AverageRatingService {
 
   async calculateAverageRating(ratingId: string, companyId: string): Promise<void> {
     const rating = await this.ratingRepository.findOne({ _id: ratingId });
-    console.log(rating);
 
     let averageRating = await this.averageRatingRepository.findOne({ company: companyId });
-    console.log("Average rating: ");
-    console.log(averageRating);
 
     if (!averageRating) {
       averageRating = new AverageRatingModel({
@@ -103,7 +100,7 @@ export class AverageRatingService {
       no: parseFloat(remoteWorkPercentages.no),
     };
 
-    // experience and difficulty
+    // experience
     if (rating.experience) {
       averageRating.experience_distribution[rating.experience.toLowerCase()] += 1;
       const experiencePercentages = await this.calculateExperiencePercentages(averageRating.experience_distribution);
@@ -114,6 +111,7 @@ export class AverageRatingService {
       };
     }
 
+    // difficulty
     if (rating.difficulty) {
       averageRating.difficulty_distribution[rating.difficulty.toLowerCase()] += 1;
       const difficultyPercentages = await this.calculateDifficultyPercentages(averageRating.difficulty_distribution);
@@ -124,18 +122,21 @@ export class AverageRatingService {
       };
     }
 
-    // Add comments and duration if provided
-    if (rating.general_assessment_comment) {
-      averageRating.general_assessment_comments.push(rating.general_assessment_comment);
-    }
-    if (rating.salary_and_benefits_comment) {
-      averageRating.salary_and_benefits_comments.push(rating.salary_and_benefits_comment);
-    }
-    if (rating.interviews_comment) {
-      averageRating.interviews_comments.push(rating.interviews_comment);
-    }
-    if (rating.duration) {
-      averageRating.avg_duration.push(rating.duration);
+    // Check and add comments
+    const commentCheckResults = [
+      { comment: rating.general_assessment_comment, field: 'general_assessment_comment' },
+      { comment: rating.salary_and_benefits_comment, field: 'salary_and_benefits_comment' },
+      { comment: rating.interviews_comment, field: 'interviews_comment' },
+      { comment: rating.duration, field: 'duration' }
+    ];
+
+    for (const { comment, field } of commentCheckResults) {
+      if (comment) {
+        const isAppropriate = await this.checkAndAddComment(comment, averageRating[`${field}s`]);
+        if (!isAppropriate) {
+          throw new HttpException(`Comment for ${field} is inappropriate`, HttpStatus.BAD_REQUEST);
+        }
+      }
     }
 
     averageRating.ratings_count += 1;
@@ -169,13 +170,12 @@ export class AverageRatingService {
     };
   }
 
-  private async checkAndAddComment(comment: string, commentsArray: string[]) {
-    if (comment) {
-      const isAppropriate = await this.aiService.checkComment(comment);
-      if (isAppropriate) {
-        commentsArray.push(comment);
-      }
+  async checkAndAddComment(comment: string, commentsArray: string[]): Promise<boolean> {
+    const isAppropriate = await this.aiService.checkComment(comment);
+    if (isAppropriate) {
+      commentsArray.push(comment);
     }
+    return isAppropriate;
   }
 
   async getSingleAverageRating(averageRatingId: string): Promise<AverageRating> {

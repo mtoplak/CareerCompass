@@ -28,6 +28,7 @@ export interface UserResponse {
     id: string;
     name: string;
     email: string;
+    company: Company;
     saved_advertisements: JobAdvertisement[];
 }
 
