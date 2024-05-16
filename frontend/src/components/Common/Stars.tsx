@@ -7,7 +7,7 @@ const stars = (rating: number) => {
   const starIcons = [];
   for (let i = 0; i < fullStars; i++) {
     starIcons.push(
-      <span key={i} className="mr-1 text-yellow-400">
+      <span key={i} className="mr-1 text-yellow-400" style={{ fontSize: "24px" }}>
         &#9733;
       </span>,
     );
@@ -17,7 +17,7 @@ const stars = (rating: number) => {
       <span key="half" className="star">
         <span
           className="mr-1 text-yellow-400"
-          style={{ display: "inline-block", width: "12px", overflow: "hidden" }}
+          style={{ display: "inline-block", width: "12px", overflow: "hidden", fontSize: "24px" }}
         >
           &#9733;
         </span>
@@ -27,16 +27,18 @@ const stars = (rating: number) => {
   const emptyStars = 5 - starIcons.length;
   for (let i = 0; i < emptyStars; i++) {
     starIcons.push(
-      <span key={`empty${i}`} className="mr-1 text-yellow-400">
+      <span key={`empty${i}`} className="mr-1 text-yellow-400" style={{ fontSize: "24px" }}>
         &#9734;
       </span>,
     );
   }
 
+  //const ratingDisplay = rating === 0 ? roundedRating : rating.toFixed(1);
+
   return (
     <div className="mt-4 flex">
       {starIcons}
-      <span className="ml-2 text-gray-600 dark:text-gray-400">
+      <span className="ml-2 mt-1 text-gray-600 font-semibold dark:text-gray-400" style={{ fontSize: "16px" }}>
         ({roundedRating})
       </span>
     </div>
