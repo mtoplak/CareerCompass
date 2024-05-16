@@ -220,31 +220,47 @@ export class CompanyService {
 
     const query = conditions.length > 0 ? { $and: conditions } : {};
     try {
-      const companies = await this.companyRepository.findPaginated(query, {
-        skip: (page - 1) * size,
-        limit: size
-      });
-      let ratedCompanies;
-      let companyDtos = [];
+      const companyIds = await this.companyRepository.findPaginated(query, { _id: 1 });
+
+      let filteredCompanyIds = companyIds.map(company => company._id);
+
       if (criteria.rating) {
-        ratedCompanies = await this.getCompaniesByRating(criteria.rating, companies);
-        companyDtos = ratedCompanies;
-        companyDtos.sort((a, b) => (a.avg_rating ?? 0) - (b.avg_rating ?? 0));
-      } else {
-        for (const company of companies) {
-          const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
-          const companyDto = this.companyMapper.mapOneCompany(company, averageRating);
-          companyDtos.push(companyDto);
-        }
+        filteredCompanyIds = await this.filterCompanyIdsByRating(criteria.rating, filteredCompanyIds);
       }
 
-      companyDtos.sort((a, b) => (b.ratings_count ?? 0) - (a.ratings_count ?? 0));
+      const paginatedCompanies = await this.companyRepository.findPaginated(
+        { _id: { $in: filteredCompanyIds } },
+        { skip: (page - 1) * size, limit: size }
+      );
+
+      const companyDtos = await Promise.all(paginatedCompanies.map(async company => {
+        const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
+        return this.companyMapper.mapOneCompany(company, averageRating);
+      }));
+
+      if (criteria.rating) {
+        companyDtos.sort((a, b) => (a.avg_rating ?? 0) - (b.avg_rating ?? 0));
+      } else {
+        companyDtos.sort((a, b) => (b.ratings_count ?? 0) - (a.ratings_count ?? 0));
+      }
+
       return companyDtos;
     } catch (error) {
       console.error('Error executing query:', error);
-      throw new NotFoundException('Could not get the companies from database.');
+      throw new NotFoundException('Could not get the companies from the database.');
     }
   }
+
+  async filterCompanyIdsByRating(rating: number, companyIds: string[]): Promise<Company[]> {
+    try {
+      const averageRatings = await AverageRatingModel.find({ avg_rating: { $gte: rating }, company: { $in: companyIds } }).exec();
+      return averageRatings.map(averageRating => averageRating.company);
+    } catch (error) {
+      console.error('Error filtering company IDs by rating:', error);
+      throw error;
+    }
+  }
+
 
   async getCompaniesByCriteria(criteria: SearchCompanyDto): Promise<CompanyDto[]> {
     const conditions = [];
