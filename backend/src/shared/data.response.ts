@@ -35,11 +35,12 @@ export interface JobAdvertisementResponse {
     id: string;
     position: string;
     description: string;
-    address: string;
     city: string;
     company_linked: Company;
-    company_nlinked: string;
+    company: string;
     hourly_rate: string;
+    url: string;
+    source: string;
 }
 
 export interface RatingResponse {
