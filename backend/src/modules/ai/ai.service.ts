@@ -1,16 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import OpenAI from 'openai';
+import { ChatHistoryRepository } from '../chat-history/chat-history.repository';
+import { ChatHistoryModel } from '../../db/entities/chat-history.model';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class AiService {
   private openai: OpenAI;
 
-  constructor() {
+  constructor(
+    private readonly historyRepository: ChatHistoryRepository,
+    private readonly userService: UserService,
+  ) {
     const apiKey = process.env.OPENAI_API_KEY;
-    if (!apiKey) {
-      console.error('OPENAI_API_KEY not found in environment:', process.env);
-      throw new Error('OPENAI_API_KEY environment variable is missing');
-    }
     this.openai = new OpenAI({ apiKey });
   }
 
@@ -42,72 +44,36 @@ export class AiService {
     }
   }
 
-  async generateCompletion(content) {
+  async generateCompletion(userEmail: string, content: string): Promise<string> {
     try {
       const completion = await this.openai.chat.completions.create({
         messages: [
           { role: "system", content: "Career Compass vam pomaga najti pravo rešitev za novo poklicno pot!" },
-          { role: "user", content: content },
+          { role: 'user', content: content }
         ],
         model: process.env.FINE_TUNE_MODEL,
       });
-      console.log('Generated completion:', completion.choices[0].message);
-      return completion.choices[0].message;
+      const completionText = completion.choices[0].message.content;
+
+      const user = await this.userService.getSingleUserByEmail(userEmail);
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      let chatHistoryRecord = await this.historyRepository.findOne({ user: user._id });
+      if (!chatHistoryRecord) {
+        chatHistoryRecord = new ChatHistoryModel({ user: user._id, chat_history: [] });
+      }
+
+      chatHistoryRecord.chat_history.push({ role: 'user', content: content });
+      chatHistoryRecord.chat_history.push({ role: 'assistant', content: completionText });
+
+      await chatHistoryRecord.save();
+
+      return completionText;
     } catch (error) {
       console.error('Error generating completion:', error.message);
     }
   }
-
-  /*
-  async listFineTuningJobs(limit: number = 10) {
-    try {
-      const page = await this.openai.fineTuning.jobs.list({ limit });
-      console.log('Fine-tuning jobs:', page);
-      return page;
-    } catch (error) {
-      console.error('Error listing fine-tuning jobs:', error.message);
-    }
-  }
-
-  async retrieveFineTuneJob(jobId: string) {
-    try {
-      const fineTune = await this.openai.fineTuning.jobs.retrieve(jobId);
-      console.log('Fine-tune job details:', fineTune);
-      return fineTune;
-    } catch (error) {
-      console.error('Error retrieving fine-tune job:', error.message);
-    }
-  }
-
-  async cancelFineTuneJob(jobId: string) {
-    try {
-      const status = await this.openai.fineTuning.jobs.cancel(jobId);
-      console.log('Cancelled fine-tune job status:', status);
-      return status;
-    } catch (error) {
-      console.error('Error cancelling fine-tune job:', error.message);
-    }
-  }
-
-  async listFineTuneJobEvents(jobId: string, limit: number = 10) {
-    try {
-      const events = await this.openai.fineTuning.jobs.listEvents(jobId, { limit });
-      console.log('Fine-tune job events:', events);
-      return events;
-    } catch (error) {
-      console.error('Error listing fine-tune job events:', error.message);
-    }
-  }
-
-    async deleteFineTunedModel(modelId: string) {
-      try {
-        const response = await this.openai.models.deleteModel({ id: modelId });
-        console.log('Deleted fine-tuned model:', response);
-        return response;
-      } catch (error) {
-        console.error('Error deleting fine-tuned model:', error.message);
-      }
-    }
-      */
 
 }

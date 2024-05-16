@@ -64,7 +64,6 @@ export const RatingSchema = new Schema({
     required: true,
     enum: Object.values(InterviewExperience),
   },
-  duration: { type: String },
   difficulty: {
     type: String,
     required: true,
@@ -90,7 +89,6 @@ export interface Rating extends Document {
   salary_and_benefits_comment: string; // poljuben komentar
   // razgovori
   experience: InterviewExperience; // izkušnja z intervjujem
-  duration: string; // trajanje postopka
   difficulty: InterviewDifficulty; // težavnost
   interviews_comment: string; // poljuben komentar
 }

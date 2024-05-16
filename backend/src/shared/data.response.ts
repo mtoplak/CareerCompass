@@ -59,7 +59,6 @@ export interface RatingResponse {
     bonuses: number;
     salary_and_benefits_comment: string;
     experience: InterviewExperience;
-    duration: string;
     difficulty: InterviewDifficulty;
     interviews_comment: string;
 }
