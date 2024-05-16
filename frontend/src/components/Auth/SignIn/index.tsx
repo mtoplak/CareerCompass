@@ -13,7 +13,6 @@ const Signin = () => {
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
-    checkboxToggle: false,
   });
 
   const [loading, setLoading] = useState(false);

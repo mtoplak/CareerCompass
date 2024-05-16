@@ -1,28 +1,48 @@
 "use client";
-import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Loader from "@/components/Common/Loader";
-import { api } from "@/constants";
 
 const ClaimCompanyProfile = () => {
   const router = useRouter();
-  const [loginData, setLoginData] = useState({
+  const [claimData, setClaimData] = useState({
     email: "",
     password: "",
-    checkboxToggle: false,
   });
-
   const [loading, setLoading] = useState(false);
 
   const claimCompany = async (e: any) => {
     e.preventDefault();
-
     setLoading(true);
-    //TODO fetch POST claim company, set company claimed & create firebase user
+
+    try {
+      const res = await fetch("/api/claim", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(claimData),
+      });
+
+      if (res.ok) {
+        toast.success(
+          "Na email naslov podjetja ste prejeli povezavo za potrditev računa!",
+        );
+        router.push("/prijava");
+      } else {
+        const error = await res.text();
+        toast.error(error);
+      }
+    } catch (err: any) {
+      console.log(err);
+      console.log(err.message);
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -69,7 +89,7 @@ const ClaimCompanyProfile = () => {
                     type="email"
                     placeholder="Email naslov podjetja"
                     onChange={(e) =>
-                      setLoginData({ ...loginData, email: e.target.value })
+                      setClaimData({ ...claimData, email: e.target.value })
                     }
                     className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
                   />
@@ -85,7 +105,7 @@ const ClaimCompanyProfile = () => {
                     type="password"
                     placeholder="Geslo"
                     onChange={(e) =>
-                      setLoginData({ ...loginData, password: e.target.value })
+                      setClaimData({ ...claimData, password: e.target.value })
                     }
                     className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
                   />
@@ -96,7 +116,7 @@ const ClaimCompanyProfile = () => {
                     type="submit"
                     className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-primary/90"
                   >
-                    Prijava {loading && <Loader />}
+                    Prevzemi {loading && <Loader />}
                   </button>
                 </div>
               </form>
