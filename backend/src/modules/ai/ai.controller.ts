@@ -11,33 +11,12 @@ export class AiController {
     return await this.aiService.checkComment(comment);
   }
 
-  @Post('/generate')
+  @Post()
   async generateCompletion(
+    @Body('userEmail') userEmail: string,
     @Body('content') content: string
-  ) {
-    return this.aiService.generateCompletion(content);
+  ): Promise<string> {
+    return this.aiService.generateCompletion(userEmail, content);
   }
-
-  /*
-    @Get('list-jobs/:limit')
-    async listJobs(@Param('limit') limit: number) {
-      return this.aiService.listFineTuningJobs(limit);
-    }
-  
-    @Get('retrieve-job/:jobId')
-    async retrieveJob(@Param('jobId') jobId: string) {
-      return this.aiService.retrieveFineTuneJob(jobId);
-    }
-  
-    @Post('cancel-job/:jobId')
-    async cancelJob(@Param('jobId') jobId: string) {
-      return this.aiService.cancelFineTuneJob(jobId);
-    }
-  
-    @Get('list-events/:jobId/:limit')
-    async listEvents(@Param('jobId') jobId: string, @Param('limit') limit: number) {
-      return this.aiService.listFineTuneJobEvents(jobId, limit);
-    }
-  */
 
 }
