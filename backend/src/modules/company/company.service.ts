@@ -241,7 +241,7 @@ export class CompanyService {
       return {
         companies: companyDtos,
         count: totalCount,
-    };
+      };
     } catch (error) {
       console.error('Error executing query:', error);
       throw new NotFoundException('Could not get the companies from the database.');

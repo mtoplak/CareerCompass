@@ -7,7 +7,7 @@ import {
   Delete,
   Patch
 } from '@nestjs/common';
-import { JobAdvertisementResponse, SuccessResponse } from '../../shared/data.response';
+import { SuccessResponse } from '../../shared/data.response';
 import { JobAdvertisement } from '../../db/entities/job-advertisement.model';
 import { JobAdvertisementService } from './job-advertisement.service';
 import { CreateUpdateJobAdvertisementDto } from './create-update-job-advertisement.dto';
@@ -24,8 +24,20 @@ export class JobAdvertisementController {
   }
 
   @Get()
-  async getAllCompanies(): Promise<JobAdvertisementResponse[]> {
+  async getAllJobAdvertisements(): Promise<JobAdvertisement[]> {
     return await this.jobAdvertisementService.getAllJobAdvertisements();
+  }
+
+  @Get('/company/:slug')
+  async getJobsByCompany(
+    @Param('slug') slug: string,
+  ): Promise<JobAdvertisement[]> {
+    return await this.jobAdvertisementService.getAllJobsByCompany(slug);
+  }
+
+  @Get('/link')
+  async linkCompanies(): Promise<JobAdvertisement[]> {
+    return await this.jobAdvertisementService.linkCompanies();
   }
 
   @Get(':id')

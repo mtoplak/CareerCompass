@@ -3,9 +3,9 @@ import { Company } from './company.model';
 
 export const JobAdvertisementSchema = new Schema({
   position: { type: String, required: true },
-  description: { type: String, required: true },
+  description: { type: String, required: false },
   city: { type: String, required: false },
-  company_linked: [{ type: Schema.Types.ObjectId, ref: 'Company' }],
+  company_linked: { type: Schema.Types.ObjectId, ref: 'Company' },
   company: { type: String },
   salary: { type: String },
   url: { type: String, required: false },
