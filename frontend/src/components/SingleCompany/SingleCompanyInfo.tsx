@@ -143,29 +143,35 @@ const SingleCompanyPage = async ({ company }: Props) => {
         <div className="mt-12">
           <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
           {company.ratings_count > 0 ? (
-        <>
-          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
-            <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
-            <GeneralAssessment company={company} />
-          </div>
-          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
-            <h2 className="mb-2 text-xl font-semibold">Plača in ugodnosti</h2>
-            <SaleryAndBenefits company={company} />
-          </div>
-          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
-            <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
-            <Interviews company={company} />
-          </div>
-        </>
-        ) : (
-          <div className="">
-            <p>To podjetje nima objavljenih ocen.
-            <Link href={`/ocenjevanje/${company.slug}`} className="ml-1 text-indigo-700 hover:underline">
-            Bodi prvi ki ga oceniš.
-            </Link>
-            </p>
-          </div>
-        )}
+            <>
+              <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+                <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
+                <GeneralAssessment company={company} />
+              </div>
+              <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+                <h2 className="mb-2 text-xl font-semibold">
+                  Plača in ugodnosti
+                </h2>
+                <SaleryAndBenefits company={company} />
+              </div>
+              <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+                <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
+                <Interviews company={company} />
+              </div>
+            </>
+          ) : (
+            <div className="">
+              <p>
+                To podjetje še ni bilo ocenjeno.
+                <Link
+                  href={`/ocenjevanje/${company.slug}`}
+                  className="ml-1 text-indigo-700 hover:underline"
+                >
+                  Bodi prvi ki ga oceniš.
+                </Link>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>

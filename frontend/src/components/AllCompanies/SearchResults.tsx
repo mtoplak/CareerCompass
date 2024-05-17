@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import CompanyPageJobs from "@/components/AllCompanies/CompanyPageJobs";
 import { api } from "@/constants";
 import CompanyFilter from "./CompanyFilter";
-import { Button, IconButton } from "@material-tailwind/react";
-import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import NoProduct from "../NotFound/NoProduct";
 
 const SearchResults = () => {
@@ -44,16 +42,12 @@ const SearchResults = () => {
         const response = await fetch(
           `${api}/company/searchPaginated?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}`,
         );
-        const res = await fetch(
-          `${api}/company/search?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}`,
-        );
-        const vsi = await res.json();
-        setNoOfPages(Math.ceil(vsi.length / 28));
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        setCompanies(data);
+        setNoOfPages(Math.ceil(data.count / 28));
+        setCompanies(data.companies);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -76,7 +70,7 @@ const SearchResults = () => {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      setCompanies(data);
+      setCompanies(data.companies);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -101,7 +95,7 @@ const SearchResults = () => {
         ocena={ocena}
       />
       {!isLoading ? (
-        <CompanyPageJobs companies={companies} />
+        <CompanyPageJobs companies={companies} noOfPages={noOfPages} />
       ) : (
         <div className="flex items-center justify-center bg-gray-1 pb-20">
           <div role="status">
@@ -125,42 +119,7 @@ const SearchResults = () => {
           </div>
         </div>
       )}
-      {!isLoading && companies.length === 0 ? (
-        <NoProduct />
-      ) : (
-        noOfPages > 1 && (
-          <div className="gap-13 flex h-full items-center items-center justify-center bg-gray-1 pb-12 dark:bg-dark-2">
-            <Button
-              variant="text"
-              className="flex items-center gap-2 dark:text-white"
-              onClick={prev}
-              disabled={active === 1}
-            >
-              <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Nazaj
-            </Button>
-            <div className="flex items-center gap-2">
-              {Array.from({ length: noOfPages }, (_, index) => (
-                <IconButton
-                  {...getItemProps(index + 1)}
-                  key={index + 1}
-                  onClick={() => fetchPage(index + 1)}
-                >
-                  {index + 1}
-                </IconButton>
-              ))}
-            </div>
-            <Button
-              variant="text"
-              className="flex items-center gap-2 dark:text-white"
-              onClick={next}
-              disabled={active === 5}
-            >
-              Naprej
-              <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
-            </Button>
-          </div>
-        )
-      )}
+      {!isLoading && companies.length === 0 && <NoProduct />}
     </>
   );
 };
