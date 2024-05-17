@@ -1,7 +1,7 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
-import { JobAdvertisementResponse, SuccessResponse } from '../../shared/data.response';
+import { SuccessResponse } from '../../shared/data.response';
 import { JobAdvertisement } from '../../db/entities/job-advertisement.model';
 
 @Injectable()
@@ -19,12 +19,21 @@ export class JobAdvertisementRepository {
     }
   }
 
-  async find(jobAdvertisementsFilterQuery: FilterQuery<JobAdvertisement>): Promise<JobAdvertisementResponse[]> {
+  async find(): Promise<JobAdvertisement[]> {
     try {
       return await this.jobAdvertisementModel
-        .find(jobAdvertisementsFilterQuery);
+        .find();
     } catch (err) {
       throw new NotFoundException('Could not find job advertisements.');
+    }
+  }
+
+  async findBy(jobAdvertisementFilterQuery: FilterQuery<JobAdvertisement>): Promise<JobAdvertisement[]> {
+    try {
+      return await this.jobAdvertisementModel
+        .find(jobAdvertisementFilterQuery);
+    } catch (err) {
+      throw new NotFoundException('Could not find job advertisements by a company.');
     }
   }
 

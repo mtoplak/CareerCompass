@@ -11,7 +11,6 @@ export class CompanyDto {
   industry: Industry[];
   subindustry: string[];
   email: string;
-  claimed: boolean;
   avg_rating: number;
   ratings_count: number;
   avg_team: number;
@@ -31,4 +30,18 @@ export class CompanyDto {
   experience_percentage: { pozitivna: number, nevtralna: number, negativna: number };
   difficulty_distribution: { enostavno: number, srednje: number, težko: number };
   difficulty_percentage: { enostavno: number, srednje: number, težko: number };
+}
+
+export class CompanyDtoWithout {
+  id: string;
+  name: string;
+  address: string;
+  city: string;
+  logo: string;
+  slug: string;
+  website: string;
+  industry: Industry[];
+  subindustry: string[];
+  email: string;
+  avg_rating: number;
 }

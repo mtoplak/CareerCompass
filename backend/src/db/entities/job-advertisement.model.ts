@@ -3,9 +3,9 @@ import { Company } from './company.model';
 
 export const JobAdvertisementSchema = new Schema({
   position: { type: String, required: true },
-  description: { type: String, required: true },
+  description: { type: String, required: false },
   city: { type: String, required: false },
-  company_linked: [{ type: Schema.Types.ObjectId, ref: 'Company' }],
+  company_linked: { type: Schema.Types.ObjectId, ref: 'Company' },
   company: { type: String },
   salary: { type: String },
   url: { type: String, required: false },
@@ -13,12 +13,12 @@ export const JobAdvertisementSchema = new Schema({
 });
 
 export interface JobAdvertisement extends Document {
-  position: string; // delovno_mesto
+  position: string; // delovno mesto
   description: string; // opis
   city: string; // kraj
   company_linked: Company; // podjetje
   company: string; // podjetje
-  salary: string; // urna_postavka
+  salary: string; // placa
   url: string; // url do oglasa
   source: string; // vir
 }

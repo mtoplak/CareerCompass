@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Company } from '../../db/entities/company.model';
 import { AverageRating } from '../../db/entities/average-rating.model';
-import { CompanyDto } from './dto/company.dto';
+import { CompanyDto, CompanyDtoWithout } from './dto/company.dto';
 import { AverageRatingRepository } from '../average-rating/average-rating.repository';
 
 @Injectable()
@@ -18,7 +18,6 @@ export class CompanyMapper {
             industry: company.industry,
             subindustry: company.subindustry,
             email: company.email,
-            claimed: company.claimed,
             avg_rating: averageRating ? averageRating.avg_rating : 0,
             ratings_count: averageRating ? averageRating.ratings_count : 0,
             avg_team: averageRating ? averageRating.avg_team : 0,
@@ -39,6 +38,23 @@ export class CompanyMapper {
             difficulty_distribution: averageRating ? averageRating.difficulty_distribution : { enostavno: 0, srednje: 0, težko: 0 },
             difficulty_percentage: averageRating ? averageRating.difficulty_percentage : { enostavno: 0, srednje: 0, težko: 0 }
         } as CompanyDto;
+    }
+
+    
+    mapOneCompanyWithout(company: Company, averageRating: AverageRating | null): CompanyDtoWithout {
+        return {
+            id: company._id.toString(),
+            name: company.name,
+            address: company.address,
+            city: company.city,
+            logo: company.logo,
+            slug: company.slug,
+            website: company.website,
+            industry: company.industry,
+            subindustry: company.subindustry,
+            email: company.email,
+            avg_rating: averageRating ? averageRating.avg_rating : 0,
+        } as CompanyDtoWithout;
     }
 
     async mapManyCompanies(companies: Company[], averageRatingRepository: AverageRatingRepository): Promise<CompanyDto[]> {

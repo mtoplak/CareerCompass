@@ -9,10 +9,11 @@ import {
     Query,
 } from '@nestjs/common';
 import { SuccessResponse } from '../../shared/data.response';
-import { CompanyDto } from './dto/company.dto';
+import { CompanyDto, CompanyDtoWithout } from './dto/company.dto';
 import { CompanyService } from './company.service';
 import { SearchCompanyDto } from './dto/search-company.dto';
 import { UpdateCompanyDto } from './dto/update-company.dto';
+import { PaginatedCompaniesResponseDto } from './dto/paginated-company.dto';
 
 @Controller('/company')
 export class CompanyController {
@@ -31,7 +32,7 @@ export class CompanyController {
     async getAllPaginatedCompanies(
         @Query('page') page: string,
         @Query('size') size: string
-    ): Promise<CompanyDto[]> {
+    ): Promise<PaginatedCompaniesResponseDto> {
         const pageNum = parseInt(page, 10) || 1;
         const sizeNum = parseInt(size, 10) || 28;
 
@@ -40,7 +41,7 @@ export class CompanyController {
 
     @Get()
     async getAllCompanies(
-    ): Promise<CompanyDto[]> {
+    ): Promise<CompanyDtoWithout[]> {
         return await this.companyService.getAllCompanies();
     }
 
@@ -50,7 +51,7 @@ export class CompanyController {
     }
 
     @Get('/best')
-    async getFourBest(): Promise<CompanyDto[]> {
+    async getFourBest(): Promise<CompanyDtoWithout[]> {
         return await this.companyService.getFourBestCompanies();
     }
 
@@ -59,7 +60,7 @@ export class CompanyController {
         @Query() searchDto: SearchCompanyDto,
         @Query('page') page: string,
         @Query('size') size: string
-    ): Promise<CompanyDto[]> {
+    ): Promise<PaginatedCompaniesResponseDto> {
         const pageNum = parseInt(page, 10) || 1;
         const sizeNum = parseInt(size, 10) || 28;
 
@@ -69,7 +70,7 @@ export class CompanyController {
     @Get('/search')
     async getCompaniesByCriteria(
         @Query() searchDto: SearchCompanyDto,
-    ): Promise<CompanyDto[]> {
+    ): Promise<CompanyDtoWithout[]> {
         return await this.companyService.getCompaniesByCriteria(searchDto);
     }
 
@@ -96,6 +97,11 @@ export class CompanyController {
         @Body('email') email: string,
     ): Promise<SuccessResponse> {
         return await this.companyService.checkEmail(email);
+    }
+
+    @Get('/count')
+    async getCount(): Promise<number> {
+        return await this.companyService.countCompanies();
     }
 
 }

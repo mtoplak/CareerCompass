@@ -12,6 +12,5 @@ export class CreateCompanyDto {
   industry: Industry[];
   subindustry: string[];
   email: string;
-  claimed: boolean;
   average: AverageRating;
 }

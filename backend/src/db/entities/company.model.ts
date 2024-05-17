@@ -3,9 +3,9 @@ import { Industry } from '../../enums/industry.enum';
 import { AverageRating } from './average-rating.model';
 
 export const CompanySchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, index: true },
   address: { type: String, required: true },
-  city: { type: String, required: true },
+  city: { type: String, required: true, index: true },
   logo: { type: String, required: true },
   slug: { type: String, required: false },
   website: { type: String, required: false },
@@ -13,10 +13,10 @@ export const CompanySchema = new Schema({
     type: String,
     required: true,
     enum: Object.values(Industry),
+    index: true
   }],
   subindustry: [{ type: String, required: true }],
   email: { type: String, required: false, lowercase: true },
-  claimed: { type: Boolean, required: true, default: false },
   average: { type: Schema.Types.ObjectId, ref: 'AverageRating', required: false },
 });
 
@@ -30,7 +30,6 @@ export interface Company extends Document {
   industry: Industry[], // panoga
   subindustry: string[],
   email: string, // email
-  claimed: boolean, // potrjeno
   average: AverageRating, // povprečna ocena
 }
 
