@@ -28,7 +28,7 @@ export class AiService {
       });
 
       let fullText = '';
-      if (response && response.choices && response.choices.length > 0) {
+      if (response?.choices?.length > 0) {
         fullText = response.choices[0].message.content.toLowerCase();
       }
 

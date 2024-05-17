@@ -3,7 +3,7 @@ const { resolve } = require("path");
 const OpenAI = require("openai");
 require("dotenv").config();
 
-openai = new OpenAI(process.env.OPENAI_API_KEY);
+const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
 async function uploadAndFineTune() {
   try {

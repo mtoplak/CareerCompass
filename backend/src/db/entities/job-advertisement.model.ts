@@ -13,12 +13,12 @@ export const JobAdvertisementSchema = new Schema({
 });
 
 export interface JobAdvertisement extends Document {
-  position: string; // delovno_mesto
+  position: string; // delovno mesto
   description: string; // opis
   city: string; // kraj
   company_linked: Company; // podjetje
   company: string; // podjetje
-  salary: string; // urna_postavka
+  salary: string; // placa
   url: string; // url do oglasa
   source: string; // vir
 }

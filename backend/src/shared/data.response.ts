@@ -20,7 +20,6 @@ export interface CompanyResponse {
     industry: Industry[];
     subindustry: string[];
     email: string;
-    claimed: boolean;
     avg_rating: AverageRating;
 }
 
