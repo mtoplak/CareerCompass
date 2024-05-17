@@ -64,6 +64,7 @@ const Header = () => {
                 {pathUrl !== "/" &&
                 pathUrl !== "/podjetja" &&
                 pathUrl !== "/prijava" &&
+                pathUrl !== "/zaposlitve" &&
                 pathUrl !== "/registracija" ? (
                   <>
                     <Image
@@ -120,10 +121,11 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? " top-[7px] rotate-45" : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/zaposlitve" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
                       (pathUrl === "/" ||
                         pathUrl === "/podjetja" ||
                         pathUrl === "/registracija" ||
+                        pathUrl === "/zaposlitve" ||
                         pathUrl === "/prijava") &&
                       sticky
                         ? "bg-dark dark:bg-white"
@@ -133,10 +135,11 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? "opacity-0 " : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/zaposlitve" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
                       (pathUrl === "/" ||
                         pathUrl === "/podjetja" ||
                         pathUrl === "/registracija" ||
+                        pathUrl === "/zaposlitve" ||
                         pathUrl === "/prijava") &&
                       sticky
                         ? "bg-dark dark:bg-white"
@@ -146,10 +149,11 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? " top-[-8px] -rotate-45" : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
+                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/zaposlitve" && pathUrl !== "/registracija" && "!bg-dark dark:!bg-white"} ${
                       (pathUrl === "/" ||
                         pathUrl === "/podjetja" ||
                         pathUrl === "/registracija" ||
+                        pathUrl === "/zaposlitve" ||
                         pathUrl === "/prijava") &&
                       sticky
                         ? "bg-dark dark:bg-white"
@@ -172,6 +176,7 @@ const Header = () => {
                           {pathUrl !== "/" &&
                           pathUrl !== "/podjetja" &&
                           pathUrl !== "/prijava" &&
+                          pathUrl !== "/zaposlitve" &&
                           pathUrl !== "/registracija" ? (
                             <Link
                               onClick={navbarToggleHandler}
@@ -206,6 +211,7 @@ const Header = () => {
                           {pathUrl !== "/" &&
                           pathUrl !== "/podjetja" &&
                           pathUrl !== "/prijava" &&
+                          pathUrl !== "/zaposlitve" &&
                           pathUrl !== "/registracija" ? (
                             <button
                               onClick={() => handleSubmenu(index)}
@@ -320,6 +326,7 @@ const Header = () => {
                           (pathUrl === "/" ||
                             pathUrl === "/podjetja" ||
                             pathUrl === "/registracija" ||
+                            pathUrl === "/zaposlitve" ||
                             pathUrl === "/prijava") &&
                           "text-white"
                         }`}
@@ -340,6 +347,7 @@ const Header = () => {
                           (pathUrl === "/" ||
                             pathUrl === "/podjetja" ||
                             pathUrl === "/registracija" ||
+                            pathUrl === "/zaposlitve" ||
                             pathUrl === "/prijava")
                             ? "text-white"
                             : "text-dark"
@@ -351,18 +359,19 @@ const Header = () => {
                     {(pathUrl !== "/" &&
                       pathUrl !== "/podjetja" &&
                       pathUrl !== "/prijava" &&
+                      pathUrl !== "/zaposlitve" &&
                       pathUrl !== "/registracija") ||
                     sticky ? (
                       <button
                         onClick={() => signOut()}
-                        className="signUpBtn rounded-lg bg-indigo-800 bg-opacity-100 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-20 hover:text-dark"
+                        className="px-6 py-3 text-base font-medium text-indigo-800 duration-300 ease-in-out hover:bg-opacity-20 hover:text-dark"
                       >
                         Odjava
                       </button>
                     ) : (
                       <button
                         onClick={() => signOut()}
-                        className="signUpBtn rounded-lg bg-white bg-opacity-20 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
+                        className="signUpBtn rounded-lg bg-white bg-opacity-10 px-6 py-3 text-base font-medium text-white duration-300 ease-in-out hover:bg-opacity-100 hover:text-dark"
                       >
                         Odjava
                       </button>
@@ -373,6 +382,7 @@ const Header = () => {
                     {pathUrl !== "/" &&
                     pathUrl !== "/podjetja" &&
                     pathUrl !== "/prijava" &&
+                    pathUrl !== "/zaposlitve" &&
                     pathUrl !== "/registracija" ? (
                       <>
                         <Link

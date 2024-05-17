@@ -17,6 +17,18 @@ type Props = {
   company: Company;
 };
 
+const getRatingText = (count: number) => {
+  if (count === 1) {
+    return `${count} ocena`;
+  } else if (count === 2) {
+    return `${count} oceni`;
+  } else if (count > 2 && count < 5) {
+    return `${count} ocene`;
+  } else {
+    return `${count} ocen`;
+  }
+};
+
 const SingleCompanyPage = async ({ company }: Props) => {
   return (
     <div className="container mx-auto py-8 pt-[120px]">
@@ -58,7 +70,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
                   {stars(company.avg_rating)}
                 </div>
                 <p className="text-sm font-bold text-gray-600 dark:text-gray-300">
-                  Število ocen: {company.ratings_count}
+                  {getRatingText(company.ratings_count)}
                 </p>
               </>
             )}
@@ -75,7 +87,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
       </div>
       <div className="my-10 border-t border-gray-300"></div>
       <div className="mt-10">
-        <div className="container flex flex-col rounded-xl bg-sky-100 py-4 dark:bg-sky-900 lg:flex-row lg:items-center lg:justify-between">
+        <div className="container flex flex-col rounded-xl bg-indigo-100 py-4 dark:bg-sky-900 lg:flex-row lg:items-center lg:justify-between">
           <div className="mb-2 flex items-center lg:mb-0">
             <Image
               src="/images/icons/email.png"
@@ -85,7 +97,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
               sizes="100vw"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-sky-700 dark:text-sky-300">
+            <p className="text-indigo-700 dark:text-sky-300">
               <a href={`mailto:${company.email}`}>{company.email}</a>
             </p>
           </div>
@@ -98,7 +110,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
               sizes="100vw"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-sky-700 dark:text-sky-300">
+            <p className="text-indigo-700 dark:text-sky-300">
               <a
                 href={`https://www.google.com/maps/search/${company.address + " " + company.city}`}
               >
@@ -117,7 +129,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
                   sizes="100vw"
                   className="mr-2 h-6 w-6"
                 />
-                <p className="text-sky-700 dark:text-sky-300">
+                <p className="text-indigo-700 dark:text-sky-300">
                   <a href={company.website}>{company.website}</a>
                 </p>
               </>
@@ -130,6 +142,8 @@ const SingleCompanyPage = async ({ company }: Props) => {
         </div>
         <div className="mt-12">
           <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
+          {company.ratings_count > 0 ? (
+        <>
           <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
             <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
             <GeneralAssessment company={company} />
@@ -142,6 +156,16 @@ const SingleCompanyPage = async ({ company }: Props) => {
             <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
             <Interviews company={company} />
           </div>
+        </>
+        ) : (
+          <div className="">
+            <p>To podjetje nima objavljenih ocen.
+            <Link href={`/ocenjevanje/${company.slug}`} className="ml-1 text-indigo-700 hover:underline">
+            Bodi prvi ki ga oceniš.
+            </Link>
+            </p>
+          </div>
+        )}
         </div>
       </div>
     </div>
