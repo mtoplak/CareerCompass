@@ -16,8 +16,7 @@ const stars = (rating: number) => {
     starIcons.push(
       <span key="half" className="star">
         <span
-          className="mr-1 text-yellow-400"
-          style={{ display: "inline-block", width: "12px", overflow: "hidden", fontSize: "24px" }}
+          className="mr-1 text-yellow-400" style={{ fontSize: "24px" }}
         >
           &#9733;
         </span>

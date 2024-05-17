@@ -22,7 +22,7 @@ export type Company = {
     avg_leadership: number;
     avg_benefits: number;
     avg_bonuses: number;
-    avg_duration: string[];
+
     general_assessment_comments: string[];
     salary_and_benefits_comments: string[];
     interviews_comments: string[];

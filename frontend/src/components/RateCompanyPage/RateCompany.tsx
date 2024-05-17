@@ -58,6 +58,19 @@ const RateCompany = ({ company }: Props) => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    for (const key in ratings) {
+      if (ratings[key as keyof typeof ratings] === 0) {
+        toast.error("Prosimo, ocenite vse kategorije.");
+        return;
+      }
+    }
+
+    if (!formData.experience || !formData.difficulty) {
+      toast.error("Prosimo, izberite izkušnjo in težavnost razgovora.");
+      return;
+    }
+
     try {
       const rating = { ...formData, ...ratings };
       const response = await fetch(`${api}/rating`, {
@@ -131,7 +144,7 @@ const RateCompany = ({ company }: Props) => {
                 </label>
                 <Rating
                   id="personal_development"
-                  value={0}
+                  value={ratings.personal_development}
                   onChange={(value) =>
                     handleChangeRating("personal_development", value)
                   }
@@ -153,7 +166,7 @@ const RateCompany = ({ company }: Props) => {
                 </label>
                 <Rating
                   id="flexibility"
-                  value={0}
+                  value={ratings.flexibility}
                   onChange={(value) => handleChangeRating("flexibility", value)}
                   className="text-yellow-400"
                   defaultValue={0}
@@ -171,7 +184,7 @@ const RateCompany = ({ company }: Props) => {
                 </label>
                 <Rating
                   id="work_life_balance"
-                  value={0}
+                  value={ratings.work_life_balance}
                   onChange={(value) =>
                     handleChangeRating("work_life_balance", value)
                   }
@@ -193,7 +206,7 @@ const RateCompany = ({ company }: Props) => {
                 </label>
                 <Rating
                   id="work_environment"
-                  value={0}
+                  value={ratings.work_environment}
                   onChange={(value) =>
                     handleChangeRating("work_environment", value)
                   }
@@ -213,7 +226,7 @@ const RateCompany = ({ company }: Props) => {
                 </label>
                 <Rating
                   id="leadership"
-                  value={0}
+                  value={ratings.leadership}
                   onChange={(value) => handleChangeRating("leadership", value)}
                   className="text-yellow-400"
                   defaultValue={0}
@@ -243,10 +256,10 @@ const RateCompany = ({ company }: Props) => {
               </div>
             </div>
           </div>
-          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between ">
             <h2 className="mb-2 text-xl font-semibold">Plače in ugodnosti</h2>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div className="mt-4">
+              <div>
                 <label
                   htmlFor="benefits"
                   className="text-md block font-semibold leading-6 text-gray-900"
@@ -255,7 +268,7 @@ const RateCompany = ({ company }: Props) => {
                 </label>
                 <Rating
                   id="benefits"
-                  value={0}
+                  value={ratings.benefits}
                   onChange={(value) => handleChangeRating("benefits", value)}
                   className="text-yellow-400"
                   defaultValue={0}
@@ -264,7 +277,7 @@ const RateCompany = ({ company }: Props) => {
                   onPointerLeaveCapture={() => {}}
                 />
               </div>
-              <div className="mt-4">
+              <div>
                 <label
                   htmlFor="bonuses"
                   className="text-md block font-semibold leading-6 text-gray-900"
@@ -273,7 +286,7 @@ const RateCompany = ({ company }: Props) => {
                 </label>
                 <Rating
                   id="bonuses"
-                  value={0}
+                  value={ratings.bonuses}
                   onChange={(value) => handleChangeRating("bonuses", value)}
                   className="text-yellow-400"
                   defaultValue={0}
@@ -283,24 +296,28 @@ const RateCompany = ({ company }: Props) => {
                 />
               </div>
             </div>
-            <div className="mt-4 sm:col-span-2">
+            <div className="mt-4">
               <label
                 htmlFor="remote_work"
                 className="text-md block font-semibold leading-6 text-gray-900"
               >
                 Delo na daljavo
               </label>
-              <div>
-                <div className="flex items-center gap-4">
-                  <input
-                    type="checkbox"
-                    id="remote_work"
-                    name="remote_work"
-                    checked={formData.remote_work}
-                    onChange={handleChange}
-                  />
-                  <label htmlFor="remote_work">Omogočeno</label>
-                </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  name="remote_work"
+                  id="remote_work"
+                  checked={formData.remote_work}
+                  onChange={handleChange}
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                />
+                <label
+                  htmlFor="remote_work"
+                  className="ml-3 block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Omogočeno
+                </label>
               </div>
             </div>
             <div className="mt-4 sm:col-span-2">
@@ -323,112 +340,125 @@ const RateCompany = ({ company }: Props) => {
               </div>
             </div>
           </div>
-          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
+          <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between ">
             <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>
-            <div className="mt-4 sm:col-span-2">
-              <label
-                htmlFor="duration"
-                className="text-md block font-semibold leading-6 text-gray-900"
-              >
-                Dolžina
-              </label>
-              <div>
-                <input
-                  type="text"
-                  name="duration"
-                  id="duration"
-                  autoComplete="organization"
-                  value={formData.duration}
-                  onChange={handleChange}
-                  className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-              <div className="mt-4">
-                <label
-                  htmlFor="interviewDifficulty"
-                  className="text-md block font-semibold leading-6 text-gray-900"
-                >
-                  Težavnost razgovora
-                </label>
-                <div>
-                  <div className="flex items-center gap-4">
-                    <input
-                      type="radio"
-                      id="interviewDifficultyEasy"
-                      name="interviewDifficulty"
-                      value="Enostavno"
-                      checked={interviewDifficulty === "Enostavno"}
-                      onChange={() => setInterviewDifficulty("Enostavno")}
-                      required
-                    />
-                    <label htmlFor="interviewDifficultyEasy">Enostavno</label>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <input
-                      type="radio"
-                      id="interviewDifficultyMedium"
-                      name="interviewDifficulty"
-                      value="Srednje"
-                      checked={interviewDifficulty === "Srednje"}
-                      onChange={() => setInterviewDifficulty("Srednje")}
-                    />
-                    <label htmlFor="interviewDifficultyMedium">Srednje</label>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <input
-                      type="radio"
-                      id="interviewDifficultyHard"
-                      name="interviewDifficulty"
-                      value="Težko"
-                      checked={interviewDifficulty === "Težko"}
-                      onChange={() => setInterviewDifficulty("Težko")}
-                    />
-                    <label htmlFor="interviewDifficultyHard">Težko</label>
-                  </div>
+            <fieldset>
+              <legend className="text-md font-semibold leading-6 text-gray-900">
+                Izkušnja z razgovori
+              </legend>
+              <div>
+                <div className="flex items-center gap-x-3">
+                  <input
+                    id="good"
+                    name="experience"
+                    type="radio"
+                    value="Pozitivna"
+                    checked={formData.experience === "Pozitivna"}
+                    onChange={handleChange}
+                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <label
+                    htmlFor="good"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Pozitivna
+                  </label>
                 </div>
-              </div>
-              <div className="mt-4">
-                <label className="text-md block font-semibold leading-6 text-gray-900">
-                  Izkušnja z razgovorom
-                </label>
-                <div>
-                  <div className="flex items-center gap-4">
-                    <input
-                      type="radio"
-                      id="positiveExperience"
-                      name="experience"
-                      value="Pozitivna"
-                      checked={experience === "Pozitivna"}
-                      onChange={() => setExperience("Pozitivna")}
-                    />
-                    <label htmlFor="positiveExperience">Pozitivna</label>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <input
-                      type="radio"
-                      id="neutralExperience"
-                      name="experience"
-                      value="Nevtralna"
-                      checked={experience === "Nevtralna"}
-                      onChange={() => setExperience("Nevtralna")}
-                    />
-                    <label htmlFor="neutralExperience">Nevtralna</label>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <input
+                <div className="flex items-center gap-x-3">
+                  <input
+                    id="neutral"
+                    name="experience"
+                    type="radio"
+                    value="Nevtralna"
+                    checked={formData.experience === "Nevtralna"}
+                    onChange={handleChange}
+                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <label
+                    htmlFor="neutral"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Nevtralna
+                  </label>
+                </div>
+                <div className="flex items-center gap-x-3">
+                  <input
                       type="radio"
                       id="negativeExperience"
                       name="experience"
                       value="Negativna"
-                      checked={experience === "Negativna"}
-                      onChange={() => setExperience("Negativna")}
-                    />
-                    <label htmlFor="negativeExperience">Negativna</label>
-                  </div>
+                      checked={formData.experience === "Negativna"}
+                      onChange={handleChange}
+                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <label
+                    htmlFor="negativeExperience"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Negativna
+                  </label>
                 </div>
               </div>
+            </fieldset>
+            <fieldset>
+              <legend className="text-md font-semibold leading-6 text-gray-900">
+                Težavnost
+              </legend>
+              <div>
+                <div className="flex items-center gap-x-3">
+                  <input
+                    id="easy"
+                    name="difficulty"
+                    type="radio"
+                    value="Enostavno"
+                    checked={formData.difficulty === "Enostavno"}
+                    onChange={handleChange}
+                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <label
+                    htmlFor="easy"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Enostavno
+                  </label>
+                </div>
+                <div className="flex items-center gap-x-3">
+                  <input
+                    id="medium"
+                    name="difficulty"
+                    type="radio"
+                    value="Srednje"
+                    checked={formData.difficulty === "Srednje"}
+                    onChange={handleChange}
+                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <label
+                    htmlFor="medium"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Srednje
+                  </label>
+                </div>
+                <div className="flex items-center gap-x-3">
+                  <input
+                    id="hard"
+                    name="difficulty"
+                    type="radio"
+                    value="Težko"
+                    checked={formData.difficulty === "Težko"}
+                    onChange={handleChange}
+                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <label
+                    htmlFor="hard"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Težko
+                  </label>
+                </div>
+              </div>
+            </fieldset>
             </div>
             <div className="mt-4 sm:col-span-2">
               <label
