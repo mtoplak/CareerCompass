@@ -1,8 +1,9 @@
 import SingleCompany from "../Common/SingleCompany";
-import { Company } from "@/types/company";
+import { JobAdvertisement } from "@/types/job";
+import SingleJob from "../SingleJob/SingleJob";
 
-const CompanyPageJobs = ({ companies }: { companies: Company[] }) => {
-  if (!companies) {
+const JobPage = ({ jobs }: { jobs: JobAdvertisement[] }) => {
+  if (!jobs) {
     return <div className="flex items-center justify-center bg-gray-1 pb-20">
     <div role="status">
       <svg
@@ -26,11 +27,11 @@ const CompanyPageJobs = ({ companies }: { companies: Company[] }) => {
   </div>;
   }
   return (
-    <section className="bg-gray-1 py-20 dark:bg-dark-2 md:py-[10px]">
+    <section className="bg-gray-1 py-20 dark:bg-dark-2">
       <div className="container px-4">
         <div className="mb-[50px] mt-[10px] flex flex-wrap gap-y-8">
-          {companies.map((company: Company) => (
-            <SingleCompany key={company.name} company={company} />
+          {jobs.map((job: JobAdvertisement) => (
+            <SingleJob key={job.position} job={job} />
           ))}
         </div>
       </div>
@@ -38,4 +39,4 @@ const CompanyPageJobs = ({ companies }: { companies: Company[] }) => {
   );
 };
 
-export default CompanyPageJobs;
+export default JobPage;
