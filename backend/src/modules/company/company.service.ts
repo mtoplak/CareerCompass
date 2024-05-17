@@ -52,7 +52,6 @@ export class CompanyService {
         general_assessment_comments: [],
         salary_and_benefits_comments: [],
         interviews_comments: [],
-        avg_duration: [],
         remote_work_distribution: {
           yes: 0,
           no: 0
@@ -187,21 +186,18 @@ export class CompanyService {
 
   async getFourBestCompanies(): Promise<CompanyDto[]> {
     try {
-      const companies = await this.companyRepository.findPaginated(
-        {},
-        { sort: { avg_rating: -1 }, limit: 4 }
-      );
+      const allCompanies = await this.companyRepository.findPaginated({});
 
-      const companyDtos = [];
-      for (const company of companies) {
+      const companyDtos = await Promise.all(allCompanies.map(async (company) => {
         const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
-        const companyDto = this.companyMapper.mapOneCompany(company, averageRating);
-        companyDtos.push(companyDto);
-      }
+        return this.companyMapper.mapOneCompany(company, averageRating);
+      }));
 
       companyDtos.sort((a, b) => (b.avg_rating ?? 0) - (a.avg_rating ?? 0));
-      return companyDtos;
+
+      return companyDtos.slice(0, 4);
     } catch (error) {
+      console.error('Error retrieving top companies:', error);
       throw new NotFoundException('Could not retrieve top companies.');
     }
   }
@@ -331,4 +327,3 @@ export class CompanyService {
   }
 
 }
-

@@ -25,7 +25,6 @@ export class CompanyDto {
   general_assessment_comments: string[];
   salary_and_benefits_comments: string[];
   interviews_comments: string[];
-  avg_duration: string[];
   remote_work_distribution: { yes: number, no: number };
   remote_work_percentage: { yes: number, no: number };
   experience_distribution: { pozitivna: number, nevtralna: number, negativna: number };

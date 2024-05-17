@@ -35,7 +35,6 @@ export class AverageRatingService {
         general_assessment_comments: [],
         salary_and_benefits_comments: [],
         interviews_comments: [],
-        avg_duration: [],
         remote_work_distribution: {
           yes: 0,
           no: 0
@@ -127,7 +126,6 @@ export class AverageRatingService {
       { comment: rating.general_assessment_comment, field: 'general_assessment_comment' },
       { comment: rating.salary_and_benefits_comment, field: 'salary_and_benefits_comment' },
       { comment: rating.interviews_comment, field: 'interviews_comment' },
-      { comment: rating.duration, field: 'duration' }
     ];
 
     for (const { comment, field } of commentCheckResults) {
@@ -171,6 +169,9 @@ export class AverageRatingService {
   }
 
   async checkAndAddComment(comment: string, commentsArray: string[]): Promise<boolean> {
+    if (!commentsArray) {
+      commentsArray = [];
+    }
     const isAppropriate = await this.aiService.checkComment(comment);
     if (isAppropriate) {
       commentsArray.push(comment);

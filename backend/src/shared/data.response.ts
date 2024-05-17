@@ -36,11 +36,12 @@ export interface JobAdvertisementResponse {
     id: string;
     position: string;
     description: string;
-    address: string;
     city: string;
     company_linked: Company;
-    company_nlinked: string;
+    company: string;
     hourly_rate: string;
+    url: string;
+    source: string;
 }
 
 export interface RatingResponse {
@@ -58,7 +59,6 @@ export interface RatingResponse {
     bonuses: number;
     salary_and_benefits_comment: string;
     experience: InterviewExperience;
-    duration: string;
     difficulty: InterviewDifficulty;
     interviews_comment: string;
 }

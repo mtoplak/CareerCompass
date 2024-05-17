@@ -32,7 +32,6 @@ export class CompanyMapper {
             general_assessment_comments: averageRating ? averageRating.general_assessment_comments : [],
             salary_and_benefits_comments: averageRating ? averageRating.salary_and_benefits_comments : [],
             interviews_comments: averageRating ? averageRating.interviews_comments : [],
-            avg_duration: averageRating ? averageRating.avg_duration : [],
             remote_work_distribution: averageRating ? averageRating.remote_work_distribution : { yes: 0, no: 0 },
             remote_work_percentage: averageRating ? averageRating.remote_work_percentage : { yes: 0, no: 0 },
             experience_distribution: averageRating ? averageRating.experience_distribution : { pozitivna: 0, nevtralna: 0, negativna: 0 },
