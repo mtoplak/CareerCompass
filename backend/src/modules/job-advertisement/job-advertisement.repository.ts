@@ -37,6 +37,14 @@ export class JobAdvertisementRepository {
     }
   }
 
+  async findFilters(filter: any, options: any = {}): Promise<JobAdvertisement[]> {
+    try {
+      return await this.jobAdvertisementModel.find(filter, null, options);
+    } catch (err) {
+      throw new NotFoundException('Error fetching companies.');
+    }
+  }
+
   async create(jobAdvertisement: JobAdvertisement): Promise<JobAdvertisement> {
     try {
       return await new this.jobAdvertisementModel(jobAdvertisement).save();
