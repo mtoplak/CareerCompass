@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const NoProduct = () => {
   return (
-    <section className="bg-gray-1 dark:bg-black pb-20 dark:bg-dark-2 lg:pb-[110px]">
+    <section className="bg-gray-1 pb-20 dark:bg-black dark:bg-dark-2 lg:pb-[110px]">
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4 md:w-5/12 lg:w-6/12">

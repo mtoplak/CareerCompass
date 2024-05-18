@@ -9,7 +9,6 @@ import NoProduct from "../NotFound/NoProduct";
 const SearchResults = () => {
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [active, setActive] = useState(1);
   const [noOfPages, setNoOfPages] = useState(0);
   const searchParams = useSearchParams();
 
@@ -17,23 +16,6 @@ const SearchResults = () => {
   const lokacija = searchParams.get("lokacija") || "";
   const dejavnost = searchParams.get("dejavnost") || "";
   const ocena = searchParams.get("ocena") || "";
-
-  const getItemProps = (index: any) => ({
-    className: `${active === index ? "bg-black text-white" : "bg-transparent text-gray-500"} flex items-center justify-center w-8 h-8`,
-    onClick: () => setActive(index),
-  });
-
-  const next = () => {
-    if (active === 5) return;
-    setActive(active + 1);
-    fetchPage(active + 1);
-  };
-
-  const prev = () => {
-    if (active === 1) return;
-    setActive(active - 1);
-    fetchPage(active - 1);
-  };
 
   useEffect(() => {
     const fetchCompanies = async () => {
@@ -58,33 +40,6 @@ const SearchResults = () => {
 
     return () => {};
   }, [ime, lokacija, dejavnost, ocena]);
-
-  const fetchPage = async (stran: number) => {
-    setActive(stran);
-    setIsLoading(true);
-    try {
-      const response = await fetch(
-        `${api}/company/searchPaginated?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}&page=${stran}`,
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await response.json();
-      setCompanies(data.companies);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    } finally {
-      scrollToTop();
-      setIsLoading(false);
-    }
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <>

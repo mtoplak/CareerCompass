@@ -11,12 +11,14 @@ import { AverageRatingModel } from '../../db/entities/average-rating.model';
 import { UpdateCompanyDto } from './dto/update-company.dto';
 import { CompanyDto, CompanyDtoWithout } from './dto/company.dto';
 import { PaginatedCompaniesResponseDto } from './dto/paginated-company.dto';
+import { JobAdvertisementRepository } from '../job-advertisement/job-advertisement.repository';
 
 @Injectable()
 export class CompanyService {
   constructor(private readonly companyRepository: CompanyRepository,
     private readonly companyMapper: CompanyMapper,
-    private readonly averageRatingRepository: AverageRatingRepository
+    private readonly averageRatingRepository: AverageRatingRepository,
+    private readonly jobsRepository: JobAdvertisementRepository
   ) { }
 
   async createCompany(companyData: CompanyDto): Promise<CompanyDto> {
@@ -87,7 +89,7 @@ export class CompanyService {
       createdCompany.average = createdAverageRating._id;
       await createdCompany.save();
 
-      return this.companyMapper.mapOneCompany(createdCompany, createdAverageRating);
+      return this.companyMapper.mapOneCompany(createdCompany, createdAverageRating, null);
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);
@@ -138,8 +140,9 @@ export class CompanyService {
       }
 
       const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
+      const jobs = await this.jobsRepository.findBy({ company_linked: company._id });
 
-      return this.companyMapper.mapOneCompany(company, averageRating);
+      return this.companyMapper.mapOneCompany(company, averageRating, jobs);
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);
@@ -155,8 +158,9 @@ export class CompanyService {
     }
 
     const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
+    const jobs = await this.jobsRepository.findBy({ company_linked: company._id });
 
-    return this.companyMapper.mapOneCompany(company, averageRating);
+    return this.companyMapper.mapOneCompany(company, averageRating, jobs);
   }
 
   async updateCompany(companyId: string, companyUpdates: UpdateCompanyDto): Promise<CompanyDto> {
@@ -172,8 +176,9 @@ export class CompanyService {
       );
 
       const averageRating = await this.averageRatingRepository.findOne({ company: companyId });
+      const jobs = await this.jobsRepository.findBy({ company_linked: companyId });
 
-      return this.companyMapper.mapOneCompany(updatedCompany, averageRating);
+      return this.companyMapper.mapOneCompany(updatedCompany, averageRating, jobs);
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);
