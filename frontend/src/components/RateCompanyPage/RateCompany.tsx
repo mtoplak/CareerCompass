@@ -41,8 +41,6 @@ const initialFormData = {
 
 const RateCompany = ({ company }: Props) => {
   const router = useRouter();
-  const [experience, setExperience] = useState("");
-  const [interviewDifficulty, setInterviewDifficulty] = useState("");
   const [formData, setFormData] = useState({
     company_slug: company.slug,
     ...initialFormData,

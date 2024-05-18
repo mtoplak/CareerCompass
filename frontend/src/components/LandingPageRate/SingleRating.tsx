@@ -1,5 +1,4 @@
 import { Feature } from "@/types/feature";
-import Link from "next/link";
 
 const SingleRating = ({ feature }: { feature: Feature }) => {
   const { icon, title, paragraph, btn, btnLink } = feature;

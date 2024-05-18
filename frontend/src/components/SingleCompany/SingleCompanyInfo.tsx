@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import SingleRating from "../Rating/SingleRating";
 import { Company } from "@/types/company";
 import stars from "../Common/Stars";
 import GeneralAssessment from "./GeneralAssessment";
@@ -167,7 +166,7 @@ const SingleCompanyPage = async ({ company }: Props) => {
                   href={`/ocenjevanje/${company.slug}`}
                   className="ml-1 text-indigo-700 hover:underline"
                 >
-                  Bodi prvi ki ga oceniš.
+                  Oceni ga.
                 </Link>
               </p>
             </div>

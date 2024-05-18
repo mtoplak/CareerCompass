@@ -1,4 +1,3 @@
-import SingleCompany from "../Common/SingleCompany";
 import { JobAdvertisement } from "@/types/job";
 import SingleJob from "../SingleJob/SingleJob";
 

@@ -5,6 +5,7 @@ const SingleJob = ({ job }: { job: any }) => {
     city,
     company,
     source,
+    url
   } = job;
 
   return (
@@ -25,7 +26,10 @@ const SingleJob = ({ job }: { job: any }) => {
           <div className="sm:ml-10 sm:mt-8">
             <p className="text-sm text-body-color dark:text-dark-6 mb-1"><b className="text-dark dark:text-light">Mesto: </b>{city}</p>
             <p className="text-sm text-body-color dark:text-dark-6 mb-1"><b className="text-dark dark:text-light">Podjetje: </b>{company}</p>
-            <p className="text-sm text-body-color dark:text-dark-6 mb-1"><b className="text-dark dark:text-light">Vir: </b>{source}</p>
+            <p className="text-sm text-body-color dark:text-dark-6 mb-1"><b className="text-dark dark:text-light">Vir: </b>
+            <a href={url} className="text-indigo-700 dark:text-indigo-300 underline underline-offset-1">
+                {source}
+              </a></p>
           </div>
         </div>
       </div>
