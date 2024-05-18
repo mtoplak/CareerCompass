@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import SingleCompanyPage from "@/components/SingleCompany/SingleCompanyInfo";
 import { api } from "@/constants";
 import ErrorPage from "@/app/not-found";
+import AddJobAdvertisementPage from "@/components/AddJobAdvertisement/AddJobAdvertisementPage";
 
 type Props = {
   params: { slug: string };
@@ -17,9 +17,9 @@ export async function generateMetadata({
   return {
     title:
       company.name != undefined
-        ? "Career Compass - " + company.name
-        : "Career Compass - Podjetje",
-    description: "Profil podjetja" + company.name,
+        ? "Career Compass - Dodaj zaposlitev " + company.name
+        : "Career Compass - Dodaj zaposlitev",
+    description: "Dodaj zaposlitev " + company.name,
   };
 }
 
@@ -32,14 +32,6 @@ async function getCompany(slug: string) {
   return company;
 }
 
-async function getJobAdvertisements(slug: string) {
-  const res = await fetch(`${api}/job/company/${slug}`, {
-    cache: "no-store",
-  });
-  const jobAdvertisements = await res.json();
-  return jobAdvertisements;
-}
-
 export default async function PodjetjePage({ params }: Props) {
   const company = await getCompany(params.slug);
 
@@ -47,7 +39,7 @@ export default async function PodjetjePage({ params }: Props) {
     return <ErrorPage what="Podjetje" />;
   }
 
-  const jobAdvertisements = await getJobAdvertisements(params.slug)
-
-  return <>{params && <SingleCompanyPage company={company} jobAdvertisements={jobAdvertisements} />}</>;
+  return <>
+  {params && <AddJobAdvertisementPage company={company}/>}
+  </>;
 }

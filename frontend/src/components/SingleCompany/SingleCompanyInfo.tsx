@@ -6,6 +6,8 @@ import GeneralAssessment from "./GeneralAssessment";
 import SaleryAndBenefits from "./SaleryAndBenefits";
 import Interviews from "./Interviews";
 import Link from "next/link";
+import { JobAdvertisement } from "@/types/job";
+import SingleJob from "../SingleJob/SingleJob";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -14,6 +16,7 @@ export const metadata: Metadata = {
 
 type Props = {
   company: Company;
+  jobAdvertisements: JobAdvertisement[];
 };
 
 const getRatingText = (count: number) => {
@@ -28,7 +31,8 @@ const getRatingText = (count: number) => {
   }
 };
 
-const SingleCompanyPage = async ({ company }: Props) => {
+const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
+  console.log(jobAdvertisements)
   return (
     <div className="container mx-auto py-8 pt-[120px]">
       <div className="flex flex-col items-center md:flex-row">
@@ -82,7 +86,14 @@ const SingleCompanyPage = async ({ company }: Props) => {
           >
             Oceni podjetje
           </Link>
+          <Link
+            href={`/dodaj-zaposlitev/${company.slug}`}
+            className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
+          >
+            Dodaj Zaposlitev
+          </Link>
         </div>
+        
       </div>
       <div className="my-10 border-t border-gray-300"></div>
       <div className="mt-10">
@@ -135,9 +146,17 @@ const SingleCompanyPage = async ({ company }: Props) => {
             )}
           </div>
         </div>
-        <div className="mt-20">
+        <div className="mt-20 ">
           <h2 className="mb-4 text-2xl font-semibold">Zaposlitve</h2>
-          Podjetje nima objavljenih zaposlitev.
+          <div className="mb-[50px] mt-[10px] flex flex-wrap gap-y-8">
+          {jobAdvertisements.length > 0 ? (
+            jobAdvertisements.map((job, index) => (
+              <SingleJob key={index} job={job} />
+            ))
+          ) : (
+            <p>Podjetje nima objavljenih zaposlitev.</p>
+          )}
+          </div>
         </div>
         <div className="mt-12">
           <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
