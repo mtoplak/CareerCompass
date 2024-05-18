@@ -50,10 +50,19 @@ export const programmingLanguages: languageMap = {
 export const generateRandomString = (length: number, lowercase = false) => {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXY3456789' // excluding similar looking characters like Z, 2, I, 1, O, 0
   let result = ''
+  
+  // Function to generate a cryptographically secure random number
+  const cryptoRandomNumber = () => {
+    const randomBuffer = new Uint32Array(1);
+    window.crypto.getRandomValues(randomBuffer);
+    return randomBuffer[0] / (0xffffffff + 1);
+  };
+
   for (let i = 0; i < length; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length))
+    const randomIndex = Math.floor(cryptoRandomNumber() * chars.length);
+    result += chars.charAt(randomIndex);
   }
-  return lowercase ? result.toLowerCase() : result
+  return lowercase ? result.toLowerCase() : result;
 }
 
 const CodeBlock: FC<Props> = memo(({ language, value }) => {

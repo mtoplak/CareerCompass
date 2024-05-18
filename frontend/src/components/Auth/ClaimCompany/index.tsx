@@ -81,7 +81,7 @@ const ClaimCompanyProfile = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="email"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Email
                   </label>
@@ -97,7 +97,7 @@ const ClaimCompanyProfile = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Geslo
                   </label>

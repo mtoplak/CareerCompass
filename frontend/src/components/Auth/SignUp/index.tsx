@@ -85,6 +85,12 @@ const SignUp = () => {
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-base text-dark dark:text-white"
+                  >
+                    Ime in priimek
+                  </label>
                   <input
                     type="text"
                     placeholder="Ime in priimek"
@@ -94,6 +100,12 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-base text-dark dark:text-white"
+                  >
+                    Email
+                  </label>
                   <input
                     type="email"
                     placeholder="Email"
@@ -103,6 +115,12 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="password"
+                    className="mb-2 block text-base text-dark dark:text-white"
+                  >
+                    Geslo
+                  </label>
                   <input
                     type="password"
                     placeholder="Geslo"

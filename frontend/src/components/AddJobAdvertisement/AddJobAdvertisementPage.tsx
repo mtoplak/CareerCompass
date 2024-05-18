@@ -1,30 +1,30 @@
-"use client"
-import { api } from '@/constants';
-import { Company } from '@/types/company';
-import React, { useState } from 'react';
+"use client";
+import { api } from "@/constants";
+import { Company } from "@/types/company";
+import React, { useState } from "react";
 
 type Props = {
-    company: Company;
-  };
+  company: Company;
+};
 
-  //bo treba popravit <333 TODO
+//bo treba popravit <333 TODO
 
-const AddJobAdvertisementPage= ({ company }: Props) =>  {
+const AddJobAdvertisementPage = ({ company }: Props) => {
   const [formData, setFormData] = useState({
-    position: '',
-    description: '',
-    city: '',
-    company_linked: '',
+    position: "",
+    description: "",
+    city: "",
+    company_linked: "",
     company: `${company.name}`,
     url: `${api}/podjetje/${company.slug}`,
-    source: 'Career Compass'
+    source: "Career Compass",
   });
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -32,29 +32,32 @@ const AddJobAdvertisementPage= ({ company }: Props) =>  {
     e.preventDefault();
     try {
       const response = await fetch(`${api}/job`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
       if (response.ok) {
-        alert('Job advertisement created successfully!');
+        alert("Job advertisement created successfully!");
       } else {
-        alert('Failed to create job advertisement.');
+        alert("Failed to create job advertisement.");
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again.');
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
     }
   };
 
   return (
-    <div className="max-w-4xl my-10 mx-auto mt-10 p-6 bg-white shadow-md rounded-lg mt-[100px]">
-      <h1 className="text-2xl font-bold mb-6">Dodaj zaposlitev</h1>
+    <div className="mx-auto my-10 mt-10 mt-[100px] max-w-4xl rounded-lg bg-white p-6 shadow-md">
+      <h1 className="mb-6 text-2xl font-bold">Dodaj zaposlitev</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="position" className="block text-gray-700 font-semibold mb-2">
+          <label
+            htmlFor="position"
+            className="mb-2 block font-semibold text-gray-700"
+          >
             Naziv:
           </label>
           <input
@@ -63,12 +66,15 @@ const AddJobAdvertisementPage= ({ company }: Props) =>  {
             name="position"
             value={formData.position}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full rounded-lg border px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="description" className="block text-gray-700 font-semibold mb-2">
+          <label
+            htmlFor="description"
+            className="mb-2 block font-semibold text-gray-700"
+          >
             Opis:
           </label>
           <textarea
@@ -76,12 +82,15 @@ const AddJobAdvertisementPage= ({ company }: Props) =>  {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="min-h-[100px] w-full rounded-lg border px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="city" className="block text-gray-700 font-semibold mb-2">
+          <label
+            htmlFor="city"
+            className="mb-2 block font-semibold text-gray-700"
+          >
             Lokacija:
           </label>
           <input
@@ -90,13 +99,13 @@ const AddJobAdvertisementPage= ({ company }: Props) =>  {
             name="city"
             value={formData.city}
             onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full rounded-lg border px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-indigo-500 text-white py-2 rounded-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full rounded-lg bg-indigo-500 py-2 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           Dodaj oglas
         </button>

@@ -73,15 +73,7 @@ export function PromptForm({
           toast(
             <div className="text-red-600">
               You have reached your message limit! Please try again later, or{" "}
-              <a
-                className="underline"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://vercel.com/templates/next.js/gemini-ai-chatbot"
-              >
-                deploy your own version
-              </a>
-              .
+              deploy your own version.
             </div>,
           );
         }
@@ -112,7 +104,7 @@ export function PromptForm({
           }}
         >
           <IconPlus />
-          <span className="sr-only">New Chat</span>
+          <span className="sr-only">Nov pogovor</span>
         </Button>
         {/* </TooltipTrigger>
           <TooltipContent>Add Attachments</TooltipContent>
@@ -142,10 +134,10 @@ export function PromptForm({
                 className="rounded-full bg-transparent text-zinc-950 shadow-none hover:bg-zinc-200"
               >
                 <IconArrowElbow />
-                <span className="sr-only">Send message</span>
+                <span className="sr-only">Pošlji sporočilo</span>
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Send message</TooltipContent>
+            <TooltipContent>Pošlji sporočilo</TooltipContent>
           </Tooltip>
         </div>
       </div>

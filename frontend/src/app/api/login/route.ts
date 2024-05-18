@@ -11,7 +11,6 @@ export async function POST(request: any) {
 
     try {
         const user = await signInUser(email, password);
-        console.log(user);
         if (!user.emailVerified) {
             return NextResponse.json({ error: "Email naslov ni potrjen!" }, { status: 403 });
         }
