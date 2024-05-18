@@ -3,10 +3,21 @@ import { Company } from '../../db/entities/company.model';
 import { AverageRating } from '../../db/entities/average-rating.model';
 import { CompanyDto, CompanyDtoWithout } from './dto/company.dto';
 import { AverageRatingRepository } from '../average-rating/average-rating.repository';
+import { JobAdvertisement } from '../../db/entities/job-advertisement.model';
 
 @Injectable()
 export class CompanyMapper {
-    mapOneCompany(company: Company, averageRating: AverageRating | null): CompanyDto {
+    
+    mapOneCompany(company: Company, averageRating: AverageRating | null, jobs: JobAdvertisement[] | null): CompanyDto {
+        const jobAdvertisements = jobs ? jobs.map(job => ({
+            position: job.position,
+            description: job.description,
+            city: job.city,
+            company: job.company,
+            url: job.url,
+            source: job.source
+        })) : null;
+    
         return {
             id: company._id.toString(),
             name: company.name,
@@ -36,11 +47,11 @@ export class CompanyMapper {
             experience_distribution: averageRating ? averageRating.experience_distribution : { pozitivna: 0, nevtralna: 0, negativna: 0 },
             experience_percentage: averageRating ? averageRating.experience_percentage : { pozitivna: 0, nevtralna: 0, negativna: 0 },
             difficulty_distribution: averageRating ? averageRating.difficulty_distribution : { enostavno: 0, srednje: 0, težko: 0 },
-            difficulty_percentage: averageRating ? averageRating.difficulty_percentage : { enostavno: 0, srednje: 0, težko: 0 }
+            difficulty_percentage: averageRating ? averageRating.difficulty_percentage : { enostavno: 0, srednje: 0, težko: 0 },
+            job_advertisements: jobAdvertisements
         } as CompanyDto;
     }
-
-    
+        
     mapOneCompanyWithout(company: Company, averageRating: AverageRating | null): CompanyDtoWithout {
         return {
             id: company._id.toString(),
@@ -57,12 +68,12 @@ export class CompanyMapper {
         } as CompanyDtoWithout;
     }
 
-    async mapManyCompanies(companies: Company[], averageRatingRepository: AverageRatingRepository): Promise<CompanyDto[]> {
+    async mapManyCompanies(companies: Company[], averageRatingRepository: AverageRatingRepository, jobs: JobAdvertisement[]): Promise<CompanyDto[]> {
         const companyDtos: CompanyDto[] = [];
 
         for (const company of companies) {
             const averageRating = await averageRatingRepository.findOne({ company: company._id });
-            const companyDto = this.mapOneCompany(company, averageRating);
+            const companyDto = this.mapOneCompany(company, averageRating, jobs);
             companyDtos.push(companyDto);
         }
 
