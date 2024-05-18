@@ -40,6 +40,35 @@ export class JobAdvertisementController {
     return await this.jobAdvertisementService.linkCompanies();
   }
 
+  @Get('/save/:jobId/:userEmail')
+  async saveJobsToUser(
+    @Param('jobId') jobId: string,
+    @Param('userEmail') userEmail: string,
+  ): Promise<SuccessResponse> {
+    return await this.jobAdvertisementService.saveJobAdToUser(jobId, userEmail);
+  }
+
+  @Get('/unsave/:jobId/:userEmail')
+  async unsaveJobsToUser(
+    @Param('jobId') jobId: string,
+    @Param('userEmail') userEmail: string,
+  ): Promise<SuccessResponse> {
+    return await this.jobAdvertisementService.unsaveJobAdToUser(jobId, userEmail);
+  }
+
+  @Get('/saved/:userEmail')
+  async getSavedJobsByUser(
+    @Param('userEmail') userEmail: string,
+  ): Promise<JobAdvertisement[]> {
+    return await this.jobAdvertisementService.getSavedJobsByUser(userEmail);
+  }
+
+  @Get('/popular')
+  async getPopularJobs(
+  ): Promise<JobAdvertisement[]> {
+    return await this.jobAdvertisementService.getPopularJobs();
+  }
+
   @Get(':id')
   async getSingleJobAdvertisement(@Param('id') id: string): Promise<JobAdvertisement> {
     return await this.jobAdvertisementService.getSingleJobAdvertisement(id);
