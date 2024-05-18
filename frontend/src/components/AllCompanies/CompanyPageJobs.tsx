@@ -94,7 +94,7 @@ const CompanyPageJobs = ({
           ))}
         </div>
         {noOfPages2 > 1 && (
-          <div className="gap-13 flex h-full items-center justify-center bg-gray-1 pb-12 dark:bg-dark-2">
+          <div className="mb-12 flex flex-wrap items-center justify-center gap-4 bg-gray-1 p-4 dark:bg-dark-2">
             <Button
               variant="text"
               className="flex items-center gap-2 dark:text-white"
@@ -106,7 +106,7 @@ const CompanyPageJobs = ({
             >
               <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Nazaj
             </Button>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-2">
               {Array.from({ length: noOfPages2 }, (_, index) => (
                 <IconButton
                   {...getItemProps(index + 1)}
