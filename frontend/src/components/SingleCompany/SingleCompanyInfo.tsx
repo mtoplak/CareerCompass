@@ -32,7 +32,7 @@ const getRatingText = (count: number) => {
 };
 
 const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
-  console.log(jobAdvertisements)
+  console.log(jobAdvertisements);
   return (
     <div className="container mx-auto py-8 pt-[120px]">
       <div className="flex flex-col items-center md:flex-row">
@@ -93,23 +93,26 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
             Dodaj Zaposlitev
           </Link>
         </div>
-        
       </div>
       <div className="my-10 border-t border-gray-300"></div>
       <div className="mt-10">
-        <div className="container flex flex-col rounded-xl bg-indigo-100 py-4 dark:bg-sky-900 lg:flex-row lg:items-center lg:justify-between">
+        <div className="container flex flex-col rounded-xl bg-indigo-100 px-6 py-4 dark:bg-sky-900 lg:flex-row lg:items-center lg:justify-between">
           <div className="mb-2 flex items-center lg:mb-0">
-            <Image
-              src="/images/icons/email.png"
-              alt="Email Icon"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="mr-2 h-6 w-6"
-            />
-            <p className="text-indigo-700 dark:text-sky-300">
-              <a href={`mailto:${company.email}`}>{company.email}</a>
-            </p>
+            {company.email && (
+              <>
+                <Image
+                  src="/images/icons/email.png"
+                  alt="Email Icon"
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="mr-2 h-6 w-6"
+                />
+                <p className="text-indigo-700 dark:text-sky-300">
+                  <a href={`mailto:${company.email}`}>{company.email}</a>
+                </p>
+              </>
+            )}
           </div>
           <div className="mb-2 flex items-center lg:mb-0">
             <Image
@@ -149,13 +152,13 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
         <div className="mt-20 ">
           <h2 className="mb-4 text-2xl font-semibold">Zaposlitve</h2>
           <div className="mb-[50px] mt-[10px] flex flex-wrap gap-y-8">
-          {jobAdvertisements.length > 0 ? (
-            jobAdvertisements.map((job, index) => (
-              <SingleJob key={index} job={job} />
-            ))
-          ) : (
-            <p>Podjetje nima objavljenih zaposlitev.</p>
-          )}
+            {jobAdvertisements.length > 0 ? (
+              jobAdvertisements.map((job, index) => (
+                <SingleJob key={index} job={job} />
+              ))
+            ) : (
+              <p>Podjetje nima objavljenih zaposlitev.</p>
+            )}
           </div>
         </div>
         <div className="mt-12">
@@ -185,7 +188,7 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
                   href={`/ocenjevanje/${company.slug}`}
                   className="ml-1 text-indigo-700 hover:underline"
                 >
-                  Oceni ga.
+                  Oceni ga prvi.
                 </Link>
               </p>
             </div>

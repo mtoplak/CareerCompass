@@ -7,9 +7,11 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialSignIn from "../SocialSignIn";
 import Loader from "@/components/Common/Loader";
+import { EyeNoneIcon, EyeOpenIcon } from "@radix-ui/react-icons";
 
 const Signin = () => {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -99,6 +101,12 @@ const Signin = () => {
 
               <form onSubmit={(e) => e.preventDefault()}>
                 <div className="mb-[22px]">
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-base text-dark dark:text-white"
+                  >
+                    Email
+                  </label>
                   <input
                     type="email"
                     placeholder="Email"
@@ -109,14 +117,30 @@ const Signin = () => {
                   />
                 </div>
                 <div className="mb-[22px]">
-                  <input
-                    type="password"
-                    placeholder="Geslo"
-                    onChange={(e) =>
-                      setLoginData({ ...loginData, password: e.target.value })
-                    }
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
+                  <label
+                    htmlFor="password"
+                    className="mb-2 text-base text-dark dark:text-white"
+                  >
+                    Geslo
+                  </label>
+                  <div className="relative flex-1">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="password"
+                      placeholder="Geslo"
+                      onChange={(e) =>
+                        setLoginData({ ...loginData, password: e.target.value })
+                      }
+                      className="placeholder-text-dark-6 w-full rounded-md border border-stroke bg-transparent px-5 py-3 pr-12 text-base text-dark outline-none transition focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                    />
+                    <span onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? (
+                        <EyeNoneIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
+                      ) : (
+                        <EyeOpenIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
+                      )}
+                    </span>
+                  </div>
                 </div>
                 <div className="mb-9">
                   <button

@@ -7,7 +7,7 @@ export function EmptyScreen() {
         </h1>
         <p className="leading-normal text-zinc-900">
           AI svetovalec vam bo pomagal pri kariernih vprašanjih. Začnite z
-          vprašanjem ali izberite eno od možnosti spodaj.
+          vprašanjem ali pa izberite eno od možnosti spodaj.
         </p>
       </div>
     </div>

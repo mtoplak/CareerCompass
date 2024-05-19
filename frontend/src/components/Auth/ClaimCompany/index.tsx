@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Loader from "@/components/Common/Loader";
+import { EyeNoneIcon, EyeOpenIcon } from "@radix-ui/react-icons";
 
 const ClaimCompanyProfile = () => {
   const router = useRouter();
@@ -13,6 +14,7 @@ const ClaimCompanyProfile = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const claimCompany = async (e: any) => {
     e.preventDefault();
@@ -81,7 +83,7 @@ const ClaimCompanyProfile = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="email"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Email
                   </label>
@@ -97,18 +99,27 @@ const ClaimCompanyProfile = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Geslo
                   </label>
-                  <input
-                    type="password"
-                    placeholder="Geslo"
-                    onChange={(e) =>
-                      setClaimData({ ...claimData, password: e.target.value })
-                    }
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
+                  <div className="relative flex-1">
+                    <input
+                      type="password"
+                      placeholder="Geslo"
+                      onChange={(e) =>
+                        setClaimData({ ...claimData, password: e.target.value })
+                      }
+                      className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                    />
+                    <span onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? (
+                        <EyeNoneIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
+                      ) : (
+                        <EyeOpenIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
+                      )}
+                    </span>
+                  </div>
                 </div>
                 <div className="mb-9">
                   <button

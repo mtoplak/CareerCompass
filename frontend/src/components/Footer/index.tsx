@@ -34,28 +34,28 @@ const Footer = () => {
               <h4 className="mb-9 text-lg font-semibold text-white">Razišči</h4>
               <ul>
                 <li>
-                  <a
+                  <Link
                     href="/podjetja"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Podjetja
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/#"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Zaposlitve
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/#"
+                  <Link
+                    href="/ai-svetovalec"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     AI svetovalec
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -67,28 +67,28 @@ const Footer = () => {
               </h4>
               <ul>
                 <li>
-                  <a
+                  <Link
                     href="/za-delodajalce/registracija"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Registracija
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/za-delodajalce/prevzemi"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Prevzem profila
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/za-delodajalce/objava"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Objava zaposlitve
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -100,20 +100,20 @@ const Footer = () => {
               </h4>
               <ul>
                 <li>
-                  <a
+                  <Link
                     href="/prijava"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Prijava
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/registracija"
                     className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
                   >
                     Registracija
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

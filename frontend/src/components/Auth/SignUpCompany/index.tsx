@@ -109,7 +109,7 @@ const SignUpCompany = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Ime podjetja
                   </label>
@@ -124,7 +124,7 @@ const SignUpCompany = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="address"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Naslov
                   </label>
@@ -139,7 +139,7 @@ const SignUpCompany = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="city"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Mesto
                   </label>
@@ -154,7 +154,7 @@ const SignUpCompany = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="email"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Email
                   </label>
@@ -169,7 +169,7 @@ const SignUpCompany = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="website"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Spletna stran
                   </label>
@@ -183,13 +183,13 @@ const SignUpCompany = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="industry"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Dejavnost
                   </label>
                   <select
                     name="industry"
-                    className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none md:col-span-1 lg:col-span-3"
+                    className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none dark:border-dark-3 dark:bg-gray-800 dark:focus:border-primary md:col-span-1 lg:col-span-3"
                     onChange={(e) =>
                       setSelectedIndustry(e.target.value as Industry)
                     }
@@ -201,13 +201,13 @@ const SignUpCompany = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="subindustry"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Poddejavnost
                   </label>
                   <select
                     name="subindustry"
-                    className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none md:col-span-1 lg:col-span-3"
+                    className="col-span-1 w-full rounded-md border px-5 py-3 focus:outline-none dark:border-dark-3 dark:bg-gray-800 dark:focus:border-primary md:col-span-1 lg:col-span-3"
                   >
                     <option value="">Poddejavnost</option>
                     {subindustryOptions}
@@ -216,21 +216,25 @@ const SignUpCompany = () => {
                 <div className="mb-[22px]">
                   <label
                     htmlFor="companyLogo"
-                    className="mb-2 block text-base text-dark"
+                    className="mb-2 block text-base text-dark dark:text-white"
                   >
                     Logotip podjetja
                   </label>
-                  <input
-                    id="companyLogo"
-                    type="file"
-                    placeholder="Logo podjetja"
-                    name="logo"
-                    accept="image/*"
-                    onChange={(e) =>
-                      e.target.files && setCompanyLogo(e.target.files[0])
-                    }
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
+                  <div className="relative">
+                    <input
+                      id="companyLogo"
+                      type="file"
+                      name="logo"
+                      accept="image/*"
+                      onChange={(e) =>
+                        e.target.files && setCompanyLogo(e.target.files[0])
+                      }
+                      className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                    />
+                    <div className="rounded-md border border-stroke bg-transparent px-5 py-3 text-left text-dark outline-none transition placeholder:text-dark-6 focus-within:border-primary dark:border-dark-3 dark:text-gray-400 dark:focus-within:border-primary">
+                      {companyLogo ? companyLogo.name : "Izberi datoteko"}
+                    </div>
+                  </div>
                 </div>
                 <div className="mb-9">
                   <button
@@ -243,7 +247,7 @@ const SignUpCompany = () => {
               </form>
 
               <p className="text-body-secondary mb-4 text-base">
-                Z ustvarjanjem računa podjetja se strinjate z{" "}
+                Z ustvarjanjem računa podjetja se strinjate s{" "}
                 <a href="/#" className="text-primary hover:underline">
                   Politiko zasebnosti (GDPR)
                 </a>{" "}

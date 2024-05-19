@@ -1,4 +1,3 @@
-import ClaimCompanyProfile from "@/components/Auth/ClaimCompany";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import ForEmployers from "@/components/ForEmployers/ForEmployers";
 import { Metadata } from "next";

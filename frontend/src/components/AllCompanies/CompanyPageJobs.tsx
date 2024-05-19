@@ -44,7 +44,7 @@ const CompanyPageJobs = ({
   }, []);
 
   const getItemProps = (index: any) => ({
-    className: `${active === index ? "bg-black text-white" : "bg-transparent text-gray-500"} flex items-center justify-center w-8 h-8`,
+    className: `${active === index ? "bg-black" : "bg-transparent text-gray-500"} flex items-center justify-center w-8 h-8`,
     onClick: () => setActive(index),
   });
 
@@ -64,7 +64,7 @@ const CompanyPageJobs = ({
     setActive(stran);
     setIsLoading(true);
     try {
-      const response = await fetch(`${api}/company/pagination?page=1${stran}`);
+      const response = await fetch(`${api}/company/pagination?page=${stran}`);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -95,18 +95,18 @@ const CompanyPageJobs = ({
         </div>
         {noOfPages2 > 1 && (
           <div className="mb-12 flex flex-wrap items-center justify-center gap-4 bg-gray-1 p-4 dark:bg-dark-2">
-            <Button
-              variant="text"
-              className="flex items-center gap-2 dark:text-white"
-              onClick={prev}
-              disabled={active === 1}
-              placeholder={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            >
-              <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Nazaj
-            </Button>
             <div className="flex flex-wrap items-center justify-center gap-2">
+              <Button
+                variant="text"
+                className="flex items-center gap-2 dark:text-white"
+                onClick={prev}
+                disabled={active === 1}
+                placeholder={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
+                <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Nazaj
+              </Button>
               {Array.from({ length: noOfPages2 }, (_, index) => (
                 <IconButton
                   {...getItemProps(index + 1)}
@@ -115,23 +115,24 @@ const CompanyPageJobs = ({
                   placeholder={undefined}
                   onPointerEnterCapture={undefined}
                   onPointerLeaveCapture={undefined}
+                  className="text-center text-black dark:text-white"
                 >
                   {index + 1}
                 </IconButton>
               ))}
+              <Button
+                variant="text"
+                className="flex items-center gap-2 dark:text-white"
+                onClick={next}
+                disabled={active === noOfPages2}
+                placeholder={undefined}
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              >
+                Naprej
+                <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
+              </Button>
             </div>
-            <Button
-              variant="text"
-              className="flex items-center gap-2 dark:text-white"
-              onClick={next}
-              disabled={active === noOfPages2}
-              placeholder={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            >
-              Naprej
-              <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
-            </Button>
           </div>
         )}
       </div>
