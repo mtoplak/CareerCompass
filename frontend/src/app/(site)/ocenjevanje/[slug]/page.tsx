@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import SingleCompanyPage from "@/components/SingleCompany/SingleCompanyInfo";
 import { api } from "@/constants";
 import ErrorPage from "@/app/not-found";
 import RateCompany from "@/components/RateCompanyPage/RateCompany";
@@ -41,7 +40,5 @@ export default async function PodjetjePage({ params }: Props) {
     return <ErrorPage what="Podjetje" />;
   }
 
-  return <>
-  {params && <RateCompany company={company}/>}
-  </>;
+  return <>{params && <RateCompany company={company} />}</>;
 }

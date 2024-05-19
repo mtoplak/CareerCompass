@@ -5,8 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
 import menuData from "./menuData";
+
+const pathsToCheck = [
+  "/",
+  "/podjetja",
+  "/prijava",
+  "/za-delodajalce/registracija",
+  "/za-delodajalce/prevzemi",
+  "/zaposlitve",
+  "/za-delodajalce",
+  "/registracija",
+];
 
 const Header = () => {
   const { data: session } = useSession();
@@ -42,6 +52,12 @@ const Header = () => {
   };
 
   const { theme, setTheme } = useTheme();
+  const isNotInPaths = !pathsToCheck.includes(pathUrl);
+  const bgClass =
+    pathsToCheck.includes(pathUrl) && sticky
+      ? "bg-dark dark:bg-white"
+      : "bg-white";
+  const isTextWhitePath = !sticky && pathsToCheck.includes(pathUrl);
 
   return (
     <>
@@ -61,14 +77,7 @@ const Header = () => {
                   sticky ? "py-2" : "py-5"
                 } `}
               >
-                {pathUrl !== "/" &&
-                pathUrl !== "/podjetja" &&
-                pathUrl !== "/prijava" &&
-                pathUrl !== "/za-delodajalce/registracija" &&
-                pathUrl !== "/za-delodajalce/prevzemi" &&
-                pathUrl !== "/zaposlitve" &&
-                pathUrl !== "/za-delodajalce" &&
-                pathUrl !== "/registracija" ? (
+                {isNotInPaths ? (
                   <>
                     <Image
                       src={`/images/logo/logo-dark.png`}
@@ -124,53 +133,17 @@ const Header = () => {
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? " top-[7px] rotate-45" : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/zaposlitve" && pathUrl !== "/za-delodajalce/registracija" && pathUrl !== "/za-delodajalce/prevzemi" && pathUrl !== "/registracija" && pathUrl !== "/za-delodajalce" && "!bg-dark dark:!bg-white"} ${
-                      (pathUrl === "/" ||
-                        pathUrl === "/podjetja" ||
-                        pathUrl === "/registracija" ||
-                        pathUrl === "/zaposlitve" ||
-                        pathUrl === "/za-delodajalce/registracija" ||
-                        pathUrl === "/za-delodajalce/prevzemi" ||
-                        pathUrl === "/za-delodajalce" ||
-                        pathUrl === "/prijava") &&
-                      sticky
-                        ? "bg-dark dark:bg-white"
-                        : "bg-white"
-                    }`}
+                    } ${isNotInPaths} ${bgClass}`}
                   />
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? "opacity-0 " : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/zaposlitve" && pathUrl !== "/registracija" && pathUrl !== "/za-delodajalce/registracija" && pathUrl !== "/za-delodajalce/prevzemi" && pathUrl !== "/za-delodajalce" && "!bg-dark dark:!bg-white"} ${
-                      (pathUrl === "/" ||
-                        pathUrl === "/podjetja" ||
-                        pathUrl === "/registracija" ||
-                        pathUrl === "/zaposlitve" ||
-                        pathUrl === "/za-delodajalce" ||
-                        pathUrl === "/za-delodajalce/registracija" ||
-                        pathUrl === "/za-delodajalce/prevzemi" ||
-                        pathUrl === "/prijava") &&
-                      sticky
-                        ? "bg-dark dark:bg-white"
-                        : "bg-white"
-                    }`}
+                    } ${isNotInPaths} ${bgClass}`}
                   />
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
                       navbarOpen ? " top-[-8px] -rotate-45" : " "
-                    } ${pathUrl !== "/" && pathUrl !== "/podjetja" && pathUrl !== "/prijava" && pathUrl !== "/zaposlitve" && pathUrl !== "/za-delodajalce/registracija" && pathUrl !== "/za-delodajalce/prevzemi" && pathUrl !== "/registracija" && pathUrl !== "/za-delodajalce" && "!bg-dark dark:!bg-white"} ${
-                      (pathUrl === "/" ||
-                        pathUrl === "/podjetja" ||
-                        pathUrl === "/registracija" ||
-                        pathUrl === "/zaposlitve" ||
-                        pathUrl === "/za-delodajalce" ||
-                        pathUrl === "/za-delodajalce/registracija" ||
-                        pathUrl === "/za-delodajalce/prevzemi" ||
-                        pathUrl === "/prijava") &&
-                      sticky
-                        ? "bg-dark dark:bg-white"
-                        : "bg-white"
-                    }`}
+                    } ${isNotInPaths} ${bgClass}`}
                   />
                 </button>
                 <nav
@@ -185,14 +158,7 @@ const Header = () => {
                     {menuData.map((menuItem, index) =>
                       menuItem.path ? (
                         <li key={index} className="group relative">
-                          {pathUrl !== "/" &&
-                          pathUrl !== "/podjetja" &&
-                          pathUrl !== "/prijava" &&
-                          pathUrl !== "/za-delodajalce/registracija" &&
-                          pathUrl !== "/za-delodajalce/prevzemi" &&
-                          pathUrl !== "/zaposlitve" &&
-                          pathUrl !== "/za-delodajalce" &&
-                          pathUrl !== "/registracija" ? (
+                          {isNotInPaths ? (
                             <Link
                               onClick={navbarToggleHandler}
                               scroll={false}
@@ -223,14 +189,7 @@ const Header = () => {
                         </li>
                       ) : (
                         <li className="submenu-item group relative" key={index}>
-                          {pathUrl !== "/" &&
-                          pathUrl !== "/podjetja" &&
-                          pathUrl !== "/prijava" &&
-                          pathUrl !== "/za-delodajalce/registracija" &&
-                          pathUrl !== "/za-delodajalce/prevzemi" &&
-                          pathUrl !== "/zaposlitve" &&
-                          pathUrl !== "/za-delodajalce" &&
-                          pathUrl !== "/registracija" ? (
+                          {isNotInPaths ? (
                             <button
                               onClick={() => handleSubmenu(index)}
                               className={`ud-menu-scroll flex items-center justify-between py-2 text-base text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800 lg:inline-flex lg:px-0 lg:py-6`}
@@ -339,18 +298,7 @@ const Header = () => {
 
                       <svg
                         viewBox="0 0 23 23"
-                        className={`h-[30px] w-[30px] fill-current text-dark dark:hidden ${
-                          !sticky &&
-                          (pathUrl === "/" ||
-                            pathUrl === "/podjetja" ||
-                            pathUrl === "/registracija" ||
-                            pathUrl === "/za-delodajalce/registracija" ||
-                            pathUrl === "/za-delodajalce/prevzemi" ||
-                            pathUrl === "/zaposlitve" ||
-                            pathUrl === "/za-delodajalce" ||
-                            pathUrl === "/prijava") &&
-                          "text-white"
-                        }`}
+                        className={`h-[30px] w-[30px] fill-current text-dark dark:hidden ${isTextWhitePath ? "text-white" : ""}`}
                       >
                         <g clipPath="url(#clip0_40_125)">
                           <path d="M16.6111 15.855C17.591 15.1394 18.3151 14.1979 18.7723 13.1623C16.4824 13.4065 14.1342 12.4631 12.6795 10.4711C11.2248 8.47905 11.0409 5.95516 11.9705 3.84818C10.8449 3.9685 9.72768 4.37162 8.74781 5.08719C5.7759 7.25747 5.12529 11.4308 7.29558 14.4028C9.46586 17.3747 13.6392 18.0253 16.6111 15.855Z" />
@@ -363,32 +311,12 @@ const Header = () => {
                   <>
                     <div className="hidden items-center justify-end sm:flex lg:pr-0">
                       <p
-                        className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${
-                          !sticky &&
-                          (pathUrl === "/" ||
-                            pathUrl === "/podjetja" ||
-                            pathUrl === "/registracija" ||
-                            pathUrl === "/za-delodajalce/registracija" ||
-                            pathUrl === "/za-delodajalce/prevzemi" ||
-                            pathUrl === "/zaposlitve" ||
-                            pathUrl === "/za-delodajalce" ||
-                            pathUrl === "/prijava")
-                            ? "text-white"
-                            : "text-dark"
-                        }`}
+                        className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${bgClass}`}
                       >
                         {session?.user?.name}
                       </p>
                     </div>
-                    {(pathUrl !== "/" &&
-                      pathUrl !== "/podjetja" &&
-                      pathUrl !== "/prijava" &&
-                      pathUrl !== "/za-delodajalce/registracija" &&
-                      pathUrl !== "/za-delodajalce/prevzemi" &&
-                      pathUrl !== "/zaposlitve" &&
-                      pathUrl !== "/za-delodajalce" &&
-                      pathUrl !== "/registracija") ||
-                    sticky ? (
+                    {isNotInPaths || sticky ? (
                       <button
                         onClick={() => signOut()}
                         className="px-6 py-3 text-base font-medium text-indigo-800 duration-300 ease-in-out hover:bg-opacity-20 hover:text-dark"
@@ -406,14 +334,7 @@ const Header = () => {
                   </>
                 ) : (
                   <>
-                    {pathUrl !== "/" &&
-                    pathUrl !== "/podjetja" &&
-                    pathUrl !== "/prijava" &&
-                    pathUrl !== "/za-delodajalce/registracija" &&
-                    pathUrl !== "/za-delodajalce/prevzemi" &&
-                    pathUrl !== "/zaposlitve" &&
-                    pathUrl !== "/za-delodajalce" &&
-                    pathUrl !== "/registracija" ? (
+                    {isNotInPaths ? (
                       <>
                         <Link
                           href="/prijava"

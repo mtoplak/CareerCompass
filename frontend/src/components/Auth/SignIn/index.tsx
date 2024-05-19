@@ -7,9 +7,11 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialSignIn from "../SocialSignIn";
 import Loader from "@/components/Common/Loader";
+import { EyeNoneIcon, EyeOpenIcon } from "@radix-ui/react-icons";
 
 const Signin = () => {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -123,7 +125,7 @@ const Signin = () => {
                   </label>
                   <div className="relative flex-1">
                     <input
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       id="password"
                       placeholder="Geslo"
                       onChange={(e) =>
@@ -131,25 +133,13 @@ const Signin = () => {
                       }
                       className="placeholder-text-dark-6 w-full rounded-md border border-stroke bg-transparent px-5 py-3 pr-12 text-base text-dark outline-none transition focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
                     />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="pointer-events-none absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform text-gray-400 dark:text-gray-600"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                      />
-                    </svg>
+                    <span onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? (
+                        <EyeNoneIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
+                      ) : (
+                        <EyeOpenIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
+                      )}
+                    </span>
                   </div>
                 </div>
                 <div className="mb-9">

@@ -6,10 +6,12 @@ import toast from "react-hot-toast";
 import SocialSignIn from "../SocialSignIn";
 import { useState } from "react";
 import Loader from "@/components/Common/Loader";
+import { EyeNoneIcon, EyeOpenIcon } from "@radix-ui/react-icons";
 
 const SignUp = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -121,13 +123,22 @@ const SignUp = () => {
                   >
                     Geslo
                   </label>
-                  <input
-                    type="password"
-                    placeholder="Geslo"
-                    name="password"
-                    required
-                    className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-                  />
+                  <div className="relative flex-1">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Geslo"
+                      name="password"
+                      required
+                      className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+                    />
+                    <span onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? (
+                        <EyeNoneIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
+                      ) : (
+                        <EyeOpenIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
+                      )}
+                    </span>
+                  </div>
                 </div>
                 <div className="mb-9">
                   <button

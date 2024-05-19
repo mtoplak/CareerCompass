@@ -2,12 +2,13 @@
 import { api } from "@/constants";
 import { Company } from "@/types/company";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 type Props = {
   company: Company;
 };
 
-//bo treba popravit <333 TODO
+//bo treba popravit </333 TODO
 
 const AddJobAdvertisementPage = ({ company }: Props) => {
   const [formData, setFormData] = useState({
@@ -39,13 +40,13 @@ const AddJobAdvertisementPage = ({ company }: Props) => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        alert("Job advertisement created successfully!");
+        toast.success("Job advertisement created successfully!");
       } else {
-        alert("Failed to create job advertisement.");
+        toast.error("Failed to create job advertisement.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      toast.error("Failed to create job advertisement.");
     }
   };
 
