@@ -28,9 +28,14 @@ export class ChatHistoryController {
     return await this.chatHistoryService.getAllChatHistories();
   }
 
-  @Get(':id')
+  @Get('/get/:id')
   async getSingleChatHistory(@Param('id') id: string): Promise<ChatHistory> {
     return await this.chatHistoryService.getSingleChatHistory(id);
+  }
+
+  @Get(':userEmail')
+  async getChatHistoryByUser(@Param('userEmail') userEmail: string): Promise<ChatHistory> {
+    return await this.chatHistoryService.getChatHistoryByUser(userEmail);
   }
 
   @Patch(':id')

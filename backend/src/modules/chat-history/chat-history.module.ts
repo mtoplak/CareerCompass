@@ -5,6 +5,7 @@ import { UserSchema } from "../../db/entities/user.model";
 import { ChatHistoryController } from "./chat-history.controller";
 import { ChatHistoryService } from "./chat-history.service";
 import { ChatHistoryRepository } from "./chat-history.repository";
+import { UserRepository } from "../user/user.repository";
 
 @Module({
     imports: [
@@ -12,7 +13,7 @@ import { ChatHistoryRepository } from "./chat-history.repository";
         MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
     ],
     controllers: [ChatHistoryController],
-    providers: [ChatHistoryService, ChatHistoryRepository]
+    providers: [ChatHistoryService, ChatHistoryRepository, UserRepository]
 })
 
 export class ChatHistoryModule {
