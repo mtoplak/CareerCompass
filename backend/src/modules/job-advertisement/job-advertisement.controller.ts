@@ -63,10 +63,11 @@ export class JobAdvertisementController {
     return await this.jobAdvertisementService.getSavedJobsByUser(userEmail);
   }
 
-  @Get('/popular')
+  @Post('/popular')
   async getPopularJobs(
+    @Body('userEmail') userEmail: string | null,
   ): Promise<JobAdvertisement[]> {
-    return await this.jobAdvertisementService.getPopularJobs();
+    return await this.jobAdvertisementService.getPopularJobs(userEmail);
   }
 
   @Get(':id')

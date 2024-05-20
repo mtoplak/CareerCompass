@@ -16,6 +16,13 @@ export class JobAdvertisementService {
 
   async createJobAdvertisement(jobAdvertisementData: CreateUpdateJobAdvertisementDto): Promise<JobAdvertisement> {
     try {
+      const companyName = jobAdvertisementData.company.trim();
+      const company = await this.companyRepository.findOne({ name: { $regex: new RegExp(`^${companyName}$`, 'i') } });
+      if (!company) {
+        throw new NotFoundException('Company not found');
+      }
+
+      jobAdvertisementData.company_linked = company._id;
       return await this.jobAdvertisementRepository.create(jobAdvertisementData);
     } catch (error) {
       if (error instanceof NotFoundException) {
@@ -119,11 +126,11 @@ export class JobAdvertisementService {
         throw new Error('Job Advertisement not found');
       }
 
-      if (!user.saved_advertisements.includes(jobAd._id)) {
+      if (!user.saved_advertisements.some(ad => ad.equals(jobAd._id))) {
         user.saved_advertisements.push(jobAd);
         await user.save();
         return { success: true };
-      } else if (user.saved_advertisements.includes(jobAd._id)) {
+      } else {
         return { success: false };
       }
 
@@ -146,7 +153,7 @@ export class JobAdvertisementService {
       throw new NotFoundException('Job Advertisement not found');
     }
 
-    const jobIndex = user.saved_advertisements.indexOf(jobAd._id);
+    const jobIndex = user.saved_advertisements.findIndex(ad => ad.equals(jobAd._id));
     if (jobIndex !== -1) {
       user.saved_advertisements.splice(jobIndex, 1);
       await user.save();
@@ -167,12 +174,55 @@ export class JobAdvertisementService {
     return savedJobs;
   }
 
-  async getPopularJobs(): Promise<JobAdvertisement[]> {
+  async getPopularJobs(email: string | null): Promise<JobAdvertisement[]> {
     try {
-      return await this.jobAdvertisementRepository.findFilters({}, {
-        limit: 8,
-        sort: { _id: -1 },
-      });
+      let jobs = [];
+      let excludedJobIds = [];
+
+      if (email) {
+        const user = await this.userRepository.findOne({ email });
+        if (!user) {
+          throw new NotFoundException('User not found');
+        }
+        if (user.saved_advertisements.length > 0) {
+          excludedJobIds = user.saved_advertisements.map(job => job._id.toString());
+
+          const validJobs = user.saved_advertisements.filter(job => job.company_linked);
+          const companyIds = validJobs.map(ad => ad.company_linked._id);
+          const companies = await this.companyRepository.findFilters({ _id: { $in: companyIds } });
+
+          const industries = new Set<string>();
+
+          companies.forEach(company => {
+            if (Array.isArray(company.industry)) {
+              company.industry.forEach(ind => industries.add(ind));
+            } else {
+              industries.add(company.industry);
+            }
+          });
+
+          if (industries.size > 0) {
+            jobs = await this.jobAdvertisementRepository.findFilters(
+              { 'company_linked': { $in: companyIds }, _id: { $nin: excludedJobIds } },
+              { limit: 8 }
+            );
+          }
+        }
+
+      }
+
+      if (jobs.length === 0) {
+        jobs = await this.jobAdvertisementRepository.findFilters({ _id: { $nin: excludedJobIds } }, {
+          limit: 8,
+          sort: { _id: -1 },
+        });
+      }
+
+      if (jobs.length === 0) {
+        throw new NotFoundException('No popular jobs found.');
+      }
+
+      return jobs;
     } catch (error) {
       throw error;
     }

@@ -13,7 +13,9 @@ export class UserRepository {
   async findOne(userFilterQuery: FilterQuery<User>): Promise<User> {
     try {
       return await this.userModel
-        .findOne(userFilterQuery);
+        .findOne(userFilterQuery)
+        .populate('saved_advertisements')
+        .exec();
     } catch (err) {
       throw new NotFoundException('Could not get the user.');
     }

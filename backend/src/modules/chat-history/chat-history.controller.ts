@@ -9,8 +9,9 @@ import {
 } from '@nestjs/common';
 import { SuccessResponse } from '../../shared/data.response';
 import { ChatHistoryService } from './chat-history.service';
-import { CreateUpdateChatHistoryDto } from './create-update-chat-history.dto';
+import { CreateUpdateChatHistoryDto } from './dto/create-update-chat-history.dto';
 import { ChatHistory } from '../../db/entities/chat-history.model';
+import { GetChatHistoryByUserDto } from './dto/chat-history-user.dto';
 
 @Controller('/history')
 export class ChatHistoryController {
@@ -28,14 +29,16 @@ export class ChatHistoryController {
     return await this.chatHistoryService.getAllChatHistories();
   }
 
-  @Get('/get/:id')
+  @Get('/:id')
   async getSingleChatHistory(@Param('id') id: string): Promise<ChatHistory> {
     return await this.chatHistoryService.getSingleChatHistory(id);
   }
 
-  @Get(':userEmail')
-  async getChatHistoryByUser(@Param('userEmail') userEmail: string): Promise<ChatHistory> {
-    return await this.chatHistoryService.getChatHistoryByUser(userEmail);
+  @Post("/user")
+  async getChatHistoryByUser(
+    @Body() getChatHistoryByUserDto: GetChatHistoryByUserDto
+  ): Promise<ChatHistory> {
+    return await this.chatHistoryService.getChatHistoryByUser(getChatHistoryByUserDto.email);
   }
 
   @Patch(':id')

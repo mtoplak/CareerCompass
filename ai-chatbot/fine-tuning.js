@@ -7,7 +7,7 @@ const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
 async function uploadAndFineTune() {
   try {
-    const prodFilePath = resolve(__dirname, "dataset_fixed.jsonl");
+    const prodFilePath = resolve(__dirname, "dataset.jsonl");
     const devFilePath = resolve(
       __dirname,
       "..",
@@ -15,7 +15,7 @@ async function uploadAndFineTune() {
       "src",
       "modules",
       "ai",
-      "dataset_fixed.jsonl"
+      "dataset.jsonl"
     );
     let filePath;
 

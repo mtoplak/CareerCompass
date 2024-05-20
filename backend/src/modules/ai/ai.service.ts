@@ -36,7 +36,6 @@ export class AiService {
       const doesContain = prohibitedContentIndicators.some(indicator =>
         fullText.includes(indicator));
 
-      console.log(fullText);
       return !doesContain;
     } catch (error) {
       console.error('Error checking comment:', error);

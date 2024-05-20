@@ -27,6 +27,14 @@ export class CompanyRepository {
     }
   }
 
+  async findFilters(filter: any, options: any = {}): Promise<Company[]> {
+    try {
+      return await this.companyModel.find(filter, null, options);
+    } catch (err) {
+      throw new NotFoundException('Error fetching companies.');
+    }
+  }
+
   async findPaginated(filter: any, options: any = {}): Promise<Company[]> {
     try {
       return await this.companyModel.find(filter, null, options);

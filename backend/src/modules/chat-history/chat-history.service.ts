@@ -3,7 +3,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { ChatHistory } from '../../db/entities/chat-history.model';
 import { SuccessResponse } from '../../shared/data.response';
 import { ChatHistoryRepository } from './chat-history.repository';
-import { CreateUpdateChatHistoryDto } from './create-update-chat-history.dto';
+import { CreateUpdateChatHistoryDto } from './dto/create-update-chat-history.dto';
 import { UserRepository } from '../user/user.repository';
 
 @Injectable()
