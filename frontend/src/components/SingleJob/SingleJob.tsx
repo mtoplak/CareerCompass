@@ -11,7 +11,7 @@ const SingleJob = ({ job }: { job: any }) => {
   return (
     <div className="w-full px-4 lg:w-1/2 xl:w-1/2">
     <div
-      className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none sm:h-[240px] sm:h-auto"
+      className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none sm:h-[260px] sm:h-auto"
     >
       <div className="flex flex-col sm:flex-row justify-between px-4">
         <div className="sm:w-3/5">

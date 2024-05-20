@@ -15,7 +15,7 @@ const CallToAction = () => {
                   Na voljo vam je AI-Svetovalec za delo. Na podlagi vaših specifikacij in želj vam predlaga morebitna delovna mesta, ki bi vas zanimala.
                 </p>
                 <Link
-                  href="/"
+                  href="/prijava"
                   className="inline-block rounded-md border border-transparent bg-indigo-800 px-7 py-3 text-base font-medium text-white transition hover:bg-indigo-950"
                 >
                   AI-Svetovalec

@@ -3,25 +3,26 @@ import { api } from "@/constants";
 import { Company } from "@/types/company";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 type Props = {
   company: Company;
 };
 
-//bo treba popravit </333 TODO
-
 const AddJobAdvertisementPage = ({ company }: Props) => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     position: "",
     description: "",
     city: "",
     company_linked: "",
     company: `${company.name}`,
-    url: `${api}/podjetje/${company.slug}`,
+    url: `/podjetje/${company.slug}`,
     source: "Career Compass",
   });
 
   const handleChange = (e: any) => {
+    console.log(e.target)
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -40,19 +41,21 @@ const AddJobAdvertisementPage = ({ company }: Props) => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        toast.success("Job advertisement created successfully!");
+        toast.success("Zaposlitveni oglas uspešno ustvarjen!");
+        router.push(`/podjetje/${company.slug}`);
       } else {
-        toast.error("Failed to create job advertisement.");
+        toast.error("Oglasa za delo ni bilo mogoče ustvariti.");
       }
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Failed to create job advertisement.");
+      toast.error("Oglasa za delo ni bilo mogoče ustvariti");
     }
   };
 
   return (
-    <div className="mx-auto my-10 mt-10 mt-[100px] max-w-4xl rounded-lg bg-white p-6 shadow-md">
-      <h1 className="mb-6 text-2xl font-bold">Dodaj zaposlitev</h1>
+    <div className="bg-gray-100 py-[200px] dark:bg-black">
+    <div className="mx-auto my-10 mt-10 max-w-4xl rounded-lg bg-white p-6 shadow-md bg-white">
+      <h1 className="mb-6 text-2xl font-bold">Dodaj zaposlitveni oglas</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label
@@ -111,6 +114,7 @@ const AddJobAdvertisementPage = ({ company }: Props) => {
           Dodaj oglas
         </button>
       </form>
+    </div>
     </div>
   );
 };
