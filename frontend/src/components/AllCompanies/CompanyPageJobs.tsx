@@ -85,6 +85,48 @@ const CompanyPageJobs = ({
     });
   };
 
+  const pages = Array.from({ length: noOfPages2 }, (_, index) => index + 1);
+
+  const visiblePages = pages.filter((page) => {
+    return (
+      page === 1 || // First page
+      page === noOfPages2 || // Last page
+      page === active || // Current page
+      page === active - 1 || // Previous page
+      page === active + 1 // Next page
+    );
+  });
+
+  const paginationItems: any = [];
+  let lastPage = 0;
+
+  visiblePages.forEach((page, index) => {
+    if (page - lastPage > 1) {
+      paginationItems.push(
+        <span
+          key={`ellipsis-${index}`}
+          className="text-center text-black dark:text-white"
+        >
+          ...
+        </span>,
+      );
+    }
+    paginationItems.push(
+      <IconButton
+        placeholder={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+        {...getItemProps(page)}
+        key={page}
+        onClick={() => fetchPage(page)}
+        className={`text-center text-black dark:text-black ${page === active ? "bg-indigo-700 text-black" : "bg-white"}`}
+      >
+        {page}
+      </IconButton>,
+    );
+    lastPage = page;
+  });
+
   return (
     <section className="bg-gray-1 py-20 dark:bg-dark-2 md:py-[10px]">
       <div className="container px-4">
@@ -107,19 +149,7 @@ const CompanyPageJobs = ({
               >
                 <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Nazaj
               </Button>
-              {Array.from({ length: noOfPages2 }, (_, index) => (
-                <IconButton
-                  {...getItemProps(index + 1)}
-                  key={index + 1}
-                  onClick={() => fetchPage(index + 1)}
-                  placeholder={undefined}
-                  onPointerEnterCapture={undefined}
-                  onPointerLeaveCapture={undefined}
-                  className="text-center text-black dark:text-white"
-                >
-                  {index + 1}
-                </IconButton>
-              ))}
+              {paginationItems}
               <Button
                 variant="text"
                 className="flex items-center gap-2 dark:text-white"

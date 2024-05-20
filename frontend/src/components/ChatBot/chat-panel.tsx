@@ -123,7 +123,7 @@ export function ChatPanel({
                     onClick={() => setShareDialogOpen(true)}
                   >
                     <IconShare className="mr-2" />
-                    Share
+                    Deli
                   </Button>
                   <ChatShareDialog
                     open={shareDialogOpen}

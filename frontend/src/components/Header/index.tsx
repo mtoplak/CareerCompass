@@ -311,7 +311,7 @@ const Header = () => {
                   <>
                     <div className="hidden items-center justify-end sm:flex lg:pr-0">
                       <p
-                        className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${bgClass}`}
+                        className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${isTextWhitePath ? "text-white" : "text-dark"}`}
                       >
                         {session?.user?.name}
                       </p>
