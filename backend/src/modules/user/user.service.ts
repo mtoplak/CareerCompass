@@ -71,7 +71,6 @@ export class UserService {
     return user;
   }
 
-
   async updateUserByEmail(
     email: string,
     updatedUserData: Partial<User>,
@@ -85,28 +84,6 @@ export class UserService {
       throw new NotFoundException(`User with email ${email} not found.`);
     }
     return updatedUser;
-  }
-
-  async updateUserByEmailOld(
-    email: string,
-    updatedUserData: Partial<User>,
-  ): Promise<User> {
-    try {
-      const updatedUser = await this.userRepository.findOneAndUpdate(
-        { email },
-        updatedUserData,
-        { new: true },
-      );
-      if (!updatedUser) {
-        throw new NotFoundException('User not found');
-      }
-      return updatedUser;
-    } catch (error) {
-      if (error instanceof NotFoundException) {
-        throw new NotFoundException(error.message);
-      }
-      throw error;
-    }
   }
 
   async removeUserByEmail(email: string): Promise<SuccessResponse> {

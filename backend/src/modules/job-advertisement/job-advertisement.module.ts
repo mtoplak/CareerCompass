@@ -8,6 +8,7 @@ import { CompanyRepository } from "../company/company.repository";
 import { CompanySchema } from "../../db/entities/company.model";
 import { UserRepository } from "../user/user.repository";
 import { UserSchema } from "../../db/entities/user.model";
+import { JobAdvertisementMapper } from "./job-advertisement.mapper";
 
 @Module({
     imports: [
@@ -19,6 +20,7 @@ import { UserSchema } from "../../db/entities/user.model";
     providers: [
         JobAdvertisementService,
         JobAdvertisementRepository,
+        JobAdvertisementMapper,
         CompanyRepository,
         UserRepository
     ]

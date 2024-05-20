@@ -197,7 +197,8 @@ export class CompanyService {
 
       const companyDtos = await Promise.all(allCompanies.map(async (company) => {
         const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
-        return this.companyMapper.mapOneCompanyWithout(company, averageRating);
+        const job = await this.jobsRepository.findOne({ company: company });
+        return this.companyMapper.mapOneCompanyJobs(company, averageRating, job);
       }));
 
       companyDtos.sort((a, b) => (b.avg_rating ?? 0) - (a.avg_rating ?? 0));
@@ -231,6 +232,10 @@ export class CompanyService {
         filteredCompanyIds = await this.filterCompanyIdsByRating(criteria.rating, filteredCompanyIds);
       }
 
+      if (criteria.job = true) {
+        filteredCompanyIds = await this.filterCompanyIdsByJobs(filteredCompanyIds);
+      }
+
       const totalCount = filteredCompanyIds.length;
 
       const paginatedCompanies = await this.companyRepository.findPaginated(
@@ -240,7 +245,8 @@ export class CompanyService {
 
       const companyDtos = await Promise.all(paginatedCompanies.map(async company => {
         const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
-        return this.companyMapper.mapOneCompanyWithout(company, averageRating);
+        const job = await this.jobsRepository.findOne({ company: company });
+        return this.companyMapper.mapOneCompanyJobs(company, averageRating, job);
       }));
 
       return {
@@ -263,6 +269,16 @@ export class CompanyService {
     }
   }
 
+  async filterCompanyIdsByJobs(companyIds: string[]): Promise<Company[]> {
+    try {
+      let jobs = await this.jobsRepository.findFilters({ company_linked: { $in: companyIds } });
+      jobs = jobs.filter(id => id !== undefined)
+      return jobs.map(job => job.company_linked);
+    } catch (error) {
+      console.error('Error filtering company IDs by rating:', error);
+      throw error;
+    }
+  }
 
   async getCompaniesByCriteria(criteria: SearchCompanyDto): Promise<CompanyDtoWithout[]> {
     const conditions = [];

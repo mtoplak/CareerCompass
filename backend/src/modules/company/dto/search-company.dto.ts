@@ -3,4 +3,5 @@ export class SearchCompanyDto {
     city?: string;
     industry?: string;
     rating?: number;
+    job?: boolean;
 }

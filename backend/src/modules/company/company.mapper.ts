@@ -7,7 +7,7 @@ import { JobAdvertisement } from '../../db/entities/job-advertisement.model';
 
 @Injectable()
 export class CompanyMapper {
-    
+
     mapOneCompany(company: Company, averageRating: AverageRating | null, jobs: JobAdvertisement[] | null): CompanyDto {
         const jobAdvertisements = jobs ? jobs.map(job => ({
             position: job.position,
@@ -17,7 +17,7 @@ export class CompanyMapper {
             url: job.url,
             source: job.source
         })) : null;
-    
+
         return {
             id: company._id.toString(),
             name: company.name,
@@ -51,7 +51,7 @@ export class CompanyMapper {
             job_advertisements: jobAdvertisements
         } as CompanyDto;
     }
-        
+
     mapOneCompanyWithout(company: Company, averageRating: AverageRating | null): CompanyDtoWithout {
         return {
             id: company._id.toString(),
@@ -65,6 +65,23 @@ export class CompanyMapper {
             subindustry: company.subindustry,
             email: company.email,
             avg_rating: averageRating ? averageRating.avg_rating : 0,
+        } as CompanyDtoWithout;
+    }
+
+    mapOneCompanyJobs(company: Company, averageRating: AverageRating | null, job: JobAdvertisement | null): CompanyDtoWithout {
+        return {
+            id: company._id.toString(),
+            name: company.name,
+            address: company.address,
+            city: company.city,
+            logo: company.logo,
+            slug: company.slug,
+            website: company.website,
+            industry: company.industry,
+            subindustry: company.subindustry,
+            email: company.email,
+            avg_rating: averageRating ? averageRating.avg_rating : 0,
+            job_advertisement: job
         } as CompanyDtoWithout;
     }
 

@@ -1,20 +1,25 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { SuccessResponse } from '../../shared/data.response';
-import { CreateUpdateJobAdvertisementDto } from './create-update-job-advertisement.dto';
 import { JobAdvertisement } from '../../db/entities/job-advertisement.model';
 import { JobAdvertisementRepository } from './job-advertisement.repository';
 import { CompanyRepository } from '../company/company.repository';
 import { UserRepository } from '../user/user.repository';
+import { SearchJobAdvertisementDto } from './dto/search-job-advertisement.dto';
+import { escapeRegex } from '../../shared/regex';
+import { JobAdvertisementDto } from './dto/create-update-job-advertisement.dto';
+import { PaginatedJobAdvertisementsResponseDto } from './dto/paginated-job-advertisement.dto';
+import { JobAdvertisementMapper } from './job-advertisement.mapper';
 
 @Injectable()
 export class JobAdvertisementService {
   constructor(
     private readonly jobAdvertisementRepository: JobAdvertisementRepository,
     private readonly companyRepository: CompanyRepository,
-    private readonly userRepository: UserRepository
+    private readonly userRepository: UserRepository,
+    private readonly jobMapper: JobAdvertisementMapper
   ) { }
 
-  async createJobAdvertisement(jobAdvertisementData: CreateUpdateJobAdvertisementDto): Promise<JobAdvertisement> {
+  async createJobAdvertisement(jobAdvertisementData: JobAdvertisementDto): Promise<JobAdvertisement> {
     try {
       const companyName = jobAdvertisementData.company.trim();
       const company = await this.companyRepository.findOne({ name: { $regex: new RegExp(`^${companyName}$`, 'i') } });
@@ -72,7 +77,7 @@ export class JobAdvertisementService {
 
   async updateJobAdvertisement(
     jobAdvertisementId: string,
-    jobAdvertisementUpdates: CreateUpdateJobAdvertisementDto,
+    jobAdvertisementUpdates: JobAdvertisementDto,
   ): Promise<JobAdvertisement> {
     try {
       return await this.jobAdvertisementRepository.findOneAndUpdate(
@@ -172,6 +177,56 @@ export class JobAdvertisementService {
     const savedJobs = await this.jobAdvertisementRepository.findBy({ _id: { $in: user.saved_advertisements } });
 
     return savedJobs;
+  }
+
+  async getPaginatedJobsByCriteria(criteria: SearchJobAdvertisementDto, page: number, size: number): Promise<PaginatedJobAdvertisementsResponseDto> {
+    const jobConditions = [];
+    const companyConditions = [];
+
+    if (criteria.position) {
+      jobConditions.push({ position: { $regex: new RegExp(escapeRegex(criteria.position), 'i') } });
+    }
+
+    if (criteria.city) {
+      jobConditions.push({ city: { $regex: new RegExp('^' + escapeRegex(criteria.city), 'i') } });
+    }
+
+    const jobQuery = jobConditions.length > 0 ? { jobConditions } : {};
+    try {
+      const jobIds = await this.jobAdvertisementRepository.findFilters(jobQuery, { _id: 1 });
+      const filteredJobIds = jobIds.map(job => job._id);
+
+      if (criteria.industry) {
+        companyConditions.push({ industry: criteria.industry });
+        const companyQuery = companyConditions.length > 0 ? { jobConditions } : {};
+
+        const jobCompanyIds = filteredJobIds.map(ad => ad.company_linked._id);
+        const allCompanyIds = await this.companyRepository.findPaginated(companyQuery, { _id: 1 });
+        console.log(allCompanyIds);
+        console.log(jobCompanyIds);
+      }
+
+      const totalCount = filteredJobIds.length;
+
+      const paginatedJobs = await this.jobAdvertisementRepository.findFilters(
+        { _id: { $in: filteredJobIds } },
+        { skip: (page - 1) * size, limit: size }
+      );
+
+      const jobDtos = await Promise.all(paginatedJobs.map(async job => {
+        return this.jobMapper.mapOneJobAdvertisement(job);
+      }));
+
+      return {
+        jobs: jobDtos,
+        count: totalCount,
+      };
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    }
   }
 
   async getPopularJobs(email: string | null): Promise<JobAdvertisement[]> {
