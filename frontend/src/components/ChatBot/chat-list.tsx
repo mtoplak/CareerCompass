@@ -2,10 +2,11 @@ import { UIState } from "@/lib/chat/actions";
 import { Session } from "@/lib/types";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import { BotCard, BotMessage, UserMessage } from "../stocks/message";
 
 export interface ChatList {
   messages: UIState;
-  session?: Session;
+  session?: any;
   isShared: boolean;
 }
 
@@ -20,29 +21,36 @@ export function ChatList({ messages, session, isShared }: ChatList) {
             </div>
             <div className="ml-5 flex-1 space-y-2 overflow-hidden px-1">
               <p className="text-muted-foreground leading-normal">
-                Please{" "}
+                Prosimo,{" "}
                 <Link href="/prijava" className="underline underline-offset-4">
-                  log in
+                  prijavite
                 </Link>{" "}
-                or{" "}
+                ali{" "}
                 <Link
                   href="/registracija"
                   className="underline underline-offset-4"
                 >
-                  sign up
+                  registrirajte se,
                 </Link>{" "}
-                to save and revisit your chat history!
+                da boste videli svojo zgodovino pogovorov!
               </p>
             </div>
           </div>
         </>
       ) : null}
-
       {messages.map((message) => (
         <div key={message.id}>
-          {message.spinner}
-          {message.display}
-          {message.attachments}
+          {message.role === "user" ? (
+            <UserMessage>
+              {message.spinner}
+              {message.display}
+            </UserMessage>
+          ) : (
+            <BotCard>
+              {message.spinner}
+              {message.display}
+            </BotCard>
+          )}
         </div>
       ))}
     </div>

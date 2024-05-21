@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+
 import menuData from "./menuData";
 
 const pathsToCheck = [
@@ -53,11 +54,17 @@ const Header = () => {
 
   const { theme, setTheme } = useTheme();
   const isNotInPaths = !pathsToCheck.includes(pathUrl);
-  const bgClass =
-    pathsToCheck.includes(pathUrl) && sticky
+  const isTextWhitePath = !sticky && pathsToCheck.includes(pathUrl);
+  const isPathInPathsToCheck = (pathUrl: string) =>
+    pathsToCheck.includes(pathUrl);
+  const getBgClass = (pathUrl: string, sticky: boolean) =>
+    isPathInPathsToCheck(pathUrl) && sticky
       ? "bg-dark dark:bg-white"
       : "bg-white";
-  const isTextWhitePath = !sticky && pathsToCheck.includes(pathUrl);
+  const getTextColorClass = (pathUrl: string, sticky: boolean) =>
+    !isPathInPathsToCheck(pathUrl)
+      ? "!bg-dark dark:!bg-white"
+      : getBgClass(pathUrl, sticky);
 
   return (
     <>
@@ -132,18 +139,18 @@ const Header = () => {
                 >
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
-                      navbarOpen ? " top-[7px] rotate-45" : " "
-                    } ${isNotInPaths} ${bgClass}`}
+                      navbarOpen ? " top-[7px] rotate-45" : ""
+                    } ${getTextColorClass(pathUrl, sticky)}`}
                   />
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
-                      navbarOpen ? "opacity-0 " : " "
-                    } ${isNotInPaths} ${bgClass}`}
+                      navbarOpen ? "opacity-0" : ""
+                    } ${getTextColorClass(pathUrl, sticky)}`}
                   />
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] transition-all duration-300 ${
-                      navbarOpen ? " top-[-8px] -rotate-45" : " "
-                    } ${isNotInPaths} ${bgClass}`}
+                      navbarOpen ? " top-[-8px] -rotate-45" : ""
+                    } ${getTextColorClass(pathUrl, sticky)}`}
                   />
                 </button>
                 <nav

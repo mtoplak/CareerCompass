@@ -1,10 +1,6 @@
 "use client";
-
-import * as React from "react";
 import Textarea from "react-textarea-autosize";
-
 import { useActions, useUIState } from "ai/rsc";
-
 import { UserMessage } from "../stocks/message";
 import { type AI } from "@/lib/chat/actions";
 import { Button } from "@/components/ui/button";
@@ -17,6 +13,7 @@ import {
 import { useEnterSubmit } from "@/lib/hooks/use-enter-submit";
 import { nanoid } from "nanoid";
 import { toast } from "sonner";
+import { useEffect, useRef } from "react";
 
 export function PromptForm({
   input,
@@ -26,17 +23,15 @@ export function PromptForm({
   setInput: (value: string) => void;
 }) {
   const { formRef, onKeyDown } = useEnterSubmit();
-  const inputRef = React.useRef<HTMLTextAreaElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const { submitUserMessage } = useActions();
   const [_, setMessages] = useUIState<typeof AI>();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, []);
-
-  const fileRef = React.useRef<HTMLInputElement>(null);
 
   return (
     <form
@@ -83,7 +78,6 @@ export function PromptForm({
         type="file"
         className="hidden"
         id="file"
-        ref={fileRef}
         onChange={async (event) => {
           if (!event.target.files) {
             toast.error("No file selected");
@@ -100,7 +94,7 @@ export function PromptForm({
           size="icon"
           className="bg-background absolute left-4 top-[14px] size-8 rounded-full p-0 sm:left-4"
           onClick={() => {
-            fileRef.current?.click();
+            // novi chat
           }}
         >
           <IconPlus />

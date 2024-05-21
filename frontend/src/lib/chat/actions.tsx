@@ -592,6 +592,7 @@ export type UIState = {
   display: React.ReactNode;
   spinner?: React.ReactNode;
   attachments?: React.ReactNode;
+  role?: string;
 }[];
 
 export const AI = createAI<AIState, UIState>({
