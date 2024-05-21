@@ -146,7 +146,7 @@ const Signin = () => {
                   <button
                     onClick={loginUser}
                     type="submit"
-                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-primary/90"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-indigo-600 px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-indigo-500"
                   >
                     Prijava {loading && <Loader />}
                   </button>
@@ -155,7 +155,7 @@ const Signin = () => {
 
               <Link
                 href="/novogeslo"
-                className="mb-2 inline-block text-base text-dark hover:text-primary dark:text-white dark:hover:text-primary"
+                className="mb-2 inline-block text-base text-dark hover:text-indigo-600 dark:text-white dark:hover:text-indigo-500"
               >
                 Pozabljeno geslo
               </Link>
@@ -163,7 +163,7 @@ const Signin = () => {
                 Še nimate računa?{" "}
                 <Link
                   href="/registracija"
-                  className="text-primary hover:underline"
+                  className="text-indigo-600 hover:underline"
                 >
                   Registracija
                 </Link>

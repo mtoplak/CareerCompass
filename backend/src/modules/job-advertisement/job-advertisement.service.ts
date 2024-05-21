@@ -191,19 +191,32 @@ export class JobAdvertisementService {
       jobConditions.push({ city: { $regex: new RegExp('^' + escapeRegex(criteria.city), 'i') } });
     }
 
-    const jobQuery = jobConditions.length > 0 ? { jobConditions } : {};
+    const jobQuery = jobConditions.length > 0 ? { $and: jobConditions } : {};
     try {
       const jobIds = await this.jobAdvertisementRepository.findFilters(jobQuery, { _id: 1 });
-      const filteredJobIds = jobIds.map(job => job._id);
+      let filteredJobIds = jobIds.map(job => job._id);
+
+      const validJobs = await this.jobAdvertisementRepository.findFilters(
+        { _id: { $in: filteredJobIds } }
+      );
 
       if (criteria.industry) {
         companyConditions.push({ industry: criteria.industry });
-        const companyQuery = companyConditions.length > 0 ? { jobConditions } : {};
+        const companyQuery = companyConditions.length > 0 ? { $and: companyConditions } : {};
 
-        const jobCompanyIds = filteredJobIds.map(ad => ad.company_linked._id);
-        const allCompanyIds = await this.companyRepository.findPaginated(companyQuery, { _id: 1 });
-        console.log(allCompanyIds);
-        console.log(jobCompanyIds);
+        const companiesLinkedToJobs = validJobs.map(job => job.company_linked).filter(company => company !== undefined);
+        const companyIds = companiesLinkedToJobs.map(company => company._id.toString());
+
+        const companies = await this.companyRepository.findFilters({ _id: { $in: companyIds } });
+
+        const validCompanies = await this.companyRepository.findFilters(companyQuery);
+        const validCompanyIds = validCompanies.map(company => company._id.toString());
+
+        const matchingCompanies = companies.filter(company => validCompanyIds.includes(company._id.toString()));
+
+        filteredJobIds = validJobs
+          .filter(job => job.company_linked && matchingCompanies.some(company => company._id.equals(job.company_linked._id)))
+          .map(job => job._id);
       }
 
       const totalCount = filteredJobIds.length;
