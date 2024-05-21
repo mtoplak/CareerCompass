@@ -32,7 +32,6 @@ const getRatingText = (count: number) => {
 };
 
 const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
-  console.log(jobAdvertisements);
   return (
     <div className="container mx-auto py-8 pt-[120px]">
       <div className="flex flex-col items-center md:flex-row">
@@ -96,7 +95,7 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
       </div>
       <div className="my-10 border-t border-gray-300"></div>
       <div className="mt-10">
-        <div className="container flex flex-col rounded-xl bg-indigo-100 px-6 py-4 dark:bg-sky-900 lg:flex-row lg:items-center lg:justify-between">
+        <div className="container flex flex-col rounded-xl bg-indigo-100 px-6 py-4 dark:bg-indigo-900 lg:flex-row lg:items-center lg:justify-between">
           <div className="mb-2 flex items-center lg:mb-0">
             {company.email && (
               <>
@@ -108,7 +107,7 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
                   sizes="100vw"
                   className="mr-2 h-6 w-6"
                 />
-                <p className="text-indigo-700 dark:text-sky-300">
+                <p className="text-indigo-700 dark:text-indigo-300">
                   <a href={`mailto:${company.email}`}>{company.email}</a>
                 </p>
               </>
@@ -123,7 +122,7 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
               sizes="100vw"
               className="mr-2 h-6 w-6"
             />
-            <p className="text-indigo-700 dark:text-sky-300">
+            <p className="text-indigo-700 dark:text-indigo-300">
               <a
                 href={`https://www.google.com/maps/search/${company.address + " " + company.city}`}
               >
@@ -142,7 +141,7 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
                   sizes="100vw"
                   className="mr-2 h-6 w-6"
                 />
-                <p className="text-indigo-700 dark:text-sky-300">
+                <p className="text-indigo-700 dark:text-indigo-300">
                   <a href={company.website}>{company.website}</a>
                 </p>
               </>
@@ -162,9 +161,11 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
           </div>
         </div>
         <div className="mt-12">
-          <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
+          
           {company.ratings_count > 0 ? (
             <>
+            <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene  
+            <Link href={`/vsi-komentarji/${company.slug}`} className="ml-2 hover:text-indigo-700 dark:hover:text-indigo-400">(preglej vse komentarje podjetja)</Link></h2>
               <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
                 <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
                 <GeneralAssessment company={company} />
@@ -181,7 +182,8 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
               </div>
             </>
           ) : (
-            <div className="">
+            <div className="mb-10">
+              <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
               <p>
                 To podjetje še ni bilo ocenjeno.
                 <Link

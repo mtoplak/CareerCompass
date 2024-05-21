@@ -4,7 +4,7 @@ type Props = {
   company: Company;
 };
 
-const SingleGeneralComment = async ({ company }: Props) => {
+const SingleGeneralComment = ({ company }: Props) => {
   return (
     <div className="container">
       {company.general_assessment_comments.length > 0 ? (

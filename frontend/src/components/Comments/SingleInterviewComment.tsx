@@ -4,7 +4,7 @@ type Props = {
   company: Company;
 };
 
-const SingleInterviewComment = async ({ company }: Props) => {
+const SingleInterviewComment = ({ company }: Props) => {
   return (
     <div className="container">
       {company.interviews_comments.length > 0 ? (
