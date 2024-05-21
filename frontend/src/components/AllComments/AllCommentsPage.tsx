@@ -102,28 +102,28 @@ const SingleCompanyPage = ({ company }: Props) => {
         </div>
       </div>
       <div className="my-10 border-t border-gray-300"></div>
-      <div className="flex mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
-        <div className="mr-4 w-1/4">
-          <nav>
+      <div className="flex flex-col mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:flex-row md:items-start md:justify-between">
+        <div className="p-4 md:mr-4 md:w-1/4">
+          <nav className="md:flex md:flex-col">
             <button
-              className={`mb-2 block rounded px-4 py-2 font-medium  ${
-                activeCategory === "general" ? "bg-indigo-700 text-light" : ""
+              className={`flex mb-2 block px-4 py-2 font-medium w-full ${
+                activeCategory !== "general" ? "bg-white dark:bg-slate-600" : ""
               }`}
               onClick={() => setActiveCategory("general")}
             >
               Splošna ocena
             </button>
             <button
-              className={`mb-2 block rounded px-4 py-2 font-medium ${
-                activeCategory === "salary" ? "bg-indigo-700 text-light" : ""
+              className={`flex mb-2 block px-4 py-2 font-medium w-full ${
+                activeCategory !== "salary" ? "bg-white dark:bg-slate-600" : ""
               }`}
               onClick={() => setActiveCategory("salary")}
             >
               Plače in ugodnosti
             </button>
             <button
-              className={`mb-2 block rounded px-4 py-2 font-medium ${
-                activeCategory === "interviews" ? "bg-indigo-700 text-light" : ""
+              className={`flex mb-2 block px-4 py-2 font-medium w-full ${
+                activeCategory !== "interviews" ? "bg-white dark:bg-slate-600" : ""
               }`}
               onClick={() => setActiveCategory("interviews")}
             >
@@ -131,7 +131,7 @@ const SingleCompanyPage = ({ company }: Props) => {
             </button>
           </nav>
         </div>
-        <div className="w-3/4 rounded p-4 md:w-full">{renderComments()}</div>
+        <div className="w-full md:w-3/4 rounded p-4">{renderComments()}</div>
       </div>
     </div>
   );

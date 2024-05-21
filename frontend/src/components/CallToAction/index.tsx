@@ -1,6 +1,10 @@
+"use client";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const CallToAction = () => {
+  const { data: session } = useSession();
+
   return (
     <section className="relative z-10 overflow-hidden bg-indigo-500 py-20 lg:py-[115px]">
       <div className="container mx-auto">
@@ -12,14 +16,25 @@ const CallToAction = () => {
                   <span>Potrebujete pomoč pri iskanju zaposlitve?</span>
                 </h2>
                 <p className="mx-auto mb-6 max-w-[515px] text-base leading-[1.5] text-white">
-                  Na voljo vam je AI-Svetovalec za delo. Na podlagi vaših specifikacij in želj vam predlaga morebitna delovna mesta, ki bi vas zanimala.
+                  Na voljo vam je AI-Svetovalec za delo. Na podlagi vaših
+                  specifikacij in želj vam predlaga morebitna delovna mesta, ki
+                  bi vas zanimala.
                 </p>
-                <Link
-                  href="/prijava"
-                  className="inline-block rounded-md border border-transparent bg-indigo-800 px-7 py-3 text-base font-medium text-white transition hover:bg-indigo-950"
-                >
-                  AI-Svetovalec
-                </Link>
+                {session?.user ? (
+                  <Link
+                    href="/ai-svetovalec"
+                    className="inline-block rounded-md border border-transparent bg-indigo-800 px-7 py-3 text-base font-medium text-white transition hover:bg-indigo-950"
+                  >
+                    AI-Svetovalec
+                  </Link>
+                ) : (
+                  <Link
+                    href="/prijava"
+                    className="inline-block rounded-md border border-transparent bg-indigo-800 px-7 py-3 text-base font-medium text-white transition hover:bg-indigo-950"
+                  >
+                    AI-Svetovalec
+                  </Link>
+                )}
               </div>
             </div>
           </div>
