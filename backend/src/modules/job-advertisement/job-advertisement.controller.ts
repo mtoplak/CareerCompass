@@ -75,14 +75,14 @@ export class JobAdvertisementController {
 
   @Get('/search')
   async getPaginatedJobsByCriteria(
-      @Query() searchDto: SearchJobAdvertisementDto,
-      @Query('page') page: string,
-      @Query('size') size: string
+    @Query() searchDto: SearchJobAdvertisementDto,
+    @Query('page') page: string,
+    @Query('size') size: string
   ): Promise<PaginatedJobAdvertisementsResponseDto> {
-      const pageNum = parseInt(page, 10) || 1;
-      const sizeNum = parseInt(size, 10) || 28;
+    const pageNum = parseInt(page, 10) || 1;
+    const sizeNum = parseInt(size, 10) || 14;
 
-      return await this.jobAdvertisementService.getPaginatedJobsByCriteria(searchDto, pageNum, sizeNum);
+    return await this.jobAdvertisementService.getPaginatedJobsByCriteria(searchDto, pageNum, sizeNum);
   }
 
   @Get(':id')

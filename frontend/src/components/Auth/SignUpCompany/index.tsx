@@ -239,7 +239,7 @@ const SignUpCompany = () => {
                 <div className="mb-9">
                   <button
                     type="submit"
-                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-indigo-600 px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-indigo-500"
                   >
                     Registracija {loading && <Loader />}
                   </button>
@@ -248,11 +248,11 @@ const SignUpCompany = () => {
 
               <p className="text-body-secondary mb-4 text-base">
                 Z ustvarjanjem računa podjetja se strinjate s{" "}
-                <a href="/#" className="text-primary hover:underline">
+                <a href="/#" className="text-indigo-600 hover:underline">
                   Politiko zasebnosti (GDPR)
                 </a>{" "}
                 in{" "}
-                <a href="/#" className="text-primary hover:underline">
+                <a href="/#" className="text-indigo-600 hover:underline">
                   Splošnimi pogoji poslovanja
                 </a>
                 . Vaše podjetje bo javno vidno in na voljo za ocenjevanje.
@@ -262,7 +262,7 @@ const SignUpCompany = () => {
                 Ali je vaše podjetje že na platoformi?
                 <Link
                   href="/za-delodajalce/prevzemi"
-                  className="pl-2 text-primary hover:underline"
+                  className="pl-2 text-indigo-600 hover:underline"
                 >
                   Prevzemite profil
                 </Link>

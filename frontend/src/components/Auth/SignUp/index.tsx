@@ -143,7 +143,7 @@ const SignUp = () => {
                 <div className="mb-9">
                   <button
                     type="submit"
-                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-primary px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-blue-dark"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-md border border-primary bg-indigo-600 px-5 py-3 text-base text-white transition duration-300 ease-in-out hover:bg-indigo-500"
                   >
                     Registracija {loading && <Loader />}
                   </button>
@@ -152,11 +152,11 @@ const SignUp = () => {
 
               <p className="text-body-secondary mb-4 text-base">
                 Z ustvarjanjem računa se strinjate z{" "}
-                <a href="/#" className="text-primary hover:underline">
+                <a href="/#" className="text-indigo-600 hover:underline">
                   Politiko zasebnosti (GDPR)
                 </a>{" "}
                 in{" "}
-                <a href="/#" className="text-primary hover:underline">
+                <a href="/#" className="text-indigo-600 hover:underline">
                   Splošnimi pogoji poslovanja
                 </a>
               </p>
@@ -165,7 +165,7 @@ const SignUp = () => {
                 Ali že imate račun?
                 <Link
                   href="/prijava"
-                  className="pl-2 text-primary hover:underline"
+                  className="pl-2 text-indigo-600 hover:underline"
                 >
                   Prijava
                 </Link>

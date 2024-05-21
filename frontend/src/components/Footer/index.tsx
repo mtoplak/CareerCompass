@@ -36,15 +36,15 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/podjetja"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
                   >
                     Podjetja
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/#"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    href="/zaposlitve"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
                   >
                     Zaposlitve
                   </Link>
@@ -52,7 +52,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/ai-svetovalec"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
                   >
                     AI svetovalec
                   </Link>
@@ -68,8 +68,16 @@ const Footer = () => {
               <ul>
                 <li>
                   <Link
+                    href="/prijava"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
+                  >
+                    Prijava
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/za-delodajalce/registracija"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
                   >
                     Registracija
                   </Link>
@@ -77,17 +85,9 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/za-delodajalce/prevzemi"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
                   >
                     Prevzem profila
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/za-delodajalce/objava"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
-                  >
-                    Objava zaposlitve
                   </Link>
                 </li>
               </ul>
@@ -102,7 +102,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/prijava"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
                   >
                     Prijava
                   </Link>
@@ -110,7 +110,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/registracija"
-                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
                   >
                     Registracija
                   </Link>
