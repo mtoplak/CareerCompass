@@ -122,6 +122,12 @@ export class AverageRatingService {
     }
 
     // Check and add comments
+    const fieldTranslations = {
+      general_assessment_comment: 'splošno oceno',
+      salary_and_benefits_comment: 'plače in ugodnosti',
+      interviews_comment: 'intervjuje',
+    };
+
     const commentCheckResults = [
       { comment: rating.general_assessment_comment, field: 'general_assessment_comment' },
       { comment: rating.salary_and_benefits_comment, field: 'salary_and_benefits_comment' },
@@ -132,7 +138,8 @@ export class AverageRatingService {
       if (comment) {
         const isAppropriate = await this.checkAndAddComment(comment, averageRating[`${field}s`]);
         if (!isAppropriate) {
-          throw new HttpException(`Comment for ${field} is inappropriate`, HttpStatus.BAD_REQUEST);
+          const fieldNameInSlovene = fieldTranslations[field];
+          throw new HttpException(`Komentar za ${fieldNameInSlovene} vsebuje osebne informacije, kletvice ali žaljivke.`, HttpStatus.BAD_REQUEST);
         }
       }
     }

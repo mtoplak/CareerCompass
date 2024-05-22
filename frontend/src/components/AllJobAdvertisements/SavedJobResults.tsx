@@ -1,56 +1,56 @@
 "use client";
-import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { api } from "@/constants";
 import NoProduct from "../NotFound/NoProduct";
-import JobAdvertisementFilter from "./JobAdvertisementFilter";
 import JobPage from "./JobPage";
+import { useSession } from "next-auth/react";
 import SavedJobAdvertisementsFilter from "./SavedAdvertisementsFilter";
 
-const JobSearchResults = () => {
+const SavedJobResults = () => {
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [noOfPages, setNoOfPages] = useState(0);
-  const searchParams = useSearchParams();
-
-  const delovno_mesto = searchParams.get("delovno_mesto") || "";
-  const lokacija = searchParams.get("lokacija") || "";
-  const dejavnost = searchParams.get("dejavnost") || "";
+  const { data: session } = useSession();
 
   useEffect(() => {
     const fetchJobs = async () => {
       setIsLoading(true);
       try {
+        if (!session?.user?.email) {
+          throw new Error("User email not available");
+        }
+
         const response = await fetch(
-          `${api}/job/search?position=${delovno_mesto}&city=${lokacija}&industry=${dejavnost}`,
+          `${api}/job/saved/${session.user.email}`,
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
         setNoOfPages(Math.ceil(data.count / 28));
-        setJobs(data.jobs);
+        setJobs(data || []);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setJobs([]);
       } finally {
         setIsLoading(false);
       }
     };
-    fetchJobs();
 
-    return () => {};
-  }, [delovno_mesto, lokacija, dejavnost]);
+    fetchJobs();
+  }, [session?.user?.email]);
 
   return (
     <>
-      <JobAdvertisementFilter
-        delovno_mesto={delovno_mesto}
-        lokacija={lokacija}
-        dejavnost={dejavnost}
-      />
-      <SavedJobAdvertisementsFilter isSavedPage={false} />
+      <SavedJobAdvertisementsFilter isSavedPage={true}/>
       {!isLoading ? (
-        <JobPage jobs={jobs} />
+        <>
+          {Array.isArray(jobs) && jobs.length === 0 ? (
+            <NoProduct />
+          ) : (
+            <JobPage jobs={jobs} />
+          )}
+        </>
       ) : (
         <div className="flex items-center justify-center bg-gray-1 pb-20">
           <div role="status">
@@ -74,9 +74,8 @@ const JobSearchResults = () => {
           </div>
         </div>
       )}
-      {!isLoading && jobs.length === 0 && <NoProduct />}
     </>
   );
 };
 
-export default JobSearchResults;
+export default SavedJobResults;

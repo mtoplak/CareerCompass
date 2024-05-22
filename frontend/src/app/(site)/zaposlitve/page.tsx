@@ -3,10 +3,11 @@ import { Metadata } from "next";
 import { api } from "@/constants";
 import JobPage from "@/components/AllJobAdvertisements/JobPage";
 import JobAdvertisementFilter from "@/components/AllJobAdvertisements/JobAdvertisementFilter";
+import SavedJobAdvertisementsFilter from "@/components/AllJobAdvertisements/SavedAdvertisementsFilter";
 
 export const metadata: Metadata = {
   title: "Career Compass - Zaposlitve",
-  description: "Vse zaposlitve",
+  description: "Vsi zaposlitveni oglasi",
 };
 
 async function getJobAdvertisements() {
@@ -23,8 +24,9 @@ const JobAdvertisementsPage = async () => {
 
   return (
     <main>
-      <Breadcrumb pageName="Vse zaposlitve" />
+      <Breadcrumb pageName="Vsi zaposlitveni oglasi" />
       <JobAdvertisementFilter />
+      <SavedJobAdvertisementsFilter isSavedPage={false}/>
       <JobPage jobs={jobs} />
     </main>
   );

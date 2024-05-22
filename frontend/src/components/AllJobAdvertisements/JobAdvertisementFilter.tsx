@@ -11,11 +11,8 @@ const JobAdvertisementFilter = ({
 }) => {
   return (
     <form action="/iskanje-zaposlitev">
-      <section
-        id="company-filter"
-        className="bg-gray-1 pb-8 pt-10 dark:bg-dark-2 lg:pb-[70px]"
-      >
-        <div className="container mx-auto grid grid-cols-1 items-center justify-between gap-2 rounded-xl bg-gray-100 px-[20px] py-[20px] dark:bg-gray-600 md:grid-cols-2 lg:grid-cols-10">
+      <section id="job-filter" className="bg-gray-1 pb-4 pt-10 dark:bg-dark-2">
+        <div className="container mx-auto grid grid-cols-1 items-center justify-between gap-2 rounded-xl bg-gray-100 px-[20px] py-[20px] dark:bg-gray-600 md:grid-cols-2 lg:grid-cols-8">
           <input
             type="text"
             placeholder="Vnesi delovno mesto"
@@ -52,7 +49,7 @@ const JobAdvertisementFilter = ({
               Računalništvo in informatika
             </option>
           </select>
-          <button className="focus:shadow-outline col-span-1 rounded bg-indigo-600 px-4 py-2 font-medium text-white hover:bg-indigo-500 focus:outline-none md:col-span-2 lg:col-span-1">
+          <button className="focus:shadow-outline col-span-1 rounded bg-indigo-600 px-4 py-2 font-medium text-white hover:bg-indigo-500 focus:outline-none md:col-span-1 lg:col-span-1">
             <div className="flex items-center justify-center">
               <Image
                 src="/images/hero/compass-icon.png"

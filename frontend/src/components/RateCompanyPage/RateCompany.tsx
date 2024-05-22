@@ -69,30 +69,7 @@ const RateCompany = ({ company }: Props) => {
       return;
     }
 
-    const commentsToCheck = [
-      formData.salary_and_benefits_comment,
-      formData.general_assessment_comment,
-      formData.interviews_comment,
-    ];
-
     try {
-      for (const comment of commentsToCheck) {
-        const commentCheckResponse = await fetch(`${api}/ai/check`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ comment }),
-        });
-
-        const isCommentValid = await commentCheckResponse.json();
-
-        if (!isCommentValid) {
-          toast.error("Komentar vsebuje neprimerno vsebino.");
-          return;
-        }
-      }
-
       const rating = { ...formData, ...ratings };
       const response = await fetch(`${api}/rating`, {
         method: "POST",
@@ -101,6 +78,12 @@ const RateCompany = ({ company }: Props) => {
         },
         body: JSON.stringify(rating),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        toast.error(errorData.message || "Prišlo je do napake.");
+        return;
+      }
 
       toast.success("Uspešno ste ocenili podjetje!");
       router.push(`/podjetje/${company.slug}`);
