@@ -101,7 +101,6 @@ export class JobAdvertisementService {
     const updated = [];
     try {
       const jobAdvertisements = await this.jobAdvertisementRepository.find();
-      console.log(jobAdvertisements.length);
 
       for (const jobAd of jobAdvertisements) {
         const matchingCompany = await this.companyRepository.findOne({ name: { $regex: new RegExp(`^${jobAd.company}$`, 'i') } });
@@ -112,7 +111,6 @@ export class JobAdvertisementService {
           updated.push(jobAd);
         }
       }
-      console.log(updated.length);
       return updated;
     } catch (error) {
       console.error('Error linking companies to job advertisements:', error);
@@ -272,7 +270,7 @@ export class JobAdvertisementService {
           if (industries.size > 0) {
             jobs = await this.jobAdvertisementRepository.findFilters(
               { 'company_linked': { $in: companyIds }, _id: { $nin: excludedJobIds } },
-              { limit: 8 }
+              { limit: 4 }
             );
           }
         }
@@ -281,7 +279,7 @@ export class JobAdvertisementService {
 
       if (jobs.length === 0) {
         jobs = await this.jobAdvertisementRepository.findFilters({ _id: { $nin: excludedJobIds } }, {
-          limit: 8,
+          limit: 4,
           sort: { _id: -1 },
         });
       }
@@ -292,6 +290,9 @@ export class JobAdvertisementService {
 
       return jobs;
     } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
       throw error;
     }
   }

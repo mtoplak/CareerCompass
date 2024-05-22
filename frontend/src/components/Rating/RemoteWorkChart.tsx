@@ -34,14 +34,14 @@ const RemoteWorkChart = async ({ company }: Props) => {
           />
         </svg>
       </div>
-      <div className="mt-4 flex items-center justify-center space-x-4">
+      <div className="mt-4 flex items-center justify-center space-x-4 whitespace-nowrap">
         <div className="flex items-center space-x-2">
           <span className="h-3 w-3 rounded-full bg-indigo-800"></span>
-          <span> Da ({yesPercentage.toFixed(1)}%)</span>
+          <span> Da ({Math.round(yesPercentage)}%)</span>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 whitespace-nowrap">
           <span className="h-3 w-3 rounded-full bg-indigo-200"></span>
-          <span> Ne ({noPercentage.toFixed(1)}%)</span>
+          <span> Ne ({Math.round(noPercentage)}%)</span>
         </div>
       </div>
     </div>

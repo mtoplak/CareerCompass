@@ -112,7 +112,7 @@ export class CompanyService {
   }
 
   async getAllPaginatedCompanies(page: number, size: number): Promise<PaginatedCompaniesResponseDto> {
-    const companies = await this.companyRepository.findPaginated({}, {
+    const companies = await this.companyRepository.findFilters({}, {
       skip: (page - 1) * size,
       limit: size
     });
@@ -193,7 +193,7 @@ export class CompanyService {
 
   async getFourBestCompanies(): Promise<CompanyDtoWithout[]> {
     try {
-      const allCompanies = await this.companyRepository.findPaginated({});
+      const allCompanies = await this.companyRepository.findFilters({});
 
       const companyDtos = await Promise.all(allCompanies.map(async (company) => {
         const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
@@ -224,7 +224,7 @@ export class CompanyService {
 
     const query = conditions.length > 0 ? { $and: conditions } : {};
     try {
-      const companyIds = await this.companyRepository.findPaginated(query, { _id: 1 });
+      const companyIds = await this.companyRepository.findFilters(query, { _id: 1 });
 
       let filteredCompanyIds = companyIds.map(company => company._id);
 
@@ -232,13 +232,13 @@ export class CompanyService {
         filteredCompanyIds = await this.filterCompanyIdsByRating(criteria.rating, filteredCompanyIds);
       }
 
-      if (criteria.job = true) {
+      if (criteria.job) {
         filteredCompanyIds = await this.filterCompanyIdsByJobs(filteredCompanyIds);
       }
 
       const totalCount = filteredCompanyIds.length;
 
-      const paginatedCompanies = await this.companyRepository.findPaginated(
+      const paginatedCompanies = await this.companyRepository.findFilters(
         { _id: { $in: filteredCompanyIds } },
         { skip: (page - 1) * size, limit: size }
       );
@@ -294,7 +294,7 @@ export class CompanyService {
 
     const query = conditions.length > 0 ? { $and: conditions } : {};
     try {
-      const companies = await this.companyRepository.findPaginated(query);
+      const companies = await this.companyRepository.findFilters(query);
 
       let ratedCompanies;
       let companyDtos = [];

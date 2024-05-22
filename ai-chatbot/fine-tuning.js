@@ -27,14 +27,10 @@ async function uploadAndFineTune() {
       throw new Error(`File not found: ${prodFilePath} or ${devFilePath}`);
     }
 
-    console.log("Resolved file path:", filePath);
-
     const uploadResponse = await openai.files.create({
       file: createReadStream(filePath),
       purpose: "fine-tune",
     });
-
-    console.log("File uploaded successfully:", uploadResponse);
 
     const fineTuneResponse = await openai.fineTuning.jobs.create({
       training_file: uploadResponse.id,

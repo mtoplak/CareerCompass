@@ -45,15 +45,15 @@ const ExperienceChart = ({ company }: Props) => {
       <div className="mt-4 flex items-center justify-center space-x-4">
         <div className="flex items-center space-x-2">
           <span className="h-3 w-3 rounded-full bg-indigo-800"></span>
-          <span>Pozitivna ({positivePercentage.toFixed(1)}%)</span>
+          <span>Pozitivna ({Math.round(positivePercentage)}%)</span>
         </div>
         <div className="flex items-center space-x-2">
           <span className="h-3 w-3 rounded-full bg-indigo-200"></span>
-          <span>Nevtralna ({neutralPercentage.toFixed(1)}%)</span>
+          <span>Nevtralna ({Math.round(neutralPercentage)}%)</span>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 ">
           <span className="h-3 w-3 rounded-full bg-gray-400"></span>
-          <span>Negativna ({negativePercentage.toFixed(1)}%)</span>
+          <span>Negativna ({Math.round(negativePercentage)}%)</span>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 import { api } from "@/constants";
 import JobPage from "@/components/AllJobAdvertisements/JobPage";
+import JobAdvertisementFilter from "@/components/AllJobAdvertisements/JobAdvertisementFilter";
 
 export const metadata: Metadata = {
   title: "Career Compass - Zaposlitve",
@@ -17,15 +18,16 @@ async function getJobAdvertisements() {
   return jobs;
 }
 
-const CompaniesPage = async () => {
+const JobAdvertisementsPage = async () => {
   const jobs = await getJobAdvertisements();
 
   return (
     <main>
       <Breadcrumb pageName="Vse zaposlitve" />
+      <JobAdvertisementFilter />
       <JobPage jobs={jobs} />
     </main>
   );
 };
 
-export default CompaniesPage;
+export default JobAdvertisementsPage;

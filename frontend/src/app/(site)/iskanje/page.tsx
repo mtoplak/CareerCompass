@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const CompaniesPage = () => {
   return (
     <main>
-      <Breadcrumb pageName="Rezultati iskanja" />
+      <Breadcrumb pageName="Rezultati iskanja podjetij" />
       <SearchResults />
     </main>
   );

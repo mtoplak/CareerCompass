@@ -45,15 +45,15 @@ const DifficultyChart = ({ company }: Props) => {
       <div className="mt-4 flex items-center justify-center space-x-4">
         <div className="flex items-center space-x-2">
           <span className="h-3 w-3 rounded-full bg-indigo-800"></span>
-          <span>Enostavno ({easyPercentage.toFixed(1)}%)</span>
+          <span>Enostavno ({Math.round(easyPercentage)}%)</span>
         </div>
         <div className="flex items-center space-x-2">
           <span className="h-3 w-3 rounded-full bg-indigo-200"></span>
-          <span>Srednje ({mediumPercentage.toFixed(1)}%)</span>
+          <span>Srednje ({Math.round(mediumPercentage)}%)</span>
         </div>
         <div className="flex items-center space-x-2">
           <span className="h-3 w-3 rounded-full bg-gray-400"></span>
-          <span>Težko ({hardPercentage.toFixed(1)}%)</span>
+          <span>Težko ({Math.round(hardPercentage)}%)</span>
         </div>
       </div>
     </div>
