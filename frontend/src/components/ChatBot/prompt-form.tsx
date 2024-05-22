@@ -1,7 +1,6 @@
 "use client";
 import Textarea from "react-textarea-autosize";
 import { useActions, useUIState } from "ai/rsc";
-import { UserMessage } from "../stocks/message";
 import { type AI } from "@/lib/chat/actions";
 import { Button } from "@/components/ui/button";
 import { IconArrowElbow, IconPlus } from "@/components/ui/icons";
@@ -14,6 +13,7 @@ import { useEnterSubmit } from "@/lib/hooks/use-enter-submit";
 import { nanoid } from "nanoid";
 import { toast } from "sonner";
 import { useEffect, useRef } from "react";
+import { useSession } from "next-auth/react";
 
 export function PromptForm({
   input,
@@ -26,6 +26,8 @@ export function PromptForm({
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const { submitUserMessage } = useActions();
   const [_, setMessages] = useUIState<typeof AI>();
+  const { data: session } = useSession();
+  const email = session?.user?.email;
 
   useEffect(() => {
     if (inputRef.current) {
@@ -48,18 +50,17 @@ export function PromptForm({
         setInput("");
         if (!value) return;
 
-        // Optimistically add user message UI
         setMessages((currentMessages) => [
           ...currentMessages,
           {
             id: nanoid(),
-            display: <UserMessage>{value}</UserMessage>,
+            display: <>{value}</>,
+            role: "user",
           },
         ]);
 
         try {
-          // Submit and get response message
-          const responseMessage = await submitUserMessage(value);
+          const responseMessage = await submitUserMessage(value, email);
           setMessages((currentMessages) => [
             ...currentMessages,
             responseMessage,
@@ -74,35 +75,23 @@ export function PromptForm({
         }
       }}
     >
-      <input
-        type="file"
-        className="hidden"
-        id="file"
-        onChange={async (event) => {
-          if (!event.target.files) {
-            toast.error("No file selected");
-            return;
-          }
-          // novi chat
-        }}
-      />
       <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-zinc-100 px-12 sm:rounded-full sm:px-12">
-        {/* <Tooltip>
-          <TooltipTrigger asChild> */}
-        <Button
-          variant="outline"
-          size="icon"
-          className="bg-background absolute left-4 top-[14px] size-8 rounded-full p-0 sm:left-4"
-          onClick={() => {
-            // novi chat
-          }}
-        >
-          <IconPlus />
-          <span className="sr-only">Nov pogovor</span>
-        </Button>
-        {/* </TooltipTrigger>
-          <TooltipContent>Add Attachments</TooltipContent>
-        </Tooltip> */}
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant="outline"
+              size="icon"
+              className="bg-background absolute left-4 top-[14px] size-8 rounded-full p-0 sm:left-4"
+              onClick={() => {
+                // novi chat
+              }}
+            >
+              <IconPlus />
+              <span className="sr-only">Nov pogovor</span>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Nov pogovor</TooltipContent>
+        </Tooltip>
         <Textarea
           ref={inputRef}
           tabIndex={0}

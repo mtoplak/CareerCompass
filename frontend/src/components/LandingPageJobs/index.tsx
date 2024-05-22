@@ -8,7 +8,7 @@ const LandingPageJobs = async () => {
         <SectionTitle
           subtitle="Zaposlitve"
           title="Poišči zaposlitev"
-          paragraph="Preberi komentarje in izkušnje drugih zaposlenih ter se na podlagi teh odloči za najboljšo zaposlitev zate!"
+          paragraph="Preberi komentarje in izkušnje drugih zaposlenih ter se na podlagi teh odloči za najboljšo zaposlitev zase!"
           width="640px"
           center
         />

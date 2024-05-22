@@ -1,8 +1,7 @@
 import { UIState } from "@/lib/chat/actions";
-import { Session } from "@/lib/types";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { BotCard, BotMessage, UserMessage } from "../stocks/message";
+import { BotCard, SpinnerMessage, UserMessage } from "../stocks/message";
 
 export interface ChatList {
   messages: UIState;
@@ -38,21 +37,21 @@ export function ChatList({ messages, session, isShared }: ChatList) {
           </div>
         </>
       ) : null}
-      {messages.map((message) => (
-        <div key={message.id}>
-          {message.role === "user" ? (
-            <UserMessage>
-              {message.spinner}
-              {message.display}
-            </UserMessage>
-          ) : (
-            <BotCard>
-              {message.spinner}
-              {message.display}
-            </BotCard>
-          )}
-        </div>
-      ))}
+      {messages.length > 0 &&
+        messages.map((message, index) => (
+          <div key={index}>
+            {message && message.role && message.role === "user" ? (
+              <UserMessage>{message.display}</UserMessage>
+            ) : message && message.role === "assistant" ? (
+              <BotCard>
+                {message && message.spinner}
+                {message && message.display}
+              </BotCard>
+            ) : (
+              <SpinnerMessage />
+            )}
+          </div>
+        ))}
     </div>
   ) : null;
 }

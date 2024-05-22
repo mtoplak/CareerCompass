@@ -44,6 +44,7 @@ const Hero = () => {
                           height="0"
                           sizes="100vw"
                           className="h-6 w-6"
+                          priority
                         />
                       </button>
                     </li>
@@ -61,6 +62,7 @@ const Hero = () => {
             alt="Landscape Photo"
             width={1920}
             height={200}
+            priority
           />
         </div>
       </section>

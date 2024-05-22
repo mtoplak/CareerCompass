@@ -27,7 +27,6 @@ export function Chat({ id, className, missingKeys }: ChatProps) {
   const [messages, setMessages] = useUIState();
   const [aiState] = useAIState();
   const { data: session } = useSession();
-  console.log(messages);
 
   const [_, setNewChatId] = useLocalStorage("newChatId", id);
 

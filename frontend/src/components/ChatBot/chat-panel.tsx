@@ -52,7 +52,6 @@ export function ChatPanel({
 
   return (
     <div className="inset-x-0 bottom-0 mb-12 w-full duration-300 ease-in-out peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]">
-      {/*class za zgoraj {fixed} */}
       <ButtonScrollToBottom
         isAtBottom={isAtBottom}
         scrollToBottom={scrollToBottom}
@@ -129,7 +128,6 @@ export function ChatPanel({
                     open={shareDialogOpen}
                     onOpenChange={setShareDialogOpen}
                     onCopy={() => setShareDialogOpen(false)}
-                    // shareChat={shareChat}
                     chat={{
                       id,
                       title,
