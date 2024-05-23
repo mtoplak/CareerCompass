@@ -177,6 +177,26 @@ export class JobAdvertisementService {
     return savedJobs;
   }
 
+  async isJobSaved(jobId: string, userEmail: string): Promise<SuccessResponse> {
+    const user = await this.userRepository.findOne({ email: userEmail });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    const jobAd = await this.jobAdvertisementRepository.findOne({ _id: jobId });
+    if (!jobAd) {
+      throw new NotFoundException('Job Advertisement not found');
+    }
+
+    const isSaved = user.saved_advertisements.some(ad => ad.equals(jobAd._id));
+
+    if (isSaved) {
+      return { success: true };
+    } else {
+      return { success: false };
+    }
+  }
+
   async getPaginatedJobsByCriteria(criteria: SearchJobAdvertisementDto, page: number, size: number): Promise<PaginatedJobAdvertisementsResponseDto> {
     const jobConditions = [];
     const companyConditions = [];
