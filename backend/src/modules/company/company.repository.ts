@@ -12,8 +12,7 @@ export class CompanyRepository {
 
   async findOne(companyFilterQuery: FilterQuery<Company>): Promise<Company> {
     try {
-      return await this.companyModel
-        .findOne(companyFilterQuery);
+      return await this.companyModel.findOne(companyFilterQuery);
     } catch (err) {
       throw new NotFoundException('Could not get the company from database.');
     }

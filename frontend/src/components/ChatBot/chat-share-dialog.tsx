@@ -63,20 +63,7 @@ export function ChatShareDialog({
           </div>
         </div>
         <DialogFooter className="items-center">
-          <Button
-            disabled={isSharePending}
-            onClick={() => {
-              // @ts-ignore
-              // startShareTransition(async () => {
-              //   const result = await shareChat(chat.id);
-              //   if (result && "error" in result) {
-              //     toast.error(result.error);
-              //     return;
-              //   }
-              //   copyShareLink(result);
-              // });
-            }}
-          >
+          <Button disabled={isSharePending}>
             {isSharePending ? (
               <>
                 <IconSpinner className="mr-2 animate-spin" />

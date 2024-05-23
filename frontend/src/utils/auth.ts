@@ -73,7 +73,6 @@ export const authOptions: NextAuthOptions = {
         let user;
         if (authOptions && authOptions.adapter && authOptions.adapter.getUserByEmail) {
           user = await authOptions.adapter.getUserByEmail(credentials.email);
-          console.log(user);
         } else {
           console.error("authOptions.adapter is undefined or null");
         }
@@ -81,19 +80,6 @@ export const authOptions: NextAuthOptions = {
         console.log(user);
 
         return user || null;
-        // check to see if user already exist
-        // const user = await prisma.user.findUnique({
-        //   where: {
-        //     email: credentials.email,
-        //   },
-        // });
-
-
-        // if user was not found
-        // if (!user || !user?.password) {
-        //   throw new Error("In valid email or password");
-        // }
-
       },
     }),
 

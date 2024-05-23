@@ -20,9 +20,7 @@ const SavedJobResults = () => {
           throw new Error("User email not available");
         }
 
-        const response = await fetch(
-          `${api}/job/saved/${session.user.email}`,
-        );
+        const response = await fetch(`${api}/job/saved/${session.user.email}`);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -42,7 +40,7 @@ const SavedJobResults = () => {
 
   return (
     <>
-      <SavedJobAdvertisementsFilter isSavedPage={true}/>
+      <SavedJobAdvertisementsFilter isSavedPage={true} />
       {!isLoading ? (
         <>
           {Array.isArray(jobs) && jobs.length === 0 ? (

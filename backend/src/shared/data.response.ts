@@ -8,6 +8,7 @@ import { InterviewExperience } from "../enums/interview-experience.enum";
 
 export interface SuccessResponse {
     success: boolean;
+    company?: Company;
 }
 
 export interface CompanyResponse {

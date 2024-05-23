@@ -6,7 +6,6 @@ import { Message } from "@/lib/chat/actions";
 import { useLocalStorage } from "@/lib/hooks/use-local-storage";
 import { useScrollAnchor } from "@/lib/hooks/use-scroll-anchor";
 import { Session } from "@/lib/types";
-import { cn } from "@/lib/utils";
 import { useAIState, useUIState } from "ai/rsc";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -60,8 +59,8 @@ export function Chat({ id, missingKeys }: ChatProps) {
           }),
         );
         setMessages(transformedMessages);
-      } catch (error) {
-        console.error("Failed to fetch messages:", error);
+      } catch (error: any) {
+        toast.error("Failed to fetch messages:", error);
       }
     };
 

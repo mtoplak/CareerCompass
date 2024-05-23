@@ -19,8 +19,11 @@ export async function POST(request: any) {
     return NextResponse.json("Uporabnik s tem e-mailom že obstaja!", { status: 409 });
   }
 
-  const user = registerUser(email, password);
-  // console.log(user);
+  try {
+    await registerUser(email, password);
+  } catch (error) {
+    return NextResponse.json("Napaka pri registraciji.", { status: 500 });
+  }
 
   const res = await fetch(`${api}/user`, {
     method: "POST",
