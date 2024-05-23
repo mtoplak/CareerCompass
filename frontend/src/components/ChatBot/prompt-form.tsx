@@ -83,7 +83,8 @@ export function PromptForm({
               size="icon"
               className="bg-background absolute left-4 top-[14px] size-8 rounded-full p-0 sm:left-4"
               onClick={() => {
-                // novi chat
+                setMessages([]);
+                //api?
               }}
             >
               <IconPlus />

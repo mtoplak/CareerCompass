@@ -1,6 +1,3 @@
-import * as React from "react";
-
-// import { shareChat } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { PromptForm } from "./prompt-form";
 import { ButtonScrollToBottom } from "@/components/ChatBot/button-scroll-to-bottom";
@@ -12,6 +9,8 @@ import { nanoid } from "nanoid";
 import { UserMessage } from "../stocks/message";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
 
 export interface ChatPanelProps {
   id?: string;
@@ -33,7 +32,9 @@ export function ChatPanel({
   const [aiState] = useAIState();
   const [messages, setMessages] = useUIState<typeof AI>();
   const { submitUserMessage } = useActions();
-  const [shareDialogOpen, setShareDialogOpen] = React.useState(false);
+  const [shareDialogOpen, setShareDialogOpen] = useState(false);
+  const { data: session } = useSession();
+  const email = session?.user?.email;
 
   const exampleMessages = [
     {
@@ -72,13 +73,15 @@ export function ChatPanel({
                     ...currentMessages,
                     {
                       id: nanoid(),
-                      display: <UserMessage>{example.message}</UserMessage>,
+                      display: <>{example.message}</>,
+                      role: "user",
                     },
                   ]);
 
                   try {
                     const responseMessage = await submitUserMessage(
                       example.message,
+                      email,
                     );
 
                     setMessages((currentMessages) => [

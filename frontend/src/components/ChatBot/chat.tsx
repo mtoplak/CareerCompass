@@ -22,7 +22,7 @@ export interface ChatProps extends React.ComponentProps<"div"> {
   missingKeys?: string[];
 }
 
-export function Chat({ id, className, missingKeys }: ChatProps) {
+export function Chat({ id, missingKeys }: ChatProps) {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useUIState();
   const [aiState] = useAIState();
@@ -88,10 +88,13 @@ export function Chat({ id, className, missingKeys }: ChatProps) {
           className="group mt-20 w-full overflow-auto pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px]"
           ref={scrollRef}
         >
-          <div className={cn("pb-[200px] pt-4", className)} ref={messagesRef}>
+          <div
+            className={`pb-[40px] pt-4 ${messages.length < 1 && "pb-[200px]"}`}
+            ref={messagesRef}
+          >
             {messages.length > 0 && messages.length ? (
               <>
-                <div className="mx-auto max-w-2xl px-4">
+                <div className="mx-auto mb-4 max-w-2xl px-4">
                   <div className="flex flex-col items-center justify-center gap-2 rounded-2xl bg-zinc-50 p-4 text-sm sm:p-8 sm:text-base">
                     <h1 className="text-2xl font-semibold tracking-tight dark:text-black sm:text-3xl">
                       Career Compass AI Svetovalec
