@@ -16,7 +16,6 @@ export async function POST(request: any) {
         }
         return NextResponse.json(user, { status: 200 });
     } catch (error) {
-        console.error(error);
         return NextResponse.json({ error: "Napačen email naslov ali geslo!" }, { status: 401 });
     }
 }

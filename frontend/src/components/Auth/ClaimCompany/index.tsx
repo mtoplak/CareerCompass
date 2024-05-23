@@ -39,8 +39,6 @@ const ClaimCompanyProfile = () => {
         toast.error(error);
       }
     } catch (err: any) {
-      console.log(err);
-      console.log(err.message);
       toast.error(err.message);
     } finally {
       setLoading(false);
@@ -105,7 +103,7 @@ const ClaimCompanyProfile = () => {
                   </label>
                   <div className="relative flex-1">
                     <input
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       placeholder="Geslo"
                       onChange={(e) =>
                         setClaimData({ ...claimData, password: e.target.value })

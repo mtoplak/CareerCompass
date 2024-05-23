@@ -5,7 +5,7 @@ import CompanyPageJobs from "@/components/AllCompanies/CompanyPageJobs";
 import { api } from "@/constants";
 import CompanyFilter from "./CompanyFilter";
 import NoProduct from "../NotFound/NoProduct";
-import PageLoader from "../Common/PageLoader";
+import ResultsLoader from "../Common/ResultsLoader";
 
 const SearchResults = () => {
   const [companies, setCompanies] = useState([]);
@@ -53,7 +53,7 @@ const SearchResults = () => {
       {!isLoading ? (
         <CompanyPageJobs companies={companies} noOfPages={noOfPages} />
       ) : (
-        <PageLoader />
+        <ResultsLoader />
       )}
       {!isLoading && companies.length === 0 && <NoProduct />}
     </>

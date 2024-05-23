@@ -272,7 +272,7 @@ export class CompanyService {
   async filterCompanyIdsByJobs(companyIds: string[]): Promise<Company[]> {
     try {
       let jobs = await this.jobsRepository.findFilters({ company_linked: { $in: companyIds } });
-      jobs = jobs.filter(id => id !== undefined)
+      jobs = jobs.filter(id => id !== undefined);
       return jobs.map(job => job.company_linked);
     } catch (error) {
       console.error('Error filtering company IDs by rating:', error);
@@ -340,7 +340,7 @@ export class CompanyService {
   async checkEmail(email: string): Promise<SuccessResponse> {
     const company = await this.companyRepository.findOne({ email: email.toLowerCase() });
     if (company) {
-      return { success: true };
+      return { success: true, company: company };
     } else {
       return { success: false };
     }

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { api } from "@/constants";
 import ErrorPage from "@/app/not-found";
 import RateCompany from "@/components/RateCompanyPage/RateCompany";
-import Breadcrumb from "@/components/Common/Breadcrumb";
 
 type Props = {
   params: { slug: string };

@@ -35,11 +35,10 @@ const Signin = () => {
 
       if (response.ok) {
         toast.success("Uspešna prijava!");
-        const res = await signIn("credentials", {
+        await signIn("credentials", {
           ...loginData,
           redirect: false,
         });
-        // console.log(res);
         router.push("/");
       }
       if (
@@ -50,8 +49,6 @@ const Signin = () => {
         toast.error(data.error);
       }
     } catch (err: any) {
-      console.log(err);
-      console.log(err.message);
       toast.error(err.message);
     } finally {
       setLoading(false);

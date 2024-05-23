@@ -34,7 +34,6 @@ const initialFormData = {
   salary_and_benefits_comment: "",
   bonuses: null,
   experience: "Nevtralna",
-  duration: "",
   difficulty: "Srednje",
   interviews_comment: "",
 };
@@ -84,12 +83,10 @@ const RateCompany = ({ company }: Props) => {
         toast.error(errorData.message || "Prišlo je do napake.");
         return;
       }
-
       toast.success("Uspešno ste ocenili podjetje!");
       router.push(`/podjetje/${company.slug}`);
     } catch (error: any) {
       toast.error(error.message);
-      console.error("Error submitting rating:", error);
     }
   };
 

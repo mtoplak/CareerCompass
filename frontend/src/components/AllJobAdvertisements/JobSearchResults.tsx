@@ -6,6 +6,7 @@ import NoProduct from "../NotFound/NoProduct";
 import JobAdvertisementFilter from "./JobAdvertisementFilter";
 import JobPage from "./JobPage";
 import SavedJobAdvertisementsFilter from "./SavedAdvertisementsFilter";
+import toast from "react-hot-toast";
 import PageLoader from "../Common/PageLoader";
 
 const JobSearchResults = () => {
@@ -31,8 +32,8 @@ const JobSearchResults = () => {
         const data = await response.json();
         setNoOfPages(Math.ceil(data.count / 28));
         setJobs(data.jobs);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      } catch (error: any) {
+        toast.error(error.message);
       } finally {
         setIsLoading(false);
       }

@@ -32,8 +32,6 @@ const stars = (rating: number) => {
     );
   }
 
-  //const ratingDisplay = rating === 0 ? roundedRating : rating.toFixed(1);
-
   return (
     <div className="mt-4 flex">
       {starIcons}

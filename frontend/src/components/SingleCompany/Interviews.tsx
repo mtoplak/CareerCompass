@@ -1,5 +1,4 @@
 import React from "react";
-import stars from "../Common/Stars";
 import { Company } from "@/types/company";
 import SingleInterviewComment from "../Comments/SingleInterviewComment";
 import ExperienceChart from "../Rating/ExperienceChart";

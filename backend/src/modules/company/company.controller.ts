@@ -99,9 +99,4 @@ export class CompanyController {
         return await this.companyService.checkEmail(email);
     }
 
-    @Get('/count')
-    async getCount(): Promise<number> {
-        return await this.companyService.countCompanies();
-    }
-
 }

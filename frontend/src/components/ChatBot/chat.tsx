@@ -3,11 +3,9 @@ import { ChatList } from "@/components/ChatBot/chat-list";
 import { ChatPanel } from "./chat-panel";
 import { EmptyScreen } from "@/components/ChatBot/empty-screen";
 import { Message } from "@/lib/chat/actions";
-import { useLocalStorage } from "@/lib/hooks/use-local-storage";
 import { useScrollAnchor } from "@/lib/hooks/use-scroll-anchor";
 import { Session } from "@/lib/types";
-import { cn } from "@/lib/utils";
-import { useAIState, useUIState } from "ai/rsc";
+import { useUIState } from "ai/rsc";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useSession } from "next-auth/react";
@@ -25,10 +23,7 @@ export interface ChatProps extends React.ComponentProps<"div"> {
 export function Chat({ id, missingKeys }: ChatProps) {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useUIState();
-  const [aiState] = useAIState();
   const { data: session } = useSession();
-
-  const [_, setNewChatId] = useLocalStorage("newChatId", id);
 
   useEffect(() => {
     if (!session) return;
@@ -60,17 +55,13 @@ export function Chat({ id, missingKeys }: ChatProps) {
           }),
         );
         setMessages(transformedMessages);
-      } catch (error) {
-        console.error("Failed to fetch messages:", error);
+      } catch (error: any) {
+        toast.error("Failed to fetch messages:", error);
       }
     };
 
     fetchMessages();
   }, [session, setMessages]);
-
-  useEffect(() => {
-    setNewChatId(id);
-  });
 
   useEffect(() => {
     (missingKeys ?? []).map((key) => {
@@ -89,7 +80,7 @@ export function Chat({ id, missingKeys }: ChatProps) {
           ref={scrollRef}
         >
           <div
-            className={`pb-[40px] pt-4 ${messages.length < 1 && "pb-[200px]"}`}
+            className={`pb-[40px] pt-4 ${messages.length < 1 && "pb-[300px]"}`}
             ref={messagesRef}
           >
             {messages.length > 0 && messages.length ? (

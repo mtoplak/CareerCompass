@@ -2,7 +2,6 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
-import type { Adapter } from "next-auth/adapters";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import { MongoClient, ServerApiVersion } from "mongodb";
 
@@ -65,7 +64,6 @@ export const authOptions: NextAuthOptions = {
       },
 
       async authorize(credentials) {
-        // check to see if email and password is there
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Izpolnite vsa polja.");
         }
@@ -74,7 +72,6 @@ export const authOptions: NextAuthOptions = {
         let user;
         if (authOptions && authOptions.adapter && authOptions.adapter.getUserByEmail) {
           user = await authOptions.adapter.getUserByEmail(credentials.email);
-          console.log(user);
         } else {
           console.error("authOptions.adapter is undefined or null");
         }
@@ -82,19 +79,6 @@ export const authOptions: NextAuthOptions = {
         console.log(user);
 
         return user || null;
-        // check to see if user already exist
-        // const user = await prisma.user.findUnique({
-        //   where: {
-        //     email: credentials.email,
-        //   },
-        // });
-
-
-        // if user was not found
-        // if (!user || !user?.password) {
-        //   throw new Error("In valid email or password");
-        // }
-
       },
     }),
 
@@ -118,7 +102,6 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     jwt: async (payload: any) => {
-      // console.log(payload);
       const { token } = payload;
       const user = payload.user;
 
@@ -126,20 +109,20 @@ export const authOptions: NextAuthOptions = {
         return {
           ...token,
           id: user.id,
+          company: user.company,
         };
       }
       return token;
     },
 
     session: async ({ session, token }) => {
-      // console.log(session);
-      // console.log(token);
       if (session?.user) {
         return {
           ...session,
           user: {
             ...session.user,
             id: token?.id,
+            company: token?.company,
           },
         };
       }

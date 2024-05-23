@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const ForEmployers = () => {
@@ -10,10 +11,13 @@ const ForEmployers = () => {
             style={{ height: "240px" }}
           >
             <div className="mb-4 flex w-full items-center justify-center sm:w-1/3 md:mb-0">
-              <img
-                src="images/forEmployers/registration.png"
+              <Image
+                src="/images/forEmployers/registration.png"
                 alt="Registriraj se"
                 className="h-auto w-3/4 sm:w-full"
+                width="0"
+                height="0"
+                sizes="100vw"
               />
             </div>
             <div className="flex w-full flex-col items-center sm:ml-8 sm:w-2/3 md:items-start">
@@ -31,10 +35,13 @@ const ForEmployers = () => {
             style={{ height: "240px" }}
           >
             <div className="mb-4 flex w-full items-center justify-center sm:w-1/3 md:mb-0">
-              <img
-                src="images/forEmployers/claim.png"
+              <Image
+                src="/images/forEmployers/claim.png"
                 alt="Prevzemi profil"
                 className="h-auto w-3/4 sm:w-full"
+                width="0"
+                height="0"
+                sizes="100vw"
               />
             </div>
             <div className="flex w-full flex-col items-center sm:ml-8 sm:w-2/3 md:items-start">
