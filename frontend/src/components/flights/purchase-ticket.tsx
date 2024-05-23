@@ -36,13 +36,6 @@ export const suggestions = [
 
 export const PurchaseTickets = ({
   status = 'requires_confirmation',
-  summary = {
-    airline: 'American Airlines',
-    departureTime: '10:00 AM',
-    arrivalTime: '12:00 PM',
-    price: 100,
-    seat: '1A'
-  }
 }: PurchaseProps) => {
   const [currentStatus, setCurrentStatus] = useState(status)
   const { requestCode, validateCode, submitUserMessage } = useActions()

@@ -5,6 +5,7 @@ import { Company } from "@/types/company";
 import { Button, IconButton } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { api } from "@/constants";
+import ResultsLoader from "../Common/ResultsLoader";
 
 const CompanyPageJobs = ({
   companies,
@@ -40,6 +41,7 @@ const CompanyPageJobs = ({
     } else {
       setCompanies(companies);
       setNoOfPages(noOfPages as number);
+      setIsLoading(false);
     }
   }, [companies, noOfPages]);
 
@@ -90,7 +92,7 @@ const CompanyPageJobs = ({
   const visiblePages = pages.filter((page) => {
     return (
       page === 1 ||
-      page === noOfPages2 || 
+      page === noOfPages2 ||
       page === active ||
       page === active - 1 ||
       page === active + 1
@@ -131,9 +133,13 @@ const CompanyPageJobs = ({
     <section className="bg-gray-1 py-20 dark:bg-dark-2 md:py-[10px]">
       <div className="container px-4">
         <div className="mb-[50px] mt-[10px] flex flex-wrap gap-y-8">
-          {companies2.map((company: Company) => (
-            <SingleCompany key={company.name} company={company} />
-          ))}
+          {isLoading ? (
+            <ResultsLoader />
+          ) : (
+            companies2.map((company: Company) => (
+              <SingleCompany key={company.name} company={company} />
+            ))
+          )}
         </div>
         {noOfPages2 > 1 && (
           <div className="mb-12 flex flex-wrap items-center justify-center gap-4 bg-gray-1 p-4 dark:bg-dark-2">

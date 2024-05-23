@@ -214,8 +214,6 @@ export const AI = createAI<AIState, UIState>({
   unstable_onGetUIState: async () => {
     "use server";
 
-    // const session = await auth();
-
     if (session && session.user) {
       const aiState = getAIState();
 
@@ -229,8 +227,6 @@ export const AI = createAI<AIState, UIState>({
   },
   unstable_onSetAIState: async ({ state }) => {
     "use server";
-
-    // const session = await auth();
 
     if (session && session.user) {
       const { chatId, messages } = state;

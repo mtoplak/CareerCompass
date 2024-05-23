@@ -64,7 +64,6 @@ export const authOptions: NextAuthOptions = {
       },
 
       async authorize(credentials) {
-        // check to see if email and password is there
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Izpolnite vsa polja.");
         }

@@ -1,16 +1,11 @@
-import { Button } from "@/components/ui/button";
 import { PromptForm } from "./prompt-form";
 import { ButtonScrollToBottom } from "@/components/ChatBot/button-scroll-to-bottom";
-import { IconShare } from "@/components/ui/icons";
-import { ChatShareDialog } from "@/components/ChatBot/chat-share-dialog";
-import { useAIState, useActions, useUIState } from "ai/rsc";
+import { useActions, useUIState } from "ai/rsc";
 import type { AI } from "@/lib/chat/actions";
 import { nanoid } from "nanoid";
-import { UserMessage } from "../stocks/message";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
 
 export interface ChatPanelProps {
   id?: string;
@@ -22,17 +17,13 @@ export interface ChatPanelProps {
 }
 
 export function ChatPanel({
-  id,
-  title,
   input,
   setInput,
   isAtBottom,
   scrollToBottom,
 }: ChatPanelProps) {
-  const [aiState] = useAIState();
   const [messages, setMessages] = useUIState<typeof AI>();
   const { submitUserMessage } = useActions();
-  const [shareDialogOpen, setShareDialogOpen] = useState(false);
   const { data: session } = useSession();
   const email = session?.user?.email;
 
@@ -97,7 +88,6 @@ export function ChatPanel({
                           className="underline"
                           target="_blank"
                           rel="noopener noreferrer"
-                          href="https://vercel.com/templates/next.js/gemini-ai-chatbot"
                         >
                           deploy your own version
                         </a>
@@ -114,34 +104,6 @@ export function ChatPanel({
               </div>
             ))}
         </div>
-
-        {messages?.length >= 2 ? (
-          <div className="flex h-fit items-center justify-center">
-            <div className="flex space-x-2">
-              {id && title ? (
-                <>
-                  <Button
-                    variant="outline"
-                    onClick={() => setShareDialogOpen(true)}
-                  >
-                    <IconShare className="mr-2" />
-                    Deli
-                  </Button>
-                  <ChatShareDialog
-                    open={shareDialogOpen}
-                    onOpenChange={setShareDialogOpen}
-                    onCopy={() => setShareDialogOpen(false)}
-                    chat={{
-                      id,
-                      title,
-                      messages: aiState.messages,
-                    }}
-                  />
-                </>
-              ) : null}
-            </div>
-          </div>
-        ) : null}
 
         <div className="grid gap-4 sm:pb-4">
           <PromptForm input={input} setInput={setInput} />
