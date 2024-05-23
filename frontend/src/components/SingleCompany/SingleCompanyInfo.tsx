@@ -161,11 +161,17 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
           </div>
         </div>
         <div className="mt-12">
-          
           {company.ratings_count > 0 ? (
             <>
-            <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene  
-            <Link href={`/vsi-komentarji/${company.slug}`} className="ml-2 hover:text-indigo-700 dark:hover:text-indigo-400">(preglej vse komentarje podjetja)</Link></h2>
+              <h2 className="mb-4 text-2xl font-semibold">
+                Komentarji in ocene
+                <Link
+                  href={`/vsi-komentarji/${company.slug}`}
+                  className="ml-2 hover:text-indigo-700 dark:hover:text-indigo-400"
+                >
+                  (preglej vse komentarje podjetja)
+                </Link>
+              </h2>
               <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
                 <h2 className="mb-2 text-xl font-semibold">Splošna ocena</h2>
                 <GeneralAssessment company={company} />
@@ -183,7 +189,9 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
             </>
           ) : (
             <div className="mb-10">
-              <h2 className="mb-4 text-2xl font-semibold">Komentarji in ocene</h2>
+              <h2 className="mb-4 text-2xl font-semibold">
+                Komentarji in ocene
+              </h2>
               <p>
                 To podjetje še ni bilo ocenjeno.
                 <Link

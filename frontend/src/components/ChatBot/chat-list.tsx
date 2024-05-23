@@ -2,6 +2,7 @@ import { UIState } from "@/lib/chat/actions";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { BotCard, SpinnerMessage, UserMessage } from "../stocks/message";
+import { useEffect, useRef } from "react";
 
 export interface ChatList {
   messages: UIState;
@@ -10,6 +11,18 @@ export interface ChatList {
 }
 
 export function ChatList({ messages, session, isShared }: ChatList) {
+  const messageContainerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const scrollToBottom = () => {
+      if (messageContainerRef.current) {
+        messageContainerRef.current.scrollTop =
+          messageContainerRef.current.scrollHeight;
+      }
+    };
+
+    scrollToBottom();
+  }, [messages]);
+
   return messages.length ? (
     <div className="relative mx-auto grid max-w-2xl auto-rows-max gap-8 px-4">
       {!isShared && !session ? (
@@ -37,21 +50,25 @@ export function ChatList({ messages, session, isShared }: ChatList) {
           </div>
         </>
       ) : null}
-      {messages.length > 0 &&
-        messages.map((message, index) => (
-          <div key={index}>
-            {message && message.role && message.role === "user" ? (
-              <UserMessage>{message.display}</UserMessage>
-            ) : message && message.role === "assistant" ? (
-              <BotCard>
-                {message && message.spinner}
-                {message && message.display}
-              </BotCard>
-            ) : (
-              <SpinnerMessage />
-            )}
-          </div>
-        ))}
+      <div
+        ref={messageContainerRef}
+        className="message-container grid max-h-96 min-h-[500px] auto-rows-max gap-8 overflow-y-auto"
+      >
+        {messages.length > 0 &&
+          messages.map((message, index) => (
+            <div key={index} className="flex items-center">
+              {message && message.role && message.role === "user" ? (
+                <UserMessage>{message.display}</UserMessage>
+              ) : message && message.role === "assistant" ? (
+                <>
+                  <BotCard>{message.display}</BotCard>
+                </>
+              ) : (
+                <SpinnerMessage />
+              )}
+            </div>
+          ))}
+      </div>
     </div>
   ) : null;
 }
