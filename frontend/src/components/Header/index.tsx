@@ -327,11 +327,16 @@ const Header = () => {
                 {session?.user ? (
                   <>
                     <div className="hidden items-center justify-end sm:flex lg:pr-0">
+                    <Link
+                          href="/urejanje"
+                          className="px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white"
+                        >
                       <p
                         className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${isTextWhitePath ? "text-white" : "text-dark"}`}
                       >
                         {session?.user?.name}
                       </p>
+                      </Link>
                     </div>
                     {isNotInPaths || sticky ? (
                       <button

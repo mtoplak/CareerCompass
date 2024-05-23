@@ -2,9 +2,6 @@
 import { Metadata } from "next";
 import { Company } from "@/types/company";
 import { useState } from "react";
-import SingleGeneralComment from "../Comments/SingleGeneralComment";
-import SingleInterviewComment from "../Comments/SingleInterviewComment";
-import SingleSaleryComment from "../Comments/SingleSaleryComment";
 import Link from "next/link";
 import stars from "../Common/Stars";
 import Image from "next/image";
