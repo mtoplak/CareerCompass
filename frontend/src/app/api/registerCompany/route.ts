@@ -5,11 +5,9 @@ import { uploadImageToStorage } from "@/firebase/firebase.client";
 export async function POST(request: any) {
     const body = await request.json();
 
-    // save company logo to firebase
     const companyLogoUrl = await uploadImageToStorage(body.logo, body.name);
     body.logo = companyLogoUrl;
 
-    // save company to database;
     const res = await fetch(`${api}/company`, {
         method: "POST",
         headers: {

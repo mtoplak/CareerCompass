@@ -15,18 +15,16 @@ export async function POST(request: any) {
 
     const response = await fetch(`${api}/user/get/${email}`);
 
-    // check if user already exists
     if (response.ok) {
         return NextResponse.json("Uporabnik s tem e-mailom že obstaja!", { status: 409 });
     }
 
-    // check if given email exists in any company
     const companyResponse = await fetch(`${api}/company/claim`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(email),
+        body: JSON.stringify({ email: email }),
     });
 
     const emailMatch = await companyResponse.json();
@@ -35,11 +33,9 @@ export async function POST(request: any) {
         return NextResponse.json("Podjetje s tem emailom ne obstaja!", { status: 409 });
     }
 
-    // save user to firebase
-    const user = registerUser(email, password);
-    // console.log(user);
+    const user = await registerUser(email, password);
+    console.log(user);
 
-    // save user to database
     const res = await fetch(`${api}/user`, {
         method: "POST",
         headers: {

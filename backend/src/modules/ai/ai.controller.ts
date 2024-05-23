@@ -5,12 +5,6 @@ import { AiService } from './ai.service';
 export class AiController {
   constructor(private readonly aiService: AiService) { }
 
-  @Post('/check')
-  async checkAIComments(@Body() body: { comment: string }): Promise<boolean> {
-    const comment = body.comment;
-    return await this.aiService.checkComment(comment);
-  }
-
   @Post()
   async generateCompletion(
     @Body('userEmail') userEmail: string,

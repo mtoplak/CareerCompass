@@ -82,7 +82,6 @@ const JobActions = ({
 
       toast.success(<ToastContent />);
       setIsSaved(true);
-      window.location.reload();
     } catch (error) {
       console.error("There was a problem with the save operation:", error);
       toast.error(`Prišlo je do napake pri shranjevanju`);
@@ -114,7 +113,6 @@ const JobActions = ({
 
       toast.success("Oglas je uspešno odstranjen iz shranjenih oglasov.");
       setIsSaved(false);
-      window.location.reload();
     } catch (error) {
       console.error("There was a problem with the unsave operation:", error);
       toast.error(`Prišlo je do napake`);

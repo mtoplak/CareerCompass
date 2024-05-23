@@ -1,5 +1,4 @@
 "use client";
-//import SingleJob from "./SingleJob";
 import SingleJob from "../SingleJob/SingleJob";
 import { useEffect, useState } from "react";
 import { api } from "@/constants";

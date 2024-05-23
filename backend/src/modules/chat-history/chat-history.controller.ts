@@ -3,11 +3,8 @@ import {
   Controller,
   Get,
   Post,
-  Param,
-  Delete,
-  Patch
+  Param
 } from '@nestjs/common';
-import { SuccessResponse } from '../../shared/data.response';
 import { ChatHistoryService } from './chat-history.service';
 import { CreateUpdateChatHistoryDto } from './dto/create-update-chat-history.dto';
 import { ChatHistory } from '../../db/entities/chat-history.model';
@@ -24,11 +21,6 @@ export class ChatHistoryController {
     return await this.chatHistoryService.createChatHistory(createChatHistoryDto);
   }
 
-  @Get()
-  async getAllChatHistories(): Promise<ChatHistory[]> {
-    return await this.chatHistoryService.getAllChatHistories();
-  }
-
   @Get('/:id')
   async getSingleChatHistory(@Param('id') id: string): Promise<ChatHistory> {
     return await this.chatHistoryService.getSingleChatHistory(id);
@@ -39,19 +31,6 @@ export class ChatHistoryController {
     @Body() getChatHistoryByUserDto: GetChatHistoryByUserDto
   ): Promise<ChatHistory> {
     return await this.chatHistoryService.getChatHistoryByUser(getChatHistoryByUserDto.email);
-  }
-
-  @Patch(':id')
-  async updateChatHistory(
-    @Param('id') chatHistoryId: string,
-    @Body() updateChatHistoryDto: CreateUpdateChatHistoryDto,
-  ): Promise<ChatHistory> {
-    return await this.chatHistoryService.updateChatHistory(chatHistoryId, updateChatHistoryDto);
-  }
-
-  @Delete(':id')
-  async removeChatHistory(@Param('id') chatHistoryId: string): Promise<SuccessResponse> {
-    return this.chatHistoryService.removeChatHistory(chatHistoryId);
   }
 
 }

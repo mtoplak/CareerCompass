@@ -1,7 +1,7 @@
 import { Feature } from "@/types/feature";
 
 const SingleRating = ({ feature }: { feature: Feature }) => {
-  const { icon, title, paragraph, btn, btnLink } = feature;
+  const { icon, title, paragraph } = feature;
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/4">
       <div className="wow fadeInUp group mb-12" data-wow-delay=".15s">

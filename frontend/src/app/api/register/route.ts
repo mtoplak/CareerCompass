@@ -15,16 +15,13 @@ export async function POST(request: any) {
 
   const response = await fetch(`${api}/user/get/${email}`);
 
-  // check if user already exists
   if (response.ok) {
     return NextResponse.json("Uporabnik s tem e-mailom že obstaja!", { status: 409 });
   }
 
-  // save user to firebase
   const user = registerUser(email, password);
   // console.log(user);
 
-  // save user to database
   const res = await fetch(`${api}/user`, {
     method: "POST",
     headers: {

@@ -41,7 +41,7 @@ const CompanyPageJobs = ({
       setCompanies(companies);
       setNoOfPages(noOfPages as number);
     }
-  }, []);
+  }, [companies, noOfPages]);
 
   const getItemProps = (index: any) => ({
     className: `${active === index ? "bg-black" : "bg-transparent text-gray-500"} flex items-center justify-center w-8 h-8`,
@@ -89,11 +89,11 @@ const CompanyPageJobs = ({
 
   const visiblePages = pages.filter((page) => {
     return (
-      page === 1 || // First page
-      page === noOfPages2 || // Last page
-      page === active || // Current page
-      page === active - 1 || // Previous page
-      page === active + 1 // Next page
+      page === 1 ||
+      page === noOfPages2 || 
+      page === active ||
+      page === active - 1 ||
+      page === active + 1
     );
   });
 
