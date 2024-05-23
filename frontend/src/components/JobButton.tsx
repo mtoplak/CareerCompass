@@ -6,10 +6,18 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { useSession } from "next-auth/react";
 import ToastContent from "./ToastContent";
+import { useState } from "react";
 
-const JobActions = ({ job, isSaved }: { job: any, isSaved: boolean }) => {
+const JobActions = ({
+  job,
+  isSaved: initialIsSaved,
+}: {
+  job: any;
+  isSaved: boolean;
+}) => {
   const { data: session } = useSession();
   const { _id, position } = job;
+  const [isSaved, setIsSaved] = useState(initialIsSaved);
 
   const handleDelete = async () => {
     confirmAlert({
@@ -73,6 +81,7 @@ const JobActions = ({ job, isSaved }: { job: any, isSaved: boolean }) => {
       }
 
       toast.success(<ToastContent />);
+      setIsSaved(true);
       window.location.reload();
     } catch (error) {
       console.error("There was a problem with the save operation:", error);
@@ -103,7 +112,8 @@ const JobActions = ({ job, isSaved }: { job: any, isSaved: boolean }) => {
         throw new Error(errorText || "Failed to unsave job");
       }
 
-      toast.success("Oglas je usppešno odstranjen iz shranjenih oglasov.");
+      toast.success("Oglas je uspešno odstranjen iz shranjenih oglasov.");
+      setIsSaved(false);
       window.location.reload();
     } catch (error) {
       console.error("There was a problem with the unsave operation:", error);
@@ -113,7 +123,7 @@ const JobActions = ({ job, isSaved }: { job: any, isSaved: boolean }) => {
 
   return (
     <div className="mt-4 flex justify-end">
-      {session?.user?.company ? (
+      {session?.user ? (
         <button
           onClick={handleDelete}
           className="rounded bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-500"
@@ -122,21 +132,21 @@ const JobActions = ({ job, isSaved }: { job: any, isSaved: boolean }) => {
         </button>
       ) : (
         <>
-          {/*{!isSaved ? ( */}
+          {!isSaved ? (
             <button
               onClick={handleSave}
               className="rounded bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-500"
             >
               Shrani oglas
             </button>
-          { /*) : ( */}
+          ) : (
             <button
               onClick={handleUnsave}
-              className="ml-2 rounded bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-500"
+              className="ml-2 rounded bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-500"
             >
               Odstrani oglas
             </button>
-         {/* } )}  */}
+          )}
         </>
       )}
     </div>

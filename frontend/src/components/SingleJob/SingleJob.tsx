@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { api } from "@/constants";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,61 +7,51 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import { useSession } from "next-auth/react";
 import JobActions from "../JobButton";
 
-declare module "next-auth" {
-  interface User {
-    company?: string | null;
-    email?: string | null;
-  }
-
-  interface Session {
-    user?: User;
-  }
-}
-
-const SingleJob2 = ({ job }: { job: any }) => {
+const SingleJob = ({ job }: { job: any }) => {
   const { data: session } = useSession();
   const { _id, position, description, city, company, source, url } = job;
   const [isSaved, setIsSaved] = useState(false);
 
-  const checkIfSaved = useCallback(async () => {
-    if (!session?.user?.email) {
-      console.error("User email is missing");
-      return;
-    }
-
-    if (!_id) {
-      console.error("Job ID is missing");
-      return;
-    }
-
-    try {
-      const response = await fetch(
-        `${api}/job/check/${_id}/${session.user.email}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        },
-      );
-
-      if (response.ok) {
-        const { saved } = await response.json();
-        setIsSaved(saved);
-      } else {
-        console.error("Failed to check if job is saved", await response.text());
-        setIsSaved(false);
-      }
-    } catch (error) {
-      console.error("There was a problem checking the saved status:", error);
-    }
-  }, [session?.user?.email, _id]);
-
   useEffect(() => {
-    if (session?.user?.email && _id) {
-      checkIfSaved();
-    }
-  }, [session?.user?.email, _id, checkIfSaved]);
+    const checkIfSaved = async () => {
+      console.log(session?.user);
+      if (!session?.user?.email) {
+        console.error("User email is missing");
+        return;
+      }
+
+      if (!_id) {
+        console.error("Job ID is missing");
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `${api}/job/check/${_id}/${session.user.email}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          },
+        );
+
+        if (response.ok) {
+          const { saved } = await response.json();
+          setIsSaved(saved);
+        } else {
+          console.error(
+            "Failed to check if job is saved",
+            await response.text(),
+          );
+          setIsSaved(false);
+        }
+      } catch (error) {
+        console.error("There was a problem checking the saved status:", error);
+      }
+    };
+    checkIfSaved();
+  }, [session, _id]);
 
   return (
     <div className="w-full px-4 lg:w-1/2 xl:w-1/2">
@@ -104,4 +94,4 @@ const SingleJob2 = ({ job }: { job: any }) => {
   );
 };
 
-export default SingleJob2;
+export default SingleJob;
