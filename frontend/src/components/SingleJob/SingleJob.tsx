@@ -14,7 +14,7 @@ const SingleJob = ({ job }: { job: any }) => {
 
   useEffect(() => {
     const checkIfSaved = async () => {
-      console.log(session?.user);
+      console.log(session?.user?.company);
       if (!session?.user?.email) {
         console.error("User email is missing");
         return;
