@@ -87,39 +87,52 @@ export class AverageRatingService {
 
     averageRating.avg_rating = sumOfAverages / categories.length;
 
+    const percentageCalculations = [];
+
     // remote work
     if (rating.remote_work === true) {
       averageRating.remote_work_distribution.yes += 1;
     } else if (rating.remote_work === false) {
       averageRating.remote_work_distribution.no += 1;
     }
-    const remoteWorkPercentages = await this.calculateRemoteWorkPercentages(averageRating.remote_work_distribution);
-    averageRating.remote_work_percentage = {
-      yes: parseFloat(remoteWorkPercentages.yes),
-      no: parseFloat(remoteWorkPercentages.no),
-    };
+    percentageCalculations.push(
+      this.calculateRemoteWorkPercentages(averageRating.remote_work_distribution).then((percentages) => {
+        averageRating.remote_work_percentage = {
+          yes: parseFloat(percentages.yes),
+          no: parseFloat(percentages.no),
+        };
+      }),
+    );
 
     // experience
     if (rating.experience) {
       averageRating.experience_distribution[rating.experience.toLowerCase()] += 1;
-      const experiencePercentages = await this.calculateExperiencePercentages(averageRating.experience_distribution);
-      averageRating.experience_percentage = {
-        pozitivna: parseFloat(experiencePercentages.pozitivna),
-        nevtralna: parseFloat(experiencePercentages.nevtralna),
-        negativna: parseFloat(experiencePercentages.negativna),
-      };
+      percentageCalculations.push(
+        this.calculateExperiencePercentages(averageRating.experience_distribution).then((percentages) => {
+          averageRating.experience_percentage = {
+            pozitivna: parseFloat(percentages.pozitivna),
+            nevtralna: parseFloat(percentages.nevtralna),
+            negativna: parseFloat(percentages.negativna),
+          };
+        }),
+      );
     }
 
     // difficulty
     if (rating.difficulty) {
       averageRating.difficulty_distribution[rating.difficulty.toLowerCase()] += 1;
-      const difficultyPercentages = await this.calculateDifficultyPercentages(averageRating.difficulty_distribution);
-      averageRating.difficulty_percentage = {
-        enostavno: parseFloat(difficultyPercentages.enostavno),
-        srednje: parseFloat(difficultyPercentages.srednje),
-        težko: parseFloat(difficultyPercentages.težko),
-      };
+      percentageCalculations.push(
+        this.calculateDifficultyPercentages(averageRating.difficulty_distribution).then((percentages) => {
+          averageRating.difficulty_percentage = {
+            enostavno: parseFloat(percentages.enostavno),
+            srednje: parseFloat(percentages.srednje),
+            težko: parseFloat(percentages.težko),
+          };
+        }),
+      );
     }
+
+    await Promise.all(percentageCalculations);
 
     // Check and add comments
     const fieldTranslations = {

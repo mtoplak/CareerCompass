@@ -37,10 +37,8 @@ export class CompanyService {
         email: companyData.email,
       });
 
-      const createdCompany = await company.save();
-
       const averageRating = new AverageRatingModel({
-        company: createdCompany._id,
+        company: company._id,
         avg_rating: 0,
         ratings_count: 0,
         avg_team: 0,
@@ -56,35 +54,38 @@ export class CompanyService {
         interviews_comments: [],
         remote_work_distribution: {
           yes: 0,
-          no: 0
+          no: 0,
         },
         remote_work_percentage: {
           yes: 0,
-          no: 0
+          no: 0,
         },
         experience_distribution: {
           pozitivna: 0,
           nevtralna: 0,
-          negativna: 0
+          negativna: 0,
         },
         experience_percentage: {
           pozitivna: 0,
           nevtralna: 0,
-          negativna: 0
+          negativna: 0,
         },
         difficulty_distribution: {
           enostavno: 0,
           srednje: 0,
-          težko: 0
+          težko: 0,
         },
         difficulty_percentage: {
           enostavno: 0,
           srednje: 0,
-          težko: 0
-        }
+          težko: 0,
+        },
       });
 
-      const createdAverageRating = await averageRating.save();
+      const [createdCompany, createdAverageRating] = await Promise.all([
+        company.save(),
+        averageRating.save(),
+      ]);
 
       createdCompany.average = createdAverageRating._id;
       await createdCompany.save();

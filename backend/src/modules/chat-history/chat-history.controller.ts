@@ -9,6 +9,7 @@ import { ChatHistoryService } from './chat-history.service';
 import { CreateUpdateChatHistoryDto } from './dto/create-update-chat-history.dto';
 import { ChatHistory } from '../../db/entities/chat-history.model';
 import { GetChatHistoryByUserDto } from './dto/chat-history-user.dto';
+import { SuccessResponse } from 'src/shared/data.response';
 
 @Controller('/history')
 export class ChatHistoryController {
@@ -31,6 +32,13 @@ export class ChatHistoryController {
     @Body() getChatHistoryByUserDto: GetChatHistoryByUserDto
   ): Promise<ChatHistory> {
     return await this.chatHistoryService.getChatHistoryByUser(getChatHistoryByUserDto.email);
+  }
+
+  @Post("/remove")
+  async removeChatHistoryByUser(
+    @Body() getChatHistoryByUserDto: GetChatHistoryByUserDto
+  ): Promise<SuccessResponse> {
+    return await this.chatHistoryService.removeChatHistoryByUser(getChatHistoryByUserDto.email);
   }
 
 }

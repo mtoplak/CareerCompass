@@ -61,6 +61,27 @@ export class ChatHistoryService {
     }
   }
 
+  async removeChatHistoryByUser(userEmail: string): Promise<SuccessResponse> {
+    try {
+      const user = await this.userRepository.findOne({ email: userEmail });
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      const history = await this.chatHistoryRepository.findOne({ user: user._id });
+      if (!history) {
+        throw new Error('Chat history not found');
+      }
+
+      history.chat_history = [];
+      await history.save();
+      return { success: true }
+    } catch (error) {
+      console.error("Error removing chat history:", error);
+      return { success: false }
+    }
+  }
+
   async updateChatHistory(
     chatHistoryId: string,
     chatHistoryUpdates: CreateUpdateChatHistoryDto,

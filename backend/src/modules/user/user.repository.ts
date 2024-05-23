@@ -15,6 +15,7 @@ export class UserRepository {
       return await this.userModel
         .findOne(userFilterQuery)
         .populate('saved_advertisements')
+        .populate('company')
         .exec();
     } catch (err) {
       throw new NotFoundException('Could not get the user.');

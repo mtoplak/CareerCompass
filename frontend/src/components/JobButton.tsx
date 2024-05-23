@@ -16,7 +16,7 @@ const JobActions = ({
   isSaved: boolean;
 }) => {
   const { data: session } = useSession();
-  const { _id, position } = job;
+  const { _id, position, company } = job;
   const [isSaved, setIsSaved] = useState(initialIsSaved);
 
   const handleDelete = async () => {
@@ -38,14 +38,10 @@ const JobActions = ({
                 throw new Error("Doesn't work");
               }
 
-              toast.success("Job deleted successfully");
+              toast.success("Zaposlitveni oglas je uspešno izbrisan.");
               window.location.reload();
             } catch (error) {
-              console.error(
-                "There was a problem with the delete operation:",
-                error,
-              );
-              toast.error("Failed to delete the job");
+              toast.error("Prišlo je do napake pri brisanju oglasa.");
             }
           },
         },
@@ -62,7 +58,6 @@ const JobActions = ({
       toast.error("User email is missing");
       return;
     }
-
     try {
       const response = await fetch(
         `${api}/job/save/${_id}/${session.user.email}`,
@@ -114,21 +109,24 @@ const JobActions = ({
       toast.success("Oglas je uspešno odstranjen iz shranjenih oglasov.");
       setIsSaved(false);
     } catch (error) {
-      console.error("There was a problem with the unsave operation:", error);
       toast.error(`Prišlo je do napake`);
     }
   };
 
+  if (!session) {
+    return null;
+  }
+
   return (
     <div className="mt-4 flex justify-end">
-      {session?.user ? (
+      {session.user.company && session.user.name === company ? (
         <button
           onClick={handleDelete}
           className="rounded bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-500"
         >
           Izbriši
         </button>
-      ) : (
+      ) : session.user.company ? null : (
         <>
           {!isSaved ? (
             <button
