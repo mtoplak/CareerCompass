@@ -16,10 +16,6 @@ const JobPage = ({
   const [savedJobs, setSavedJobs] = useState<JobAdvertisement[]>([]);
   const { data: session } = useSession();
 
-  if (!jobs) {
-    return <ResultsLoader />;
-  }
-
   useEffect(() => {
     const fetchJobs = async () => {
       const res = await fetch(`${api}/user/get/${session?.user.email}`, {
@@ -35,6 +31,10 @@ const JobPage = ({
       fetchJobs();
     }
   }, [session]);
+
+  if (!jobs) {
+    return <ResultsLoader />;
+  }
 
   const canBeSaved =
     session?.user !== undefined && session.user?.company === undefined;
