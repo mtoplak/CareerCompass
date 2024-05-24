@@ -3,10 +3,12 @@ import SingleJob from "../SingleJob/SingleJob";
 import { useEffect, useState } from "react";
 import { api } from "@/constants";
 import { useSession } from "next-auth/react";
+import { JobAdvertisement } from "@/types/job";
 
 const PopularJobs = () => {
   const { data: session } = useSession();
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState<JobAdvertisement[]>([]);
+  const [savedJobs, setSavedJobs] = useState<JobAdvertisement[]>([]);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -22,15 +24,33 @@ const PopularJobs = () => {
       });
       const jobs = await res.json();
       setJobs(jobs);
+
+      if (session) {
+        const res = await fetch(`${api}/user/get/${session.user.email}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const savedJobs = await res.json();
+        setSavedJobs(savedJobs.saved_advertisements);
+      }
     };
 
     fetchJobs();
   }, [session]);
 
+  const canBeSaved =
+    session?.user !== undefined && session.user?.company === undefined;
+
   return (
     <>
       {jobs.map((job: any, i: number) => (
-        <SingleJob key={i} job={job} />
+        <SingleJob
+          key={i}
+          job={job}
+          canBeSaved={canBeSaved}
+          isSaved={savedJobs.some((savedJob) => savedJob._id === job._id)}
+        />
       ))}
     </>
   );

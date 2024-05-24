@@ -1,57 +1,15 @@
-"use client";
-import { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import { api } from "@/constants";
-import "react-toastify/dist/ReactToastify.css";
-import "react-confirm-alert/src/react-confirm-alert.css";
-import { useSession } from "next-auth/react";
 import JobActions from "../JobButton";
 
-const SingleJob = ({ job }: { job: any }) => {
-  const { data: session } = useSession();
-  const { _id, position, description, city, company, source, url } = job;
-  const [isSaved, setIsSaved] = useState(false);
-
-  useEffect(() => {
-    const checkIfSaved = async () => {
-      console.log(session?.user?.company);
-      if (!session?.user?.email) {
-        console.error("User email is missing");
-        return;
-      }
-
-      if (!_id) {
-        console.error("Job ID is missing");
-        return;
-      }
-
-      try {
-        const response = await fetch(
-          `${api}/job/check/${_id}/${session.user.email}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          },
-        );
-
-        if (response.ok) {
-          const { saved } = await response.json();
-          setIsSaved(saved);
-        } else {
-          console.error(
-            "Failed to check if job is saved",
-            await response.text(),
-          );
-          setIsSaved(false);
-        }
-      } catch (error) {
-        console.error("There was a problem checking the saved status:", error);
-      }
-    };
-    checkIfSaved();
-  }, [session, _id]);
+const SingleJob = ({
+  job,
+  canBeSaved,
+  isSaved,
+}: {
+  job: any;
+  canBeSaved: boolean;
+  isSaved: boolean;
+}) => {
+  const { position, description, city, company, source, url } = job;
 
   return (
     <div className="w-full px-4 lg:w-1/2 xl:w-1/2">
@@ -87,9 +45,8 @@ const SingleJob = ({ job }: { job: any }) => {
             </div>
           </div>
         </div>
-        {session?.user && <JobActions job={job} isSaved={isSaved} />}
+        {canBeSaved && <JobActions job={job} isSaved={isSaved} />}
       </div>
-      <ToastContainer />
     </div>
   );
 };

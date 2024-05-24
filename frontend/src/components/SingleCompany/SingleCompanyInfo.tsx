@@ -7,7 +7,7 @@ import SaleryAndBenefits from "./SaleryAndBenefits";
 import Interviews from "./Interviews";
 import Link from "next/link";
 import { JobAdvertisement } from "@/types/job";
-import SingleJob from "../SingleJob/SingleJob";
+import CompanyJobs from "./CompanyJobs";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -148,18 +148,7 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
             )}
           </div>
         </div>
-        <div className="mt-20 ">
-          <h2 className="mb-4 text-2xl font-semibold">Zaposlitve</h2>
-          <div className="mb-[50px] mt-[10px] flex flex-wrap gap-y-8">
-            {jobAdvertisements.length > 0 ? (
-              jobAdvertisements.map((job, index) => (
-                <SingleJob key={index} job={job} />
-              ))
-            ) : (
-              <p>Podjetje nima objavljenih zaposlitev.</p>
-            )}
-          </div>
-        </div>
+        <CompanyJobs jobs={jobAdvertisements} />
         <div className="mt-12">
           {company.ratings_count > 0 ? (
             <>

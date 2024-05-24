@@ -1,9 +1,7 @@
 "use client";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { confirmAlert } from "react-confirm-alert";
 import { api } from "@/constants";
-import "react-toastify/dist/ReactToastify.css";
-import "react-confirm-alert/src/react-confirm-alert.css";
 import { useSession } from "next-auth/react";
 import ToastContent from "./ToastContent";
 import { useState } from "react";

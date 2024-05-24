@@ -5,39 +5,37 @@ import NoProduct from "../NotFound/NoProduct";
 import JobPage from "./JobPage";
 import { useSession } from "next-auth/react";
 import SavedJobAdvertisementsFilter from "./SavedAdvertisementsFilter";
-import PageLoader from "../Common/PageLoader";
+import ResultsLoader from "../Common/ResultsLoader";
+import toast from "react-hot-toast";
 
 const SavedJobResults = () => {
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [noOfPages, setNoOfPages] = useState(0);
   const { data: session } = useSession();
 
   useEffect(() => {
     const fetchJobs = async () => {
       setIsLoading(true);
       try {
-        if (!session?.user?.email) {
-          throw new Error("User email not available");
-        }
-
-        const response = await fetch(`${api}/job/saved/${session.user.email}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
+        const response = await fetch(
+          `${api}/user/get/${session?.user?.email}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          },
+        );
         const data = await response.json();
-        setNoOfPages(Math.ceil(data.count / 28));
-        setJobs(data || []);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setJobs([]);
+        setJobs(data.saved_advertisements);
+      } catch (error: any) {
+        toast.error(error.message);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchJobs();
-  }, [session?.user?.email]);
+  }, [session]);
 
   return (
     <>
@@ -47,11 +45,11 @@ const SavedJobResults = () => {
           {Array.isArray(jobs) && jobs.length === 0 ? (
             <NoProduct />
           ) : (
-            <JobPage jobs={jobs} />
+            <JobPage jobs={jobs} areSaved={true} />
           )}
         </>
       ) : (
-        <PageLoader />
+        <ResultsLoader />
       )}
     </>
   );

@@ -5,19 +5,19 @@ declare module "next-auth" {
     interface Session {
         user: {
             id: string;
-            company?: string;
+            company?: any;
         } & DefaultSession["user"];
     }
 
     interface User {
         id: string;
-        company?: string;
+        company?: any;
     }
 }
 
 declare module "next-auth/jwt" {
     interface JWT {
         id: string;
-        company?: string;
+        company?: any;
     }
 }

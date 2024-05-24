@@ -7,7 +7,7 @@ import JobAdvertisementFilter from "./JobAdvertisementFilter";
 import JobPage from "./JobPage";
 import SavedJobAdvertisementsFilter from "./SavedAdvertisementsFilter";
 import toast from "react-hot-toast";
-import PageLoader from "../Common/PageLoader";
+import ResultsLoader from "../Common/ResultsLoader";
 
 const JobSearchResults = () => {
   const [jobs, setJobs] = useState([]);
@@ -51,11 +51,7 @@ const JobSearchResults = () => {
         dejavnost={dejavnost}
       />
       <SavedJobAdvertisementsFilter isSavedPage={false} />
-      {!isLoading ? (
-        <JobPage jobs={jobs} />
-      ) : (
-        <PageLoader />
-      )}
+      {!isLoading ? <JobPage jobs={jobs} /> : <ResultsLoader />}
       {!isLoading && jobs.length === 0 && <NoProduct />}
     </>
   );

@@ -4,6 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import { MongoClient, ServerApiVersion } from "mongodb";
+import { api } from "@/constants";
 
 // This approach is taken from https://github.com/vercel/next.js/tree/canary/examples/with-mongodb
 // if (!process.env.MONGODB_URI) {
@@ -67,7 +68,6 @@ export const authOptions: NextAuthOptions = {
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Izpolnite vsa polja.");
         }
-        // console.log(credentials);
 
         let user;
         if (authOptions && authOptions.adapter && authOptions.adapter.getUserByEmail) {
@@ -76,7 +76,11 @@ export const authOptions: NextAuthOptions = {
           console.error("authOptions.adapter is undefined or null");
         }
 
-        console.log(user);
+        if (user) {
+          const res = await fetch(`${api}/company/id/${user.company}`);
+          const company = await res.json();
+          user.company = company;
+        }
 
         return user || null;
       },
