@@ -5,7 +5,7 @@ type Props = {
   company: Company;
 };
 
-const RemoteWorkChart = async ({ company }: Props) => {
+const RemoteWorkChart = ({ company }: Props) => {
   const { remote_work_percentage } = company;
   const { yes, no } = remote_work_percentage;
 

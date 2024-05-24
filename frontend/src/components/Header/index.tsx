@@ -274,27 +274,25 @@ const Header = () => {
                         ),
                     )}
                     <li className="relative flex items-center">
-                    {session?.user ? (
-                      <Link
-                        href="/ai-svetovalec"
-                        className={`ud-menu-scroll py-2 text-base font-medium duration-300 ease-in-out ${
-                          sticky
-                            ? "rounded-lg bg-indigo-300 px-6 py-3 hover:bg-indigo-950 dark:bg-white/10 dark:hover:bg-white/20"
-                            : "rounded-lg bg-white px-6 py-3 text-indigo-700 hover:bg-white/20"
-                        } ${navbarOpen ? "text-indigo-800" : ""}`}
-                      >
-                        AI Svetovalec
-                      </Link>
-                    ) :(
-                      <>
-                      </>
-                    )}
+                      {session?.user ? (
+                        <Link
+                          href="/ai-svetovalec"
+                          className={`ud-menu-scroll py-2 text-base font-medium duration-300 ease-in-out ${
+                            sticky
+                              ? "rounded-lg bg-indigo-300 px-6 py-3 hover:bg-indigo-950 dark:bg-white/10 dark:hover:bg-white/20"
+                              : "rounded-lg bg-white px-6 py-3 text-indigo-700 hover:bg-white/20"
+                          } ${navbarOpen ? "text-indigo-800" : ""}`}
+                        >
+                          AI Svetovalec
+                        </Link>
+                      ) : (
+                        <></>
+                      )}
                     </li>
                   </ul>
                 </nav>
               </div>
               <div className="items-center justify-end pr-16 sm:flex lg:pr-0">
-                {/* theme toggler */}
                 <div className="hidden items-center justify-end sm:flex lg:pr-0">
                   <button
                     aria-label="theme toggler"
@@ -325,16 +323,24 @@ const Header = () => {
                 {session?.user ? (
                   <>
                     <div className="hidden items-center justify-end sm:flex lg:pr-0">
-                    <Link
-                          href="/urejanje"
+                      {session?.user?.company ? (
+                        <Link
+                          href={`/podjetje/${session?.user?.company?.slug}`}
                           className="px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white"
                         >
-                      <p
-                        className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${isTextWhitePath ? "text-white" : "text-dark"}`}
-                      >
-                        {session?.user?.name}
-                      </p>
-                      </Link>
+                          <p
+                            className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${isTextWhitePath ? "text-white" : "text-dark"}`}
+                          >
+                            {session?.user?.name}
+                          </p>
+                        </Link>
+                      ) : (
+                        <p
+                          className={`loginBtn px-7 py-3 text-base font-medium dark:text-white ${isTextWhitePath ? "text-white" : "text-dark"}`}
+                        >
+                          {session?.user?.name}
+                        </p>
+                      )}
                     </div>
                     {isNotInPaths || sticky ? (
                       <button

@@ -8,7 +8,7 @@ type Props = {
   company: Company;
 };
 
-const Interviews = async ({ company }: Props) => {
+const Interviews = ({ company }: Props) => {
 
   return (
     <div className="flex flex-col justify-between gap-4 md:flex-row">

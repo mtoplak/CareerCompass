@@ -8,7 +8,7 @@ type Props = {
   company: Company;
 };
 
-const SaleryAndBenefits = async ({ company }: Props) => {
+const SaleryAndBenefits = ({ company }: Props) => {
   const ratingIcons = [
     { label: "Ugodnosti", rating: company.avg_benefits },
     { label: "Bonusi", rating: company.avg_bonuses },

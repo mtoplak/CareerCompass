@@ -1,3 +1,4 @@
+"use client";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Company } from "@/types/company";
@@ -8,6 +9,7 @@ import Interviews from "./Interviews";
 import Link from "next/link";
 import { JobAdvertisement } from "@/types/job";
 import CompanyJobs from "./CompanyJobs";
+import { useSession } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -31,7 +33,8 @@ const getRatingText = (count: number) => {
   }
 };
 
-const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
+const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
+  const { data: session } = useSession();
   return (
     <div className="container mx-auto py-8 pt-[120px]">
       <div className="flex flex-col items-center md:flex-row">
@@ -79,21 +82,38 @@ const SingleCompanyPage = async ({ company, jobAdvertisements }: Props) => {
           </div>
         </div>
         <div className="mb-4 mt-5 flex justify-end md:mb-0 md:w-1/4">
-          <Link
-            href={`/ocenjevanje/${company.slug}`}
-            className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
-          >
-            Oceni podjetje
-          </Link>
-          <Link
-            href={`/dodaj-zaposlitev/${company.slug}`}
-            className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
-          >
-            Dodaj Zaposlitev
-          </Link>
+          {session?.user?.company ? (
+            <>
+              {session?.user?.company?.email === company.email ? (
+                <Link
+                  href={`/dodaj-zaposlitev/${company.slug}`}
+                  className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
+                >
+                  Dodaj Zaposlitev
+                </Link>
+              ) : null}
+            </>
+          ) : (
+            <Link
+              href={`/ocenjevanje/${company.slug}`}
+              className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
+            >
+              Oceni podjetje
+            </Link>
+          )}
         </div>
       </div>
       <div className="my-10 border-t border-gray-300"></div>
+      <div>
+        {session?.user?.company?.email === company.email ? (
+          <Link
+            href={`/urejanje/${company.slug}`}
+            className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
+          >
+            Uredi
+          </Link>
+        ) : null}
+      </div>
       <div className="mt-10">
         <div className="container flex flex-col rounded-xl bg-indigo-100 px-6 py-4 dark:bg-indigo-900 lg:flex-row lg:items-center lg:justify-between">
           <div className="mb-2 flex items-center lg:mb-0">
