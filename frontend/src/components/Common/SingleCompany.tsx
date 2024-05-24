@@ -32,7 +32,7 @@ const SingleCompany = ({ company }: { company: any }) => {
             </p>
           </div>
           <div className="mb-[18px] flex items-center justify-center gap-[2px]">
-            {stars(company.avg_rating)}
+            {stars(company.average)}
           </div>
         </Link>
       </div>

@@ -11,6 +11,7 @@ export class CompanyDto {
   industry: Industry[];
   subindustry: string[];
   email: string;
+  average: number;
   avg_rating: number;
   ratings_count: number;
   avg_team: number;
@@ -43,5 +44,6 @@ export class CompanyDtoWithout {
   industry: Industry[];
   subindustry: string[];
   email: string;
+  average: number;
   avg_rating: number;
 }

@@ -1,6 +1,5 @@
 import { Schema, Document, Model, model } from 'mongoose';
 import { Industry } from '../../enums/industry.enum';
-import { AverageRating } from './average-rating.model';
 
 export const CompanySchema = new Schema({
   name: { type: String, required: true, index: true },
@@ -17,7 +16,7 @@ export const CompanySchema = new Schema({
   }],
   subindustry: [{ type: String, required: true }],
   email: { type: String, required: false, lowercase: true },
-  average: { type: Schema.Types.ObjectId, ref: 'AverageRating', required: false },
+  average: { type: Number, default: 0, required: false },
 });
 
 export interface Company extends Document {
@@ -30,7 +29,7 @@ export interface Company extends Document {
   industry: Industry[], // panoga
   subindustry: string[],
   email: string, // email
-  average: AverageRating, // povprečna ocena
+  average: number, // povprečna ocena
 }
 
 export const CompanyModel: Model<Company> = model<Company>('Company', CompanySchema);

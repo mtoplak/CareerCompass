@@ -21,7 +21,7 @@ export class AiService {
       const response = await this.openai.chat.completions.create({
         model: 'gpt-3.5-turbo-0125',
         messages: [
-          { role: 'system', content: 'Does this comment contain personal information, curse words, or insults?' },
+          { role: 'system', content: 'Does this comment contain any personal information (including lowercase name or surname), curse words, or insults?' },
           { role: 'user', content: comment }
         ],
         max_tokens: 64
@@ -35,6 +35,8 @@ export class AiService {
       const prohibitedContentIndicators = ["yes", "contains", "present"];
       const doesContain = prohibitedContentIndicators.some(indicator =>
         fullText.includes(indicator));
+
+      console.log(fullText)
 
       return !doesContain;
     } catch (error) {

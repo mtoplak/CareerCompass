@@ -1,4 +1,3 @@
-import { AverageRating } from "../../../db/entities/average-rating.model";
 import { Industry } from "../../../enums/industry.enum";
 
 export class CreateCompanyDto {
@@ -12,5 +11,4 @@ export class CreateCompanyDto {
   industry: Industry[];
   subindustry: string[];
   email: string;
-  average: AverageRating;
 }

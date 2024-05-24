@@ -29,6 +29,7 @@ export class CompanyMapper {
             industry: company.industry,
             subindustry: company.subindustry,
             email: company.email,
+            average: company.average,
             avg_rating: averageRating ? averageRating.avg_rating : 0,
             ratings_count: averageRating ? averageRating.ratings_count : 0,
             avg_team: averageRating ? averageRating.avg_team : 0,
@@ -68,6 +69,22 @@ export class CompanyMapper {
         } as CompanyDtoWithout;
     }
 
+    mapOneCompanyAverage(company: Company): CompanyDtoWithout {
+        return {
+            id: company._id.toString(),
+            name: company.name,
+            address: company.address,
+            city: company.city,
+            logo: company.logo,
+            slug: company.slug,
+            website: company.website,
+            industry: company.industry,
+            subindustry: company.subindustry,
+            email: company.email,
+            average: company.average,
+        } as CompanyDtoWithout;
+    }
+
     mapOneCompanyJobs(company: Company, averageRating: AverageRating | null, job: JobAdvertisement | null): CompanyDtoWithout {
         return {
             id: company._id.toString(),
@@ -80,6 +97,7 @@ export class CompanyMapper {
             industry: company.industry,
             subindustry: company.subindustry,
             email: company.email,
+            average: company.average,
             avg_rating: averageRating ? averageRating.avg_rating : 0,
             job_advertisement: job
         } as CompanyDtoWithout;

@@ -14,7 +14,8 @@ export class JobAdvertisementMapper {
             company_linked: jobAdvertisement.company_linked,
             company: jobAdvertisement.company,
             url: jobAdvertisement.url,
-            source: jobAdvertisement.source
+            source: jobAdvertisement.source,
+            application: jobAdvertisement.application
         } as JobAdvertisementDto;
     }
 

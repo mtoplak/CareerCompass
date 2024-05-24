@@ -5,6 +5,7 @@ import { api } from "@/constants";
 import { useSession } from "next-auth/react";
 import ToastContent from "./ToastContent";
 import { useState } from "react";
+import Image from "next/image";
 
 const JobActions = ({
   job,
@@ -116,29 +117,55 @@ const JobActions = ({
   }
 
   return (
-    <div className="mt-4 flex justify-end">
+    <div className="mr-6 mt-4 flex justify-end">
       {session.user.company && session.user.name === company ? (
         <button
           onClick={handleDelete}
-          className="rounded bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-500"
+          className="rounded bg-red-600 px-3 py-2 font-semibold text-white hover:bg-red-500"
         >
-          Izbriši
+          <div className="flex items-center justify-center">
+            <Image
+              src="/images/icons/trash-bin.png"
+              alt="Trash Bin Icon"
+              className="h-6 w-6"
+              width={24}
+              height={24}
+            />
+          </div>
         </button>
       ) : session.user.company ? null : (
         <>
           {!isSaved ? (
             <button
               onClick={handleSave}
-              className="rounded bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-500"
+              className="rounded bg-indigo-600 px-3 py-2 font-semibold text-white hover:bg-indigo-500"
             >
-              Shrani oglas
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/images/icons/save-white.png"
+                  alt="Trash Bin Icon"
+                  className="h-6 w-6"
+                  width={24}
+                  height={24}
+                />
+                <span>Shrani oglas</span>
+              </div>
             </button>
           ) : (
             <button
               onClick={handleUnsave}
-              className="ml-2 rounded bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-500"
+              className="rounded bg-indigo-600 px-3 py-2 font-semibold text-white hover:bg-indigo-500"
             >
-              Odstrani oglas
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/images/icons/unsave-white.png"
+                  alt="Trash Bin Icon"
+                  className="h-6 w-6"
+                  width={24}
+                  height={24}
+                />
+                <span>Odstrani oglas</span>
+              </div>
             </button>
           )}
         </>

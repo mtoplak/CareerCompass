@@ -34,7 +34,9 @@ export class RatingService {
       if (!company) {
         throw new Error(`Could not find company with slug ${newRating.company_slug}`);
       } else {
-        await this.averageService.calculateAverageRating(newRating._id, company.id);
+        const average = await this.averageService.calculateAverageRating(newRating._id, company.id);
+        company.average = average;
+        company.save();
         return newRating;
       }
     } catch (error) {

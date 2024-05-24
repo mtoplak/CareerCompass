@@ -9,6 +9,7 @@ export const JobAdvertisementSchema = new Schema({
   company: { type: String },
   url: { type: String, required: false },
   source: { type: String, required: false },
+  application: { type: String, required: false }
 });
 
 export interface JobAdvertisement extends Document {
@@ -19,6 +20,7 @@ export interface JobAdvertisement extends Document {
   company: string; // podjetje
   url: string; // url do oglasa
   source: string; // vir
+  application: string; // nacin prijave
 }
 
 export const JobAdvertisementModel: Model<JobAdvertisement> = model<JobAdvertisement>('JobAdvertisement', JobAdvertisementSchema);

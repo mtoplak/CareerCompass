@@ -14,7 +14,7 @@ export class AverageRatingService {
     private readonly aiService: AiService
   ) { }
 
-  async calculateAverageRating(ratingId: string, companyId: string): Promise<void> {
+  async calculateAverageRating(ratingId: string, companyId: string): Promise<number> {
     const rating = await this.ratingRepository.findOne({ _id: ratingId });
 
     let averageRating = await this.averageRatingRepository.findOne({ company: companyId });
@@ -160,6 +160,8 @@ export class AverageRatingService {
     averageRating.ratings_count += 1;
 
     await averageRating.save();
+
+    return averageRating.avg_rating;
   }
 
   async calculateRemoteWorkPercentages(distribution) {
@@ -202,6 +204,17 @@ export class AverageRatingService {
   async getSingleAverageRating(averageRatingId: string): Promise<AverageRating> {
     try {
       return await this.averageRatingRepository.findOne({ _id: averageRatingId });
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    }
+  }
+
+  async getSingleAverageRatingByCompany(companyId: string): Promise<AverageRating> {
+    try {
+      return await this.averageRatingRepository.findOne({ company: companyId });
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);

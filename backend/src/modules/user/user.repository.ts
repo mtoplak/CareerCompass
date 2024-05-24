@@ -22,17 +22,15 @@ export class UserRepository {
     }
   }
 
-  async find(usersFilterQuery: FilterQuery<User>): Promise<User[]> {
+  async find(usersFilterQuery: FilterQuery<User>): Promise<UserResponse[]> {
     try {
       return await this.userModel
-        .find(usersFilterQuery)
-        .populate('company')
-        .exec();
+        .find(usersFilterQuery);
     } catch (err) {
       throw new NotFoundException('Could not find the users.');
     }
   }
-  
+
   async create(user: User): Promise<User> {
     try {
       return await new this.userModel(user).save();

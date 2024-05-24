@@ -11,6 +11,7 @@ export type Company = {
     email: string;
     address: string;
     city: string;
+    average: number;
     avg_rating: number;
     ratings_count: number;
     avg_team: number;

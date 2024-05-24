@@ -12,12 +12,14 @@ import { UpdateCompanyDto } from './dto/update-company.dto';
 import { CompanyDto, CompanyDtoWithout } from './dto/company.dto';
 import { PaginatedCompaniesResponseDto } from './dto/paginated-company.dto';
 import { JobAdvertisementRepository } from '../job-advertisement/job-advertisement.repository';
+import { AverageRatingService } from '../average-rating/average-rating.service';
 
 @Injectable()
 export class CompanyService {
   constructor(private readonly companyRepository: CompanyRepository,
     private readonly companyMapper: CompanyMapper,
     private readonly averageRatingRepository: AverageRatingRepository,
+    private readonly averageRatingService: AverageRatingService,
     private readonly jobsRepository: JobAdvertisementRepository
   ) { }
 
@@ -35,6 +37,7 @@ export class CompanyService {
         industry: companyData.industry,
         subindustry: companyData.subindustry,
         email: companyData.email,
+        average: companyData.average
       });
 
       const averageRating = new AverageRatingModel({
@@ -104,8 +107,7 @@ export class CompanyService {
 
     const companyDtos = [];
     for (const company of companies) {
-      const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
-      const companyDto = this.companyMapper.mapOneCompanyWithout(company, averageRating);
+      const companyDto = this.companyMapper.mapOneCompanyAverage(company);
       companyDtos.push(companyDto);
     }
 
@@ -122,8 +124,7 @@ export class CompanyService {
 
     const companyDtos = [];
     for (const company of companies) {
-      const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
-      const companyDto = this.companyMapper.mapOneCompanyWithout(company, averageRating);
+      const companyDto = this.companyMapper.mapOneCompanyAverage(company);
       companyDtos.push(companyDto);
     }
 
@@ -195,14 +196,11 @@ export class CompanyService {
   async getFourBestCompanies(): Promise<CompanyDtoWithout[]> {
     try {
       const allCompanies = await this.companyRepository.findFilters({});
+      allCompanies.sort((a, b) => (b.average ?? 0) - (a.average ?? 0));
 
       const companyDtos = await Promise.all(allCompanies.map(async (company) => {
-        const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
-        const job = await this.jobsRepository.findOne({ company: company });
-        return this.companyMapper.mapOneCompanyJobs(company, averageRating, job);
+        return this.companyMapper.mapOneCompanyAverage(company);
       }));
-
-      companyDtos.sort((a, b) => (b.avg_rating ?? 0) - (a.avg_rating ?? 0));
 
       return companyDtos.slice(0, 4);
     } catch (error) {
@@ -245,9 +243,8 @@ export class CompanyService {
       );
 
       const companyDtos = await Promise.all(paginatedCompanies.map(async company => {
-        const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
         const job = await this.jobsRepository.findOne({ company: company });
-        return this.companyMapper.mapOneCompanyJobs(company, averageRating, job);
+        return this.companyMapper.mapOneCompanyJobs(company, null, job);
       }));
 
       return {
@@ -354,6 +351,25 @@ export class CompanyService {
     } catch (error) {
       console.error('Error counting companies:', error);
       throw new Error('Error counting companies');
+    }
+  }
+
+  async addAverageToCompany(): Promise<SuccessResponse> {
+    try {
+      const companies = await this.companyRepository.find();
+
+      for (const company of companies) {
+        const averageRating = await this.averageRatingService.getSingleAverageRatingByCompany(company._id);
+        if (averageRating) {
+          company.average = averageRating.avg_rating;
+          await company.save();
+        }
+      }
+
+      return { success: true };
+    } catch (error) {
+      console.error('Error updating companies with average ratings:', error);
+      throw new Error('Error updating companies with average ratings');
     }
   }
 
