@@ -1,14 +1,13 @@
-import React from "react";
 import stars from "../Common/Stars";
 import { Company } from "@/types/company";
-import SingleSaleryComment from "../Comments/SingleSaleryComment";
+import SingleSalaryComment from "../Comments/SingleSalaryComment";
 import RemoteWorkChart from "../Rating/RemoteWorkChart";
 
 type Props = {
   company: Company;
 };
 
-const SaleryAndBenefits = ({ company }: Props) => {
+const SalaryAndBenefits = ({ company }: Props) => {
   const ratingIcons = [
     { label: "Ugodnosti", rating: company.avg_benefits },
     { label: "Bonusi", rating: company.avg_bonuses },
@@ -30,10 +29,10 @@ const SaleryAndBenefits = ({ company }: Props) => {
         </div>
       </div>
       <div className="flex w-full flex-col lg:w-3/5">
-        <SingleSaleryComment company={company} />
+        <SingleSalaryComment company={company} />
       </div>
     </div>
   );
 };
 
-export default SaleryAndBenefits;
+export default SalaryAndBenefits;

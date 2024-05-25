@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Company } from "@/types/company";
 import stars from "../Common/Stars";
 import GeneralAssessment from "./GeneralAssessment";
-import SaleryAndBenefits from "./SaleryAndBenefits";
+import SalaryAndBenefits from "./SalaryAndBenefits";
 import Interviews from "./Interviews";
 import Link from "next/link";
 import { JobAdvertisement } from "@/types/job";
@@ -47,6 +47,7 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
             sizes="100vw"
             className="h-auto"
             style={{ width: "150px", height: "auto" }}
+            priority
           />
         </div>
         <div className="pl-10 md:w-2/4">
@@ -84,14 +85,14 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
         <div className="mb-4 mt-5 flex justify-end md:mb-0 md:w-1/4">
           {session?.user?.company ? (
             <>
-              {session?.user?.company?.email === company.email ? (
+              {session?.user?.company?.email === company.email && (
                 <Link
                   href={`/dodaj-zaposlitev/${company.slug}`}
                   className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
                 >
-                  Dodaj Zaposlitev
+                  Dodaj zaposlitev
                 </Link>
-              ) : null}
+              )}
             </>
           ) : (
             <Link
@@ -105,14 +106,14 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
       </div>
       <div className="my-10 border-t border-gray-300"></div>
       <div>
-        {session?.user?.company?.email === company.email ? (
+        {session?.user?.company?.email === company.email && (
           <Link
-            href={`/urejanje/${company.slug}`}
+            href="/urejanje"
             className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
           >
             Uredi
           </Link>
-        ) : null}
+        )}
       </div>
       <div className="mt-10">
         <div className="container flex flex-col rounded-xl bg-indigo-100 px-6 py-4 dark:bg-indigo-900 lg:flex-row lg:items-center lg:justify-between">
@@ -201,7 +202,7 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
                 <h2 className="mb-2 text-xl font-semibold">
                   Plača in ugodnosti
                 </h2>
-                <SaleryAndBenefits company={company} />
+                <SalaryAndBenefits company={company} />
               </div>
               <div className="mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:items-start md:justify-between">
                 <h2 className="mb-2 text-xl font-semibold">Razgovori</h2>

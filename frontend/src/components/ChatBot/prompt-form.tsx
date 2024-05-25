@@ -35,13 +35,17 @@ export function PromptForm({
     }
   }, []);
 
+  const handleDeleteHistory = () => {
+    setMessages([]);
+    // TODO
+  };
+
   return (
     <form
       ref={formRef}
       onSubmit={async (e: any) => {
         e.preventDefault();
 
-        // Blur focus on mobile
         if (window.innerWidth < 600) {
           e.target["message"]?.blur();
         }
@@ -82,10 +86,7 @@ export function PromptForm({
               variant="outline"
               size="icon"
               className="bg-background absolute left-4 top-[14px] size-8 rounded-full p-0 sm:left-4"
-              onClick={() => {
-                setMessages([]);
-                //api?
-              }}
+              onClick={handleDeleteHistory}
             >
               <IconPlus />
               <span className="sr-only">Nov pogovor</span>

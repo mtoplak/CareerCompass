@@ -1,5 +1,4 @@
 import { Company } from "@/types/company";
-import React from "react";
 
 type Props = {
   company: Company;
@@ -16,7 +15,7 @@ const ExperienceChart = ({ company }: Props) => {
 
   return (
     <div className="flex w-full max-w-sm flex-col items-center justify-center bg-white dark:bg-dark ">
-      <p className="text-md font-bold mb-2">Izkušnja z razgovorom</p>
+      <p className="text-md mb-2 font-bold">Izkušnja z razgovorom</p>
       <div className="relative h-6">
         <svg className="h-full w-full">
           <rect

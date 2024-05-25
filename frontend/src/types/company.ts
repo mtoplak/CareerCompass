@@ -2,6 +2,7 @@ import { Industry } from "./industry";
 
 export type Company = {
     _id: string;
+    id?: string;
     name: string;
     industry: Industry;
     subindustry: string[] | string;

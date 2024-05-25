@@ -4,7 +4,7 @@ type Props = {
   company: Company;
 };
 
-const SingleSaleryComment = ({ company }: Props) => {
+const SingleSalaryComment = ({ company }: Props) => {
   return (
     <div className="container">
       {company.salary_and_benefits_comments.length > 0 ? (
@@ -27,4 +27,4 @@ const SingleSaleryComment = ({ company }: Props) => {
   );
 };
 
-export default SingleSaleryComment;
+export default SingleSalaryComment;

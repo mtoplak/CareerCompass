@@ -15,7 +15,7 @@ const RemoteWorkChart = ({ company }: Props) => {
 
   return (
     <div className="flex w-full max-w-sm flex-col items-center justify-center bg-white dark:bg-dark ">
-      <p className="text-md font-bold mb-2">Delo od doma</p>
+      <p className="text-md mb-2 font-bold">Delo od doma</p>
       <div className="relative h-6">
         <svg className="h-full w-full">
           <rect
