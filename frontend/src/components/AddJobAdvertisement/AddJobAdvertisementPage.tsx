@@ -14,6 +14,7 @@ const AddJobAdvertisementPage = ({ company }: Props) => {
   const [formData, setFormData] = useState({
     position: "",
     description: "",
+    application: "",
     city: "",
     company_linked: "",
     company: `${company.name}`,
@@ -79,12 +80,28 @@ const AddJobAdvertisementPage = ({ company }: Props) => {
             htmlFor="description"
             className="mb-2 block font-semibold text-gray-700"
           >
-            Opis:
+            Opis zaposlitve:
           </label>
           <textarea
             id="description"
             name="description"
             value={formData.description}
+            onChange={handleChange}
+            className="min-h-[100px] w-full rounded-lg border px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="application"
+            className="mb-2 block font-semibold text-gray-700"
+          >
+            Opis postopka prijave na zaposlitev:
+          </label>
+          <textarea
+            id="application"
+            name="application"
+            value={formData.application}
             onChange={handleChange}
             className="min-h-[100px] w-full rounded-lg border px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
