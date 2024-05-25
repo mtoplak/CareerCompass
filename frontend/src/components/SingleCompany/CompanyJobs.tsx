@@ -1,7 +1,7 @@
 "use client";
 import { JobAdvertisement } from "@/types/job";
 import { useEffect, useState } from "react";
-import SingleJob from "../SingleJob/SingleJob";
+import SingleJob from "../Common/SingleJob";
 import { useSession } from "next-auth/react";
 import { api } from "@/constants";
 

@@ -107,6 +107,7 @@ const JobActions = ({
 
       toast.success("Oglas je uspešno odstranjen iz shranjenih oglasov.");
       setIsSaved(false);
+      window.location.reload();
     } catch (error) {
       toast.error(`Prišlo je do napake`);
     }

@@ -17,10 +17,9 @@ export interface ChatProps extends React.ComponentProps<"div"> {
   initialMessages?: Message[];
   id?: string;
   session?: Session;
-  missingKeys?: string[];
 }
 
-export function Chat({ id, missingKeys }: ChatProps) {
+export function Chat({ id }: ChatProps) {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useUIState();
   const { data: session } = useSession();
@@ -62,12 +61,6 @@ export function Chat({ id, missingKeys }: ChatProps) {
 
     fetchMessages();
   }, [session, setMessages]);
-
-  useEffect(() => {
-    (missingKeys ?? []).map((key) => {
-      toast.error(`Missing ${key} environment variable!`);
-    });
-  }, [missingKeys]);
 
   const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
     useScrollAnchor();

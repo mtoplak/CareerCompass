@@ -66,14 +66,6 @@ export class JobAdvertisementController {
     return await this.jobAdvertisementService.getSavedJobsByUser(userEmail);
   }
 
-  @Get('check/:jobId/:email')
-  async checkJobSaved(
-    @Param('jobId') jobId: string,
-    @Param('email') email: string,
-  ): Promise<SuccessResponse> {
-    return await this.jobAdvertisementService.isJobSaved(jobId, email);
-  }
-
   @Post('/popular')
   async getPopularJobs(
     @Body('userEmail') userEmail: string | null,

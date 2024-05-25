@@ -145,6 +145,8 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
             <p className="text-indigo-700 dark:text-indigo-300">
               <a
                 href={`https://www.google.com/maps/search/${company.address + " " + company.city}`}
+                target="_blank"
+                rel="noreferrer"
               >
                 {company.address}, {company.city}
               </a>
@@ -162,7 +164,17 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
                   className="mr-2 h-6 w-6"
                 />
                 <p className="text-indigo-700 dark:text-indigo-300">
-                  <a href={company.website}>{company.website}</a>
+                  <a
+                    href={
+                      company.website.startsWith("http")
+                        ? company.website
+                        : `http://${company.website}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {company.website}
+                  </a>
                 </p>
               </>
             )}

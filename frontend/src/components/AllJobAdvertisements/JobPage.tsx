@@ -1,6 +1,6 @@
 "use client";
 import { JobAdvertisement } from "@/types/job";
-import SingleJob from "../SingleJob/SingleJob";
+import SingleJob from "../Common/SingleJob";
 import ResultsLoader from "../Common/ResultsLoader";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
