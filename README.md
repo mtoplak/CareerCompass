@@ -42,6 +42,7 @@ Create a new file `.env` in `backend` directory and add the following content
 ```env
 MONGODB_URI=mongodb+srv://<username>:<password>@careercompassdatabase.7a8bbng.mongodb.net/
 OPENAI_API_KEY=
+FINE_TUNE_MODEL=
 ```
 
 Run

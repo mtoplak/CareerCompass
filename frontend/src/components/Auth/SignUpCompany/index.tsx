@@ -36,7 +36,6 @@ const SignUpCompany = () => {
     e.preventDefault();
 
     setLoading(true);
-
     if (!companyLogo) {
       return;
     }
@@ -47,13 +46,12 @@ const SignUpCompany = () => {
     reader.readAsDataURL(companyLogo);
     reader.onload = async function () {
       const base64String = reader.result;
-
       const data = {
         ...values,
         logo: base64String,
       };
 
-      const res = await fetch(`/api/registerCompany`, {
+      const res = await fetch("/api/registerCompany", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +64,6 @@ const SignUpCompany = () => {
         );
         router.push("/za-delodajalce/prevzemi");
       } else {
-        // const error = await res.json();
         toast.error("Napaka pri registraciji podjetja.");
       }
       setLoading(false);

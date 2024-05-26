@@ -1,24 +1,21 @@
 "use client";
 import { api } from "@/constants";
-import { Company } from "@/types/company";
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
-type Props = {
-  company: Company;
-};
-
-const AddJobAdvertisementPage = ({ company }: Props) => {
+const AddJobAdvertisementPage = () => {
   const router = useRouter();
+  const { data: session } = useSession();
   const [formData, setFormData] = useState({
     position: "",
     description: "",
     application: "",
     city: "",
     company_linked: "",
-    company: `${company.name}`,
-    url: `/podjetje/${company.slug}`,
+    company: `${session?.user.company.name}`,
+    url: `/podjetje/${session?.user.company.slug}`,
     source: "Career Compass",
   });
 
@@ -42,13 +39,13 @@ const AddJobAdvertisementPage = ({ company }: Props) => {
       });
       if (response.ok) {
         toast.success("Zaposlitveni oglas uspešno ustvarjen!");
-        router.push(`/podjetje/${company.slug}`);
+        router.push(`/podjetje/${session?.user.company.slug}`);
       } else {
-        toast.error("Oglasa za delo ni bilo mogoče ustvariti.");
+        toast.error("Oglasa za delo ni bilo mogoče ustvariti!");
       }
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Oglasa za delo ni bilo mogoče ustvariti");
+      toast.error("Oglasa za delo ni bilo mogoče ustvariti!");
     }
   };
 

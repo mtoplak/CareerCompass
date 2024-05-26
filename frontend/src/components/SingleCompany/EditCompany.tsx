@@ -1,6 +1,6 @@
 "use client";
 import { Industry, industries } from "@/types/industry";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { industryMappings } from "@/types/subindustry";
 import { useRouter } from "next/navigation";
 import { api } from "@/constants";
@@ -24,6 +24,8 @@ const EditCompany = () => {
     website: "",
     address: "",
     city: "",
+    newLogo: "",
+    id: "",
   });
   const [companyLogo, setCompanyLogo] = useState<File | null>(null);
   const { data: session } = useSession();
@@ -33,8 +35,10 @@ const EditCompany = () => {
 
   useEffect(() => {
     const getCompany = async () => {
-      if (session?.user.company.id) {
-        const res = await fetch(`${api}/company/id/${session.user.company.id}`);
+      if (session?.user.company !== undefined) {
+        const res = await fetch(
+          `${api}/company/id/${session?.user.company.id}`,
+        );
         const company = await res.json();
         setFormData(company);
       }
@@ -44,7 +48,7 @@ const EditCompany = () => {
   }, [session]);
 
   if (!session?.user.company) {
-    return <ErrorPage what="Podjetje" />;
+    return <ErrorPage what="Stran" />;
   }
 
   const subindustries = Object.entries(industryMappings)
@@ -71,27 +75,39 @@ const EditCompany = () => {
 
   const handleEdit = async (e: any) => {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        `${api}/company/${session?.user.company.id}`,
-        {
-          method: "PATCH",
+
+    const updateCompanyInfo = async () => {
+      try {
+        formData.id = session?.user.company.id;
+        const response = await fetch("/api/editCompany", {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        },
-      );
-      if (response.ok) {
-        toast.success("Uspešno ste uredili vaše podatke!");
-        router.push(`/podjetje/${session?.user.company.slug}`);
-      } else {
-        console.error("Failed to update company");
-        toast.error("Urejanje ni mogoče.");
+        });
+
+        if (response.ok) {
+          toast.success("Uspešno ste uredili vaše podatke!");
+          router.push(`/podjetje/${session?.user.company.slug}`);
+        } else {
+          toast.error("Urejanje ni uspelo.");
+        }
+      } catch (error) {
+        toast.error("Urejanje ni uspelo.");
       }
-    } catch (error) {
-      console.error("Error:", error);
-      toast.error("Urejanje ni mogoče.");
+    };
+
+    if (companyLogo) {
+      const reader = new FileReader();
+      reader.readAsDataURL(companyLogo);
+      reader.onload = function () {
+        const base64String = reader.result;
+        formData.newLogo = base64String as string;
+        updateCompanyInfo();
+      };
+    } else {
+      updateCompanyInfo();
     }
   };
 
@@ -239,6 +255,29 @@ const EditCompany = () => {
               <option value="">Poddejavnost</option>
               {subindustryOptions}
             </select>
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="companyLogo"
+              className="mb-2 block font-semibold text-gray-700"
+            >
+              Logotip podjetja
+            </label>
+            <div className="relative">
+              <input
+                id="companyLogo"
+                type="file"
+                name="logo"
+                accept="image/*"
+                onChange={(e) =>
+                  e.target.files && setCompanyLogo(e.target.files[0])
+                }
+                className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+              />
+              <div className="rounded-md border border-stroke bg-transparent px-5 py-3 text-left text-dark outline-none transition placeholder:text-dark-6 focus-within:border-primary dark:border-dark-3 dark:bg-black dark:text-white dark:focus-within:border-primary">
+                {companyLogo ? companyLogo.name : "Izberi nov logotip"}
+              </div>
+            </div>
           </div>
           <button
             type="submit"

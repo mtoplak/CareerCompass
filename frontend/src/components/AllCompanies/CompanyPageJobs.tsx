@@ -121,7 +121,7 @@ const CompanyPageJobs = ({
         {...getItemProps(page)}
         key={page}
         onClick={() => fetchPage(page)}
-        className={`text-center text-black dark:text-black ${page === active ? "bg-indigo-700 text-black" : "bg-white"}`}
+        className={`flex items-center justify-center text-center text-black dark:text-black ${page === active ? "bg-indigo-700 text-black" : "bg-white"}`}
       >
         {page}
       </IconButton>,
