@@ -17,7 +17,7 @@ const SearchResults = () => {
   const lokacija = searchParams.get("lokacija") || "";
   const dejavnost = searchParams.get("dejavnost") || "";
   const ocena = searchParams.get("ocena") || "";
-  const delovno_mesto = searchParams.get("delovno_mesto") === "true";
+  const delovno_mesto = searchParams.get("delovno_mesto") === "on";
 
   useEffect(() => {
     const fetchCompanies = async () => {
