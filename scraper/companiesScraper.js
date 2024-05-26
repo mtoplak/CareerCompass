@@ -34,7 +34,7 @@ async function scrapeWebsite() {
   //   'div[data-footer-scroll-bottom-offset="0"] a#ctl00_cphMain_SearchAdvanced1_btnPoisciPodjetja'
   // );
 
-  // prijava, filtriranje, osveži rezultat
+  // filtriranje, osveži rezultat
   await page.waitForSelector(
     "#ctl00_cphMain_DisplayRecords1_UpdatePanelRecords",
     { timeout: 500000 }

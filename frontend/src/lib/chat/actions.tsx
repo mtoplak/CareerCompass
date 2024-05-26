@@ -11,20 +11,15 @@ import {
   getAIState,
   createStreamableValue,
 } from "ai/rsc";
-import { BotCard, BotMessage } from "@/components/stocks";
 import { nanoid, sleep } from "@/lib/utils";
-import { saveChat } from "@/app/actions";
-import { SpinnerMessage, UserMessage } from "@/components/stocks/message";
+import {
+  SpinnerMessage,
+  UserMessage,
+  BotCard,
+  BotMessage,
+} from "@/components/message/message";
 import { Chat } from "../types";
-import { SelectSeats } from "@/components/flights/select-seats";
-import { ListFlights } from "@/components/flights/list-flights";
-import { BoardingPass } from "@/components/flights/boarding-pass";
-import { PurchaseTickets } from "@/components/flights/purchase-ticket";
 import { CheckIcon, SpinnerIcon } from "@/components/ui/icons";
-import { experimental_streamText } from "ai";
-import { z } from "zod";
-import { ListHotels } from "@/components/hotels/list-hotels";
-import { Destinations } from "@/components/flights/destinations";
 import { api } from "@/constants";
 
 async function submitUserMessage(content: string, email: string) {
@@ -245,7 +240,7 @@ export const AI = createAI<AIState, UIState>({
         path,
       };
 
-      await saveChat(chat);
+      // await saveChat(chat);
     } else {
       return;
     }
@@ -260,29 +255,17 @@ export const getUIStateFromAIState = (aiState: Chat) => {
       display:
         message.role === "assistant" ? (
           message.display?.name === "showFlights" ? (
-            <BotCard>
-              <ListFlights summary={message.display.props.summary} />
-            </BotCard>
+            <BotCard>aaa</BotCard>
           ) : message.display?.name === "showSeatPicker" ? (
-            <BotCard>
-              <SelectSeats summary={message.display.props.summary} />
-            </BotCard>
+            <BotCard>aaa</BotCard>
           ) : message.display?.name === "showHotels" ? (
-            <BotCard>
-              <ListHotels />
-            </BotCard>
+            <BotCard>aaa</BotCard>
           ) : message.content === "The purchase has completed successfully." ? (
-            <BotCard>
-              <PurchaseTickets status="expired" />
-            </BotCard>
+            <BotCard>aaa </BotCard>
           ) : message.display?.name === "showBoardingPass" ? (
-            <BotCard>
-              <BoardingPass summary={message.display.props.summary} />
-            </BotCard>
+            <BotCard>aaa</BotCard>
           ) : message.display?.name === "listDestinations" ? (
-            <BotCard>
-              <Destinations destinations={message.display.props.destinations} />
-            </BotCard>
+            <BotCard>aaa</BotCard>
           ) : (
             <BotMessage content={message.content} />
           )

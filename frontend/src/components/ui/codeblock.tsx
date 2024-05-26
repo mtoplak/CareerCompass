@@ -44,14 +44,12 @@ export const programmingLanguages: languageMap = {
   sql: '.sql',
   html: '.html',
   css: '.css'
-  // add more file extensions here, make sure the key is same as language prop in CodeBlock.tsx component
 }
 
 export const generateRandomString = (length: number, lowercase = false) => {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXY3456789' // excluding similar looking characters like Z, 2, I, 1, O, 0
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXY3456789'
   let result = ''
   
-  // Function to generate a cryptographically secure random number
   const cryptoRandomNumber = () => {
     const randomBuffer = new Uint32Array(1);
     window.crypto.getRandomValues(randomBuffer);
@@ -80,7 +78,6 @@ const CodeBlock: FC<Props> = memo(({ language, value }) => {
     const fileName = window.prompt('Enter file name' || '', suggestedFileName)
 
     if (!fileName) {
-      // User pressed cancel on prompt.
       return
     }
 

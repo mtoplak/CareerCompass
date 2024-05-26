@@ -47,7 +47,16 @@ export default async function PodjetjePage({ params }: Props) {
     return <ErrorPage what="Podjetje" />;
   }
 
-  const jobAdvertisements = await getJobAdvertisements(params.slug)
+  const jobAdvertisements = await getJobAdvertisements(params.slug);
 
-  return <>{params && <SingleCompanyPage company={company} jobAdvertisements={jobAdvertisements} />}</>;
+  return (
+    <>
+      {params && (
+        <SingleCompanyPage
+          company={company}
+          jobAdvertisements={jobAdvertisements}
+        />
+      )}
+    </>
+  );
 }

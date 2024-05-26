@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -16,7 +15,6 @@ const ForgotPassword = () => {
 
     if (!email) {
       toast.error("Vnesite veljaven e-poštni naslov.");
-
       return;
     }
 

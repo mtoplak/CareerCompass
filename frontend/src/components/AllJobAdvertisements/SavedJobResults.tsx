@@ -39,17 +39,23 @@ const SavedJobResults = () => {
 
   return (
     <>
-      <SavedJobAdvertisementsFilter isSavedPage={true} />
-      {!isLoading ? (
+      {session?.user ? (
         <>
-          {Array.isArray(jobs) && jobs.length === 0 ? (
-            <NoProduct />
+          <SavedJobAdvertisementsFilter isSavedPage={true} />
+          {!isLoading ? (
+            <>
+              {Array.isArray(jobs) && jobs.length === 0 ? (
+                <NoProduct />
+              ) : (
+                <JobPage jobs={jobs} areSaved={true} />
+              )}
+            </>
           ) : (
-            <JobPage jobs={jobs} areSaved={true} />
+            <ResultsLoader />
           )}
         </>
       ) : (
-        <ResultsLoader />
+        <div>Prijavite se, da lahko pogledate shranjene oglase!</div>
       )}
     </>
   );

@@ -1,16 +1,13 @@
 "use client";
-import { Company } from "@/types/company";
 import { Industry, industries } from "@/types/industry";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { industryMappings } from "@/types/subindustry";
 import { useRouter } from "next/navigation";
 import { api } from "@/constants";
 import toast from "react-hot-toast";
 import { confirmAlert } from "react-confirm-alert";
-
-type Props = {
-  company: Company;
-};
+import { useSession } from "next-auth/react";
+import ErrorPage from "@/app/not-found";
 
 const industryOptions = industries.map((industry: Industry) => (
   <option key={industry} value={industry}>
@@ -18,22 +15,41 @@ const industryOptions = industries.map((industry: Industry) => (
   </option>
 ));
 
-const EditCompany = ({ company }: Props) => {
+const EditCompany = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    name: company.name,
-    industry: company.industry,
-    subindustry: company.subindustry,
-    website: company.website,
-    address: company.address,
-    city: company.city,
+    name: "",
+    industry: "",
+    subindustry: "",
+    website: "",
+    address: "",
+    city: "",
+    newLogo: "",
+    id: "",
   });
-
+  const [companyLogo, setCompanyLogo] = useState<File | null>(null);
+  const { data: session } = useSession();
   const [selectedIndustry, setSelectedIndustry] = useState<Industry>(
-    company.industry as Industry,
+    session?.user.company?.industry as Industry,
   );
 
-  const [companyLogo, setCompanyLogo] = useState<File | null>(null);
+  useEffect(() => {
+    const getCompany = async () => {
+      if (session?.user.company !== undefined) {
+        const res = await fetch(
+          `${api}/company/id/${session?.user.company.id}`,
+        );
+        const company = await res.json();
+        setFormData(company);
+      }
+    };
+
+    getCompany();
+  }, [session]);
+
+  if (!session?.user.company) {
+    return <ErrorPage what="Stran" />;
+  }
 
   const subindustries = Object.entries(industryMappings)
     .filter(([subindustry, industry]) => industry === selectedIndustry)
@@ -57,43 +73,61 @@ const EditCompany = ({ company }: Props) => {
     }
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleEdit = async (e: any) => {
     e.preventDefault();
-    try {
-      const response = await fetch(`${api}/company/${company.slug}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-      if (response.ok) {
-        toast.success("Uspešno ste uredili vaše podatke!");
-        router.push(`/podjetje/${company.slug}`);
-      } else {
-        console.error("Failed to update company");
-        toast.error("Urejanje ni mogoče.");
+
+    const updateCompanyInfo = async () => {
+      try {
+        formData.id = session?.user.company.id;
+        const response = await fetch("/api/editCompany", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          toast.success("Uspešno ste uredili vaše podatke!");
+          router.push(`/podjetje/${session?.user.company.slug}`);
+        } else {
+          toast.error("Urejanje ni uspelo.");
+        }
+      } catch (error) {
+        toast.error("Urejanje ni uspelo.");
       }
-    } catch (error) {
-      console.error("Error:", error);
-      toast.error("Urejanje ni mogoče.");
+    };
+
+    if (companyLogo) {
+      const reader = new FileReader();
+      reader.readAsDataURL(companyLogo);
+      reader.onload = function () {
+        const base64String = reader.result;
+        formData.newLogo = base64String as string;
+        updateCompanyInfo();
+      };
+    } else {
+      updateCompanyInfo();
     }
   };
 
   const handleDelete = async () => {
     confirmAlert({
-      message: `Ste prepričani, da želite izbrisati svoje podjetje ${company.name} iz naše platforme?`,
+      message: `Ste prepričani, da želite izbrisati svoje podjetje ${session?.user.company.name} iz naše platforme?`,
       buttons: [
         {
           label: "Da",
           onClick: async () => {
             try {
-              const response = await fetch(`${api}/company/${company.slug}`, {
-                method: "DELETE",
-                headers: {
-                  "Content-Type": "application/json",
+              const response = await fetch(
+                `${api}/company/${session?.user.company.slug}`,
+                {
+                  method: "DELETE",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
                 },
-              });
+              );
               if (!response.ok) {
                 throw new Error("Doesn't work");
               }
@@ -119,7 +153,7 @@ const EditCompany = ({ company }: Props) => {
         <h1 className="mb-6 text-2xl font-bold">
           Uredite podatke vašega podjetja
         </h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleEdit}>
           <div className="mb-4">
             <label
               htmlFor="name"
@@ -222,19 +256,42 @@ const EditCompany = ({ company }: Props) => {
               {subindustryOptions}
             </select>
           </div>
+          <div className="mb-4">
+            <label
+              htmlFor="companyLogo"
+              className="mb-2 block font-semibold text-gray-700"
+            >
+              Logotip podjetja
+            </label>
+            <div className="relative">
+              <input
+                id="companyLogo"
+                type="file"
+                name="logo"
+                accept="image/*"
+                onChange={(e) =>
+                  e.target.files && setCompanyLogo(e.target.files[0])
+                }
+                className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+              />
+              <div className="rounded-md border border-stroke bg-transparent px-5 py-3 text-left text-dark outline-none transition placeholder:text-dark-6 focus-within:border-primary dark:border-dark-3 dark:bg-black dark:text-white dark:focus-within:border-primary">
+                {companyLogo ? companyLogo.name : "Izberi nov logotip"}
+              </div>
+            </div>
+          </div>
           <button
             type="submit"
             className="w-full rounded-lg bg-indigo-500 py-2 text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
-            Dodaj oglas
+            Posodobi podatke
           </button>
         </form>
         <button
           type="submit"
-          className="py-5 text-red hover:text-black"
+          className="mt-2 rounded-lg bg-red-500 px-8 py-2 text-white hover:bg-red-600"
           onClick={handleDelete}
         >
-          Svoje podjetje želim izbrisati iz te strani.
+          Svoje podjetje želim izbrisati iz CareerCompass
         </button>
       </div>
     </div>

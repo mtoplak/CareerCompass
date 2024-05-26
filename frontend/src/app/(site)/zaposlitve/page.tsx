@@ -26,7 +26,7 @@ const JobAdvertisementsPage = async () => {
     <main>
       <Breadcrumb pageName="Vsi zaposlitveni oglasi" />
       <JobAdvertisementFilter />
-      <SavedJobAdvertisementsFilter isSavedPage={false}/>
+      <SavedJobAdvertisementsFilter isSavedPage={false} />
       <JobPage jobs={jobs} />
     </main>
   );

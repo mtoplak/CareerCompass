@@ -1,5 +1,5 @@
 "use client";
-import SingleJob from "../SingleJob/SingleJob";
+import SingleJob from "./SingleJob";
 import { useEffect, useState } from "react";
 import { api } from "@/constants";
 import { useSession } from "next-auth/react";
