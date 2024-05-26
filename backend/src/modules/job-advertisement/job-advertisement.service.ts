@@ -9,6 +9,7 @@ import { escapeRegex } from '../../shared/regex';
 import { JobAdvertisementDto } from './dto/create-update-job-advertisement.dto';
 import { PaginatedJobAdvertisementsResponseDto } from './dto/paginated-job-advertisement.dto';
 import { JobAdvertisementMapper } from './job-advertisement.mapper';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class JobAdvertisementService {
@@ -16,6 +17,7 @@ export class JobAdvertisementService {
     private readonly jobAdvertisementRepository: JobAdvertisementRepository,
     private readonly companyRepository: CompanyRepository,
     private readonly userRepository: UserRepository,
+    private readonly userService: UserService,
     private readonly jobMapper: JobAdvertisementMapper
   ) { }
 
@@ -37,9 +39,13 @@ export class JobAdvertisementService {
     }
   }
 
-  async getAllJobAdvertisements(): Promise<JobAdvertisement[]> {
+  async getAllPaginatedJobAdvertisements(page: number, size: number): Promise<JobAdvertisement[]> {
     try {
-      return await this.jobAdvertisementRepository.find();
+      return await this.jobAdvertisementRepository.findFilters(
+        {},
+        { skip: (page - 1) * size, limit: size }
+      );
+
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);
@@ -99,35 +105,25 @@ export class JobAdvertisementService {
 
   async linkCompanies(): Promise<JobAdvertisement[]> {
     const updated = [];
-    try {
-      const jobAdvertisements = await this.jobAdvertisementRepository.find();
+    const jobAdvertisements = await this.jobAdvertisementRepository.find();
 
-      for (const jobAd of jobAdvertisements) {
-        const matchingCompany = await this.companyRepository.findOne({ name: { $regex: new RegExp(`^${jobAd.company}$`, 'i') } });
+    await Promise.all(jobAdvertisements.map(async jobAd => {
+      const matchingCompany = await this.companyRepository.findOne({ name: { $regex: new RegExp(`^${jobAd.company}$`, 'i') } });
 
-        if (matchingCompany) {
-          jobAd.company_linked = matchingCompany._id;
-          await jobAd.save();
-          updated.push(jobAd);
-        }
+      if (matchingCompany) {
+        jobAd.company_linked = matchingCompany._id;
+        await jobAd.save();
+        updated.push(jobAd);
       }
-      return updated;
-    } catch (error) {
-      console.error('Error linking companies to job advertisements:', error);
-    }
+    }));
+
+    return updated;
   }
 
   async saveJobAdToUser(jobId: string, userEmail: string): Promise<SuccessResponse> {
     try {
-      const user = await this.userRepository.findOne({ email: userEmail });
-      if (!user) {
-        throw new Error('User not found');
-      }
-
+      const user = await this.userService.getSingleUserByEmail(userEmail);
       const jobAd = await this.jobAdvertisementRepository.findOne({ _id: jobId });
-      if (!jobAd) {
-        throw new Error('Job Advertisement not found');
-      }
 
       if (!user.saved_advertisements.some(ad => ad.equals(jobAd._id))) {
         user.saved_advertisements.push(jobAd);
@@ -146,15 +142,8 @@ export class JobAdvertisementService {
   }
 
   async unsaveJobAdToUser(jobId: string, userEmail: string): Promise<SuccessResponse> {
-    const user = await this.userRepository.findOne({ email: userEmail });
-    if (!user) {
-      throw new NotFoundException('User not found');
-    }
-
+    const user = await this.userService.getSingleUserByEmail(userEmail);
     const jobAd = await this.jobAdvertisementRepository.findOne({ _id: jobId });
-    if (!jobAd) {
-      throw new NotFoundException('Job Advertisement not found');
-    }
 
     const jobIndex = user.saved_advertisements.findIndex(ad => ad.equals(jobAd._id));
     if (jobIndex !== -1) {
@@ -167,10 +156,7 @@ export class JobAdvertisementService {
   }
 
   async getSavedJobsByUser(userEmail: string): Promise<JobAdvertisement[]> {
-    const user = await this.userRepository.findOne({ email: userEmail });
-    if (!user) {
-      throw new NotFoundException('User not found');
-    }
+    const user = await this.userService.getSingleUserByEmail(userEmail);
 
     const savedJobs = await this.jobAdvertisementRepository.findBy({ _id: { $in: user.saved_advertisements } });
 
@@ -178,10 +164,7 @@ export class JobAdvertisementService {
   }
 
   async isJobSaved(jobId: string, userEmail: string): Promise<SuccessResponse> {
-    const user = await this.userRepository.findOne({ email: userEmail });
-    if (!user) {
-      throw new NotFoundException('User not found');
-    }
+    const user = await this.userService.getSingleUserByEmail(userEmail);
 
     const jobAd = await this.jobAdvertisementRepository.findOne({ _id: jobId });
     if (!jobAd) {
@@ -210,54 +193,43 @@ export class JobAdvertisementService {
     }
 
     const jobQuery = jobConditions.length > 0 ? { $and: jobConditions } : {};
-    try {
-      const jobIds = await this.jobAdvertisementRepository.findFilters(jobQuery, { _id: 1 });
-      let filteredJobIds = jobIds.map(job => job._id);
+    const jobIds = await this.jobAdvertisementRepository.findFilters(jobQuery, { _id: 1 });
+    let filteredJobIds = jobIds.map(job => job._id);
 
-      const validJobs = await this.jobAdvertisementRepository.findFilters(
-        { _id: { $in: filteredJobIds } }
-      );
+    const validJobs = await this.jobAdvertisementRepository.findFilters({ _id: { $in: filteredJobIds } });
 
-      if (criteria.industry) {
-        companyConditions.push({ industry: criteria.industry });
-        const companyQuery = companyConditions.length > 0 ? { $and: companyConditions } : {};
+    if (criteria.industry) {
+      companyConditions.push({ industry: criteria.industry });
+      const companyQuery = companyConditions.length > 0 ? { $and: companyConditions } : {};
 
-        const companiesLinkedToJobs = validJobs.map(job => job.company_linked).filter(company => company !== undefined);
-        const companyIds = companiesLinkedToJobs.map(company => company._id.toString());
+      const companiesLinkedToJobs = validJobs.map(job => job.company_linked).filter(company => company !== undefined);
+      const companyIds = companiesLinkedToJobs.map(company => company._id.toString());
 
-        const companies = await this.companyRepository.findFilters({ _id: { $in: companyIds } });
+      const companies = await this.companyRepository.findFilters({ _id: { $in: companyIds } });
 
-        const validCompanies = await this.companyRepository.findFilters(companyQuery);
-        const validCompanyIds = validCompanies.map(company => company._id.toString());
+      const validCompanies = await this.companyRepository.findFilters(companyQuery);
+      const validCompanyIds = validCompanies.map(company => company._id.toString());
 
-        const matchingCompanies = companies.filter(company => validCompanyIds.includes(company._id.toString()));
+      const matchingCompanies = companies.filter(company => validCompanyIds.includes(company._id.toString()));
 
-        filteredJobIds = validJobs
-          .filter(job => job.company_linked && matchingCompanies.some(company => company._id.equals(job.company_linked._id)))
-          .map(job => job._id);
-      }
-
-      const totalCount = filteredJobIds.length;
-
-      const paginatedJobs = await this.jobAdvertisementRepository.findFilters(
-        { _id: { $in: filteredJobIds } },
-        { skip: (page - 1) * size, limit: size }
-      );
-
-      const jobDtos = await Promise.all(paginatedJobs.map(async job => {
-        return this.jobMapper.mapOneJobAdvertisement(job);
-      }));
-
-      return {
-        jobs: jobDtos,
-        count: totalCount,
-      };
-    } catch (error) {
-      if (error instanceof NotFoundException) {
-        throw new NotFoundException(error.message);
-      }
-      throw error;
+      filteredJobIds = validJobs
+        .filter(job => job.company_linked && matchingCompanies.some(company => company._id.equals(job.company_linked._id)))
+        .map(job => job._id);
     }
+
+    const totalCount = filteredJobIds.length;
+
+    const paginatedJobs = await this.jobAdvertisementRepository.findFilters(
+      { _id: { $in: filteredJobIds } },
+      { skip: (page - 1) * size, limit: size }
+    );
+
+    const jobDtos = await Promise.all(paginatedJobs.map(async job => this.jobMapper.mapOneJobAdvertisement(job)));
+
+    return {
+      jobs: jobDtos,
+      count: totalCount,
+    };
   }
 
   async getPopularJobs(email: string | null): Promise<JobAdvertisement[]> {
@@ -266,10 +238,8 @@ export class JobAdvertisementService {
       let excludedJobIds = [];
 
       if (email) {
-        const user = await this.userRepository.findOne({ email });
-        if (!user) {
-          throw new NotFoundException('User not found');
-        }
+        const user = await this.userService.getSingleUserByEmail(email);
+
         if (user.saved_advertisements.length > 0) {
           excludedJobIds = user.saved_advertisements.map(job => job._id.toString());
 

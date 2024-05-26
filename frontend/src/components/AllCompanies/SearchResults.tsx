@@ -17,13 +17,14 @@ const SearchResults = () => {
   const lokacija = searchParams.get("lokacija") || "";
   const dejavnost = searchParams.get("dejavnost") || "";
   const ocena = searchParams.get("ocena") || "";
+  const delovno_mesto = searchParams.get("delovno_mesto") === "true";
 
   useEffect(() => {
     const fetchCompanies = async () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `${api}/company/searchPaginated?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}`,
+          `${api}/company/searchPaginated?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}&job=${delovno_mesto}`,
         );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -40,7 +41,7 @@ const SearchResults = () => {
     fetchCompanies();
 
     return () => {};
-  }, [ime, lokacija, dejavnost, ocena]);
+  }, [ime, lokacija, dejavnost, ocena, delovno_mesto]);
 
   return (
     <>
@@ -49,6 +50,7 @@ const SearchResults = () => {
         lokacija={lokacija}
         dejavnost={dejavnost}
         ocena={ocena}
+        delovno_mesto={delovno_mesto}
       />
       {!isLoading ? (
         <CompanyPageJobs companies={companies} noOfPages={noOfPages} />

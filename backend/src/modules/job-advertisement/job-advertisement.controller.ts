@@ -27,8 +27,13 @@ export class JobAdvertisementController {
   }
 
   @Get()
-  async getAllJobAdvertisements(): Promise<JobAdvertisement[]> {
-    return await this.jobAdvertisementService.getAllJobAdvertisements();
+  async getAllJobAdvertisements(
+    @Query('page') page: string,
+    @Query('size') size: string
+  ): Promise<JobAdvertisement[]> {
+    const pageNum = parseInt(page, 10) || 1;
+    const sizeNum = parseInt(size, 10) || 14;
+    return await this.jobAdvertisementService.getAllPaginatedJobAdvertisements(pageNum, sizeNum);
   }
 
   @Get('/company/:slug')

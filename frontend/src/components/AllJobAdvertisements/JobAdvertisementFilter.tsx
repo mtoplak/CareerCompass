@@ -59,7 +59,7 @@ const JobAdvertisementFilter = ({
                 height="0"
                 sizes="100vw"
               />
-              <span>Poišči</span>
+              <span>Išči</span>
             </div>
           </button>
         </div>

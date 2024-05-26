@@ -9,6 +9,7 @@ import { CompanySchema } from "../../db/entities/company.model";
 import { UserRepository } from "../user/user.repository";
 import { UserSchema } from "../../db/entities/user.model";
 import { JobAdvertisementMapper } from "./job-advertisement.mapper";
+import { UserService } from "../user/user.service";
 
 @Module({
     imports: [
@@ -22,7 +23,8 @@ import { JobAdvertisementMapper } from "./job-advertisement.mapper";
         JobAdvertisementRepository,
         JobAdvertisementMapper,
         CompanyRepository,
-        UserRepository
+        UserRepository,
+        UserService
     ]
 })
 
