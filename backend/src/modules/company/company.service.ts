@@ -90,7 +90,6 @@ export class CompanyService {
         averageRating.save(),
       ]);
 
-      createdCompany.average = createdAverageRating._id;
       await createdCompany.save();
 
       return this.companyMapper.mapOneCompany(createdCompany, createdAverageRating, null);
@@ -117,7 +116,8 @@ export class CompanyService {
   async getAllPaginatedCompanies(page: number, size: number): Promise<PaginatedCompaniesResponseDto> {
     const companies = await this.companyRepository.findFilters({}, {
       skip: (page - 1) * size,
-      limit: size
+      limit: size,
+      sort: { average: -1 }
     });
 
     const totalCount = await CompanyModel.countDocuments();
@@ -231,7 +231,7 @@ export class CompanyService {
         filteredCompanyIds = await this.filterCompanyIdsByRating(criteria.rating, filteredCompanyIds);
       }
 
-      if (criteria.job) {
+      if (criteria.job === true) {
         filteredCompanyIds = await this.filterCompanyIdsByJobs(filteredCompanyIds);
       }
 
@@ -239,7 +239,11 @@ export class CompanyService {
 
       const paginatedCompanies = await this.companyRepository.findFilters(
         { _id: { $in: filteredCompanyIds } },
-        { skip: (page - 1) * size, limit: size }
+        {
+          skip: (page - 1) * size,
+          limit: size,
+          sort: { average: -1 }
+        },
       );
 
       const companyDtos = await Promise.all(paginatedCompanies.map(async company => {

@@ -61,6 +61,9 @@ export class CompanyController {
         @Query('page') page: string,
         @Query('size') size: string
     ): Promise<PaginatedCompaniesResponseDto> {
+        if (typeof searchDto.job === 'string') {
+            searchDto.job = searchDto.job === 'true';
+        }
         const pageNum = parseInt(page, 10) || 1;
         const sizeNum = parseInt(size, 10) || 28;
 

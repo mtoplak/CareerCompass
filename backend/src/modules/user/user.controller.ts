@@ -7,7 +7,7 @@ import {
   Delete,
   Patch
 } from '@nestjs/common';
-import { UserResponse, SuccessResponse } from '../../shared/data.response';
+import { SuccessResponse } from '../../shared/data.response';
 import { CreateUpdateUserDto } from './create-update-user.dto';
 import { User } from '../../db/entities/user.model';
 import { UserService } from './user.service';
@@ -21,11 +21,6 @@ export class UserController {
     @Body() createUserDto: CreateUpdateUserDto,
   ): Promise<User> {
     return await this.userService.createUser(createUserDto);
-  }
-
-  @Get()
-  async getAllUsers(): Promise<UserResponse[]> {
-    return await this.userService.getAllUsers();
   }
 
   @Get(':id')

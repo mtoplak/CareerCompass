@@ -35,12 +35,31 @@ const SignUpCompany = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    setLoading(true);
-    if (!companyLogo) {
-      return;
-    }
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData.entries());
+
+    const requiredFields: Record<string, string> = {
+      name: "Ime podjetja",
+      address: "Naslov",
+      city: "Mesto",
+      industry: "Dejavnost",
+      subindustry: "Poddejavnost",
+    };
+
+    for (const field in requiredFields) {
+      if (!values[field]) {
+        toast.error(`Prosimo izpolnite polje ${requiredFields[field]}.`);
+        setLoading(false);
+        return;
+      }
+    }
+    if (!companyLogo) {
+      toast.error("Prosimo dodajte logotip podjetja.");
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
 
     const reader = new FileReader();
     reader.readAsDataURL(companyLogo);

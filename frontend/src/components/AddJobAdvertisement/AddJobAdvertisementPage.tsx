@@ -76,7 +76,7 @@ const AddJobAdvertisementPage = () => {
               htmlFor="description"
               className="mb-2 block font-semibold text-gray-700"
             >
-              Opis zaposlitve:
+              Opis delovnega mesta:
             </label>
             <textarea
               id="description"
