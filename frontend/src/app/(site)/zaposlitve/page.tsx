@@ -11,23 +11,23 @@ export const metadata: Metadata = {
 };
 
 async function getJobAdvertisements() {
-  const res = await fetch(`${api}/job`, {
+  const res = await fetch(`${api}/job/search`, {
     cache: "no-store",
   });
   const jobs = await res.json();
 
-  return jobs;
+  return { jobList: jobs.jobs, noOfPages: Math.ceil(jobs.count / 14) };
 }
 
 const JobAdvertisementsPage = async () => {
-  const jobs = await getJobAdvertisements();
+  const { jobList, noOfPages } = await getJobAdvertisements();
 
   return (
     <main>
       <Breadcrumb pageName="Vsi zaposlitveni oglasi" />
       <JobAdvertisementFilter />
       <SavedJobAdvertisementsFilter isSavedPage={false} />
-      <JobPage jobs={jobs} />
+      <JobPage jobs={jobList} noOfPages={noOfPages} />
     </main>
   );
 };

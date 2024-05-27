@@ -24,7 +24,7 @@ const SavedJobAdvertisementsFilter = ({
         id="saved-jobs"
         className="flex flex-col items-center bg-gray-1 pt-4 dark:bg-dark-2"
       >
-        {session?.user && (
+        {session?.user && !session?.user.company && (
           <button
             type="button"
             onClick={handleClick}

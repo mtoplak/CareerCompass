@@ -288,10 +288,10 @@ const EditCompany = () => {
         </form>
         <button
           type="submit"
-          className="mt-2 rounded-lg bg-red-500 px-8 py-2 text-white hover:bg-red-600"
+          className="py-5 text-red hover:text-black"
           onClick={handleDelete}
         >
-          Svoje podjetje želim izbrisati iz CareerCompass
+          Svoje podjetje želim izbrisati iz CareerCompass.
         </button>
       </div>
     </div>

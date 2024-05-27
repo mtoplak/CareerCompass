@@ -25,8 +25,7 @@ const CompanyJobs = ({ jobs }: { jobs: JobAdvertisement[] }) => {
     }
   }, [session]);
 
-  const canBeSaved =
-    session?.user !== undefined && session.user?.company === undefined;
+  const canBeSaved = session?.user !== undefined;
 
   return (
     <div className="mt-20 ">

@@ -4,19 +4,17 @@ import { confirmAlert } from "react-confirm-alert";
 import { api } from "@/constants";
 import { useSession } from "next-auth/react";
 import ToastContent from "./ToastContent";
-import { useState } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const JobActions = ({
-  job,
-  isSaved: initialIsSaved,
-}: {
-  job: any;
-  isSaved: boolean;
-}) => {
+const JobActions = ({ job, isSaved }: { job: any; isSaved: boolean }) => {
+  const [isSaved2, setIsSaved] = useState(isSaved);
   const { data: session } = useSession();
-  const { _id, position, company } = job;
-  const [isSaved, setIsSaved] = useState(initialIsSaved);
+  const { _id, id, position, company } = job;
+
+  useEffect(() => {
+    setIsSaved(isSaved);
+  }, [isSaved]);
 
   const handleDelete = async () => {
     confirmAlert({
@@ -26,7 +24,7 @@ const JobActions = ({
           label: "Da",
           onClick: async () => {
             try {
-              const response = await fetch(`${api}/job/${_id}`, {
+              const response = await fetch(`${api}/job/${id}`, {
                 method: "DELETE",
                 headers: {
                   "Content-Type": "application/json",
@@ -59,7 +57,7 @@ const JobActions = ({
     }
     try {
       const response = await fetch(
-        `${api}/job/save/${_id}/${session.user.email}`,
+        `${api}/job/save/${id}/${session.user.email}`,
         {
           method: "GET",
           headers: {
@@ -73,9 +71,8 @@ const JobActions = ({
         console.error("Response error text:", errorText);
         throw new Error(errorText || "Failed to save job");
       }
-
-      toast.success(<ToastContent />);
       setIsSaved(true);
+      toast.success(<ToastContent />);
     } catch (error) {
       console.error("There was a problem with the save operation:", error);
       toast.error(`Prišlo je do napake pri shranjevanju`);
@@ -104,12 +101,10 @@ const JobActions = ({
         console.error("Response error text:", errorText);
         throw new Error(errorText || "Failed to unsave job");
       }
-
-      toast.success("Oglas je uspešno odstranjen iz shranjenih oglasov.");
       setIsSaved(false);
-      window.location.reload();
+      toast.success("Oglas je uspešno odstranjen iz shranjenih oglasov.");
     } catch (error) {
-      toast.error(`Prišlo je do napake`);
+      toast.error(`Prišlo je do napake pri odstranjevanju!`);
     }
   };
 
@@ -136,7 +131,7 @@ const JobActions = ({
         </button>
       ) : session.user.company ? null : (
         <>
-          {!isSaved ? (
+          {!isSaved2 ? (
             <button
               onClick={handleSave}
               className="rounded bg-indigo-600 px-3 py-2 font-semibold text-white hover:bg-indigo-500"

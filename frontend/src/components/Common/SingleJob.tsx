@@ -1,4 +1,3 @@
-import { useRouter } from "next/navigation";
 import JobActions from "../JobButton";
 
 const SingleJob = ({
@@ -11,7 +10,6 @@ const SingleJob = ({
   isSaved: boolean;
 }) => {
   const { _id, position, description, city, company, source, url } = job;
-  const router = useRouter();
 
   const jobContent = (
     <div className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none sm:h-[260px] sm:h-auto">

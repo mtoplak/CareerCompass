@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import SavedJobAdvertisementsFilter from "./SavedAdvertisementsFilter";
 import ResultsLoader from "../Common/ResultsLoader";
 import toast from "react-hot-toast";
+import ErrorPage from "@/app/not-found";
 
 const SavedJobResults = () => {
   const [jobs, setJobs] = useState([]);
@@ -37,25 +38,23 @@ const SavedJobResults = () => {
     fetchJobs();
   }, [session]);
 
+  if (!session?.user) {
+    return <ErrorPage what="Stran" />;
+  }
+
   return (
     <>
-      {session?.user ? (
+      <SavedJobAdvertisementsFilter isSavedPage={true} />
+      {!isLoading ? (
         <>
-          <SavedJobAdvertisementsFilter isSavedPage={true} />
-          {!isLoading ? (
-            <>
-              {Array.isArray(jobs) && jobs.length === 0 ? (
-                <NoProduct />
-              ) : (
-                <JobPage jobs={jobs} areSaved={true} />
-              )}
-            </>
+          {Array.isArray(jobs) && jobs.length === 0 ? (
+            <NoProduct />
           ) : (
-            <ResultsLoader />
+            <JobPage jobs={jobs} areSaved={true} />
           )}
         </>
       ) : (
-        <div>Prijavite se, da lahko pogledate shranjene oglase!</div>
+        <ResultsLoader />
       )}
     </>
   );
