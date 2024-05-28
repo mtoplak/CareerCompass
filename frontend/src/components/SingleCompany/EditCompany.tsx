@@ -18,7 +18,6 @@ const industryOptions = industries.map((industry: Industry) => (
 const EditCompany = () => {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    name: "",
     industry: "",
     subindustry: "",
     website: "",
@@ -154,23 +153,6 @@ const EditCompany = () => {
           Uredite podatke vašega podjetja
         </h1>
         <form onSubmit={handleEdit}>
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="mb-2 block font-semibold text-gray-700"
-            >
-              Naziv:
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full rounded-lg border px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              required
-            />
-          </div>
           <div className="mb-4">
             <label
               htmlFor="city"

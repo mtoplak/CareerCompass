@@ -49,13 +49,15 @@ const SingleJob = ({
     <div className="w-full px-4 lg:w-1/2 xl:w-1/2">
       {source === "Career Compass" ? (
         <div className="rounded-xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-50 dark:bg-dark dark:shadow-none">
-          <div className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none sm:h-auto sm:max-h-[260px] sm:min-h-[260px]">
+          <div className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none h-auto">
+          <a href={`/zaposlitev/${_id}`} className="block">
             {jobContent}
+          </a>
             {canBeSaved && <JobActions job={job} isSaved={isSaved} />}
           </div>
         </div>
       ) : (
-        <div className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none sm:h-auto sm:max-h-[260px] sm:min-h-[260px]">
+        <div className="group mb-8 rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none h-auto">
           {jobContent}
           {canBeSaved && <JobActions job={job} isSaved={isSaved} />}
         </div>
