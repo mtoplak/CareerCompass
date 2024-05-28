@@ -282,42 +282,6 @@ export class CompanyService {
     }
   }
 
-  async getCompaniesByCriteria(criteria: SearchCompanyDto): Promise<CompanyDtoWithout[]> {
-    const conditions = [];
-    if (criteria.name) {
-      conditions.push({ name: { $regex: new RegExp(escapeRegex(criteria.name), 'i') } });
-    }
-    if (criteria.city) {
-      conditions.push({ city: { $regex: new RegExp('^' + escapeRegex(criteria.city), 'i') } });
-    }
-    if (criteria.industry) {
-      conditions.push({ industry: criteria.industry });
-    }
-
-    const query = conditions.length > 0 ? { $and: conditions } : {};
-    try {
-      const companies = await this.companyRepository.findFilters(query);
-
-      let ratedCompanies;
-      let companyDtos = [];
-      if (criteria.rating) {
-        ratedCompanies = await this.getCompaniesByRating(criteria.rating, companies);
-        companyDtos = ratedCompanies;
-      } else {
-        for (const company of companies) {
-          const averageRating = await this.averageRatingRepository.findOne({ company: company._id });
-          const companyDto = this.companyMapper.mapOneCompanyWithout(company, averageRating);
-          companyDtos.push(companyDto);
-        }
-      }
-
-      return companyDtos;
-    } catch (error) {
-      console.error('Error executing query:', error);
-      throw new NotFoundException('Could not get the companies from database.');
-    }
-  }
-
   async getCompaniesByRating(rating: number, filteredCompanies: Company[]): Promise<Company[]> {
     try {
       const allCompanyIds = filteredCompanies.map(company => company._id);
@@ -345,16 +309,6 @@ export class CompanyService {
       return { success: true, company: company };
     } else {
       return { success: false };
-    }
-  }
-
-  async countCompanies(): Promise<number> {
-    try {
-      const count = await CompanyModel.countDocuments();
-      return count;
-    } catch (error) {
-      console.error('Error counting companies:', error);
-      throw new Error('Error counting companies');
     }
   }
 

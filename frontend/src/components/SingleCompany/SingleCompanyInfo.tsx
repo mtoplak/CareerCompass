@@ -111,7 +111,7 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
             href="/urejanje"
             className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
           >
-            Uredi
+            Uredi profil
           </Link>
         )}
       </div>

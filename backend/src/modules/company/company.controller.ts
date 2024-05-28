@@ -70,13 +70,6 @@ export class CompanyController {
         return await this.companyService.getPaginatedCompaniesByCriteria(searchDto, pageNum, sizeNum);
     }
 
-    @Get('/search')
-    async getCompaniesByCriteria(
-        @Query() searchDto: SearchCompanyDto,
-    ): Promise<CompanyDtoWithout[]> {
-        return await this.companyService.getCompaniesByCriteria(searchDto);
-    }
-
     @Get(':slug')
     async getCompanyBySlug(@Param('slug') slug: string): Promise<CompanyDto> {
         return await this.companyService.getCompanyBySlug(slug);

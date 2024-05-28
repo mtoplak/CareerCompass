@@ -7,7 +7,7 @@ export class JobAdvertisementMapper {
 
     mapOneJobAdvertisement(jobAdvertisement: JobAdvertisement): JobAdvertisementDto {
         return {
-            id: jobAdvertisement._id.toString(),
+            _id: jobAdvertisement._id,
             position: jobAdvertisement.position,
             description: jobAdvertisement.description,
             city: jobAdvertisement.city,
