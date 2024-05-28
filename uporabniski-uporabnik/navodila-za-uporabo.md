@@ -1,2 +1,0 @@
-# 📖 Navodila za uporabo
-

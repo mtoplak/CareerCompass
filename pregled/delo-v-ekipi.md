@@ -1,2 +1,0 @@
-# 🤝 Delo v ekipi
-
