@@ -8,8 +8,6 @@ import { toast } from "sonner";
 import { useSession } from "next-auth/react";
 
 export interface ChatPanelProps {
-  id?: string;
-  title?: string;
   input: string;
   setInput: (value: string) => void;
   isAtBottom: boolean;

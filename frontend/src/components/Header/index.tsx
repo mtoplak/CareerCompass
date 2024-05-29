@@ -164,7 +164,7 @@ const Header = () => {
                   {(session?.user ? menuData.slice(0, 2) : menuData).map(
                     (menuItem, index) =>
                       menuItem.path ? (
-                        <li key={index} className="group relative">
+                        <li key={menuItem.title} className="group relative">
                           {isNotInPaths ? (
                             <Link
                               onClick={navbarToggleHandler}
@@ -195,7 +195,10 @@ const Header = () => {
                           )}
                         </li>
                       ) : (
-                        <li className="submenu-item group relative" key={index}>
+                        <li
+                          className="submenu-item group relative"
+                          key={menuItem.title}
+                        >
                           {isNotInPaths ? (
                             <button
                               onClick={() => handleSubmenu(index)}
@@ -256,7 +259,7 @@ const Header = () => {
                             {menuItem?.submenu?.map((submenuItem: any, i) => (
                               <Link
                                 href={submenuItem.path}
-                                key={i}
+                                key={submenuItem.title}
                                 className={`block rounded px-4 py-[10px] text-sm ${
                                   pathUrl === submenuItem.path
                                     ? "text-indigo-800"
@@ -271,7 +274,7 @@ const Header = () => {
                       ),
                   )}
                   <li className="relative flex items-center">
-                    {session?.user ? (
+                    {session?.user && (
                       <Link
                         href="/ai-svetovalec"
                         className={`ud-menu-scroll py-2 text-center text-base font-medium duration-300 ease-in-out ${
@@ -282,8 +285,6 @@ const Header = () => {
                       >
                         AI Svetovalec
                       </Link>
-                    ) : (
-                      <></>
                     )}
                   </li>
                 </ul>
@@ -356,14 +357,12 @@ const Header = () => {
               ) : (
                 <>
                   {isNotInPaths ? (
-                    <>
-                      <Link
-                        href="/prijava"
-                        className="px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white"
-                      >
-                        Prijava
-                      </Link>
-                    </>
+                    <Link
+                      href="/prijava"
+                      className="px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white"
+                    >
+                      Prijava
+                    </Link>
                   ) : (
                     <>
                       <Link

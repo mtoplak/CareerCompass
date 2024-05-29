@@ -31,7 +31,6 @@ const JobPage = ({
   };
 
   const fetchPage = async (stran: number) => {
-    console.log(stran);
     setActive(stran);
     try {
       const response = await fetch(`${api}/job/search?page=${stran}`);

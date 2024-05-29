@@ -32,9 +32,9 @@ const CompanyJobs = ({ jobs }: { jobs: JobAdvertisement[] }) => {
       <h2 className="mb-4 text-2xl font-semibold">Zaposlitve</h2>
       <div className="mb-[50px] mt-[10px] flex flex-wrap gap-y-8">
         {jobs.length > 0 ? (
-          jobs.map((job, index) => (
+          jobs.map((job) => (
             <SingleJob
-              key={index}
+              key={job._id}
               job={job}
               canBeSaved={canBeSaved}
               isSaved={savedJobs.some((savedJob) => savedJob._id === job._id)}

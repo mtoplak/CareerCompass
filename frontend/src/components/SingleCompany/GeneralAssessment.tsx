@@ -18,8 +18,8 @@ const GeneralAssessment = ({ company }: Props) => {
     },
     { label: "Delovno vzdušje", rating: company.avg_work_environment },
     { label: "Vodstvo", rating: company.avg_leadership },
-  ].map((item, index) => (
-    <div key={index} className="flex items-center lg:gap-4">
+  ].map((item) => (
+    <div key={item.label} className="flex items-center lg:gap-4">
       <span className="mr-1 mt-3">{item.label}:</span>
       {stars(item.rating)}
     </div>

@@ -58,7 +58,7 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
           {Array.isArray(company.subindustry) ? (
             <p className="text-md text-gray-600 dark:text-gray-400">
               {company.subindustry.map((sub: string, index: number) => (
-                <span key={index}>
+                <span key={sub}>
                   {sub}
                   {index !== company.subindustry.length - 1 && ", "}
                 </span>

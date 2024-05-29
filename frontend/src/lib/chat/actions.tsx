@@ -239,8 +239,6 @@ export const AI = createAI<AIState, UIState>({
         messages,
         path,
       };
-
-      // await saveChat(chat);
     } else {
       return;
     }
