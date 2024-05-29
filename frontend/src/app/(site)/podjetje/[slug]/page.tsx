@@ -4,7 +4,7 @@ import { api } from "@/constants";
 import ErrorPage from "@/app/not-found";
 
 type Props = {
-  params: { slug: string };
+  readonly params: { slug: string };
 };
 
 export async function generateMetadata({

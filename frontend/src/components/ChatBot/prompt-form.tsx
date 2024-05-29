@@ -14,6 +14,7 @@ import { nanoid } from "nanoid";
 import { toast } from "sonner";
 import { useEffect, useRef } from "react";
 import { useSession } from "next-auth/react";
+import { api } from "@/constants";
 
 export function PromptForm({
   input,
@@ -35,9 +36,19 @@ export function PromptForm({
     }
   }, []);
 
-  const handleDeleteHistory = () => {
-    setMessages([]);
-    // TODO
+  const handleDeleteHistory = async () => {
+    try {
+      await fetch(`${api}/history/remove`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      });
+      setMessages([]);
+    } catch (error: any) {
+      toast.error(error.message);
+    }
   };
 
   return (

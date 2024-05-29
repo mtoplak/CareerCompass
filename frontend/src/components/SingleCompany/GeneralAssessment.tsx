@@ -28,11 +28,11 @@ const GeneralAssessment = ({ company }: Props) => {
   return (
     <div className="flex flex-col justify-between gap-4 md:flex-row">
       <div className="w-full lg:w-2/5">
-        <div className="rounded-xl bg-white px-4 pt-[10px] pb-[30px] shadow-testimonial dark:bg-dark sm:px-[30px]">
+        <div className="rounded-xl bg-white px-4 pb-[30px] pt-[10px] shadow-testimonial dark:bg-dark sm:px-[30px]">
           <div className="mb-1 grow flex-col gap-1">{ratingIcons}</div>
         </div>
       </div>
-      <div className="grow flex-col w-full lg:w-3/5">
+      <div className="w-full grow flex-col lg:w-3/5">
         <SingleGeneralComment company={company} />
       </div>
     </div>

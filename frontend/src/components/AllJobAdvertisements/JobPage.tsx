@@ -150,7 +150,7 @@ const JobPage = ({
                 isSaved={
                   areSaved
                     ? true
-                    : savedJobs.some((savedJob) => savedJob._id === job.id)
+                    : savedJobs.some((savedJob) => savedJob._id === job._id)
                 }
               />
             ))}
