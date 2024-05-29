@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import OpenAI from 'openai';
 import { ChatHistoryRepository } from '../chat-history/chat-history.repository';
-import { ChatHistoryModel } from '../../db/entities/chat-history.model';
 import { UserService } from '../user/user.service';
 
 @Injectable()
@@ -49,29 +48,32 @@ export class AiService {
     try {
       const user = await this.userService.getSingleUserByEmail(userEmail);
 
-      let chatHistoryRecord = await this.historyRepository.findOne({ user: user._id });
-      if (!chatHistoryRecord) {
-        chatHistoryRecord = new ChatHistoryModel({ user: user._id, chat_history: [] });
-      }
+      const chatHistoryRecord = await this.historyRepository.findOneAndUpdate(
+        { user: user._id },
+        { $push: { chat_history: { role: 'user', content: content } } } as any,
+        { new: true, upsert: true }
+      );
+      console.log(chatHistoryRecord);
 
-      chatHistoryRecord.chat_history.push({ role: 'user', content: content });
+      const recentHistory = chatHistoryRecord.chat_history.slice(-6);
+      const historyString = recentHistory.map(entry => `${entry.role}: ${entry.content}`).join('\n');
 
-      const historyString = chatHistoryRecord.chat_history.map(entry => `${entry.role}: ${entry.content}`).join('\n');
-
-      const prompt = `Si karierni svetovalec, ki mora uporabniku pomagati s vprašanji o poklicih.\n${historyString}\nuser: ${content}`;
+      const prompt = `Si karierni svetovalec na platformi Career Compass, ki uporabniku pomaga s vprašanji o poklicih.\n${historyString}\nuser: ${content}`;
 
       const completion = await this.openai.chat.completions.create({
+        model: process.env.FINE_TUNE_MODEL,
         messages: [
           { role: 'system', content: prompt }
         ],
-        model: process.env.FINE_TUNE_MODEL,
         max_tokens: 150,
       });
+
       const completionText = completion.choices[0].message.content;
 
-      chatHistoryRecord.chat_history.push({ role: 'assistant', content: completionText });
-
-      await chatHistoryRecord.save();
+      await this.historyRepository.findOneAndUpdate(
+        { user: user._id },
+        { $push: { chat_history: { role: 'assistant', content: completionText } } } as any
+      );
 
       return completionText;
     } catch (error) {
