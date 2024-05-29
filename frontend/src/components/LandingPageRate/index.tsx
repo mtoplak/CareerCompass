@@ -19,8 +19,8 @@ const LandingPageRate = ({ companies }: { companies: Company[] }) => {
         />
 
         <div className="mt-12 rounded-xl bg-indigo-100 py-[20px] dark:bg-slate-700 md:mt-20 md:flex md:items-start md:justify-between">
-          {ratingData.map((feature, i) => (
-            <SingleFeature key={i} feature={feature} />
+          {ratingData.map((feature) => (
+            <SingleFeature key={feature.title} feature={feature} />
           ))}
         </div>
         <div className="pt-20">

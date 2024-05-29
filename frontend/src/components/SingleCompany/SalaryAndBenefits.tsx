@@ -11,8 +11,8 @@ const SalaryAndBenefits = ({ company }: Props) => {
   const ratingIcons = [
     { label: "Ugodnosti", rating: company.avg_benefits },
     { label: "Bonusi", rating: company.avg_bonuses },
-  ].map((item, index) => (
-    <div key={index} className="flex items-center lg:gap-4">
+  ].map((item) => (
+    <div key={item.label} className="flex items-center lg:gap-4">
       <span className="mr-1 mt-3">{item.label}:</span>
       {stars(item.rating)}
     </div>

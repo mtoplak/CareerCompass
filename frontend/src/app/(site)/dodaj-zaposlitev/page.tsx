@@ -7,9 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default async function PodjetjePage() {
-  return (
-    <>
-      <AddJobAdvertisementPage />
-    </>
-  );
+  return <AddJobAdvertisementPage />;
 }

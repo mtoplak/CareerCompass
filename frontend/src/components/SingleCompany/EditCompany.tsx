@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { api } from "@/constants";
 import toast from "react-hot-toast";
 import { confirmAlert } from "react-confirm-alert";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import ErrorPage from "@/app/not-found";
 
 const industryOptions = industries.map((industry: Industry) => (
@@ -109,30 +109,31 @@ const EditCompany = () => {
       updateCompanyInfo();
     }
   };
-
   const handleDelete = async () => {
     confirmAlert({
-      message: `Ste prepričani, da želite izbrisati svoje podjetje ${session?.user.company.name} iz naše platforme?`,
+      message: `Ali ste prepričani, da želite izbrisati svoje podjetje ${session?.user.company.name} iz naše platforme?`,
       buttons: [
         {
           label: "Da",
           onClick: async () => {
             try {
-              const response = await fetch(
-                `${api}/company/${session?.user.company.slug}`,
-                {
-                  method: "DELETE",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
+              const response = await fetch("/api/deleteCompany", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
                 },
-              );
+                body: JSON.stringify({
+                  id: session?.user.company.id,
+                  user_id: session?.user.id,
+                  email: session?.user.company.email,
+                }),
+              });
               if (!response.ok) {
-                throw new Error("Doesn't work");
+                throw new Error("Prišlo je do napake pri brisanju podjetja.");
               }
 
               toast.success("Vaše podjetje je uspešno izbrisano.");
-              router.push("/");
+              signOut({ callbackUrl: "/" });
             } catch (error) {
               toast.error("Prišlo je do napake pri brisanju podjetja.");
             }
@@ -140,7 +141,6 @@ const EditCompany = () => {
         },
         {
           label: "Ne",
-          onClick: () => {},
         },
       ],
     });

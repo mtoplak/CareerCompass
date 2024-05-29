@@ -14,9 +14,8 @@ import Breadcrumb from "../Common/Breadcrumb";
 import { api } from "@/constants";
 
 export interface ChatProps extends React.ComponentProps<"div"> {
-  initialMessages?: Message[];
+  readonly initialMessages?: Message[];
   id?: string;
-  session?: Session;
 }
 
 export function Chat({ id }: ChatProps) {
@@ -97,7 +96,7 @@ export function Chat({ id }: ChatProps) {
             <div className="h-px w-full" ref={visibilityRef} />
           </div>
           <ChatPanel
-            id={id}
+            id={id || ""}
             input={input}
             setInput={setInput}
             isAtBottom={isAtBottom}

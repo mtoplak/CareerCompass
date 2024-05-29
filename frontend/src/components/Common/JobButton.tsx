@@ -6,11 +6,12 @@ import { useSession } from "next-auth/react";
 import ToastContent from "./ToastContent";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const JobActions = ({ job, isSaved }: { job: any; isSaved: boolean }) => {
   const [isSaved2, setIsSaved] = useState(isSaved);
   const { data: session } = useSession();
-  const { _id, id, position, company } = job;
+  const { _id, position, company } = job;
 
   useEffect(() => {
     setIsSaved(isSaved);
@@ -18,13 +19,13 @@ const JobActions = ({ job, isSaved }: { job: any; isSaved: boolean }) => {
 
   const handleDelete = async () => {
     confirmAlert({
-      message: `Ste prepričani, da želite izbrisati zaposlitveni oglas ${position}?`,
+      message: `Ali ste prepričani, da želite izbrisati zaposlitveni oglas "${position}"?`,
       buttons: [
         {
           label: "Da",
           onClick: async () => {
             try {
-              const response = await fetch(`${api}/job/${id}`, {
+              const response = await fetch(`${api}/job/${_id}`, {
                 method: "DELETE",
                 headers: {
                   "Content-Type": "application/json",
@@ -44,7 +45,6 @@ const JobActions = ({ job, isSaved }: { job: any; isSaved: boolean }) => {
         },
         {
           label: "Ne",
-          onClick: () => {},
         },
       ],
     });
@@ -57,7 +57,7 @@ const JobActions = ({ job, isSaved }: { job: any; isSaved: boolean }) => {
     }
     try {
       const response = await fetch(
-        `${api}/job/save/${id}/${session.user.email}`,
+        `${api}/job/save/${_id}/${session.user.email}`,
         {
           method: "GET",
           headers: {

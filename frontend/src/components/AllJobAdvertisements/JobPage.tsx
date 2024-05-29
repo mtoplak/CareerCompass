@@ -31,7 +31,6 @@ const JobPage = ({
   };
 
   const fetchPage = async (stran: number) => {
-    console.log(stran);
     setActive(stran);
     try {
       const response = await fetch(`${api}/job/search?page=${stran}`);
@@ -69,7 +68,7 @@ const JobPage = ({
     if (session) {
       fetchJobs();
     }
-  }, [session]);
+  }, [session, jobs, noOfPages, fetchPage]);
 
   if (!jobs) {
     return <ResultsLoader />;
@@ -150,7 +149,7 @@ const JobPage = ({
                 isSaved={
                   areSaved
                     ? true
-                    : savedJobs.some((savedJob) => savedJob._id === job.id)
+                    : savedJobs.some((savedJob) => savedJob._id === job._id)
                 }
               />
             ))}

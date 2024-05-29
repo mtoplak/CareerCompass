@@ -4,7 +4,7 @@ import ErrorPage from "@/app/not-found";
 import AllCommentsPage from "@/components/AllComments/AllCommentsPage";
 
 type Props = {
-  params: { slug: string };
+  readonly params: { slug: string };
 };
 
 export async function generateMetadata({

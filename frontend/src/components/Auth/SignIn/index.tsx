@@ -130,13 +130,13 @@ const Signin = () => {
                       }
                       className="placeholder-text-dark-6 w-full rounded-md border border-stroke bg-transparent px-5 py-3 pr-12 text-base text-dark outline-none transition focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
                     />
-                    <span onClick={() => setShowPassword(!showPassword)}>
+                    <button onClick={() => setShowPassword(!showPassword)}>
                       {showPassword ? (
                         <EyeNoneIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
                       ) : (
                         <EyeOpenIcon className="absolute right-3 top-1/2 h-6 w-6 -translate-y-1/2 transform cursor-pointer text-gray-400 dark:text-gray-600" />
                       )}
-                    </span>
+                    </button>
                   </div>
                 </div>
                 <div className="mb-9">

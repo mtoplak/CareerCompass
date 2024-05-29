@@ -24,28 +24,7 @@ const SingleCompanyPage = ({ company }: Props) => {
         return (
           <div className="container">
             {company.general_assessment_comments.length > 0 ? (
-              company.general_assessment_comments
-                .map((comment, index) => (
-                  <div
-                    key={index}
-                    className="mb-3 rounded-xl bg-white px-4 py-[20px] shadow-testimonial dark:bg-dark sm:px-[30px]"
-                  >
-                    <p className="text-gray-800 dark:text-gray-200">{comment}</p>
-                  </div>
-                ))
-            ) : (
-              <p className="mt-10 text-gray-800 dark:text-gray-200">
-                To podjetje še ni prejelo komentarjev.
-              </p>
-            )}
-          </div>
-        );;
-      case "interviews":
-        return (
-        <div className="container">
-          {company.interviews_comments.length > 0 ? (
-            company.interviews_comments
-              .map((comment, index) => (
+              company.general_assessment_comments.map((comment, index) => (
                 <div
                   key={index}
                   className="mb-3 rounded-xl bg-white px-4 py-[20px] shadow-testimonial dark:bg-dark sm:px-[30px]"
@@ -53,26 +32,44 @@ const SingleCompanyPage = ({ company }: Props) => {
                   <p className="text-gray-800 dark:text-gray-200">{comment}</p>
                 </div>
               ))
-          ) : (
-            <p className="mt-10 text-gray-800 dark:text-gray-200">
-              To podjetje še ni prejelo komentarjev.
-            </p>
-          )}
-        </div>
-      );
+            ) : (
+              <p className="mt-10 text-gray-800 dark:text-gray-200">
+                To podjetje še ni prejelo komentarjev.
+              </p>
+            )}
+          </div>
+        );
+      case "interviews":
+        return (
+          <div className="container">
+            {company.interviews_comments.length > 0 ? (
+              company.interviews_comments.map((comment, index) => (
+                <div
+                  key={index}
+                  className="mb-3 rounded-xl bg-white px-4 py-[20px] shadow-testimonial dark:bg-dark sm:px-[30px]"
+                >
+                  <p className="text-gray-800 dark:text-gray-200">{comment}</p>
+                </div>
+              ))
+            ) : (
+              <p className="mt-10 text-gray-800 dark:text-gray-200">
+                To podjetje še ni prejelo komentarjev.
+              </p>
+            )}
+          </div>
+        );
       case "salary":
         return (
           <div className="container">
             {company.salary_and_benefits_comments.length > 0 ? (
-              company.salary_and_benefits_comments
-                .map((comment, index) => (
-                  <div
-                    key={index}
-                    className="mb-3 rounded-xl bg-white px-4 py-[20px] shadow-testimonial dark:bg-dark sm:px-[30px]"
-                  >
-                    <p className="text-gray-800 dark:text-gray-200">{comment}</p>
-                  </div>
-                ))
+              company.salary_and_benefits_comments.map((comment, index) => (
+                <div
+                  key={index}
+                  className="mb-3 rounded-xl bg-white px-4 py-[20px] shadow-testimonial dark:bg-dark sm:px-[30px]"
+                >
+                  <p className="text-gray-800 dark:text-gray-200">{comment}</p>
+                </div>
+              ))
             ) : (
               <p className="mt-10 text-gray-800 dark:text-gray-200">
                 To podjetje še ni prejelo komentarjev.
@@ -119,7 +116,7 @@ const SingleCompanyPage = ({ company }: Props) => {
           {Array.isArray(company.subindustry) ? (
             <p className="text-md text-gray-600 dark:text-gray-400">
               {company.subindustry.map((sub: string, index: number) => (
-                <span key={index}>
+                <span key={sub}>
                   {sub}
                   {index !== company.subindustry.length - 1 && ", "}
                 </span>
@@ -153,11 +150,11 @@ const SingleCompanyPage = ({ company }: Props) => {
         </div>
       </div>
       <div className="my-10 border-t border-gray-300"></div>
-      <div className="flex flex-col mt-[20px] gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:flex-row md:items-start md:justify-between">
+      <div className="mt-[20px] flex flex-col gap-y-8 rounded-xl bg-gray-100 px-4 py-[20px] dark:bg-slate-700 md:flex-row md:items-start md:justify-between">
         <div className="p-4 md:mr-4 md:w-1/4">
           <nav className="md:flex md:flex-col">
             <button
-              className={`flex mb-2 block px-4 py-2 font-medium w-full ${
+              className={`mb-2 block flex w-full px-4 py-2 font-medium ${
                 activeCategory !== "general" ? "bg-white dark:bg-slate-600" : ""
               }`}
               onClick={() => setActiveCategory("general")}
@@ -165,7 +162,7 @@ const SingleCompanyPage = ({ company }: Props) => {
               Splošna ocena
             </button>
             <button
-              className={`flex mb-2 block px-4 py-2 font-medium w-full ${
+              className={`mb-2 block flex w-full px-4 py-2 font-medium ${
                 activeCategory !== "salary" ? "bg-white dark:bg-slate-600" : ""
               }`}
               onClick={() => setActiveCategory("salary")}
@@ -173,8 +170,10 @@ const SingleCompanyPage = ({ company }: Props) => {
               Plače in ugodnosti
             </button>
             <button
-              className={`flex mb-2 block px-4 py-2 font-medium w-full ${
-                activeCategory !== "interviews" ? "bg-white dark:bg-slate-600" : ""
+              className={`mb-2 block flex w-full px-4 py-2 font-medium ${
+                activeCategory !== "interviews"
+                  ? "bg-white dark:bg-slate-600"
+                  : ""
               }`}
               onClick={() => setActiveCategory("interviews")}
             >
@@ -182,7 +181,7 @@ const SingleCompanyPage = ({ company }: Props) => {
             </button>
           </nav>
         </div>
-        <div className="w-full md:w-3/4 rounded p-4">{renderComments()}</div>
+        <div className="w-full rounded p-4 md:w-3/4">{renderComments()}</div>
       </div>
     </div>
   );

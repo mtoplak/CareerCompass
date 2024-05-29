@@ -44,9 +44,9 @@ const PopularJobs = () => {
 
   return (
     <>
-      {jobs.map((job: any, i: number) => (
+      {jobs.map((job: any) => (
         <SingleJob
-          key={i}
+          key={job._id}
           job={job}
           canBeSaved={canBeSaved}
           isSaved={savedJobs.some((savedJob) => savedJob._id === job._id)}

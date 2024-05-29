@@ -40,6 +40,7 @@ const SignUpCompany = () => {
 
     const requiredFields: Record<string, string> = {
       name: "Ime podjetja",
+      email: "Email",
       address: "Naslov",
       city: "Mesto",
       industry: "Dejavnost",
@@ -79,7 +80,7 @@ const SignUpCompany = () => {
       });
       if (res.status === 200) {
         toast.success(
-          "Uspešna registracija! Zdaj lahko prevzamete profil podjetja.",
+          "Uspešna registracija! Zdaj lahko prevzamete profil podjetja in nato boste dobili potrditveni mail.",
         );
         router.push("/za-delodajalce/prevzemi");
       } else if (res.status === 413) {

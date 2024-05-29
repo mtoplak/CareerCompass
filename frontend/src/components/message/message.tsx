@@ -2,10 +2,9 @@
 
 /* eslint-disable @next/next/no-img-element */
 
-import { GoogleIcon, IconGemini, IconUser } from "@/components/ui/icons";
+import { IconUser } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 import { spinner } from "./spinner";
-import { CodeBlock } from "../ui/codeblock";
 import { MemoizedReactMarkdown } from "../ChatBot/markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
@@ -29,8 +28,8 @@ export function BotMessage({
   content,
   className,
 }: {
-  content: string | StreamableValue<string>;
-  className?: string;
+  readonly content: string | StreamableValue<string>;
+  readonly className?: string;
 }) {
   const text = useStreamableText(content);
 
@@ -58,22 +57,11 @@ export function BotMessage({
                 children[0] = (children[0] as string).replace("`▍`", "▍");
               }
 
-              const match = /language-(\w+)/.exec(className || "");
-
               return (
                 <code className={className} {...props}>
                   {children}
                 </code>
               );
-
-              // return (
-              //   <CodeBlock
-              //     key={Math.random()}
-              //     language={(match && match[1]) || ""}
-              //     value={String(children).replace(/\n$/, "")}
-              //     {...props}
-              //   />
-              // );
             },
           }}
         >

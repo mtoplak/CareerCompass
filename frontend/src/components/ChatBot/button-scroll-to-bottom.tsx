@@ -7,8 +7,8 @@ import { Button, type ButtonProps } from "@/components/ui/button";
 import { IconArrowDown } from "@/components/ui/icons";
 
 interface ButtonScrollToBottomProps extends ButtonProps {
-  isAtBottom: boolean;
-  scrollToBottom: () => void;
+  readonly isAtBottom: boolean;
+  readonly scrollToBottom: () => void;
 }
 
 export function ButtonScrollToBottom({
