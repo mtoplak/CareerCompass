@@ -190,7 +190,17 @@ export class CompanyService {
   }
 
   async removeCompany(companyId: string): Promise<SuccessResponse> {
-    return await this.companyRepository.deleteOne({ _id: companyId });
+    try {
+      await this.jobsRepository.deleteMany({ company_linked: companyId });
+      await this.companyRepository.deleteOne({ _id: companyId });
+
+      return { success: true };
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    }
   }
 
   async getFourBestCompanies(): Promise<CompanyDtoWithout[]> {

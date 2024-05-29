@@ -186,17 +186,14 @@ const getCompanyLogo = async () => {
 
 const removeCityPostcode = async () => {
   try {
-    // Read data from file
     const rawData = fs.readFileSync("scraped_results.json");
     let companies = JSON.parse(rawData);
 
-    // Remove numbers from city names
     companies = companies.map((company) => ({
       ...company,
       city: company.city.replace(/\d+/g, "").trim(),
     }));
 
-    // Write the final data back to the file
     fs.writeFileSync(
       "scraped_results.json",
       JSON.stringify(companies, null, 2)
@@ -207,3 +204,9 @@ const removeCityPostcode = async () => {
     console.error("Error processing data:", error);
   }
 };
+
+// modifyIndustry();
+// addIndustry();
+// addCompanySlug();
+// getCompanyLogo();
+// removeCityPostcode();

@@ -24,7 +24,7 @@ export class AiService {
           { role: 'system', content: 'Does this comment contain any personal information (including lowercase name or surname), curse words, or insults?' },
           { role: 'user', content: comment }
         ],
-        max_tokens: 64
+        max_tokens: 100
       });
 
       let fullText = '';
@@ -47,19 +47,7 @@ export class AiService {
 
   async generateCompletion(userEmail: string, content: string): Promise<string> {
     try {
-      const completion = await this.openai.chat.completions.create({
-        messages: [
-          { role: "system", content: "Career Compass vam pomaga najti pravo rešitev za novo poklicno pot!" },
-          { role: 'user', content: content }
-        ],
-        model: process.env.FINE_TUNE_MODEL,
-      });
-      const completionText = completion.choices[0].message.content;
-
       const user = await this.userService.getSingleUserByEmail(userEmail);
-      if (!user) {
-        throw new Error('User not found');
-      }
 
       let chatHistoryRecord = await this.historyRepository.findOne({ user: user._id });
       if (!chatHistoryRecord) {
@@ -67,6 +55,20 @@ export class AiService {
       }
 
       chatHistoryRecord.chat_history.push({ role: 'user', content: content });
+
+      const historyString = chatHistoryRecord.chat_history.map(entry => `${entry.role}: ${entry.content}`).join('\n');
+
+      const prompt = `Si karierni svetovalec, ki mora uporabniku pomagati s vprašanji o poklicih.\n${historyString}\nuser: ${content}`;
+
+      const completion = await this.openai.chat.completions.create({
+        messages: [
+          { role: 'system', content: prompt }
+        ],
+        model: process.env.FINE_TUNE_MODEL,
+        max_tokens: 150,
+      });
+      const completionText = completion.choices[0].message.content;
+
       chatHistoryRecord.chat_history.push({ role: 'assistant', content: completionText });
 
       await chatHistoryRecord.save();
@@ -74,6 +76,7 @@ export class AiService {
       return completionText;
     } catch (error) {
       console.error('Error generating completion:', error.message);
+      throw error;
     }
   }
 

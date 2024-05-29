@@ -85,4 +85,8 @@ export class JobAdvertisementRepository {
     }
   }
 
+  async deleteMany(filter: any): Promise<any> {
+    return this.jobAdvertisementModel.deleteMany(filter).exec();
+  }
+
 }

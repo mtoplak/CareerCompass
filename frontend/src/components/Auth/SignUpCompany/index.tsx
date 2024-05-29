@@ -82,6 +82,8 @@ const SignUpCompany = () => {
           "Uspešna registracija! Zdaj lahko prevzamete profil podjetja.",
         );
         router.push("/za-delodajalce/prevzemi");
+      } else if (res.status === 413) {
+        toast.error("Naložena datoteka je prevelika.");
       } else {
         toast.error("Napaka pri registraciji podjetja.");
       }
