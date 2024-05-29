@@ -59,9 +59,7 @@ export function ChatList({ messages, session, isShared }: ChatList) {
                 {message && message.role && message.role === "user" ? (
                   <UserMessage>{message.display}</UserMessage>
                 ) : message && message.role === "assistant" ? (
-                  <>
-                    <BotCard>{message.display}</BotCard>
-                  </>
+                  <BotCard>{message.display}</BotCard>
                 ) : (
                   <SpinnerMessage />
                 )}

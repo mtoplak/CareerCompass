@@ -16,11 +16,11 @@ interface Props {
   value: string;
 }
 
-interface languageMap {
+interface LanguageMap {
   [key: string]: string | undefined;
 }
 
-export const programmingLanguages: languageMap = {
+export const programmingLanguages: LanguageMap = {
   javascript: ".js",
   python: ".py",
   java: ".java",

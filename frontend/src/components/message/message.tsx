@@ -28,8 +28,8 @@ export function BotMessage({
   content,
   className,
 }: {
-  content: string | StreamableValue<string>;
-  className?: string;
+  readonly content: string | StreamableValue<string>;
+  readonly className?: string;
 }) {
   const text = useStreamableText(content);
 

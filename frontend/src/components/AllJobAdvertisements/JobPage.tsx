@@ -68,7 +68,7 @@ const JobPage = ({
     if (session) {
       fetchJobs();
     }
-  }, [session]);
+  }, [session, jobs, noOfPages, fetchPage]);
 
   if (!jobs) {
     return <ResultsLoader />;
