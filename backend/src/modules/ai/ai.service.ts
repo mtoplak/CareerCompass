@@ -32,10 +32,7 @@ export class AiService {
       }
 
       const prohibitedContentIndicators = ["yes", "contains", "present"];
-      const doesContain = prohibitedContentIndicators.some(indicator =>
-        fullText.includes(indicator));
-
-      console.log(fullText)
+      const doesContain = prohibitedContentIndicators.some(indicator => fullText.includes(indicator));
 
       return !doesContain;
     } catch (error) {
@@ -53,7 +50,6 @@ export class AiService {
         { $push: { chat_history: { role: 'user', content: content } } } as any,
         { new: true, upsert: true }
       );
-      console.log(chatHistoryRecord);
 
       const recentHistory = chatHistoryRecord.chat_history.slice(-6);
       const historyString = recentHistory.map(entry => `${entry.role}: ${entry.content}`).join('\n');

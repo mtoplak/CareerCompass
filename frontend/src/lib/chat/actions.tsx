@@ -74,8 +74,11 @@ async function submitUserMessage(content: string, email: string) {
         },
       ],
     });
-    spinnerStream.done(null);
+
+    spinnerStream.done();
     messageStream.update(botResponse);
+    messageStream.done();
+
     const chatResponse = {
       id: nanoid(),
       role: "assistant",

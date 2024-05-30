@@ -8,7 +8,6 @@ export async function POST(request: any) {
     if (body.newLogo) {
         const companyLogoUrl = await uploadImageToStorage(body.newLogo, body.name);
         body.logo = companyLogoUrl;
-        console.log(body.logo);
     }
 
     const res = await fetch(
