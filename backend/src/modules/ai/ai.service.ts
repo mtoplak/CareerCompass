@@ -18,7 +18,7 @@ export class AiService {
   async checkComment(comment: string): Promise<boolean> {
     try {
       const response = await this.openai.chat.completions.create({
-        model: 'gpt-3.5-turbo-0125',
+        model: 'gpt-3.5-turbo-instruct',
         messages: [
           { role: 'system', content: 'Does this comment contain any personal information (including lowercase name or surname), curse words, or insults?' },
           { role: 'user', content: comment }
