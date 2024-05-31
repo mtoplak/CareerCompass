@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install backend dependencies and build
         working-directory: backend
@@ -31,7 +31,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install frontend dependencies and build
         working-directory: frontend
@@ -39,12 +39,30 @@ jobs:
           npm ci
           npm run build
 
+  backend_testing:
+    name: Backend unit testing
+    runs-on: ubuntu-latest
+    needs: build_backend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Run backend unit tests
+        working-directory: backend
+        run: npm run test
+
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
+    needs: [build_frontend, backend_testing]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Cache SonarCloud packages
         uses: actions/cache@v2

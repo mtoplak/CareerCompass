@@ -59,6 +59,16 @@ npm run start:dev
 
 in `backend` directory to start the server on port 4000
 
+## Testing
+
+Run
+
+```
+npm run test
+```
+
+in `backend` directory to run unit tests.
+
 ## Build
 
 Run
