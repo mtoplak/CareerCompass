@@ -2,7 +2,7 @@ import React from "react";
 
 const ResultsLoader = () => {
   return (
-    <div className="flex h-full w-full items-center justify-center pb-20">
+    <div className="flex h-full w-full items-center justify-center py-20 bg-gray-1 dark:bg-dark-2">
       <div role="status">
         <svg
           aria-hidden="true"

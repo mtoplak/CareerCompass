@@ -28,7 +28,7 @@ const SavedJobAdvertisementsFilter = ({
           <button
             type="button"
             onClick={handleClick}
-            className="focus:shadow-outline col-span-1 rounded bg-indigo-600 px-4 py-2 font-medium text-white hover:bg-indigo-500 focus:outline-none md:col-span-1 lg:col-span-1"
+            className="focus:shadow-outline col-span-1 rounded bg-indigo-600 px-4 py-2 mt-4 font-medium text-white hover:bg-indigo-500 focus:outline-none md:col-span-1 lg:col-span-1"
           >
             <div className="flex items-center justify-center">
               <span>

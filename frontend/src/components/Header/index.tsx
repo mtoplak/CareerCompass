@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import menuData from "./menuData";
 
-const pathsToCheck = [
+const basePathsToCheck = [
   "/",
   "/podjetja",
   "/prijava",
@@ -32,6 +32,10 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
+
+  const pathsToCheck = session?.user
+  ? basePathsToCheck
+  : [...basePathsToCheck, "/ai-svetovalec"];
 
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);

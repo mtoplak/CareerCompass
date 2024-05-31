@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { api } from "@/constants";
-import NoProduct from "../NotFound/NoProduct";
+import NoJobs from "../NotFound/NoJobs";
 import JobPage from "./JobPage";
 import { useSession } from "next-auth/react";
 import SavedJobAdvertisementsFilter from "./SavedAdvertisementsFilter";
@@ -48,7 +48,7 @@ const SavedJobResults = () => {
       {!isLoading ? (
         <>
           {Array.isArray(jobs) && jobs.length === 0 ? (
-            <NoProduct />
+            <NoJobs />
           ) : (
             <JobPage jobs={jobs} areSaved={true} />
           )}

@@ -49,7 +49,7 @@ const SingleJob = ({
     <div className="w-full px-4 lg:w-1/2 xl:w-1/2">
       {source === "Career Compass" ? (
         <div className="rounded-xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-50 dark:bg-dark dark:shadow-none lg:min-h-[320px]">
-          <div className="group mb-8 h-auto rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none">
+          <div className="group mb-8 h-auto rounded-xl bg-white px-5 pb-10 pt-10 shadow-testimonial dark:bg-dark dark:shadow-none lg:min-h-[320px]">
             <a href={`/zaposlitev/${_id}`} className="block">
               {jobContent}
             </a>
