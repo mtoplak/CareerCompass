@@ -88,7 +88,7 @@ const EditCompany = () => {
 
         if (response.ok) {
           toast.success("Uspešno ste uredili vaše podatke!");
-          router.push(`/podjetje/${session?.user.company.slug}`);
+          window.location.href = `/podjetje/${session?.user.company.slug}`;
         } else {
           toast.error("Urejanje ni uspelo.");
         }
@@ -109,6 +109,7 @@ const EditCompany = () => {
       updateCompanyInfo();
     }
   };
+
   const handleDelete = async () => {
     confirmAlert({
       message: `Ali ste prepričani, da želite izbrisati svoje podjetje ${session?.user.company.name} iz naše platforme?`,

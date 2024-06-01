@@ -29,7 +29,7 @@ CareerCompass is a platform that helps job seekers to find the right company to 
 
 Run
 
-```
+```bash
 npm install
 ```
 
@@ -47,13 +47,13 @@ FINE_TUNE_MODEL=
 
 Run
 
-```
+```bash
 npm start
 ```
 
 or
 
-```
+```bash
 npm run start:dev
 ```
 
@@ -63,7 +63,7 @@ in `backend` directory to start the server on port 4000
 
 Run
 
-```
+```bash
 npm run test
 ```
 
@@ -73,7 +73,7 @@ in `backend` directory to run unit tests.
 
 Run
 
-```
+```bash
 npm run build
 ```
 
@@ -85,7 +85,7 @@ in `backend` directory to build the server
 
 Run
 
-```
+```bash
 npm install
 ```
 
@@ -114,7 +114,7 @@ FIREBASE_APP_ID=
 
 Run
 
-```
+```bash
 npm run dev
 ```
 
@@ -124,7 +124,7 @@ in `frontend` directory to start the client on port 3000
 
 Run
 
-```
+```bash
 npm run build
 ```
 

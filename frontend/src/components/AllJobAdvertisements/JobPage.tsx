@@ -38,8 +38,8 @@ const JobPage = ({
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      console.log(data.jobs);
-      setJobs2(data.jobs);
+      const jobs = data.jobs;
+      setJobs2(jobs);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -48,29 +48,35 @@ const JobPage = ({
   };
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      const res = await fetch(`${api}/user/get/${session?.user.email}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const savedJobs = await res.json();
-      setSavedJobs(savedJobs.saved_advertisements);
-    };
+    if (session?.user) {
+      const fetchSavedJobs = async () => {
+        try {
+          const res = await fetch(`${api}/user/get/${session.user.email}`, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const savedJobs = await res.json();
+          setSavedJobs(savedJobs.saved_advertisements);
+        } catch (error) {
+          console.error("Error fetching saved jobs:", error);
+        }
+      };
 
-    if (jobs) {
-      setJobs2(jobs);
-      setNoOfPages2(noOfPages as number);
-    } else {
-      fetchPage(1);
-    }
-
-    if (session) {
-      fetchJobs();
+      fetchSavedJobs();
     }
   }, [session, jobs, noOfPages]);
 
-  if (!jobs) {
+  useEffect(() => {
+    if (!jobs) {
+      fetchPage(active);
+    } else {
+      setJobs2(jobs);
+      setNoOfPages2(noOfPages as number);
+    }
+  }, [active]);
+
+  if (!jobs2) {
     return <ResultsLoader />;
   }
 

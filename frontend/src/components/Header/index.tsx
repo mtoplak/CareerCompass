@@ -34,8 +34,8 @@ const Header = () => {
   });
 
   const pathsToCheck = session?.user
-  ? basePathsToCheck
-  : [...basePathsToCheck, "/ai-svetovalec"];
+    ? basePathsToCheck
+    : [...basePathsToCheck, "/ai-svetovalec"];
 
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);

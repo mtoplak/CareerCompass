@@ -33,7 +33,7 @@ const JobActions = ({ job, isSaved }: { job: any; isSaved: boolean }) => {
               });
 
               if (!response.ok) {
-                throw new Error("Doesn't work");
+                throw new Error("Prišlo je do napake pri brisanju oglasa.");
               }
 
               toast.success("Zaposlitveni oglas je uspešno izbrisan.");
@@ -101,6 +101,7 @@ const JobActions = ({ job, isSaved }: { job: any; isSaved: boolean }) => {
         console.error("Response error text:", errorText);
         throw new Error(errorText || "Failed to unsave job");
       }
+      window.location.reload();
       setIsSaved(false);
       toast.success("Oglas je uspešno odstranjen iz shranjenih oglasov.");
     } catch (error) {

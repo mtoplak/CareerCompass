@@ -1,16 +1,23 @@
 import { UIState } from "@/lib/chat/actions";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { BotCard, SpinnerMessage, UserMessage } from "../message/message";
+import {
+  BotCard,
+  SpinnerMessage,
+  SystemMessage,
+  UserMessage,
+} from "../message/message";
 import { useEffect, useRef } from "react";
+import { spinner } from "../message/spinner";
 
 export interface ChatList {
   messages: UIState;
   session?: any;
   isShared: boolean;
+  isLoading: boolean;
 }
 
-export function ChatList({ messages, session, isShared }: ChatList) {
+export function ChatList({ messages, session, isShared, isLoading }: ChatList) {
   const messageContainerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const scrollToBottom = () => {
@@ -56,7 +63,7 @@ export function ChatList({ messages, session, isShared }: ChatList) {
           {messages.length > 0 &&
             messages.map((message) => (
               <div key={message.id} className="flex items-center">
-                {message && message.role && message.role === "user" ? (
+                {message && message.role === "user" ? (
                   <UserMessage>{message.display}</UserMessage>
                 ) : message && message.role === "assistant" ? (
                   <BotCard>{message.display}</BotCard>
@@ -65,6 +72,15 @@ export function ChatList({ messages, session, isShared }: ChatList) {
                 )}
               </div>
             ))}
+          {isLoading && (
+            <div className="flex items-center">
+              <BotCard>
+                <div className="ml-4 flex h-[24px] flex-1 flex-row items-center space-y-2 overflow-hidden px-1">
+                  {spinner}
+                </div>
+              </BotCard>
+            </div>
+          )}
         </div>
       </div>
     )
