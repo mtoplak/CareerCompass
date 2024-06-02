@@ -84,7 +84,7 @@ const RateCompany = ({ company }: Props) => {
         return;
       }
       toast.success("Uspešno ste ocenili podjetje!");
-      router.push(`/podjetje/${company.slug}`);
+      window.location.href = `/podjetje/${company.slug}`;
     } catch (error: any) {
       toast.error(error.message);
     }

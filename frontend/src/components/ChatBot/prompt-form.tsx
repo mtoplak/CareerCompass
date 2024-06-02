@@ -19,9 +19,11 @@ import { api } from "@/constants";
 export function PromptForm({
   input,
   setInput,
+  setIsLoading,
 }: {
   input: string;
   setInput: (value: string) => void;
+  setIsLoading: (value: boolean) => void;
 }) {
   const { formRef, onKeyDown } = useEnterSubmit();
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -60,6 +62,7 @@ export function PromptForm({
         if (window.innerWidth < 600) {
           e.target["message"]?.blur();
         }
+        setIsLoading(true);
 
         const value = input.trim();
         setInput("");
@@ -87,6 +90,8 @@ export function PromptForm({
               deploy your own version.
             </div>,
           );
+        } finally {
+          setIsLoading(false);
         }
       }}
     >

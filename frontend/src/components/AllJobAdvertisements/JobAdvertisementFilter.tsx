@@ -11,7 +11,7 @@ const JobAdvertisementFilter = ({
 }) => {
   return (
     <form action="/iskanje-zaposlitev">
-      <section id="job-filter" className="bg-gray-1 pb-4 pt-10 dark:bg-dark-2">
+      <section id="job-filter" className="bg-gray-1 pt-10 dark:bg-dark-2">
         <div className="container mx-auto grid grid-cols-1 items-center justify-between gap-2 rounded-xl bg-gray-100 px-[20px] py-[20px] dark:bg-gray-600 md:grid-cols-2 lg:grid-cols-8">
           <input
             type="text"

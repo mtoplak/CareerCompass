@@ -4,7 +4,6 @@ import { ChatPanel } from "./chat-panel";
 import { EmptyScreen } from "@/components/ChatBot/empty-screen";
 import { Message } from "@/lib/chat/actions";
 import { useScrollAnchor } from "@/lib/hooks/use-scroll-anchor";
-import { Session } from "@/lib/types";
 import { useUIState } from "ai/rsc";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -21,10 +20,10 @@ export interface ChatProps extends React.ComponentProps<"div"> {
 export function Chat({ id }: ChatProps) {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useUIState();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { data: session } = useSession();
 
   useEffect(() => {
-    if (!session) return;
     const fetchMessages = async () => {
       try {
         const res = await fetch(`${api}/history/user`, {
@@ -37,12 +36,8 @@ export function Chat({ id }: ChatProps) {
           }),
         });
         if (!res.ok) {
-          if (res.status === 500) {
-            return;
-          }
           throw new Error(`HTTP error! status: ${res.status}`);
         }
-
         const messages = await res.json();
         const transformedMessages = messages.chat_history.map(
           (message: any) => ({
@@ -57,9 +52,10 @@ export function Chat({ id }: ChatProps) {
         toast.error("Failed to fetch messages:", error);
       }
     };
-
-    fetchMessages();
-  }, [session, setMessages]);
+    if (session) {
+      fetchMessages();
+    }
+  }, [session]);
 
   const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
     useScrollAnchor();
@@ -72,7 +68,7 @@ export function Chat({ id }: ChatProps) {
           ref={scrollRef}
         >
           <div
-            className={`pb-[40px] pt-4 ${messages.length < 1 && "pb-[300px]"}`}
+            className={`pt-4 ${messages.length < 1 ? "pb-[300px]" : "pb-[40px]"}`}
             ref={messagesRef}
           >
             {messages.length > 0 && messages.length ? (
@@ -88,6 +84,7 @@ export function Chat({ id }: ChatProps) {
                   messages={messages}
                   isShared={false}
                   session={session}
+                  isLoading={isLoading}
                 />
               </>
             ) : (
@@ -101,6 +98,7 @@ export function Chat({ id }: ChatProps) {
             setInput={setInput}
             isAtBottom={isAtBottom}
             scrollToBottom={scrollToBottom}
+            setIsLoading={setIsLoading}
           />
         </div>
       ) : (

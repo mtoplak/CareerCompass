@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useSession } from "next-auth/react";
+import { Dispatch, SetStateAction } from "react";
 
 export interface ChatPanelProps {
   id: string;
@@ -13,6 +14,7 @@ export interface ChatPanelProps {
   setInput: (value: string) => void;
   isAtBottom: boolean;
   scrollToBottom: () => void;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export function ChatPanel({
@@ -20,6 +22,7 @@ export function ChatPanel({
   setInput,
   isAtBottom,
   scrollToBottom,
+  setIsLoading,
 }: ChatPanelProps) {
   const [messages, setMessages] = useUIState<typeof AI>();
   const { submitUserMessage } = useActions();
@@ -59,6 +62,7 @@ export function ChatPanel({
                   index > 1 && "hidden md:block",
                 )}
                 onClick={async () => {
+                  setIsLoading(true);
                   setMessages((currentMessages) => [
                     ...currentMessages,
                     {
@@ -93,6 +97,8 @@ export function ChatPanel({
                         .
                       </div>,
                     );
+                  } finally {
+                    setIsLoading(false);
                   }
                 }}
               >
@@ -105,7 +111,11 @@ export function ChatPanel({
         </div>
 
         <div className="grid gap-4 sm:pb-4">
-          <PromptForm input={input} setInput={setInput} />
+          <PromptForm
+            input={input}
+            setInput={setInput}
+            setIsLoading={setIsLoading}
+          />
         </div>
       </div>
     </div>

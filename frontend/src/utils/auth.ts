@@ -76,13 +76,18 @@ export const authOptions: NextAuthOptions = {
           console.error("authOptions.adapter is undefined or null");
         }
 
-        if (user) {
-          const res = await fetch(`${api}/company/id/${user.company}`);
+        if (!user) return null;
+
+        const res = await fetch(`${api}/company/id/${user.company}`);
+
+        if (res.status === 404) {
+          user.company = null;
+        } else {
           const company = await res.json();
           user.company = company;
         }
 
-        return user || null;
+        return user;
       },
     }),
 

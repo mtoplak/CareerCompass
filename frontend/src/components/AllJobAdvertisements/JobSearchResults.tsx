@@ -2,12 +2,12 @@
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { api } from "@/constants";
-import NoProduct from "../NotFound/NoProduct";
 import JobAdvertisementFilter from "./JobAdvertisementFilter";
 import JobPage from "./JobPage";
 import SavedJobAdvertisementsFilter from "./SavedAdvertisementsFilter";
 import toast from "react-hot-toast";
 import ResultsLoader from "../Common/ResultsLoader";
+import NoJobs from "../NotFound/NoJobs";
 
 const JobSearchResults = () => {
   const [jobs, setJobs] = useState([]);
@@ -56,7 +56,7 @@ const JobSearchResults = () => {
       ) : (
         <ResultsLoader />
       )}
-      {!isLoading && jobs.length === 0 && <NoProduct />}
+      {!isLoading && jobs.length === 0 && <NoJobs />}
     </>
   );
 };

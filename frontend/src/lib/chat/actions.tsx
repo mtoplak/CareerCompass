@@ -25,6 +25,7 @@ import { api } from "@/constants";
 async function submitUserMessage(content: string, email: string) {
   "use server";
 
+  console.log(1);
   const aiState = getMutableAIState();
 
   aiState.update({
@@ -38,7 +39,7 @@ async function submitUserMessage(content: string, email: string) {
       },
     ],
   });
-
+  console.log(2);
   const history = aiState.get().messages.map((message) => ({
     role: message.role,
     content: message.content,
@@ -46,9 +47,9 @@ async function submitUserMessage(content: string, email: string) {
 
   const spinnerStream = createStreamableUI(<SpinnerMessage />);
   const messageStream = createStreamableUI(content);
-
+  console.log(3);
   spinnerStream.update(<SpinnerMessage />);
-
+  console.log(4);
   try {
     const response = await fetch(`${api}/ai`, {
       method: "POST",
@@ -60,7 +61,7 @@ async function submitUserMessage(content: string, email: string) {
         userEmail: email,
       }),
     });
-
+    console.log(5);
     const botResponse = await response.text();
 
     aiState.update({
@@ -74,17 +75,17 @@ async function submitUserMessage(content: string, email: string) {
         },
       ],
     });
-
+    console.log(6);
     spinnerStream.done();
     messageStream.update(botResponse);
     messageStream.done();
-
+    console.log(7);
     const chatResponse = {
       id: nanoid(),
       role: "assistant",
       display: botResponse,
     };
-
+    console.log(8);
     return chatResponse;
   } catch (error) {
     console.error("Error fetching bot response:", error);
@@ -115,7 +116,7 @@ export async function requestCode() {
   );
 
   (async () => {
-    await sleep(2000);
+    await sleep(1000);
     ui.done();
   })();
 
@@ -143,7 +144,7 @@ export async function validateCode() {
   );
 
   (async () => {
-    await sleep(2000);
+    await sleep(1000);
 
     ui.done(
       <div className="flex flex-col items-center justify-center gap-3 p-4 text-center text-emerald-700">

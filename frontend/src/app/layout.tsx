@@ -13,7 +13,7 @@ import PreLoader from "@/components/Common/PreLoader";
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  readonly children: React.ReactNode;
 }) {
   const [loading, setLoading] = useState<boolean>(true);
 
