@@ -1,4 +1,3 @@
-export const maxDuration = 30;
 import { Chat } from "@/components/ChatBot/chat";
 import { Metadata } from "next";
 import { nanoid } from "@/lib/utils";

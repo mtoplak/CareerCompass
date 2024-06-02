@@ -27,7 +27,7 @@ export function PromptForm({
 }) {
   const { formRef, onKeyDown } = useEnterSubmit();
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const { submitUserMessage } = useActions();
+  // const { submitUserMessage } = useActions();
   const [_, setMessages] = useUIState<typeof AI>();
   const { data: session } = useSession();
   const email = session?.user?.email;
@@ -37,6 +37,33 @@ export function PromptForm({
       inputRef.current.focus();
     }
   }, []);
+
+  const submitUserMessage = async (message: string, email: string) => {
+    try {
+      const response = await fetch(`${api}/ai`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: message,
+          userEmail: email,
+        }),
+      });
+
+      const botResponse = await response.text();
+
+      const chatResponse = {
+        id: nanoid(),
+        role: "assistant",
+        display: botResponse,
+      };
+
+      return chatResponse;
+    } catch (error) {
+      console.error("Error fetching bot response:", error);
+    }
+  };
 
   const handleDeleteHistory = async () => {
     try {
@@ -78,7 +105,7 @@ export function PromptForm({
         ]);
 
         try {
-          const responseMessage = await submitUserMessage(value, email);
+          const responseMessage: any = await submitUserMessage(value, email as string);
           setMessages((currentMessages) => [
             ...currentMessages,
             responseMessage,

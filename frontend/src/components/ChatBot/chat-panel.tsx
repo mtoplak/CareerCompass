@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useSession } from "next-auth/react";
 import { Dispatch, SetStateAction } from "react";
+import { api } from "@/constants";
 
 export interface ChatPanelProps {
   id: string;
@@ -25,7 +26,7 @@ export function ChatPanel({
   setIsLoading,
 }: ChatPanelProps) {
   const [messages, setMessages] = useUIState<typeof AI>();
-  const { submitUserMessage } = useActions();
+  // const { submitUserMessage } = useActions();
   const { data: session } = useSession();
   const email = session?.user?.email;
 
@@ -43,6 +44,33 @@ export function ChatPanel({
         "Kje se naj zaposlim? Ravno sem kon\u010dal srednjo turisti\u010dno šolo.",
     },
   ];
+
+  const submitUserMessage = async (message: string, email: string) => {
+    try {
+      const response = await fetch(`${api}/ai`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: message,
+          userEmail: email,
+        }),
+      });
+
+      const botResponse = await response.text();
+
+      const chatResponse = {
+        id: nanoid(),
+        role: "assistant",
+        display: botResponse,
+      };
+
+      return chatResponse;
+    } catch (error) {
+      console.error("Error fetching bot response:", error);
+    }
+  };
 
   return (
     <div className="inset-x-0 bottom-0 mb-12 w-full duration-300 ease-in-out peer-[[data-state=open]]:group-[]:lg:pl-[250px] peer-[[data-state=open]]:group-[]:xl:pl-[300px]">
@@ -73,9 +101,9 @@ export function ChatPanel({
                   ]);
 
                   try {
-                    const responseMessage = await submitUserMessage(
+                    const responseMessage: any = await submitUserMessage(
                       example.message,
-                      email,
+                      email as string,
                     );
 
                     setMessages((currentMessages) => [
