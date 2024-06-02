@@ -54,13 +54,12 @@ export class AiService {
       const recentHistory = chatHistoryRecord.chat_history.slice(-6);
       const historyString = recentHistory.map(entry => `${entry.role}: ${entry.content}`).join('\n');
 
-      //const prompt = `Si karierni svetovalec na platformi Career Compass, ki uporabniku pomaga s vprašanji o poklicih.\n${historyString}\nuser: ${content}`;
-      const prompt = `Si karierni svetovalec na platformi Career Compass, ki uporabniku pomaga s vprašanji o poklicih.\n${historyString}`;
+      //const prompt = `Si karierni svetovalec na platformi Career Compass, ki uporabniku pomaga s vprašanji o poklicih.\n${historyString}`;
 
       const completion = await this.openai.chat.completions.create({
         model: process.env.FINE_TUNE_MODEL,
         messages: [
-          { role: 'system', content: prompt },
+          { role: 'system', content: "Si karierni svetovalec na platformi Career Compass, ki uporabniku pomaga s vprašanji o poklicih." },
           { role: 'user', content: content }
         ],
         max_tokens: 150,
