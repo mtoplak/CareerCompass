@@ -1,12 +1,7 @@
 import { UIState } from "@/lib/chat/actions";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import {
-  BotCard,
-  SpinnerMessage,
-  SystemMessage,
-  UserMessage,
-} from "../message/message";
+import { BotCard, SpinnerMessage, UserMessage } from "../message/message";
 import { useEffect, useRef } from "react";
 import { spinner } from "../message/spinner";
 

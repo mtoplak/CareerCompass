@@ -24,7 +24,6 @@ export function Chat({ id }: ChatProps) {
   const { data: session } = useSession();
 
   useEffect(() => {
-    if (!session) return;
     const fetchMessages = async () => {
       try {
         const res = await fetch(`${api}/history/user`, {
@@ -37,12 +36,8 @@ export function Chat({ id }: ChatProps) {
           }),
         });
         if (!res.ok) {
-          if (res.status === 500) {
-            return;
-          }
           throw new Error(`HTTP error! status: ${res.status}`);
         }
-
         const messages = await res.json();
         const transformedMessages = messages.chat_history.map(
           (message: any) => ({
@@ -57,9 +52,10 @@ export function Chat({ id }: ChatProps) {
         toast.error("Failed to fetch messages:", error);
       }
     };
-
-    fetchMessages();
-  }, [session, setMessages]);
+    if (session) {
+      fetchMessages();
+    }
+  }, [session]);
 
   const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
     useScrollAnchor();
