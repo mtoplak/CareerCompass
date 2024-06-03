@@ -2,7 +2,6 @@
 import { ChatList } from "@/components/ChatBot/chat-list";
 import { ChatPanel } from "./chat-panel";
 import { EmptyScreen } from "@/components/ChatBot/empty-screen";
-import { Message } from "@/lib/chat/actions";
 import { useScrollAnchor } from "@/lib/hooks/use-scroll-anchor";
 import { useUIState } from "ai/rsc";
 import { useEffect, useState } from "react";
@@ -12,12 +11,7 @@ import Link from "next/link";
 import Breadcrumb from "../Common/Breadcrumb";
 import { api } from "@/constants";
 
-export interface ChatProps extends React.ComponentProps<"div"> {
-  readonly initialMessages?: Message[];
-  id?: string;
-}
-
-export function Chat({ id }: ChatProps) {
+export function Chat() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useUIState();
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -93,7 +87,6 @@ export function Chat({ id }: ChatProps) {
             <div className="h-px w-full" ref={visibilityRef} />
           </div>
           <ChatPanel
-            id={id || ""}
             input={input}
             setInput={setInput}
             isAtBottom={isAtBottom}

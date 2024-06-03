@@ -11,7 +11,11 @@ import remarkMath from "remark-math";
 import { StreamableValue } from "ai/rsc";
 import { useStreamableText } from "@/lib/hooks/use-streamable-text";
 
-export function UserMessage({ children }: { children: React.ReactNode }) {
+export function UserMessage({
+  children,
+}: {
+  readonly children: React.ReactNode;
+}) {
   return (
     <>
       <div className="bg-background flex size-[25px] shrink-0 select-none items-center justify-center rounded-lg border shadow-sm">
@@ -72,7 +76,7 @@ export function BotMessage({
   );
 }
 
-export function BotCard({ children }: { children: React.ReactNode }) {
+export function BotCard({ children }: { readonly children: React.ReactNode }) {
   return (
     <>
       <div className="bg-background flex size-[25px] shrink-0 select-none items-center justify-center rounded-lg border shadow-sm">
@@ -83,7 +87,11 @@ export function BotCard({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function SystemMessage({ children }: { children: React.ReactNode }) {
+export function SystemMessage({
+  children,
+}: {
+  readonly children: React.ReactNode;
+}) {
   return (
     <div className="mt-2 flex items-center justify-center gap-2 text-xs text-gray-500">
       <div className={"max-w-[600px] flex-initial p-2"}>{children}</div>

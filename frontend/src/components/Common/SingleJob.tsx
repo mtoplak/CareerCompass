@@ -1,4 +1,6 @@
+import Link from "next/link";
 import JobActions from "./JobButton";
+import slugify from "slugify";
 
 const SingleJob = ({
   job,
@@ -29,7 +31,12 @@ const SingleJob = ({
           </p>
           <p className="mb-1 text-sm text-body-color dark:text-dark-6">
             <b className="text-dark dark:text-light">Podjetje: </b>
-            {company}
+            <Link
+              href={`podjetje/${slugify(company, { lower: true, strict: true })}`}
+              className="text-indigo-700 underline underline-offset-1 dark:text-indigo-300"
+            >
+              {company}
+            </Link>
           </p>
           <p className="mb-1 text-sm text-body-color dark:text-dark-6">
             <b className="text-dark dark:text-light">Vir: </b>

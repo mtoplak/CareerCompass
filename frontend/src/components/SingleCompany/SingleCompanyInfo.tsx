@@ -181,7 +181,6 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
             )}
           </div>
         </div>
-        <CompanyJobs jobs={jobAdvertisements} />
         <div className="mt-12">
           {company.ratings_count > 0 ? (
             <>
@@ -226,6 +225,7 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
             </div>
           )}
         </div>
+        <CompanyJobs jobs={jobAdvertisements} />
       </div>
     </div>
   );

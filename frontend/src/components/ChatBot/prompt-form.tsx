@@ -1,6 +1,6 @@
 "use client";
 import Textarea from "react-textarea-autosize";
-import { useActions, useUIState } from "ai/rsc";
+import { useUIState } from "ai/rsc";
 import { type AI } from "@/lib/chat/actions";
 import { Button } from "@/components/ui/button";
 import { IconArrowElbow, IconPlus } from "@/components/ui/icons";
@@ -21,13 +21,12 @@ export function PromptForm({
   setInput,
   setIsLoading,
 }: {
-  input: string;
-  setInput: (value: string) => void;
-  setIsLoading: (value: boolean) => void;
+  readonly input: string;
+  readonly setInput: (value: string) => void;
+  readonly setIsLoading: (value: boolean) => void;
 }) {
   const { formRef, onKeyDown } = useEnterSubmit();
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  // const { submitUserMessage } = useActions();
   const [_, setMessages] = useUIState<typeof AI>();
   const { data: session } = useSession();
   const email = session?.user?.email;
@@ -105,7 +104,10 @@ export function PromptForm({
         ]);
 
         try {
-          const responseMessage: any = await submitUserMessage(value, email as string);
+          const responseMessage: any = await submitUserMessage(
+            value,
+            email as string,
+          );
           setMessages((currentMessages) => [
             ...currentMessages,
             responseMessage,

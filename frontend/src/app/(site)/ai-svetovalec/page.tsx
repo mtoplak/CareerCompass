@@ -16,7 +16,7 @@ const AIChatPage = async () => {
     <main>
       <TooltipProvider>
         <AI initialAIState={{ chatId: id, interactions: [], messages: [] }}>
-          <Chat id={id} />
+          <Chat />
         </AI>
       </TooltipProvider>
     </main>

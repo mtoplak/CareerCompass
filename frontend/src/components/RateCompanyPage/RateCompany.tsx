@@ -4,7 +4,6 @@ import { Rating } from "@material-tailwind/react";
 import { api } from "@/constants";
 import { Company } from "@/types/company";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
 
 type Props = {
   company: Company;
@@ -39,7 +38,6 @@ const initialFormData = {
 };
 
 const RateCompany = ({ company }: Props) => {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     company_slug: company.slug,
     ...initialFormData,

@@ -2,7 +2,6 @@
 import { Industry, industries } from "@/types/industry";
 import { useEffect, useState } from "react";
 import { industryMappings } from "@/types/subindustry";
-import { useRouter } from "next/navigation";
 import { api } from "@/constants";
 import toast from "react-hot-toast";
 import { confirmAlert } from "react-confirm-alert";
@@ -16,7 +15,6 @@ const industryOptions = industries.map((industry: Industry) => (
 ));
 
 const EditCompany = () => {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     industry: "",
     subindustry: "",

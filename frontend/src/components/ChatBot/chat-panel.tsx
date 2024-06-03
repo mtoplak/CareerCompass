@@ -1,6 +1,6 @@
 import { PromptForm } from "./prompt-form";
 import { ButtonScrollToBottom } from "@/components/ChatBot/button-scroll-to-bottom";
-import { useActions, useUIState } from "ai/rsc";
+import { useUIState } from "ai/rsc";
 import type { AI } from "@/lib/chat/actions";
 import { nanoid } from "nanoid";
 import { cn } from "@/lib/utils";
@@ -10,12 +10,11 @@ import { Dispatch, SetStateAction } from "react";
 import { api } from "@/constants";
 
 export interface ChatPanelProps {
-  id: string;
-  input: string;
-  setInput: (value: string) => void;
-  isAtBottom: boolean;
-  scrollToBottom: () => void;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  readonly input: string;
+  readonly setInput: (value: string) => void;
+  readonly isAtBottom: boolean;
+  readonly scrollToBottom: () => void;
+  readonly setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export function ChatPanel({
@@ -26,7 +25,6 @@ export function ChatPanel({
   setIsLoading,
 }: ChatPanelProps) {
   const [messages, setMessages] = useUIState<typeof AI>();
-  // const { submitUserMessage } = useActions();
   const { data: session } = useSession();
   const email = session?.user?.email;
 
