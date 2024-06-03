@@ -56,7 +56,7 @@ const NoJobs = () => {
                 </svg>
               </div>
               <h3 className="mb-10 text-2xl font-semibold text-dark dark:text-white">
-                Ni shranjenih zaposlitev.
+                Nimate shranjenih zaposlitvenih oglasov.
               </h3>
             </div>
           </div>

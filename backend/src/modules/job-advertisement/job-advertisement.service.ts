@@ -23,19 +23,35 @@ export class JobAdvertisementService {
 
   async createJobAdvertisement(jobAdvertisementData: JobAdvertisementDto): Promise<JobAdvertisement> {
     try {
-      const companyName = jobAdvertisementData.company.trim();
-      const company = await this.companyRepository.findOne({ name: { $regex: new RegExp(`^${companyName}$`, 'i') } });
-      if (!company) {
-        throw new NotFoundException('Company not found');
-      }
-
-      jobAdvertisementData.company_linked = company._id;
+      await this.AddCompanyLink(jobAdvertisementData);
       return await this.jobAdvertisementRepository.create(jobAdvertisementData);
     } catch (error) {
       if (error instanceof NotFoundException) {
         throw new NotFoundException(error.message);
       }
       throw error;
+    }
+  }
+
+  async addMultipleJobAds(jobAds: JobAdvertisementDto[]): Promise<JobAdvertisement[]> {
+    const session = await this.jobAdvertisementRepository.jobAdvertisementModel.startSession();
+    session.startTransaction();
+
+    try {
+      for (const jobAd of jobAds) {
+        await this.AddCompanyLink(jobAd);
+      }
+
+      const createdJobAds = await this.jobAdvertisementRepository.createMany(jobAds);
+      await session.commitTransaction();
+      return createdJobAds;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    } finally {
+      session.endSession();
     }
   }
 
@@ -101,6 +117,21 @@ export class JobAdvertisementService {
 
   async removeJobAdvertisement(jobAdvertisementId: string): Promise<SuccessResponse> {
     return await this.jobAdvertisementRepository.deleteOne({ _id: jobAdvertisementId });
+  }
+
+  async removeJobAdvertisementsBySource(): Promise<SuccessResponse> {
+    const sourcesToDelete = ['Optius.com', 'mojedelo.com'];
+    const regexSources = sourcesToDelete.map(source => new RegExp(`^${source}$`, 'i'));
+
+    try {
+      await this.jobAdvertisementRepository.deleteMany({ source: { $in: regexSources } });
+      return { success: true };
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new NotFoundException(error.message);
+      }
+      throw error;
+    }
   }
 
   async linkCompanies(): Promise<JobAdvertisement[]> {
@@ -268,6 +299,19 @@ export class JobAdvertisementService {
       }
       throw error;
     }
+  }
+
+  async AddCompanyLink(jobAd: JobAdvertisement): Promise<JobAdvertisement> {
+    const companyName = jobAd.company.trim();
+    const company = await this.companyRepository.findOne({ name: { $regex: new RegExp(`^${companyName}$`, 'i') } });
+
+    if (!company) {
+      throw new NotFoundException(`Company "${companyName}" not found`);
+    }
+
+    jobAd.company_linked = company._id;
+    return jobAd;
+
   }
 
 }

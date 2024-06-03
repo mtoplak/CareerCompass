@@ -26,6 +26,13 @@ export class JobAdvertisementController {
     return await this.jobAdvertisementService.createJobAdvertisement(createJobAdvertisementDto);
   }
 
+  @Post("/multiple")
+  async addJobAdvertisements(
+    @Body() createJobAdvertisementDto: JobAdvertisementDto[],
+  ): Promise<JobAdvertisement[]> {
+    return await this.jobAdvertisementService.addMultipleJobAds(createJobAdvertisementDto);
+  }
+
   @Get()
   async getAllJobAdvertisements(
     @Query('page') page: string,
@@ -101,6 +108,11 @@ export class JobAdvertisementController {
     @Body() updateJobAdvertisementDto: JobAdvertisementDto,
   ): Promise<JobAdvertisement> {
     return await this.jobAdvertisementService.updateJobAdvertisement(jobAdvertisementId, updateJobAdvertisementDto);
+  }
+
+  @Delete('/source')
+  async removeJobAdvertisements(): Promise<SuccessResponse> {
+    return this.jobAdvertisementService.removeJobAdvertisementsBySource();
   }
 
   @Delete(':id')

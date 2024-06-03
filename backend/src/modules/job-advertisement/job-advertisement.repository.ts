@@ -53,6 +53,14 @@ export class JobAdvertisementRepository {
     }
   }
 
+  async createMany(jobAdvertisements: JobAdvertisement[]): Promise<JobAdvertisement[]> {
+    try {
+      return await this.jobAdvertisementModel.insertMany(jobAdvertisements);
+    } catch (err) {
+      throw new InternalServerErrorException('Could not create multiple job advertisements.');
+    }
+  }
+
   async findOneAndUpdate(
     jobAdvertisementFilterQuery: FilterQuery<JobAdvertisement>,
     jobAdvertisement: Partial<JobAdvertisement>,
