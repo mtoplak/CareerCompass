@@ -23,6 +23,11 @@ CareerCompass is a platform that helps job seekers to find the right company to 
 
 </div>
 
+# Documentation
+
+For detailed documentation of the platform, visit [CareerCompass Documentation](https://career-compass.gitbook.io). Explore sections like Overview, Technologies, Installation, Testing, and User Guide for a comprehensive understanding of the platform.
+
+
 # Backend
 
 ## Installation
