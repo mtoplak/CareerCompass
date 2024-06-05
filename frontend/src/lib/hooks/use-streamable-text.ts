@@ -15,7 +15,8 @@ export const useStreamableText = (
         for await (const delta of readStreamableValue(content)) {
           console.log(delta);
           if (typeof delta === 'string') {
-            setRawContent((value = value + delta));
+            value = value + delta;
+            setRawContent(value);
           }
         }
       }

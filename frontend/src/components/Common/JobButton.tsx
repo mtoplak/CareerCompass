@@ -130,42 +130,44 @@ const JobActions = ({ job, isSaved }: { job: any; isSaved: boolean }) => {
             />
           </div>
         </button>
-      ) : session.user.company ? null : (
-        <>
-          {!isSaved2 ? (
-            <button
-              onClick={handleSave}
-              className="rounded bg-indigo-600 px-3 py-2 font-semibold text-white hover:bg-indigo-500"
-            >
-              <div className="flex items-center justify-center">
-                <Image
-                  src="/images/icons/save-white.png"
-                  alt="Trash Bin Icon"
-                  className="h-6 w-6"
-                  width={24}
-                  height={24}
-                />
-                <span>Shrani oglas</span>
-              </div>
-            </button>
-          ) : (
-            <button
-              onClick={handleUnsave}
-              className="rounded bg-indigo-600 px-3 py-2 font-semibold text-white hover:bg-indigo-500"
-            >
-              <div className="flex items-center justify-center">
-                <Image
-                  src="/images/icons/unsave-white.png"
-                  alt="Trash Bin Icon"
-                  className="h-6 w-6"
-                  width={24}
-                  height={24}
-                />
-                <span>Odstrani oglas</span>
-              </div>
-            </button>
-          )}
-        </>
+      ) : (
+        !session.user.company && (
+          <>
+            {!isSaved2 ? (
+              <button
+                onClick={handleSave}
+                className="rounded bg-indigo-600 px-3 py-2 font-semibold text-white hover:bg-indigo-500"
+              >
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/images/icons/save-white.png"
+                    alt="Trash Bin Icon"
+                    className="h-6 w-6"
+                    width={24}
+                    height={24}
+                  />
+                  <span>Shrani oglas</span>
+                </div>
+              </button>
+            ) : (
+              <button
+                onClick={handleUnsave}
+                className="rounded bg-indigo-600 px-3 py-2 font-semibold text-white hover:bg-indigo-500"
+              >
+                <div className="flex items-center justify-center">
+                  <Image
+                    src="/images/icons/unsave-white.png"
+                    alt="Trash Bin Icon"
+                    className="h-6 w-6"
+                    width={24}
+                    height={24}
+                  />
+                  <span>Odstrani oglas</span>
+                </div>
+              </button>
+            )}
+          </>
+        )
       )}
     </div>
   );

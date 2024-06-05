@@ -52,7 +52,13 @@ const JobSearchResults = () => {
       />
       <SavedJobAdvertisementsFilter isSavedPage={false} />
       {!isLoading ? (
-        <JobPage jobs={jobs} noOfPages={noOfPages} />
+        <JobPage
+          jobs={jobs}
+          noOfPages={noOfPages}
+          delovno_mesto={delovno_mesto}
+          lokacija={lokacija}
+          dejavnost={dejavnost}
+        />
       ) : (
         <ResultsLoader />
       )}

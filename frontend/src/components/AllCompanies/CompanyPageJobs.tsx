@@ -10,9 +10,19 @@ import ResultsLoader from "../Common/ResultsLoader";
 const CompanyPageJobs = ({
   companies,
   noOfPages,
+  ime,
+  lokacija,
+  dejavnost,
+  ocena,
+  delovno_mesto,
 }: {
   companies?: Company[];
   noOfPages?: number;
+  ime?: string;
+  lokacija?: string;
+  dejavnost?: string;
+  ocena?: string;
+  delovno_mesto?: boolean;
 }) => {
   const [noOfPages2, setNoOfPages] = useState(0);
   const [companies2, setCompanies] = useState<any>([]);
@@ -63,15 +73,25 @@ const CompanyPageJobs = ({
   };
 
   const fetchPage = async (stran: number) => {
-    setActive(stran);
     setIsLoading(true);
     try {
-      const response = await fetch(`${api}/company/pagination?page=${stran}`);
+      let url = `${api}/company/pagination?page=${stran}`;
+      if (
+        ime ||
+        lokacija ||
+        dejavnost ||
+        ocena ||
+        delovno_mesto !== undefined
+      ) {
+        url = `${api}/company/searchPaginated?name=${ime}&city=${lokacija}&industry=${dejavnost}&rating=${ocena}&job=${delovno_mesto}&page=${stran}`;
+      }
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
       setCompanies(data.companies);
+      setActive(stran);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {

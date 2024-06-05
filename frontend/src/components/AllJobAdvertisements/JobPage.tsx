@@ -12,10 +12,16 @@ const JobPage = ({
   jobs,
   areSaved,
   noOfPages,
+  delovno_mesto,
+  lokacija,
+  dejavnost,
 }: {
   jobs: JobAdvertisement[];
   areSaved?: boolean;
   noOfPages?: number;
+  delovno_mesto?: string;
+  lokacija?: string;
+  dejavnost?: string;
 }) => {
   const [savedJobs, setSavedJobs] = useState<JobAdvertisement[]>([]);
   const [jobs2, setJobs2] = useState<JobAdvertisement[]>([]);
@@ -33,13 +39,16 @@ const JobPage = ({
   const fetchPage = async (stran: number) => {
     setActive(stran);
     try {
-      const response = await fetch(`${api}/job/search?page=${stran}`);
+      let url = `${api}/job/search?page=${stran}`;
+      if (delovno_mesto || lokacija || dejavnost) {
+        url += `&position=${delovno_mesto}&city=${lokacija}&industry=${dejavnost}`;
+      }
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      const jobs = data.jobs;
-      setJobs2(jobs);
+      setJobs2(data.jobs);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {

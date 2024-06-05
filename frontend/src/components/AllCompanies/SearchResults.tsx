@@ -53,7 +53,15 @@ const SearchResults = () => {
         delovno_mesto={delovno_mesto}
       />
       {!isLoading ? (
-        <CompanyPageJobs companies={companies} noOfPages={noOfPages} />
+        <CompanyPageJobs
+          companies={companies}
+          noOfPages={noOfPages}
+          ime={ime}
+          lokacija={lokacija}
+          dejavnost={dejavnost}
+          ocena={ocena}
+          delovno_mesto={delovno_mesto}
+        />
       ) : (
         <ResultsLoader />
       )}
