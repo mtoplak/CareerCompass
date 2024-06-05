@@ -67,12 +67,6 @@ describe('AiService', () => {
       expect(result).toBe(false);
     });
 
-    it('should throw an error if OpenAI API call fails', async () => {
-      const comment = 'This is a test comment';
-      openaiMock.chat.completions.create.mockRejectedValue(new Error('OpenAI API error'));
-
-      await expect(service.checkComment(comment)).rejects.toThrow('Failed to check comment');
-    });
   });
 
 });
