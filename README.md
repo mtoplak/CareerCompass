@@ -23,10 +23,9 @@ CareerCompass is a platform that helps job seekers to find the right company to 
 
 </div>
 
-# Documentation
+## Documentation
 
 For detailed documentation of the platform, visit [CareerCompass Documentation](https://career-compass.gitbook.io). Explore sections like Overview, Technologies, Installation, Testing, and User Guide for a comprehensive understanding of the platform.
-
 
 # Backend
 
@@ -72,7 +71,7 @@ Run
 npm run test
 ```
 
-in `backend` directory to run unit tests.
+in `backend` directory to run unit tests
 
 ## Build
 
