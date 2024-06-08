@@ -6,10 +6,12 @@ const SingleJob = ({
   job,
   canBeSaved,
   isSaved,
+  companyPage = false,
 }: {
   job: any;
   canBeSaved: boolean;
   isSaved: boolean;
+  companyPage?: boolean;
 }) => {
   const { _id, position, description, city, company, source, url } = job;
 
@@ -31,12 +33,16 @@ const SingleJob = ({
           </p>
           <p className="mb-1 text-sm text-body-color dark:text-dark-6">
             <b className="text-dark dark:text-light">Podjetje: </b>
-            <Link
-              href={`podjetje/${slugify(company, { lower: true, strict: true })}`}
-              className="text-indigo-700 underline underline-offset-1 dark:text-indigo-300"
-            >
-              {company}
-            </Link>
+            {companyPage ? (
+              company
+            ) : (
+              <Link
+                href={`podjetje/${slugify(company, { lower: true, strict: true })}`}
+                className="text-indigo-700 underline underline-offset-1 dark:text-indigo-300"
+              >
+                {company}
+              </Link>
+            )}
           </p>
           <p className="mb-1 text-sm text-body-color dark:text-dark-6">
             <b className="text-dark dark:text-light">Vir: </b>

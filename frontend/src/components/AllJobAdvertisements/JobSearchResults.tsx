@@ -7,7 +7,7 @@ import JobPage from "./JobPage";
 import SavedJobAdvertisementsFilter from "./SavedAdvertisementsFilter";
 import toast from "react-hot-toast";
 import ResultsLoader from "../Common/ResultsLoader";
-import NoJobs from "../NotFound/NoJobs";
+import NoResults from "../NotFound/NoResults";
 
 const JobSearchResults = () => {
   const [jobs, setJobs] = useState([]);
@@ -62,7 +62,7 @@ const JobSearchResults = () => {
       ) : (
         <ResultsLoader />
       )}
-      {!isLoading && jobs.length === 0 && <NoJobs />}
+      {!isLoading && jobs.length === 0 && <NoResults />}
     </>
   );
 };

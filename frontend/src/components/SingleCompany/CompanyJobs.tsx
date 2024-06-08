@@ -38,6 +38,7 @@ const CompanyJobs = ({ jobs }: { jobs: JobAdvertisement[] }) => {
               job={job}
               canBeSaved={canBeSaved}
               isSaved={savedJobs.some((savedJob) => savedJob._id === job._id)}
+              companyPage={true}
             />
           ))
         ) : (

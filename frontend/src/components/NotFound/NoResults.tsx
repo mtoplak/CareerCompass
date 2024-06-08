@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const NoProduct = () => {
+const NoResults = () => {
   return (
     <section className="bg-gray-1 pb-20 dark:bg-black dark:bg-dark-2 lg:pb-[110px]">
       <div className="container mx-auto">
@@ -66,4 +66,4 @@ const NoProduct = () => {
   );
 };
 
-export default NoProduct;
+export default NoResults;

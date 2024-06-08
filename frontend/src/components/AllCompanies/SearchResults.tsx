@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import CompanyPageJobs from "@/components/AllCompanies/CompanyPageJobs";
 import { api } from "@/constants";
 import CompanyFilter from "./CompanyFilter";
-import NoProduct from "../NotFound/NoProduct";
+import NoResults from "../NotFound/NoResults";
 import ResultsLoader from "../Common/ResultsLoader";
 
 const SearchResults = () => {
@@ -65,7 +65,7 @@ const SearchResults = () => {
       ) : (
         <ResultsLoader />
       )}
-      {!isLoading && companies.length === 0 && <NoProduct />}
+      {!isLoading && companies.length === 0 && <NoResults />}
     </>
   );
 };

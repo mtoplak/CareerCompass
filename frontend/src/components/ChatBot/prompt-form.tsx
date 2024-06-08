@@ -133,7 +133,7 @@ export function PromptForm({
               className="bg-background absolute left-4 top-[14px] size-8 rounded-full p-0 sm:left-4"
               onClick={handleDeleteHistory}
             >
-              <IconPlus />
+              <IconPlus style={{ color: "black" }} />
               <span className="sr-only">Nov pogovor</span>
             </Button>
           </TooltipTrigger>
@@ -144,7 +144,7 @@ export function PromptForm({
           tabIndex={0}
           onKeyDown={onKeyDown}
           placeholder="Pošlji sporočilo."
-          className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] placeholder:text-zinc-900 focus-within:outline-none sm:text-sm"
+          className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] placeholder:text-zinc-900 focus-within:outline-none dark:text-black sm:text-sm"
           autoFocus
           spellCheck={false}
           autoComplete="off"
