@@ -27,7 +27,7 @@ const EditCompany = () => {
   const [companyLogo, setCompanyLogo] = useState<File | null>(null);
   const { data: session } = useSession();
   const [selectedIndustry, setSelectedIndustry] = useState<Industry>(
-    session?.user.company?.industry as Industry,
+    session?.user.company?.industry[0],
   );
 
   useEffect(() => {
@@ -38,6 +38,7 @@ const EditCompany = () => {
         );
         const company = await res.json();
         setFormData(company);
+        setSelectedIndustry(company.industry[0]);
       }
     };
 
@@ -66,7 +67,7 @@ const EditCompany = () => {
     }));
 
     if (name === "industry") {
-      setSelectedIndustry(value as Industry);
+      setSelectedIndustry(value);
     }
   };
 
