@@ -342,7 +342,7 @@ const RateCompany = ({ company }: Props) => {
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <fieldset>
                 <legend className="text-md font-semibold leading-6 text-gray-900">
-                  Izkušnja z razgovori
+                  Izkušnja z razgovorom
                 </legend>
                 <div>
                   <div className="flex items-center gap-x-3">

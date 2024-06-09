@@ -48,6 +48,7 @@ const SingleJob = ({
             <b className="text-dark dark:text-light">Vir: </b>
             <a
               href={url}
+              target="_blank"
               className="text-indigo-700 underline underline-offset-1 dark:text-indigo-300"
             >
               {source}
