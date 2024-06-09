@@ -62,7 +62,7 @@ export class AiService {
           { role: 'system', content: prompt },
           { role: 'user', content: content }
         ],
-        max_tokens: 150,
+        max_tokens: 200,
       });
 
       const completionText = completion.choices[0].message.content;
