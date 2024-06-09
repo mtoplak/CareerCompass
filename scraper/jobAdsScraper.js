@@ -98,9 +98,10 @@ const mojeDelo = async (page) => {
           : "";
 
         // URL
-        const parentElement = element.parentElement;
-        ad.url =
-          "https://www.mojedelo.com" + parentElement.getAttribute("href");
+        const urlElement = element.closest("a");
+        ad.url = urlElement
+          ? "https://www.mojedelo.com" + urlElement.getAttribute("href")
+          : "";
 
         ad.source = "MojeDelo.com";
         adsOnPage.push(ad);
