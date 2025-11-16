@@ -1,6 +1,7 @@
 "use client";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Script from "next/script";
 import ScrollToTop from "@/components/ScrollToTop";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
@@ -23,7 +24,9 @@ export default function RootLayout({
 
   return (
     <html suppressHydrationWarning={true} className="!scroll-smooth" lang="en">
-      <head />
+      <head>
+        <Script src="https://t.contentsquare.net/uxa/e6b30ae856427.js" strategy="afterInteractive" />
+      </head>
       <body>
         {loading ? (
           <PreLoader />
