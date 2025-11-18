@@ -1,13 +1,27 @@
+"use client";
+import Script from "next/script";
+
+declare global {
+  interface Window {
+    _browsee?: ((...args: any[]) => void) & { q?: any[] };
+  }
+}
+
 export default function Head() {
   return (
     <>
-      <title>Career Compass</title>
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta
-        name="description"
-        content="CareerCompass is a platform that helps job seekers to find the right company to work for. It provides a list of companies with their ratings and reviews. Users can also look for job advertisements and chat with an AI chatbot to get career advice."
+      <Script id="browsee-init" strategy="afterInteractive">
+        {`window._browsee = window._browsee || function () { (_browsee.q = _browsee.q || []).push(arguments) };`}
+      </Script>
+      <Script 
+        src="https://cdn.browsee.io/js/browsee.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => {
+          if (typeof window !== 'undefined' && window._browsee) {
+            window._browsee('init', '85fdc0524cdc9688b4d546170614f5c754a0243469c6e732');
+          }
+        }}
       />
-      <link rel="icon" href="/images/logo/favicon.ico" />
     </>
   );
 }

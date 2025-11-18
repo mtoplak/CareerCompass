@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@browsee/web-sdk": "^1.0.0"
+  }
+}

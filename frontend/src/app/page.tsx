@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import { Metadata } from "next";
 import LandingPageJobs from "@/components/LandingPageJobs";
 import { api } from "@/constants";
+import Head from "./head";
 
 export const metadata: Metadata = {
   title: "Career Compass",
@@ -24,7 +25,8 @@ const Home = async () => {
   const companies = await getCompanies();
 
   return (
-    <main>
+    <main>	
+      <Head />
       <ScrollUp />
       <Hero />
       <LandingPageRate companies={companies} />
