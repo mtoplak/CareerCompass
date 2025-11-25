@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@browsee/web-sdk": "^1.0.0"
+    "@browsee/web-sdk": "^1.0.0",
+    "selenium-webdriver": "^4.38.0"
   }
 }
