@@ -27,7 +27,7 @@ const VseZaposlitvePage = async () => {
   return (
     <main>
       <HotjarEvent eventName="zaposlitve_variant_B" />
-      <Breadcrumb pageName="Vse zaposlitvene oglase" />
+      <Breadcrumb pageName="Vsi zaposlitveni oglasi" />
       <AddJobCTA />
       <JobAdvertisementFilter />
       <SavedJobAdvertisementsFilter isSavedPage={false} />

@@ -57,6 +57,14 @@ const Footer = () => {
                     AI svetovalec
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="https://1ka.arnes.si/career-compass"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-indigo-500"
+                  >
+                    Anketa
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
