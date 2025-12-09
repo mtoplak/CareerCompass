@@ -14,6 +14,7 @@ const basePathsToCheck = [
   "/za-delodajalce/registracija",
   "/za-delodajalce/prevzemi",
   "/zaposlitve",
+  "/vse-zaposlitve",
   "/za-delodajalce",
   "/registracija",
   "/iskanje",

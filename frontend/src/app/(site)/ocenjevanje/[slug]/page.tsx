@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { api } from "@/constants";
 import ErrorPage from "@/app/not-found";
 import RateCompany from "@/components/RateCompanyPage/RateCompany";
+import HotjarEvent from "@/components/Common/HotjarEvet";
 
 type Props = {
   readonly params: { slug: string };
@@ -39,5 +40,10 @@ export default async function PodjetjePage({ params }: Props) {
     return <ErrorPage what="Podjetje" />;
   }
 
-  return <>{params && <RateCompany company={company} />}</>;
+  return (
+  <>
+  <HotjarEvent eventName="ocenjevanje_variant_A" />
+  {params && <RateCompany company={company} />}
+  </>
+  );
 }

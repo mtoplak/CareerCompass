@@ -4,6 +4,7 @@ import { api } from "@/constants";
 import JobPage from "@/components/AllJobAdvertisements/JobPage";
 import JobAdvertisementFilter from "@/components/AllJobAdvertisements/JobAdvertisementFilter";
 import SavedJobAdvertisementsFilter from "@/components/AllJobAdvertisements/SavedAdvertisementsFilter";
+import HotjarEvent from "@/components/Common/HotjarEvet";
 
 export const metadata: Metadata = {
   title: "Career Compass - Zaposlitve",
@@ -24,6 +25,7 @@ const JobAdvertisementsPage = async () => {
 
   return (
     <main>
+      <HotjarEvent eventName="zaposlitve_variant_A" />
       <Breadcrumb pageName="Vsi zaposlitveni oglasi" />
       <JobAdvertisementFilter />
       <SavedJobAdvertisementsFilter isSavedPage={false} />
