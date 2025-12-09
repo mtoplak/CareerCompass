@@ -4,8 +4,8 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import menuData from "./menuData";
+import { useEffect, useState, useMemo } from "react";
+import getMenuData from "./menuData";
 
 const basePathsToCheck = [
   "/",
@@ -29,6 +29,8 @@ const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
   const [openIndex, setOpenIndex] = useState(-1);
+
+  const menuData = useMemo(() => getMenuData(), []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
@@ -167,8 +169,12 @@ const Header = () => {
               >
                 <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12">
                   {(session?.user ? menuData.slice(0, 2) : menuData).map(
-                    (menuItem, index) =>
-                      menuItem.path ? (
+                    (menuItem, index) => {
+                      const isActive = menuItem.id === 2
+                        ? pathUrl === "/zaposlitve" || pathUrl === "/vse-zaposlitve"
+                        : pathUrl === menuItem?.path;
+                      
+                      return menuItem.path ? (
                         <li key={menuItem.title} className="group relative">
                           {isNotInPaths ? (
                             <Link
@@ -176,7 +182,7 @@ const Header = () => {
                               scroll={false}
                               href={menuItem.path}
                               className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800 lg:inline-flex lg:px-0 lg:py-6 ${
-                                pathUrl === menuItem?.path && "text-indigo-800"
+                                isActive && "text-indigo-800"
                               }`}
                             >
                               {menuItem.title}
@@ -190,7 +196,7 @@ const Header = () => {
                                   ? "text-dark group-hover:text-indigo-800 dark:text-white dark:group-hover:text-indigo-800"
                                   : "text-body-color dark:text-white lg:text-white"
                               } ${
-                                pathUrl === menuItem?.path &&
+                                isActive &&
                                 sticky &&
                                 "!text-indigo-800"
                               }`}
@@ -276,7 +282,8 @@ const Header = () => {
                             ))}
                           </div>
                         </li>
-                      ),
+                      );
+                    },
                   )}
                   <li className="relative flex items-center">
                     {session?.user && (

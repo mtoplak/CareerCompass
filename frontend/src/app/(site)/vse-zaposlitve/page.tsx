@@ -5,7 +5,7 @@ import JobPage from "@/components/AllJobAdvertisements/JobPage";
 import JobAdvertisementFilter from "@/components/AllJobAdvertisements/JobAdvertisementFilter";
 import SavedJobAdvertisementsFilter from "@/components/AllJobAdvertisements/SavedAdvertisementsFilter";
 import AddJobCTA from "@/components/Common/AddJobCTA";
-import HotjarEvent from "@/components/Common/HotjarEvet";
+import HotjarEvent from "@/components/Common/HotjarEvent";
 
 export const metadata: Metadata = {
   title: "Career Compass - Vse zaposlitve",

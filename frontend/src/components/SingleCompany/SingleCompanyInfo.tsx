@@ -10,6 +10,7 @@ import Link from "next/link";
 import { JobAdvertisement } from "@/types/job";
 import CompanyJobs from "./CompanyJobs";
 import { useSession } from "next-auth/react";
+import { useMemo } from "react";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -35,6 +36,14 @@ const getRatingText = (count: number) => {
 
 const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
   const { data: session } = useSession();
+  
+  // A/B testing: randomly select between two paths
+  const ratingPath = useMemo(() => {
+    return Math.random() < 0.5 
+      ? `/ocenjevanje/${company.slug}` 
+      : `/ocenjevanje-podjetja/${company.slug}`;
+  }, [company.slug]);
+  
   return (
     <div className="container mx-auto py-8 pt-[120px]">
       <div className="flex flex-col items-center md:flex-row">
@@ -96,7 +105,7 @@ const SingleCompanyPage = ({ company, jobAdvertisements }: Props) => {
             </>
           ) : (
             <Link
-              href={`/ocenjevanje/${company.slug}`}
+              href={ratingPath}
               className="rounded-lg bg-indigo-700 px-6 py-3 font-medium text-white hover:bg-opacity-20 hover:text-dark dark:bg-white dark:text-indigo-700 dark:hover:bg-gray-300"
             >
               Oceni podjetje

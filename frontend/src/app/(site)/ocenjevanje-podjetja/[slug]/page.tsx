@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import { api } from "@/constants";
 import ErrorPage from "@/app/not-found";
-import RateCompanyVarient from "@/components/RateCompanyPage/RateCompanyVarient";
-import HotjarEvent from "@/components/Common/HotjarEvet";
+import RateCompanyVarient from "@/components/RateCompanyPage/RateCompanyVariant";
+import HotjarEvent from "@/components/Common/HotjarEvent";
 
 type Props = {
   readonly params: { slug: string };
