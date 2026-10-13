@@ -1,9 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import stars from "./Stars";
+import CompanyLogo from "./CompanyLogo";
 
 const SingleCompany = ({ company }: { company: any }) => {
-  const { logo, name, industry, slug } = company;
+  const { logo, name, industry, slug, website } = company;
 
   return (
     <div className="w-full px-4 sm:w-1/2 lg:w-1/4 xl:w-1/4">
@@ -13,15 +13,7 @@ const SingleCompany = ({ company }: { company: any }) => {
       >
         <Link href={`/podjetje/${slug}`}>
           <div className="relative z-10 mx-auto mb-5 flex h-[120px] w-[120px] items-center justify-center">
-            <Image
-              src={logo}
-              alt={name}
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="h-auto w-full"
-              style={{ maxHeight: "120px" }}
-            />
+            <CompanyLogo name={name} logo={logo} website={website} size={120} />
           </div>
           <div className="text-center">
             <h3 className="mb-1 text-lg font-semibold text-dark dark:text-white">

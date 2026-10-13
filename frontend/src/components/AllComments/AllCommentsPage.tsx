@@ -4,7 +4,7 @@ import { Company } from "@/types/company";
 import { useState } from "react";
 import Link from "next/link";
 import stars from "../Common/Stars";
-import Image from "next/image";
+import CompanyLogo from "../Common/CompanyLogo";
 
 export const metadata: Metadata = {
   title: "Career Compass - Podjetje",
@@ -98,14 +98,11 @@ const SingleCompanyPage = ({ company }: Props) => {
     <div className="container mx-auto py-8 pt-[120px]">
       <div className="flex flex-col items-center md:flex-row">
         <div className="mb-4 md:mb-0 md:w-1/4 ">
-          <Image
-            src={company.logo}
-            alt={company.name}
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="h-auto"
-            style={{ width: "150px", height: "auto" }}
+          <CompanyLogo
+            name={company.name}
+            logo={company.logo}
+            website={company.website}
+            size={150}
           />
         </div>
         <div className="pl-10 md:w-2/4">
