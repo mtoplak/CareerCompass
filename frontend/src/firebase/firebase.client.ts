@@ -1,5 +1,5 @@
 import { stringToBlob } from "@/utils/convertImage";
-import { resizeImage } from "@/utils/resizeImage";
+import { resizeImage, resizeImageToDataUrl } from "@/utils/resizeImage";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
@@ -65,12 +65,19 @@ export async function uploadImageToStorage(image: any, companyName: FormDataEntr
 
   const resizedImage = await resizeImage(blob, 300);
 
-  const storageRef = ref(storage, `companyLogos/${companyName}_logo.jpg`);
-  const uploadTask = uploadBytes(storageRef, resizedImage, {
-    contentType: "image/jpeg",
-  });
-  const snapshot = await uploadTask;
-  const downloadURL = await getDownloadURL(snapshot.ref);
+  try {
+    const storageRef = ref(storage, `companyLogos/${companyName}_logo.jpg`);
+    const uploadTask = uploadBytes(storageRef, resizedImage, {
+      contentType: "image/jpeg",
+    });
+    const snapshot = await uploadTask;
+    const downloadURL = await getDownloadURL(snapshot.ref);
 
-  return downloadURL;
+    return downloadURL;
+  } catch (error) {
+    // Firebase Storage rejects uploads (402) since the project is on the Spark plan,
+    // so the logo is stored inline in the company document instead.
+    console.error("Logo upload to Firebase Storage failed, storing it inline:", error);
+    return resizeImageToDataUrl(blob, 300);
+  }
 }

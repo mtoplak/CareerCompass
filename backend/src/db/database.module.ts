@@ -3,8 +3,8 @@ import * as mongoose from 'mongoose';
 
 @Module({})
 export class DatabaseModule implements OnModuleInit {
-    onModuleInit() {
-        this.ensureIndexes();
+    async onModuleInit() {
+        await this.ensureIndexes();
     }
 
     private async ensureIndexes() {
