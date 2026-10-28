@@ -40,6 +40,8 @@ const AddJobAdvertisementPage = () => {
       if (response.ok) {
         toast.success("Zaposlitveni oglas uspešno ustvarjen!");
         router.push(`/podjetje/${session?.user.company.slug}`);
+        // The profile may still be in the client router cache without the new job.
+        router.refresh();
       } else {
         toast.error("Oglasa za delo ni bilo mogoče ustvariti!");
       }

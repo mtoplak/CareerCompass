@@ -1,0 +1,20 @@
+{
+  "name": "careercompass-e2e",
+  "private": true,
+  "description": "Avtomatizirani funkcionalni testi CareerCompass (Playwright)",
+  "scripts": {
+    "build:app": "dotenv run -q -f .env.e2e -- npm --prefix ../backend run build && dotenv run -q -f .env.e2e -- npm --prefix ../frontend run build",
+    "test": "playwright test",
+    "report": "playwright show-report",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.20.5",
+    "dotenv": "^18.0.9",
+    "dotenv-cli": "^11.0.0",
+    "firebase-tools": "^15.34.1",
+    "mongodb": "^7.7.0",
+    "typescript": "^5.9.3"
+  }
+}

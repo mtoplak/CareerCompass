@@ -133,3 +133,18 @@ npm run build
 ```
 
 in `frontend` directory to build the client
+
+# Functional tests
+
+Automated functional (end-to-end) tests are in the `e2e` directory and use [Playwright](https://playwright.dev). They run against a separate MongoDB database (`careercompass_e2e`) and the Firebase Auth emulator, so no real accounts or data are touched. A local MongoDB must be running on port 27017.
+
+Run
+
+```bash
+npm ci
+npx playwright install chromium
+npm run build:app
+npm test
+```
+
+in `e2e` directory. `npm run build:app` builds the backend and the frontend with the test settings from `e2e/.env.e2e` (the frontend into `.next-e2e`), and `npm test` starts the emulator, backend and frontend and runs the tests. Open the HTML report with `npm run report`. The tests also run in the GitHub Actions pipeline (`Functional tests (Playwright)`).

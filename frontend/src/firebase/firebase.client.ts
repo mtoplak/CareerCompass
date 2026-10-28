@@ -1,7 +1,7 @@
 import { stringToBlob } from "@/utils/convertImage";
 import { resizeImage, resizeImageToDataUrl } from "@/utils/resizeImage";
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
+import { getAuth, connectAuthEmulator, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 
 const firebaseConfig = {
@@ -15,6 +15,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
+
+// Functional tests (e2e/) run against the Firebase Auth emulator instead of the real project.
+if (process.env.FIREBASE_AUTH_EMULATOR_HOST) {
+  connectAuthEmulator(getAuth(app), `http://${process.env.FIREBASE_AUTH_EMULATOR_HOST}`, {
+    disableWarnings: true,
+  });
+}
 
 export async function registerUser(email: string, password: string) {
   const auth = getAuth(app);
