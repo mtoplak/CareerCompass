@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning={true} className="!scroll-smooth" lang="en">
       <head>
-        <Script src="https://t.contentsquare.net/uxa/e6b30ae856427.js" strategy="afterInteractive" />
+        <Script src="https://t.contentsquare.net/uxa/eab198e1b56c3.js" strategy="afterInteractive" />
       </head>
       <body>
         {loading ? (
