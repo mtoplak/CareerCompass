@@ -39,8 +39,8 @@ const PopularJobs = () => {
     fetchJobs();
   }, [session]);
 
-  const canBeSaved =
-    session?.user !== undefined && session.user?.company === undefined;
+  // Users who are not a company have company null (credentials login) or undefined (Google login).
+  const canBeSaved = !!session?.user && !session.user.company;
 
   return (
     <>

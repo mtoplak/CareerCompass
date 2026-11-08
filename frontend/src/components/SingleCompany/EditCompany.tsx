@@ -32,7 +32,7 @@ const EditCompany = () => {
 
   useEffect(() => {
     const getCompany = async () => {
-      if (session?.user.company !== undefined) {
+      if (session?.user.company) {
         const res = await fetch(
           `${api}/company/id/${session?.user.company.id}`,
         );
